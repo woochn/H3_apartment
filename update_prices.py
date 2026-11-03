@@ -225,6 +225,321 @@ APARTMENT_TARGETS = [
         "area_max": 63.0,
         "target_pyeong": "24평 (전용 59㎡)",
     },
+    # -----------------------------------------------------------------
+    # 수원권 일반 통근 셔틀 (R7 ~ R18: 아주대/인계동/광교/망포/화서/정자동 등) 연계 단지
+    # -----------------------------------------------------------------
+    {
+        "id": "apt17",
+        "name": "매탄위브하늘채",
+        "molit_led": "4111710100",
+        "molit_code": "",
+        "molit_kw": "매탄위브하늘채",
+        "naver_hscp_no": "22911",
+        "lat": 37.2625,
+        "lng": 127.0414,
+        "area_min": 80.0,
+        "area_max": 86.0,
+        "target_pyeong": "33평 (전용 84㎡)",
+    },
+    {
+        "id": "apt18",
+        "name": "래미안노블클래스 1단지",
+        "molit_led": "4111514100",
+        "molit_code": "",
+        "molit_kw": "래미안노블클래스1단지",
+        "naver_hscp_no": "25771",
+        "lat": 37.2694,
+        "lng": 127.0365,
+        "area_min": 80.0,
+        "area_max": 86.0,
+        "target_pyeong": "33평 (전용 84㎡)",
+    },
+    {
+        "id": "apt19",
+        "name": "인계 선경3차",
+        "molit_led": "4111514100",
+        "molit_code": "",
+        "molit_kw": "선경",
+        "naver_hscp_no": "2494",
+        "lat": 37.2662,
+        "lng": 127.0322,
+        "area_min": 55.0,
+        "area_max": 63.0,
+        "target_pyeong": "24평 (전용 59㎡)",
+    },
+    {
+        "id": "apt20",
+        "name": "수원시청역 SK VIEW",
+        "molit_led": "4111313700",
+        "molit_code": "",
+        "molit_kw": "수원시청역SKVIEW",
+        "naver_hscp_no": "100374",
+        "lat": 37.2582,
+        "lng": 127.0315,
+        "area_min": 80.0,
+        "area_max": 86.0,
+        "target_pyeong": "34평 (전용 84㎡)",
+    },
+    {
+        "id": "apt21",
+        "name": "e편한세상 광교",
+        "molit_led": "4111710300",
+        "molit_code": "",
+        "molit_kw": "광교e편한세상",
+        "naver_hscp_no": "102091",
+        "lat": 37.2918,
+        "lng": 127.0547,
+        "area_min": 98.0,
+        "area_max": 105.0,
+        "target_pyeong": "39평 (전용 100㎡)",
+    },
+    {
+        "id": "apt22",
+        "name": "광교 자연앤힐스테이트",
+        "molit_led": "4111710300",
+        "molit_code": "",
+        "molit_kw": "자연앤힐스테이트",
+        "naver_hscp_no": "101273",
+        "lat": 37.2882,
+        "lng": 127.0502,
+        "area_min": 80.0,
+        "area_max": 86.0,
+        "target_pyeong": "33평 (전용 84㎡)",
+    },
+    {
+        "id": "apt23",
+        "name": "광교 푸르지오월드마크",
+        "molit_led": "4111710300",
+        "molit_code": "",
+        "molit_kw": "광교푸르지오월드마크",
+        "naver_hscp_no": "104517",
+        "lat": 37.2920,
+        "lng": 127.0480,
+        "area_min": 80.0,
+        "area_max": 108.0,
+        "target_pyeong": "34~41평 (전용 84·106㎡)",
+    },
+    {
+        "id": "apt24",
+        "name": "광교 오드카운티",
+        "molit_led": "4111710300",
+        "molit_code": "",
+        "molit_kw": "오드카운티",
+        "naver_hscp_no": "100641",
+        "lat": 37.2925,
+        "lng": 127.0589,
+        "area_min": 118.0,
+        "area_max": 125.0,
+        "target_pyeong": "45평 (전용 121㎡)",
+    },
+    {
+        "id": "apt25",
+        "name": "수원센트럴아이파크자이",
+        "molit_led": "4111514100",
+        "molit_code": "",
+        "molit_kw": "수원센트럴아이파크자이",
+        "naver_hscp_no": "133091",
+        "lat": 37.2718,
+        "lng": 127.0213,
+        "area_min": 55.0,
+        "area_max": 63.0,
+        "target_pyeong": "25평 (전용 59㎡)",
+    },
+    {
+        "id": "apt26",
+        "name": "영통아이파크캐슬 1단지",
+        "molit_led": "4111710700",
+        "molit_code": "",
+        "molit_kw": "영통아이파크캐슬1단지",
+        "naver_hscp_no": "115708",
+        "lat": 37.2430,
+        "lng": 127.0449,
+        "area_min": 55.0,
+        "area_max": 63.0,
+        "target_pyeong": "24평 (전용 59㎡)",
+    },
+    {
+        "id": "apt27",
+        "name": "망포 그대가프리미어",
+        "molit_led": "4111710700",
+        "molit_code": "",
+        "molit_kw": "그대가프리미어",
+        "naver_hscp_no": "26762",
+        "lat": 37.2444,
+        "lng": 127.0544,
+        "area_min": 55.0,
+        "area_max": 103.0,
+        "target_pyeong": "25~39평 (전용 59·101㎡)",
+    },
+    {
+        "id": "apt28",
+        "name": "광교 중흥S-클래스",
+        "molit_led": "4111710200",
+        "molit_code": "",
+        "molit_kw": "광교중흥에스클래스",
+        "naver_hscp_no": "111038",
+        "lat": 37.2823,
+        "lng": 127.0579,
+        "area_min": 80.0,
+        "area_max": 88.0,
+        "target_pyeong": "34평 (전용 84㎡)",
+    },
+    {
+        "id": "apt29",
+        "name": "광교 호반베르디움",
+        "molit_led": "4111710200",
+        "molit_code": "",
+        "molit_kw": "광교호반베르디움",
+        "naver_hscp_no": "103682",
+        "lat": 37.2730,
+        "lng": 127.0568,
+        "area_min": 55.0,
+        "area_max": 86.0,
+        "target_pyeong": "24~33평 (전용 59·84㎡)",
+    },
+    {
+        "id": "apt30",
+        "name": "광교 아이파크",
+        "molit_led": "4111710200",
+        "molit_code": "",
+        "molit_kw": "광교아이파크",
+        "naver_hscp_no": "110746",
+        "lat": 37.2738,
+        "lng": 127.0611,
+        "area_min": 80.0,
+        "area_max": 92.0,
+        "target_pyeong": "34~35평 (전용 84·90㎡)",
+    },
+    {
+        "id": "apt31",
+        "name": "광교자이더클래스(구 광교상록자이)",
+        "molit_led": "4146510700",
+        "molit_code": "",
+        "molit_kw": "광교자이더클래스",
+        "naver_hscp_no": "102536",
+        "lat": 37.2968,
+        "lng": 127.0717,
+        "area_min": 80.0,
+        "area_max": 86.0,
+        "target_pyeong": "34평 (전용 84㎡)",
+    },
+    {
+        "id": "apt32",
+        "name": "광교 호반베르디움 트라엘",
+        "molit_led": "4111710300",
+        "molit_code": "",
+        "molit_kw": "광교호반베르디움트라엘",
+        "naver_hscp_no": "120759",
+        "lat": 37.3049,
+        "lng": 127.0518,
+        "area_min": 80.0,
+        "area_max": 102.0,
+        "target_pyeong": "34~39평 (전용 84·100㎡)",
+    },
+    {
+        "id": "apt33",
+        "name": "매교역 푸르지오 SK VIEW",
+        "molit_led": "4111513300",
+        "molit_code": "",
+        "molit_kw": "매교역푸르지오SKVIEW",
+        "naver_hscp_no": "129264",
+        "lat": 37.2676,
+        "lng": 127.0207,
+        "area_min": 55.0,
+        "area_max": 63.0,
+        "target_pyeong": "25평 (전용 59㎡)",
+    },
+    {
+        "id": "apt34",
+        "name": "권선 자이 e편한세상",
+        "molit_led": "4111313700",
+        "molit_code": "",
+        "molit_kw": "권선자이e편한세상",
+        "naver_hscp_no": "102005",
+        "lat": 37.2525,
+        "lng": 127.0262,
+        "area_min": 55.0,
+        "area_max": 63.0,
+        "target_pyeong": "25평 (전용 59㎡)",
+    },
+    {
+        "id": "apt35",
+        "name": "수원 하늘채 더퍼스트 1·2단지",
+        "molit_led": "4111313600",
+        "molit_code": "",
+        "molit_kw": "수원하늘채더퍼스트",
+        "naver_hscp_no": "130135",
+        "lat": 37.2412,
+        "lng": 127.0338,
+        "area_min": 55.0,
+        "area_max": 63.0,
+        "target_pyeong": "25평 (전용 59㎡)",
+    },
+    {
+        "id": "apt36",
+        "name": "서천 센트럴파크원",
+        "molit_led": "4146311000",
+        "molit_code": "",
+        "molit_kw": "센트럴파크원",
+        "naver_hscp_no": "103170",
+        "lat": 37.2395,
+        "lng": 127.0742,
+        "area_min": 80.0,
+        "area_max": 86.0,
+        "target_pyeong": "33평 (전용 84㎡)",
+    },
+    {
+        "id": "apt37",
+        "name": "영통 신나무실 5단지 주공",
+        "molit_led": "4111710500",
+        "molit_code": "",
+        "molit_kw": "신나무실휴먼시아5단지",
+        "naver_hscp_no": "2588",
+        "lat": 37.2522,
+        "lng": 127.0633,
+        "area_min": 55.0,
+        "area_max": 62.0,
+        "target_pyeong": "24평 (전용 59㎡)",
+    },
+    {
+        "id": "apt38",
+        "name": "화서역 파크푸르지오",
+        "molit_led": "4111113000",
+        "molit_code": "",
+        "molit_kw": "화서역파크푸르지오",
+        "naver_hscp_no": "121991",
+        "lat": 37.2898,
+        "lng": 126.9949,
+        "area_min": 80.0,
+        "area_max": 86.0,
+        "target_pyeong": "34평 (전용 84㎡)",
+    },
+    {
+        "id": "apt39",
+        "name": "화서역 블루밍푸른숲",
+        "molit_led": "4111513800",
+        "molit_code": "",
+        "molit_kw": "화서역블루밍푸른숲",
+        "naver_hscp_no": "24615",
+        "lat": 37.2852,
+        "lng": 126.9895,
+        "area_min": 80.0,
+        "area_max": 86.0,
+        "target_pyeong": "33평 (전용 84㎡)",
+    },
+    {
+        "id": "apt40",
+        "name": "수원 SK 스카이뷰",
+        "molit_led": "4111113000",
+        "molit_code": "",
+        "molit_kw": "수원SKSKYVIEW",
+        "naver_hscp_no": "102614",
+        "lat": 37.2952,
+        "lng": 126.9862,
+        "area_min": 80.0,
+        "area_max": 86.0,
+        "target_pyeong": "34평 (전용 84㎡)",
+    },
 ]
 
 
@@ -340,44 +655,48 @@ def fetch_molit_transactions(opener, target: Dict[str, Any], year: str = "2026")
     }
 
 
-def fetch_molit_openapi_fallback(target: Dict[str, Any], service_key: str, deal_ymd: str = "202610") -> Dict[str, Any]:
+def fetch_molit_openapi_fallback(target: Dict[str, Any], service_key: str, deal_ymds: Optional[List[str]] = None) -> Dict[str, Any]:
     """github_config.json에 저장된 공공데이터포털 OpenAPI(RTMSDataSvcAptTradeDev) 인증키를 사용한 조회"""
+    if deal_ymds is None:
+        deal_ymds = ["202610", "202609", "202608"]
     lawd_cd = target["molit_led"][:5]
-    url = (
-        f"https://apis.data.go.kr/1613000/RTMSDataSvcAptTradeDev/getRTMSDataSvcAptTradeDev?"
-        f"serviceKey={service_key}&LAWD_CD={lawd_cd}&DEAL_YMD={deal_ymd}&pageNo=1&numOfRows=1000"
-    )
-    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
-    xml_data = urllib.request.urlopen(req, timeout=10).read().decode("utf-8")
-    root = ET.fromstring(xml_data)
-
     amin, amax = target["area_min"], target["area_max"]
-    short_name = target["name"].split()[0][:4]
+    kw = (target.get("molit_kw") or target["name"].split()[0][:4]).replace(" ", "").upper()
     history = []
-    for item in root.findall(".//item"):
-        apt_nm = (item.findtext("aptNm") or "").strip()
-        cdeal = (item.findtext("cdealType") or "").strip()
-        if cdeal == "O" or short_name not in apt_nm:
-            continue
-        area = float(item.findtext("excluUseAr") or "0")
-        if not (amin <= area <= amax):
-            continue
-        raw_amt = (item.findtext("dealAmount") or "").strip()
-        p_eok = parse_korean_price_to_eok(raw_amt)
-        if p_eok is None:
-            continue
-        y = (item.findtext("dealYear") or "").strip()
-        m = (item.findtext("dealMonth") or "").strip().zfill(2)
-        d = (item.findtext("dealDay") or "").strip().zfill(2)
-        history.append({
-            "date": f"{y}.{m}.{d}",
-            "priceEok": p_eok,
-            "priceText": format_eok(p_eok),
-            "rawAmount": raw_amt,
-            "areaM2": round(area, 1),
-            "floor": (item.findtext("floor") or "-").strip(),
-            "dealType": (item.findtext("dealingGbn") or "중개거래").strip(),
-        })
+
+    for deal_ymd in deal_ymds:
+        url = (
+            f"https://apis.data.go.kr/1613000/RTMSDataSvcAptTradeDev/getRTMSDataSvcAptTradeDev?"
+            f"serviceKey={service_key}&LAWD_CD={lawd_cd}&DEAL_YMD={deal_ymd}&pageNo=1&numOfRows=1000"
+        )
+        req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+        xml_data = urllib.request.urlopen(req, timeout=10).read().decode("utf-8")
+        root = ET.fromstring(xml_data)
+
+        for item in root.findall(".//item"):
+            apt_nm = (item.findtext("aptNm") or "").strip().replace(" ", "").upper()
+            cdeal = (item.findtext("cdealType") or "").strip()
+            if cdeal == "O" or kw not in apt_nm:
+                continue
+            area = float(item.findtext("excluUseAr") or "0")
+            if not (amin <= area <= amax):
+                continue
+            raw_amt = (item.findtext("dealAmount") or "").strip()
+            p_eok = parse_korean_price_to_eok(raw_amt)
+            if p_eok is None:
+                continue
+            y = (item.findtext("dealYear") or "").strip()
+            m = (item.findtext("dealMonth") or "").strip().zfill(2)
+            d = (item.findtext("dealDay") or "").strip().zfill(2)
+            history.append({
+                "date": f"{y}.{m}.{d}",
+                "priceEok": p_eok,
+                "priceText": format_eok(p_eok),
+                "rawAmount": raw_amt,
+                "areaM2": round(area, 1),
+                "floor": (item.findtext("floor") or "-").strip(),
+                "dealType": (item.findtext("dealingGbn") or "중개거래").strip(),
+            })
 
     history.sort(key=lambda x: x["date"], reverse=True)
     recent_5 = history[:5]
@@ -453,15 +772,15 @@ def build_prices_payload(config_path: str = "github_config.json") -> Dict[str, A
     molit_results = {}
     for t in APARTMENT_TARGETS:
         try:
-            res = fetch_molit_transactions(opener, t, year="2026")
+            res = fetch_molit_transactions(opener, t, year="2026") if t.get("molit_code") else {}
             if not res.get("latestDeal") and openapi_key:
-                res = fetch_molit_openapi_fallback(t, openapi_key, deal_ymd="202610")
+                res = fetch_molit_openapi_fallback(t, openapi_key)
             molit_results[t["id"]] = res
         except Exception as e:
             print(f"  [경고] {t['name']} 웹 조회 실패({e}), OpenAPI 폴백 시도...")
             if openapi_key:
                 try:
-                    molit_results[t["id"]] = fetch_molit_openapi_fallback(t, openapi_key, deal_ymd="202610")
+                    molit_results[t["id"]] = fetch_molit_openapi_fallback(t, openapi_key)
                 except Exception as e2:
                     print(f"  [오류] {t['name']} OpenAPI 조회 실패: {e2}")
                     molit_results[t["id"]] = {}
