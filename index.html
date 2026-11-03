@@ -1,0 +1,2416 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>삼성전자 H3 화성캠퍼스 근거리 셔틀 & 아파트 실거래·호가 분석기</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <style>
+    @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+    body {
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+      background-color: #0b0f19;
+      color: #f1f5f9;
+      margin: 0;
+      padding: 0;
+    }
+    #map {
+      width: 100%;
+      height: 520px;
+      background-color: #e2e8f0;
+      z-index: 10;
+    }
+    .leaflet-popup-content-wrapper {
+      background: #0f172a !important;
+      color: #f8fafc !important;
+      border: 1px solid #334155;
+      border-radius: 12px !important;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.7) !important;
+      padding: 2px;
+    }
+    .leaflet-popup-tip {
+      background: #0f172a !important;
+    }
+    .leaflet-popup-content {
+      margin: 12px 14px !important;
+      line-height: 1.45;
+    }
+    .apt-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 3px 8px;
+      border-radius: 9999px;
+      font-weight: 700;
+      font-size: 11px;
+      white-space: nowrap;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.45);
+      border: 1.5px solid #ffffff;
+      cursor: pointer;
+      transition: transform 0.15s ease;
+    }
+    .apt-badge:hover {
+      transform: scale(1.08);
+      z-index: 999 !important;
+    }
+    .stop-pin {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      font-weight: 800;
+      font-size: 11px;
+      color: #fff;
+      border: 2px solid #fff;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- 최상단 헤더 -->
+  <header id="topHeader" class="bg-slate-900/95 border-b border-slate-800 px-4 py-3 sticky top-0 z-50 backdrop-blur">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-xl bg-blue-600 flex items-center justify-center font-extrabold text-white text-sm shadow-lg shadow-blue-600/30">H3</div>
+        <div>
+          <div class="flex flex-wrap items-center gap-2">
+            <h1 class="text-base md:text-lg font-bold text-white tracking-tight">삼성전자 H3 근거리 셔틀 & 아파트 실거래·호가 지도</h1>
+            <span id="syncStatusBadge" class="px-2 py-0.5 text-[11px] font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded-full">
+              📡 국토부 실거래 + 네이버 호가 연동
+            </span>
+          </div>
+          <p id="syncSubText" class="text-xs text-slate-400">화성캠퍼스 반도체연구소 6개 노선 · 국토교통부 실거래가 & 네이버 부동산 실시간 매물 최저호가 동시 반영</p>
+        </div>
+      </div>
+
+      <!-- 우측 컨트롤 -->
+      <div class="flex flex-wrap items-center gap-1.5">
+        <div class="flex items-center bg-slate-800 p-1 rounded-lg border border-slate-700 text-xs">
+          <span class="px-2 text-slate-400">배경지도:</span>
+          <button onclick="setTileLayer('google_m')" id="btnTileGoogleM" class="px-2.5 py-1 rounded-md bg-blue-600 text-white font-semibold">Google 표준</button>
+          <button onclick="setTileLayer('google_s')" id="btnTileGoogleS" class="px-2.5 py-1 rounded-md text-slate-300 hover:text-white">위성</button>
+          <button onclick="setTileLayer('osm')" id="btnTileOSM" class="px-2.5 py-1 rounded-md text-slate-300 hover:text-white">OSM</button>
+        </div>
+        <button onclick="openSyncModal()" class="px-3 py-1.5 rounded-lg bg-indigo-600/30 hover:bg-indigo-600/50 text-indigo-200 border border-indigo-500/40 text-xs font-semibold">
+          ⚙️ 실시간 JSON(Gist) 설정
+        </button>
+        <button onclick="resetFullMap()" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 text-xs font-semibold">
+          🔄 지도 초기화
+        </button>
+      </div>
+    </div>
+
+    <!-- 노선 선택 바 -->
+    <div class="max-w-7xl mx-auto mt-2.5 pt-2 border-t border-slate-800/80 flex flex-wrap items-center justify-between gap-2">
+      <div class="flex flex-wrap items-center gap-1.5" id="routeFilterBar">
+        <button onclick="selectRoute('ALL')" id="routeBtn_ALL" class="px-3 py-1 rounded-full text-xs font-bold bg-white text-slate-900 shadow">전체 6개 노선</button>
+        <button onclick="selectRoute('R1')" id="routeBtn_R1" class="px-2.5 py-1 rounded-full text-xs font-medium bg-slate-800 text-slate-300 hover:bg-slate-700 border border-slate-700">🔵 망포/영통_H1-H3</button>
+        <button onclick="selectRoute('R2')" id="routeBtn_R2" class="px-2.5 py-1 rounded-full text-xs font-medium bg-slate-800 text-slate-300 hover:bg-slate-700 border border-slate-700">🟢 반월동_H3</button>
+        <button onclick="selectRoute('R3')" id="routeBtn_R3" class="px-2.5 py-1 rounded-full text-xs font-medium bg-slate-800 text-slate-300 hover:bg-slate-700 border border-slate-700">🟣 신동탄/서천_H1-H3</button>
+        <button onclick="selectRoute('R4')" id="routeBtn_R4" class="px-2.5 py-1 rounded-full text-xs font-medium bg-slate-800 text-slate-300 hover:bg-slate-700 border border-slate-700">🟠 망포동_H3</button>
+        <button onclick="selectRoute('R5')" id="routeBtn_R5" class="px-2.5 py-1 rounded-full text-xs font-medium bg-slate-800 text-slate-300 hover:bg-slate-700 border border-slate-700">🩷 반정아이파크_H3</button>
+        <button onclick="selectRoute('R6')" id="routeBtn_R6" class="px-2.5 py-1 rounded-full text-xs font-medium bg-slate-800 text-slate-300 hover:bg-slate-700 border border-slate-700">🩵 동탄나루마을_H2</button>
+      </div>
+
+      <!-- 반경 선택 -->
+      <div class="flex items-center gap-2 text-xs bg-slate-800/90 px-2.5 py-1 rounded-lg border border-slate-700">
+        <span class="text-slate-400">정류장 도보반경:</span>
+        <label class="flex items-center gap-1 cursor-pointer"><input type="radio" name="radiusOpt" value="300" onchange="changeRadius(300)"> 300m</label>
+        <label class="flex items-center gap-1 cursor-pointer"><input type="radio" name="radiusOpt" value="500" checked onchange="changeRadius(500)"> 500m</label>
+        <label class="flex items-center gap-1 cursor-pointer"><input type="radio" name="radiusOpt" value="0" onchange="changeRadius(0)"> 숨김</label>
+      </div>
+    </div>
+  </header>
+
+  <!-- 외부 JSON(Gist 등) 설정 모달 -->
+  <div id="syncModal" class="hidden fixed inset-0 z-[999] bg-black/70 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-slate-900 border border-slate-700 rounded-2xl max-w-lg w-full p-5 shadow-2xl text-xs space-y-3">
+      <div class="flex items-center justify-between border-b border-slate-800 pb-2.5">
+        <h3 class="text-sm font-extrabold text-white">⚙️ 실시간 실거래가·호가 JSON 연동 설정</h3>
+        <button onclick="closeSyncModal()" class="text-slate-400 hover:text-white text-sm px-1">✕</button>
+      </div>
+      <p class="text-slate-300 leading-relaxed">
+        로컬 PC에서 <code class="bg-slate-800 px-1.5 py-0.5 rounded text-emerald-300">python3 update_prices.py</code>를 실행해 생성된 <code class="bg-slate-800 px-1.5 py-0.5 rounded text-amber-300">prices.json</code>을 GitHub Gist 또는 웹 서버에 올린 뒤 아래에 Raw URL을 입력하면, 구글 사이트에서도 코드 재업로드 없이 최신 실거래가와 네이버 호가를 자동으로 불러옵니다.
+      </p>
+      <div>
+        <label class="block text-slate-400 mb-1 font-semibold">외부 prices.json Raw URL (GitHub Gist 등)</label>
+        <input type="url" id="customJsonUrlInput" placeholder="https://gist.githubusercontent.com/.../raw/prices.json" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-white focus:outline-none focus:border-blue-500" />
+      </div>
+      <div class="flex justify-end gap-2 pt-2">
+        <button onclick="clearCustomJsonUrl()" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 font-semibold">내장 스냅샷 사용</button>
+        <button onclick="saveAndFetchCustomJsonUrl()" class="px-4 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-white font-bold">저장 및 즉시 불러오기</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 지도 영역 -->
+  <section id="mapSection" class="relative w-full border-b border-slate-800">
+    <div id="map"></div>
+
+    <!-- 좌측 상단 현재 포커스 상태 표시줄 -->
+    <div id="mapStatusBanner" class="absolute top-3 left-3 z-[400] bg-slate-900/90 backdrop-blur border border-slate-700 rounded-xl px-3.5 py-2 shadow-lg max-w-sm pointer-events-none">
+      <div class="flex items-center gap-2">
+        <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span id="statusTitle" class="text-xs font-bold text-white">전체 6개 노선 & 단지 실거래·호가 표시 중</span>
+      </div>
+      <p id="statusDesc" class="text-[11px] text-slate-300 mt-0.5">아래 목록에서 [📍 지도 포커스]를 누르면 해당 아파트로 즉시 이동합니다.</p>
+    </div>
+
+    <!-- 우측 하단 범례 -->
+    <div class="absolute bottom-3 right-3 z-[400] bg-slate-900/90 backdrop-blur border border-slate-700 rounded-xl p-3 text-xs shadow-xl hidden sm:block">
+      <div class="font-bold text-slate-200 mb-1.5 flex items-center justify-between">
+        <span>아파트 시세·주차 등급</span>
+        <span id="legendUpdatedDate" class="text-[10px] text-emerald-400 ml-3">실시간 연동</span>
+      </div>
+      <div class="space-y-1 text-[11px]">
+        <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-emerald-500 inline-block border border-white"></span> <span><b>추천 가성비</b> (실거래 4~6.8억 · 주차 1.0대↑)</span></div>
+        <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-amber-500 inline-block border border-white"></span> <span><b>역세권 구축</b> (주차 0.85대↓ 혼잡주의)</span></div>
+        <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-rose-500 inline-block border border-white"></span> <span><b>예산 초과</b> (7.5억~11억대 신축·준신축)</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 외부 링크 브릿지 알림 바 -->
+  <div id="externalLinkBar" class="hidden bg-indigo-950/95 border-b border-indigo-500/50 px-4 py-2.5 sticky top-[104px] z-40 backdrop-blur">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2 text-xs">
+      <div class="flex items-center gap-2">
+        <span class="px-2 py-0.5 bg-indigo-600 text-white rounded font-bold">외부 링크 연결</span>
+        <span id="extLinkMessage" class="text-indigo-100 font-medium">새 탭이 열리지 않았다면 우측 버튼을 직접 클릭하거나 복사된 주소를 주소창에 붙여넣으세요.</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <a id="extDirectAnchor" href="#" target="_blank" rel="noopener noreferrer" class="px-3 py-1 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold rounded-lg shadow">
+          🔗 여기를 눌러 새 탭으로 열기 ↗
+        </a>
+        <button onclick="copyLastUrl()" class="px-2.5 py-1 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-lg border border-slate-600">
+          📋 주소 복사
+        </button>
+        <button onclick="document.getElementById('externalLinkBar').classList.add('hidden')" class="text-slate-400 hover:text-white px-1.5">✕</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 다중 필터 컨트롤 바 -->
+  <section class="bg-slate-900 border-b border-slate-800 px-4 py-3">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-2.5 items-center text-xs">
+      <!-- 검색어 -->
+      <div>
+        <label class="block text-[11px] text-slate-400 mb-1">단지명 / 지역 / 정류장 검색</label>
+        <input type="text" id="searchInput" oninput="applyFilters()" placeholder="예: 망포쌍용, 벽산, 두산위브..." class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-1.5 text-white focus:outline-none focus:border-blue-500" />
+      </div>
+
+      <!-- 가격 필터 기준 선택 (실거래가 vs 호가) -->
+      <div>
+        <label class="block text-[11px] text-slate-400 mb-1">가격 필터 & 마커 표시 기준</label>
+        <select id="priceBasisFilter" onchange="applyFilters()" class="w-full bg-slate-800 border border-emerald-600/60 rounded-lg px-2.5 py-1.5 text-emerald-300 font-bold">
+          <option value="REAL_AVG" selected>📊 최근 실거래 평균가 기준</option>
+          <option value="REAL_LATEST">📝 직전 실거래 계약가 기준</option>
+          <option value="ASKING_MIN">🏷️ 네이버 실시간 최저호가 기준</option>
+        </select>
+      </div>
+
+      <!-- 매매가 상한 -->
+      <div>
+        <div class="flex justify-between text-[11px] mb-1">
+          <span class="text-slate-400">가격 상한선:</span>
+          <span id="priceLimitLabel" class="font-bold text-emerald-400">7.0억 이하</span>
+        </div>
+        <input type="range" id="priceRange" min="4.5" max="12.0" step="0.2" value="7.0" oninput="applyFilters()" class="w-full accent-emerald-500 cursor-pointer" />
+      </div>
+
+      <!-- 평형 필터 -->
+      <div>
+        <label class="block text-[11px] text-slate-400 mb-1">평형대 선택</label>
+        <select id="sizeFilter" onchange="applyFilters()" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-2.5 py-1.5 text-white">
+          <option value="ALL">전체 평형 (20평대 + 30평대)</option>
+          <option value="20">20평대 (전용 59㎡ 전후)</option>
+          <option value="30">30평대 (전용 74~84㎡)</option>
+        </select>
+      </div>
+
+      <!-- 최소 주차대수 -->
+      <div>
+        <label class="block text-[11px] text-slate-400 mb-1">세대당 주차대수 기준</label>
+        <select id="parkingFilter" onchange="applyFilters()" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-2.5 py-1.5 text-white">
+          <option value="0">전체 (주차혼잡 단지 포함)</option>
+          <option value="0.9" selected>보통 이상 (0.9대 이상 · 추천)</option>
+          <option value="1.15">주차 여유 (1.15대 이상)</option>
+        </select>
+      </div>
+
+      <!-- 빠른 프리셋 버튼 -->
+      <div class="flex flex-col justify-end h-full pt-3 sm:pt-0">
+        <div class="flex gap-1.5">
+          <button onclick="setQuickPreset('RECOMMEND')" class="flex-1 py-2 px-2 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-lg transition">
+            🟢 추천(7억↓)
+          </button>
+          <button onclick="setQuickPreset('ALL')" class="flex-1 py-2 px-2 bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-semibold rounded-lg transition">
+            전체 16개 보기
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 하단 아파트 카드 리스트 -->
+  <main class="max-w-7xl mx-auto w-full px-4 py-5 flex-1">
+    <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+      <div class="flex items-center gap-2">
+        <h2 class="text-sm md:text-base font-bold text-white">🏢 조건 부합 아파트 목록 (실거래가 & 실시간 호가 비교)</h2>
+        <span id="aptCountBadge" class="px-2.5 py-0.5 rounded-full text-xs font-extrabold bg-blue-600 text-white">0개</span>
+      </div>
+      <p class="text-xs text-slate-400">💡 각 카드의 <b>[📊 최근 실거래 이력 보기]</b>를 누르면 국토부 실제 계약 일자·층수·금액을 확인할 수 있습니다.</p>
+    </div>
+
+    <!-- 아파트 카드 그리드 -->
+    <div id="aptGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3.5"></div>
+  </main>
+
+  <script>
+    // =========================================================================
+    // 0. 외부 JSON(Gist 등) 자동 연동 설정 및 내장 최신 실거래·호가 스냅샷
+    // =========================================================================
+    // GitHub 저장소(woochn/H3_apartment)의 최신 prices.json Raw URL 자동 연동
+    const DEFAULT_EXTERNAL_PRICES_JSON_URL = "https://raw.githubusercontent.com/woochn/H3_apartment/main/prices.json";
+
+    /* __PRICES_DATA_START__ */
+    const EMBEDDED_PRICES_DATA = {
+  "updatedAt": "2026-11-03 21:11",
+  "source": "국토교통부 실거래가 공개시스템(rt.molit.go.kr) & 네이버 부동산(m.land.naver.com)",
+  "apartments": {
+    "apt1": {
+      "id": "apt1",
+      "name": "망포쌍용에듀파크",
+      "naverHscpNo": "11503",
+      "targetPyeong": "24평 (전용 59㎡)",
+      "priceNum": 4.63,
+      "realPriceLatestEok": 5.0,
+      "realPriceLatestText": "5억 (26.10.30 · 4층)",
+      "realPriceAvgEok": 4.63,
+      "realPriceRangeText": "3.9억 ~ 5.4억",
+      "totalDealsYear": 14,
+      "recentDeals": [
+        {
+          "date": "2026.10.30",
+          "priceEok": 5.0,
+          "priceText": "5억",
+          "rawAmount": "50,000",
+          "areaM2": 59.9,
+          "floor": "4",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.10.19",
+          "priceEok": 5.4,
+          "priceText": "5.4억",
+          "rawAmount": "54,000",
+          "areaM2": 59.9,
+          "floor": "14",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.09.15",
+          "priceEok": 4.7,
+          "priceText": "4.7억",
+          "rawAmount": "47,000",
+          "areaM2": 59.9,
+          "floor": "14",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.09.04",
+          "priceEok": 4.13,
+          "priceText": "4.13억",
+          "rawAmount": "41,300",
+          "areaM2": 59.9,
+          "floor": "2",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.09.03",
+          "priceEok": 3.9,
+          "priceText": "3.9억",
+          "rawAmount": "39,000",
+          "areaM2": 59.9,
+          "floor": "8",
+          "dealType": "중개거래"
+        }
+      ],
+      "askingMinEok": 5.3,
+      "askingMaxEok": 5.8,
+      "askingPriceText": "최저 5.3억 ~ 5.8억",
+      "dealArticleCount": 3,
+      "leaseMinText": null,
+      "leaseArticleCount": 0
+    },
+    "apt2": {
+      "id": "apt2",
+      "name": "늘푸른벽산",
+      "naverHscpNo": "7965",
+      "targetPyeong": "33평 (전용 84㎡)",
+      "priceNum": 6.3,
+      "realPriceLatestEok": 6.4,
+      "realPriceLatestText": "6.4억 (26.09.15 · 15층)",
+      "realPriceAvgEok": 6.3,
+      "realPriceRangeText": "5.97억 ~ 6.67억",
+      "totalDealsYear": 28,
+      "recentDeals": [
+        {
+          "date": "2026.09.15",
+          "priceEok": 6.4,
+          "priceText": "6.4억",
+          "rawAmount": "64,000",
+          "areaM2": 84.9,
+          "floor": "15",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.09.02",
+          "priceEok": 6.0,
+          "priceText": "6억",
+          "rawAmount": "60,000",
+          "areaM2": 84.9,
+          "floor": "7",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.09.02",
+          "priceEok": 6.47,
+          "priceText": "6.47억",
+          "rawAmount": "64,700",
+          "areaM2": 84.9,
+          "floor": "7",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.08.21",
+          "priceEok": 5.97,
+          "priceText": "5.97억",
+          "rawAmount": "59,700",
+          "areaM2": 84.9,
+          "floor": "6",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.08.10",
+          "priceEok": 6.67,
+          "priceText": "6.67억",
+          "rawAmount": "66,700",
+          "areaM2": 84.9,
+          "floor": "12",
+          "dealType": "중개거래"
+        }
+      ],
+      "askingMinEok": 5.8,
+      "askingMaxEok": 8.0,
+      "askingPriceText": "최저 5.8억 ~ 8억",
+      "dealArticleCount": 40,
+      "leaseMinText": "4.3억",
+      "leaseArticleCount": 2
+    },
+    "apt3": {
+      "id": "apt3",
+      "name": "망포현대아이파크2차",
+      "naverHscpNo": "3629",
+      "targetPyeong": "33평 (전용 84㎡)",
+      "priceNum": 6.32,
+      "realPriceLatestEok": 6.27,
+      "realPriceLatestText": "6.27억 (26.08.31 · 2층)",
+      "realPriceAvgEok": 6.32,
+      "realPriceRangeText": "5.95억 ~ 6.85억",
+      "totalDealsYear": 9,
+      "recentDeals": [
+        {
+          "date": "2026.08.31",
+          "priceEok": 6.27,
+          "priceText": "6.27억",
+          "rawAmount": "62,700",
+          "areaM2": 85.0,
+          "floor": "2",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.07.16",
+          "priceEok": 6.85,
+          "priceText": "6.85억",
+          "rawAmount": "68,500",
+          "areaM2": 85.0,
+          "floor": "13",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.06.30",
+          "priceEok": 5.95,
+          "priceText": "5.95억",
+          "rawAmount": "59,500",
+          "areaM2": 85.0,
+          "floor": "1",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.05.21",
+          "priceEok": 6.25,
+          "priceText": "6.25억",
+          "rawAmount": "62,500",
+          "areaM2": 85.0,
+          "floor": "8",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.04.04",
+          "priceEok": 6.3,
+          "priceText": "6.3억",
+          "rawAmount": "63,000",
+          "areaM2": 85.0,
+          "floor": "19",
+          "dealType": "중개거래"
+        }
+      ],
+      "askingMinEok": 7.5,
+      "askingMaxEok": 9.1,
+      "askingPriceText": "최저 7.5억 ~ 9.1억",
+      "dealArticleCount": 12,
+      "leaseMinText": "6억",
+      "leaseArticleCount": 2
+    },
+    "apt4": {
+      "id": "apt4",
+      "name": "반달마을1단지 두산위브",
+      "naverHscpNo": "22521",
+      "targetPyeong": "33평 (전용 84㎡)",
+      "priceNum": 6.64,
+      "realPriceLatestEok": 6.8,
+      "realPriceLatestText": "6.8억 (26.10.19 · 5층)",
+      "realPriceAvgEok": 6.64,
+      "realPriceRangeText": "6.35억 ~ 6.8억",
+      "totalDealsYear": 12,
+      "recentDeals": [
+        {
+          "date": "2026.10.19",
+          "priceEok": 6.8,
+          "priceText": "6.8억",
+          "rawAmount": "68,000",
+          "areaM2": 84.9,
+          "floor": "5",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.10.12",
+          "priceEok": 6.75,
+          "priceText": "6.75억",
+          "rawAmount": "67,500",
+          "areaM2": 84.9,
+          "floor": "9",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.10.06",
+          "priceEok": 6.35,
+          "priceText": "6.35억",
+          "rawAmount": "63,500",
+          "areaM2": 84.9,
+          "floor": "2",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.09.11",
+          "priceEok": 6.5,
+          "priceText": "6.5억",
+          "rawAmount": "65,000",
+          "areaM2": 84.9,
+          "floor": "4",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.08.31",
+          "priceEok": 6.8,
+          "priceText": "6.8억",
+          "rawAmount": "68,000",
+          "areaM2": 84.9,
+          "floor": "14",
+          "dealType": "중개거래"
+        }
+      ],
+      "askingMinEok": 6.85,
+      "askingMaxEok": 8.5,
+      "askingPriceText": "최저 6.85억 ~ 8.5억",
+      "dealArticleCount": 18,
+      "leaseMinText": null,
+      "leaseArticleCount": 0
+    },
+    "apt5": {
+      "id": "apt5",
+      "name": "동수원자이 1차",
+      "naverHscpNo": "3632",
+      "targetPyeong": "34평 (전용 84㎡)",
+      "priceNum": 6.36,
+      "realPriceLatestEok": 6.7,
+      "realPriceLatestText": "6.7억 (26.10.19 · 5층)",
+      "realPriceAvgEok": 6.36,
+      "realPriceRangeText": "5억 ~ 6.8억",
+      "totalDealsYear": 42,
+      "recentDeals": [
+        {
+          "date": "2026.10.19",
+          "priceEok": 6.7,
+          "priceText": "6.7억",
+          "rawAmount": "67,000",
+          "areaM2": 85.0,
+          "floor": "5",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.10.12",
+          "priceEok": 6.8,
+          "priceText": "6.8억",
+          "rawAmount": "68,000",
+          "areaM2": 85.0,
+          "floor": "11",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.10.12",
+          "priceEok": 6.8,
+          "priceText": "6.8억",
+          "rawAmount": "68,000",
+          "areaM2": 85.0,
+          "floor": "6",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.10.01",
+          "priceEok": 5.0,
+          "priceText": "5억",
+          "rawAmount": "50,000",
+          "areaM2": 85.0,
+          "floor": "15",
+          "dealType": "직거래"
+        },
+        {
+          "date": "2026.09.10",
+          "priceEok": 6.5,
+          "priceText": "6.5억",
+          "rawAmount": "65,000",
+          "areaM2": 85.0,
+          "floor": "5",
+          "dealType": "중개거래"
+        }
+      ],
+      "askingMinEok": 6.9,
+      "askingMaxEok": 9.5,
+      "askingPriceText": "최저 6.9억 ~ 9.5억",
+      "dealArticleCount": 19,
+      "leaseMinText": "5.5억",
+      "leaseArticleCount": 3
+    },
+    "apt6": {
+      "id": "apt6",
+      "name": "신동탄 SK뷰파크 2차",
+      "naverHscpNo": "110459",
+      "targetPyeong": "24평 (전용 59㎡)",
+      "priceNum": 6.62,
+      "realPriceLatestEok": 6.8,
+      "realPriceLatestText": "6.8억 (26.10.17 · 18층)",
+      "realPriceAvgEok": 6.62,
+      "realPriceRangeText": "6.45억 ~ 6.83억",
+      "totalDealsYear": 49,
+      "recentDeals": [
+        {
+          "date": "2026.10.17",
+          "priceEok": 6.8,
+          "priceText": "6.8억",
+          "rawAmount": "68,000",
+          "areaM2": 60.0,
+          "floor": "18",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.10.16",
+          "priceEok": 6.5,
+          "priceText": "6.5억",
+          "rawAmount": "65,000",
+          "areaM2": 60.0,
+          "floor": "4",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.10.14",
+          "priceEok": 6.83,
+          "priceText": "6.83억",
+          "rawAmount": "68,300",
+          "areaM2": 60.0,
+          "floor": "23",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.10.11",
+          "priceEok": 6.5,
+          "priceText": "6.5억",
+          "rawAmount": "65,000",
+          "areaM2": 60.0,
+          "floor": "10",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.09.12",
+          "priceEok": 6.45,
+          "priceText": "6.45억",
+          "rawAmount": "64,500",
+          "areaM2": 60.0,
+          "floor": "4",
+          "dealType": "중개거래"
+        }
+      ],
+      "askingMinEok": 6.1,
+      "askingMaxEok": 10.2,
+      "askingPriceText": "최저 6.1억 ~ 10.2억",
+      "dealArticleCount": 40,
+      "leaseMinText": "4억",
+      "leaseArticleCount": 2
+    },
+    "apt7": {
+      "id": "apt7",
+      "name": "신동탄 SK뷰파크 1차",
+      "naverHscpNo": "105746",
+      "targetPyeong": "25평 (전용 59㎡)",
+      "priceNum": 7.19,
+      "realPriceLatestEok": 6.5,
+      "realPriceLatestText": "6.5억 (26.10.21 · 9층)",
+      "realPriceAvgEok": 7.19,
+      "realPriceRangeText": "6.5억 ~ 7.5억",
+      "totalDealsYear": 30,
+      "recentDeals": [
+        {
+          "date": "2026.10.21",
+          "priceEok": 6.5,
+          "priceText": "6.5억",
+          "rawAmount": "65,000",
+          "areaM2": 60.0,
+          "floor": "9",
+          "dealType": "직거래"
+        },
+        {
+          "date": "2026.10.20",
+          "priceEok": 7.5,
+          "priceText": "7.5억",
+          "rawAmount": "75,000",
+          "areaM2": 60.0,
+          "floor": "20",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.09.22",
+          "priceEok": 7.5,
+          "priceText": "7.5억",
+          "rawAmount": "75,000",
+          "areaM2": 60.0,
+          "floor": "19",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.09.19",
+          "priceEok": 7.47,
+          "priceText": "7.47억",
+          "rawAmount": "74,700",
+          "areaM2": 60.0,
+          "floor": "18",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.09.16",
+          "priceEok": 7.0,
+          "priceText": "7억",
+          "rawAmount": "70,000",
+          "areaM2": 60.0,
+          "floor": "6",
+          "dealType": "중개거래"
+        }
+      ],
+      "askingMinEok": 7.7,
+      "askingMaxEok": 11.0,
+      "askingPriceText": "최저 7.7억 ~ 11억",
+      "dealArticleCount": 78,
+      "leaseMinText": "4.6억",
+      "leaseArticleCount": 2
+    },
+    "apt8": {
+      "id": "apt8",
+      "name": "e편한세상 반월나노시티역",
+      "naverHscpNo": "109360",
+      "targetPyeong": "24~30평 (전용 59·75㎡)",
+      "priceNum": 8.09,
+      "realPriceLatestEok": 8.68,
+      "realPriceLatestText": "8.68억 (26.10.17 · 17층)",
+      "realPriceAvgEok": 8.09,
+      "realPriceRangeText": "7.25억 ~ 8.68억",
+      "totalDealsYear": 78,
+      "recentDeals": [
+        {
+          "date": "2026.10.17",
+          "priceEok": 8.68,
+          "priceText": "8.68억",
+          "rawAmount": "86,800",
+          "areaM2": 75.4,
+          "floor": "17",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.10.16",
+          "priceEok": 7.25,
+          "priceText": "7.25억",
+          "rawAmount": "72,500",
+          "areaM2": 58.2,
+          "floor": "9",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.10.06",
+          "priceEok": 8.35,
+          "priceText": "8.35억",
+          "rawAmount": "83,500",
+          "areaM2": 75.9,
+          "floor": "6",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.10.05",
+          "priceEok": 7.67,
+          "priceText": "7.67억",
+          "rawAmount": "76,700",
+          "areaM2": 58.2,
+          "floor": "6",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.09.29",
+          "priceEok": 8.48,
+          "priceText": "8.48억",
+          "rawAmount": "84,800",
+          "areaM2": 75.9,
+          "floor": "16",
+          "dealType": "중개거래"
+        }
+      ],
+      "askingMinEok": 7.0,
+      "askingMaxEok": 10.5,
+      "askingPriceText": "최저 7억 ~ 10.5억",
+      "dealArticleCount": 46,
+      "leaseMinText": "5억",
+      "leaseArticleCount": 2
+    },
+    "apt9": {
+      "id": "apt9",
+      "name": "신영통 현대타운 4단지",
+      "naverHscpNo": "3728",
+      "targetPyeong": "33평 (전용 84㎡)",
+      "priceNum": 4.34,
+      "realPriceLatestEok": 5.0,
+      "realPriceLatestText": "5억 (26.09.08 · 12층)",
+      "realPriceAvgEok": 4.34,
+      "realPriceRangeText": "2.83억 ~ 5.1억",
+      "totalDealsYear": 12,
+      "recentDeals": [
+        {
+          "date": "2026.09.08",
+          "priceEok": 5.0,
+          "priceText": "5억",
+          "rawAmount": "50,000",
+          "areaM2": 84.9,
+          "floor": "12",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.08.21",
+          "priceEok": 4.2,
+          "priceText": "4.2억",
+          "rawAmount": "42,000",
+          "areaM2": 84.9,
+          "floor": "1",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.07.28",
+          "priceEok": 4.55,
+          "priceText": "4.55억",
+          "rawAmount": "45,500",
+          "areaM2": 84.9,
+          "floor": "13",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.07.21",
+          "priceEok": 2.83,
+          "priceText": "2.83억",
+          "rawAmount": "28,350",
+          "areaM2": 84.9,
+          "floor": "7",
+          "dealType": "직거래"
+        },
+        {
+          "date": "2026.07.16",
+          "priceEok": 5.1,
+          "priceText": "5.1억",
+          "rawAmount": "51,000",
+          "areaM2": 84.9,
+          "floor": "12",
+          "dealType": "중개거래"
+        }
+      ],
+      "askingMinEok": 4.8,
+      "askingMaxEok": 6.5,
+      "askingPriceText": "최저 4.8억 ~ 6.5억",
+      "dealArticleCount": 9,
+      "leaseMinText": null,
+      "leaseArticleCount": 0
+    },
+    "apt10": {
+      "id": "apt10",
+      "name": "동탄센트럴포레스트 (구 새강5단지)",
+      "naverHscpNo": "127686",
+      "targetPyeong": "30~33평 (전용 74·84㎡)",
+      "priceNum": 6.53,
+      "realPriceLatestEok": 7.0,
+      "realPriceLatestText": "7억 (26.10.24 · 18층)",
+      "realPriceAvgEok": 6.53,
+      "realPriceRangeText": "6.2억 ~ 7억",
+      "totalDealsYear": 50,
+      "recentDeals": [
+        {
+          "date": "2026.10.24",
+          "priceEok": 7.0,
+          "priceText": "7억",
+          "rawAmount": "70,000",
+          "areaM2": 74.7,
+          "floor": "18",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.07.25",
+          "priceEok": 6.48,
+          "priceText": "6.48억",
+          "rawAmount": "64,800",
+          "areaM2": 74.7,
+          "floor": "17",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.07.24",
+          "priceEok": 6.2,
+          "priceText": "6.2억",
+          "rawAmount": "62,000",
+          "areaM2": 74.7,
+          "floor": "6",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.06.30",
+          "priceEok": 6.47,
+          "priceText": "6.47억",
+          "rawAmount": "64,700",
+          "areaM2": 74.7,
+          "floor": "9",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.06.25",
+          "priceEok": 6.5,
+          "priceText": "6.5억",
+          "rawAmount": "65,000",
+          "areaM2": 84.9,
+          "floor": "12",
+          "dealType": "중개거래"
+        }
+      ],
+      "askingMinEok": 7.3,
+      "askingMaxEok": 8.5,
+      "askingPriceText": "최저 7.3억 ~ 8.5억",
+      "dealArticleCount": 7,
+      "leaseMinText": null,
+      "leaseArticleCount": 0
+    },
+    "apt11": {
+      "id": "apt11",
+      "name": "벽적골 9단지 롯데",
+      "naverHscpNo": "3638",
+      "targetPyeong": "24평 (전용 59㎡)",
+      "priceNum": 6.88,
+      "realPriceLatestEok": 7.8,
+      "realPriceLatestText": "7.8억 (26.10.21 · 8층)",
+      "realPriceAvgEok": 6.88,
+      "realPriceRangeText": "6억 ~ 7.8억",
+      "totalDealsYear": 38,
+      "recentDeals": [
+        {
+          "date": "2026.10.21",
+          "priceEok": 7.8,
+          "priceText": "7.8억",
+          "rawAmount": "78,000",
+          "areaM2": 60.0,
+          "floor": "8",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.10.12",
+          "priceEok": 6.9,
+          "priceText": "6.9억",
+          "rawAmount": "69,000",
+          "areaM2": 60.0,
+          "floor": "13",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.09.16",
+          "priceEok": 7.5,
+          "priceText": "7.5억",
+          "rawAmount": "75,000",
+          "areaM2": 60.0,
+          "floor": "12",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.07.30",
+          "priceEok": 6.2,
+          "priceText": "6.2억",
+          "rawAmount": "62,000",
+          "areaM2": 60.0,
+          "floor": "1",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.07.29",
+          "priceEok": 6.0,
+          "priceText": "6억",
+          "rawAmount": "60,000",
+          "areaM2": 60.0,
+          "floor": "1",
+          "dealType": "중개거래"
+        }
+      ],
+      "askingMinEok": 4.2,
+      "askingMaxEok": 8.5,
+      "askingPriceText": "최저 4.2억 ~ 8.5억",
+      "dealArticleCount": 12,
+      "leaseMinText": "4.5억",
+      "leaseArticleCount": 1
+    },
+    "apt12": {
+      "id": "apt12",
+      "name": "벽적골 8단지 주공(두산우성한신)",
+      "naverHscpNo": "12045",
+      "targetPyeong": "24평 (전용 59㎡)",
+      "priceNum": 5.83,
+      "realPriceLatestEok": 6.1,
+      "realPriceLatestText": "6.1억 (26.10.23 · 10층)",
+      "realPriceAvgEok": 5.83,
+      "realPriceRangeText": "5.4억 ~ 6.1억",
+      "totalDealsYear": 124,
+      "recentDeals": [
+        {
+          "date": "2026.10.23",
+          "priceEok": 6.1,
+          "priceText": "6.1억",
+          "rawAmount": "61,000",
+          "areaM2": 59.8,
+          "floor": "10",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.10.21",
+          "priceEok": 5.4,
+          "priceText": "5.4억",
+          "rawAmount": "54,000",
+          "areaM2": 59.7,
+          "floor": "17",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.10.16",
+          "priceEok": 5.95,
+          "priceText": "5.95억",
+          "rawAmount": "59,500",
+          "areaM2": 59.8,
+          "floor": "19",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.10.14",
+          "priceEok": 6.1,
+          "priceText": "6.1억",
+          "rawAmount": "61,000",
+          "areaM2": 59.8,
+          "floor": "12",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.10.14",
+          "priceEok": 5.6,
+          "priceText": "5.6억",
+          "rawAmount": "56,000",
+          "areaM2": 59.8,
+          "floor": "20",
+          "dealType": "중개거래"
+        }
+      ],
+      "askingMinEok": 6.0,
+      "askingMaxEok": 8.0,
+      "askingPriceText": "최저 6억 ~ 8억",
+      "dealArticleCount": 39,
+      "leaseMinText": null,
+      "leaseArticleCount": 0
+    },
+    "apt13": {
+      "id": "apt13",
+      "name": "영통 SK뷰",
+      "naverHscpNo": "107825",
+      "targetPyeong": "25평 (전용 59㎡)",
+      "priceNum": 9.12,
+      "realPriceLatestEok": 9.7,
+      "realPriceLatestText": "9.7억 (26.10.17 · 4층)",
+      "realPriceAvgEok": 9.12,
+      "realPriceRangeText": "8.55억 ~ 9.7억",
+      "totalDealsYear": 13,
+      "recentDeals": [
+        {
+          "date": "2026.10.17",
+          "priceEok": 9.7,
+          "priceText": "9.7억",
+          "rawAmount": "97,000",
+          "areaM2": 59.6,
+          "floor": "4",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.09.19",
+          "priceEok": 9.65,
+          "priceText": "9.65억",
+          "rawAmount": "96,500",
+          "areaM2": 59.0,
+          "floor": "22",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.08.10",
+          "priceEok": 8.7,
+          "priceText": "8.7억",
+          "rawAmount": "87,000",
+          "areaM2": 59.6,
+          "floor": "24",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.07.31",
+          "priceEok": 9.0,
+          "priceText": "9억",
+          "rawAmount": "90,000",
+          "areaM2": 59.5,
+          "floor": "19",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.06.30",
+          "priceEok": 8.55,
+          "priceText": "8.55억",
+          "rawAmount": "85,500",
+          "areaM2": 59.6,
+          "floor": "4",
+          "dealType": "중개거래"
+        }
+      ],
+      "askingMinEok": 9.5,
+      "askingMaxEok": 13.0,
+      "askingPriceText": "최저 9.5억 ~ 13억",
+      "dealArticleCount": 24,
+      "leaseMinText": "7억",
+      "leaseArticleCount": 1
+    },
+    "apt14": {
+      "id": "apt14",
+      "name": "영통아이파크캐슬 2단지",
+      "naverHscpNo": "115709",
+      "targetPyeong": "24평 (전용 59㎡)",
+      "priceNum": 9.66,
+      "realPriceLatestEok": 11.35,
+      "realPriceLatestText": "11.35억 (26.10.15 · 6층)",
+      "realPriceAvgEok": 9.66,
+      "realPriceRangeText": "8.25억 ~ 11.35억",
+      "totalDealsYear": 24,
+      "recentDeals": [
+        {
+          "date": "2026.10.15",
+          "priceEok": 11.35,
+          "priceText": "11.35억",
+          "rawAmount": "113,500",
+          "areaM2": 59.8,
+          "floor": "6",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.10.14",
+          "priceEok": 10.05,
+          "priceText": "10.05억",
+          "rawAmount": "100,500",
+          "areaM2": 60.0,
+          "floor": "13",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.09.09",
+          "priceEok": 8.25,
+          "priceText": "8.25억",
+          "rawAmount": "82,500",
+          "areaM2": 60.0,
+          "floor": "4",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.07.31",
+          "priceEok": 9.2,
+          "priceText": "9.2억",
+          "rawAmount": "92,000",
+          "areaM2": 59.8,
+          "floor": "4",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.07.13",
+          "priceEok": 9.45,
+          "priceText": "9.45억",
+          "rawAmount": "94,500",
+          "areaM2": 59.8,
+          "floor": "19",
+          "dealType": "중개거래"
+        }
+      ],
+      "askingMinEok": 9.3,
+      "askingMaxEok": 16.0,
+      "askingPriceText": "최저 9.3억 ~ 16억",
+      "dealArticleCount": 57,
+      "leaseMinText": "5.9억",
+      "leaseArticleCount": 3
+    },
+    "apt15": {
+      "id": "apt15",
+      "name": "신동탄포레자이",
+      "naverHscpNo": "131197",
+      "targetPyeong": "24평 (전용 59㎡)",
+      "priceNum": 8.83,
+      "realPriceLatestEok": 8.55,
+      "realPriceLatestText": "8.55억 (26.10.26 · 5층)",
+      "realPriceAvgEok": 8.83,
+      "realPriceRangeText": "8.5억 ~ 9.3억",
+      "totalDealsYear": 54,
+      "recentDeals": [
+        {
+          "date": "2026.10.26",
+          "priceEok": 8.55,
+          "priceText": "8.55억",
+          "rawAmount": "85,500",
+          "areaM2": 60.0,
+          "floor": "5",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.10.26",
+          "priceEok": 9.1,
+          "priceText": "9.1억",
+          "rawAmount": "91,000",
+          "areaM2": 60.0,
+          "floor": "21",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.10.21",
+          "priceEok": 8.5,
+          "priceText": "8.5억",
+          "rawAmount": "85,000",
+          "areaM2": 60.0,
+          "floor": "2",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.10.14",
+          "priceEok": 9.3,
+          "priceText": "9.3억",
+          "rawAmount": "93,000",
+          "areaM2": 60.0,
+          "floor": "22",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.10.13",
+          "priceEok": 8.7,
+          "priceText": "8.7억",
+          "rawAmount": "87,000",
+          "areaM2": 60.0,
+          "floor": "12",
+          "dealType": "중개거래"
+        }
+      ],
+      "askingMinEok": 8.3,
+      "askingMaxEok": 13.9,
+      "askingPriceText": "최저 8.3억 ~ 13.9억",
+      "dealArticleCount": 75,
+      "leaseMinText": "6.5억",
+      "leaseArticleCount": 6
+    },
+    "apt16": {
+      "id": "apt16",
+      "name": "반정아이파크캐슬 4단지",
+      "naverHscpNo": "137330",
+      "targetPyeong": "24평 (전용 59㎡)",
+      "priceNum": 7.85,
+      "realPriceLatestEok": 8.65,
+      "realPriceLatestText": "8.65억 (26.10.22 · 8층)",
+      "realPriceAvgEok": 7.85,
+      "realPriceRangeText": "7.4억 ~ 8.65억",
+      "totalDealsYear": 33,
+      "recentDeals": [
+        {
+          "date": "2026.10.22",
+          "priceEok": 8.65,
+          "priceText": "8.65억",
+          "rawAmount": "86,500",
+          "areaM2": 59.8,
+          "floor": "8",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.10.17",
+          "priceEok": 7.65,
+          "priceText": "7.65억",
+          "rawAmount": "76,500",
+          "areaM2": 59.8,
+          "floor": "2",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.10.08",
+          "priceEok": 8.08,
+          "priceText": "8.08억",
+          "rawAmount": "80,800",
+          "areaM2": 59.9,
+          "floor": "13",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.09.05",
+          "priceEok": 7.4,
+          "priceText": "7.4억",
+          "rawAmount": "74,000",
+          "areaM2": 59.9,
+          "floor": "14",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.09.02",
+          "priceEok": 7.45,
+          "priceText": "7.45억",
+          "rawAmount": "74,500",
+          "areaM2": 59.9,
+          "floor": "15",
+          "dealType": "중개거래"
+        }
+      ],
+      "askingMinEok": 8.5,
+      "askingMaxEok": 13.0,
+      "askingPriceText": "최저 8.5억 ~ 13억",
+      "dealArticleCount": 39,
+      "leaseMinText": "5억",
+      "leaseArticleCount": 6
+    }
+  }
+};
+    /* __PRICES_DATA_END__ */
+
+    // =========================================================================
+    // 1. H3 화성캠퍼스 및 6개 근거리 셔틀 노선 정밀 좌표 데이터
+    // =========================================================================
+    const H3_CAMPUS = { name: "삼성전자 화성캠퍼스 H3 (반도체연구소)", lat: 37.2135, lng: 127.0692 };
+    const H1_CAMPUS = { name: "삼성전자 화성캠퍼스 H1 / DSR", lat: 37.2248, lng: 127.0620 };
+
+    const SUBWAY_STATIONS = [
+      { name: "망포역 (수인분당선 급행)", lat: 37.2457, lng: 127.0563 },
+      { name: "영통역 (수인분당선)", lat: 37.2515, lng: 127.0713 }
+    ];
+
+    const SHUTTLE_ROUTES = [
+      {
+        id: "R1",
+        name: "(근거리) 망포/영통_H1-H3",
+        color: "#3b82f6",
+        desc: "망포역 역세권 핵심 노선 · 영통SK뷰·망포쌍용·늘푸른벽산·현대아이파크 경유",
+        stops: [
+          { no: 1, name: "영통SK뷰 단지입구", lat: 37.2422, lng: 127.0596 },
+          { no: 2, name: "영통SK뷰 105동(버스정류장)", lat: 37.2435, lng: 127.0598 },
+          { no: 3, name: "현대타운(버스정류장/망포쌍용앞)", lat: 37.2428, lng: 127.0638 },
+          { no: 4, name: "대선초교(버스정류장)", lat: 37.2414, lng: 127.0623 },
+          { no: 5, name: "H1 정문진입로(횡단보도)", lat: 37.2248, lng: 127.0620 },
+          { no: 6, name: "H3 정문출구(횡단보도)", lat: 37.2135, lng: 127.0692 }
+        ]
+      },
+      {
+        id: "R2",
+        name: "(근거리) 반월동_H3",
+        color: "#10b981",
+        desc: "반월동 신축·준신축 단지에서 H3 정문까지 5~7분 직통 노선",
+        stops: [
+          { no: 1, name: "SK뷰2차(201동 버스정류장)", lat: 37.2242, lng: 127.0472 },
+          { no: 2, name: "SK뷰1차 정문맞은편(버스정류장)", lat: 37.2268, lng: 127.0510 },
+          { no: 3, name: "이편한세상 112동(버스정류장)", lat: 37.2312, lng: 127.0535 },
+          { no: 4, name: "H3 정문출구(횡단보도)", lat: 37.2135, lng: 127.0692 }
+        ]
+      },
+      {
+        id: "R3",
+        name: "(근거리) 신동탄/서천_H1-H3",
+        color: "#a855f7",
+        desc: "서천지구·신동탄포레자이·반달마을에서 H1/H3 직통",
+        stops: [
+          { no: 1, name: "신동탄포레자이(102동 맞은편)", lat: 37.2393, lng: 127.0672 },
+          { no: 2, name: "두산위브1단지(109동 버스정류장)", lat: 37.2381, lng: 127.0715 },
+          { no: 3, name: "반달마을(버스정류장)", lat: 37.2356, lng: 127.0702 },
+          { no: 4, name: "화성 H1 정문(출구삼거리)", lat: 37.2248, lng: 127.0620 },
+          { no: 5, name: "화성 H3(승강장 횡단보도)", lat: 37.2135, lng: 127.0692 }
+        ]
+      },
+      {
+        id: "R4",
+        name: "(근거리) 망포동_H3",
+        color: "#f97316",
+        desc: "신동 래미안마크원 및 망포 영통아이파크캐슬 H3 직통",
+        stops: [
+          { no: 1, name: "래미안영통마크원 2단지", lat: 37.2452, lng: 127.0432 },
+          { no: 2, name: "래미안영통마크원 1단지", lat: 37.2442, lng: 127.0410 },
+          { no: 3, name: "영통아이파크캐슬 2단지", lat: 37.2408, lng: 127.0422 },
+          { no: 4, name: "H3 정문출구(횡단보도)", lat: 37.2135, lng: 127.0692 }
+        ]
+      },
+      {
+        id: "R5",
+        name: "(근거리) 반정아이파크_H3",
+        color: "#ec4899",
+        desc: "망포역더샵엘클래스 및 반정아이파크캐슬 4·5단지 노선",
+        stops: [
+          { no: 1, name: "엘클래스 1단지(정문건너편)", lat: 37.2405, lng: 127.0398 },
+          { no: 2, name: "엘클래스 2단지(정문건너편)", lat: 37.2382, lng: 127.0385 },
+          { no: 3, name: "반정아이파크 4단지 413동", lat: 37.2368, lng: 127.0405 },
+          { no: 4, name: "반정아이파크 5단지 513동", lat: 37.2335, lng: 127.0430 },
+          { no: 5, name: "화성 H3(승강장 횡단보도)", lat: 37.2135, lng: 127.0692 }
+        ]
+      },
+      {
+        id: "R6",
+        name: "(근거리) 동탄나루마을_H2/H3",
+        color: "#06b6d4",
+        desc: "동탄1신도시 반송동 나루마을·새강마을 노선",
+        stops: [
+          { no: 1, name: "하나로마트(버스정류장)", lat: 37.1932, lng: 127.0672 },
+          { no: 2, name: "반송초교(버스정류장)", lat: 37.1955, lng: 127.0642 },
+          { no: 3, name: "새강마을5단지(517동 정류장)", lat: 37.1982, lng: 127.0625 },
+          { no: 4, name: "화성캠퍼스 H2 / H3 인접", lat: 37.2135, lng: 127.0692 }
+        ]
+      }
+    ];
+
+    // =========================================================================
+    // 2. 16개 주요 아파트 기본 입지·셔틀 DB (실거래·호가는 prices.json/스냅샷에서 병합)
+    // =========================================================================
+    const APARTMENTS = [
+      {
+        id: "apt1",
+        name: "망포쌍용에듀파크",
+        dong: "수원 영통구 망포동",
+        naverHscpNo: "11503",
+        lat: 37.2394,
+        lng: 127.0476,
+        priceNum: 4.63,
+        priceText: "실거래 5.0억",
+        sizeGroup: "20",
+        sizeText: "24평 (전용 59㎡)",
+        year: 2004,
+        households: 287,
+        parking: 1.0,
+        routeId: "R1",
+        stopName: "3. 현대타운 / 4. 대선초교",
+        walkMin: 4,
+        walkDist: 280,
+        subwayText: "망포역 도보 8분",
+        grade: "RECOMMEND",
+        loanPlan: "내 현금 1.0억 + 사내대출 3.7억",
+        comment: "망포역 도보권 + 세대당 주차 1.0대로 영통 주공의 주차난을 피하면서 4~5억대에 매수 가능한 알짜 가성비 단지."
+      },
+      {
+        id: "apt2",
+        name: "늘푸른벽산",
+        dong: "수원 영통구 망포동",
+        naverHscpNo: "7965",
+        lat: 37.2410,
+        lng: 127.0575,
+        priceNum: 6.3,
+        priceText: "실거래 6.4억",
+        sizeGroup: "30",
+        sizeText: "33평 (전용 84㎡)",
+        year: 2001,
+        households: 1380,
+        parking: 1.24,
+        routeId: "R1",
+        stopName: "1. 영통SK뷰 단지입구",
+        walkMin: 3,
+        walkDist: 210,
+        subwayText: "망포역 도보 8분",
+        grade: "RECOMMEND",
+        loanPlan: "내 현금 1.8억 + 사내대출 4.5억",
+        comment: "30평대 + 넉넉한 주차(1.24대) 1순위! 밤늦게 퇴근해도 주차 스트레스가 없으며, 동문 건너편 영통SK뷰 정류장에서 H3 셔틀을 바로 탑승합니다."
+      },
+      {
+        id: "apt3",
+        name: "망포현대아이파크2차",
+        dong: "수원 영통구 망포동",
+        naverHscpNo: "3629",
+        lat: 37.2435,
+        lng: 127.0645,
+        priceNum: 6.32,
+        priceText: "실거래 6.27억",
+        sizeGroup: "30",
+        sizeText: "33평 (전용 84㎡)",
+        year: 2002,
+        households: 489,
+        parking: 1.15,
+        routeId: "R1",
+        stopName: "3. 현대타운(버스정류장)",
+        walkMin: 1,
+        walkDist: 80,
+        subwayText: "망포역 도보 9분",
+        grade: "RECOMMEND",
+        loanPlan: "내 현금 1.8억 + 사내대출 4.5억",
+        comment: "3번 현대타운 셔틀 정류장이 단지 바로 앞(도보 1분)이며 전용 84㎡ 실거래가 6.2~6.4억대로 가성비가 뛰어납니다."
+      },
+      {
+        id: "apt4",
+        name: "반달마을1단지 두산위브",
+        dong: "화성시 반월동(서천인접)",
+        naverHscpNo: "22521",
+        lat: 37.2378,
+        lng: 127.0718,
+        priceNum: 6.64,
+        priceText: "실거래 6.8억",
+        sizeGroup: "30",
+        sizeText: "33평 (전용 84㎡)",
+        year: 2007,
+        households: 690,
+        parking: 1.18,
+        routeId: "R3",
+        stopName: "2. 두산위브1단지(109동)",
+        walkMin: 1,
+        walkDist: 70,
+        subwayText: "망포역 마을버스 7분",
+        grade: "RECOMMEND",
+        loanPlan: "내 현금 2.0억 + 사내대출 4.6억",
+        comment: "2007년식 깔끔한 조경과 지하주차장! 단지 바로 앞 셔틀로 H3까지 7분 만에 도착합니다."
+      },
+      {
+        id: "apt5",
+        name: "동수원자이 1차",
+        dong: "수원 영통구 망포동",
+        naverHscpNo: "3632",
+        lat: 37.2392,
+        lng: 127.0588,
+        priceNum: 6.36,
+        priceText: "실거래 6.7억",
+        sizeGroup: "30",
+        sizeText: "34평 (전용 84㎡)",
+        year: 2001,
+        households: 1829,
+        parking: 1.20,
+        routeId: "R1",
+        stopName: "1. 영통SK뷰 단지입구 / 4. 대선초교",
+        walkMin: 4,
+        walkDist: 310,
+        subwayText: "망포역 도보 11분",
+        grade: "RECOMMEND",
+        loanPlan: "내 현금 1.8억 + 사내대출 4.5억",
+        comment: "1,829세대 메가 단지이며 주차대수 1.2대로 널널합니다. H1/H3까지 자차 및 셔틀 모두 매우 가깝습니다."
+      },
+      {
+        id: "apt6",
+        name: "신동탄 SK뷰파크 2차",
+        dong: "화성시 기산동",
+        naverHscpNo: "110459",
+        lat: 37.2245,
+        lng: 127.0468,
+        priceNum: 6.62,
+        priceText: "실거래 6.8억",
+        sizeGroup: "20",
+        sizeText: "24평 (전용 59㎡)",
+        year: 2017,
+        households: 1196,
+        parking: 1.25,
+        routeId: "R2",
+        stopName: "1. SK뷰2차(201동 정류장)",
+        walkMin: 1,
+        walkDist: 60,
+        subwayText: "망포역 버스 10분",
+        grade: "RECOMMEND",
+        loanPlan: "내 현금 1.9억 + 사내대출 4.7억",
+        comment: "2017년식 지상에 차 없는 공원형 준신축! 단지 앞 셔틀로 H3까지 6분이면 도착하며 현재 최저호가 6.1억부터 시작합니다."
+      },
+      {
+        id: "apt7",
+        name: "신동탄 SK뷰파크 1차",
+        dong: "화성시 반월동",
+        naverHscpNo: "105746",
+        lat: 37.2275,
+        lng: 127.0505,
+        priceNum: 7.19,
+        priceText: "실거래 6.5억",
+        sizeGroup: "20",
+        sizeText: "25평 (전용 59㎡)",
+        year: 2015,
+        households: 1967,
+        parking: 1.28,
+        routeId: "R2",
+        stopName: "2. SK뷰1차 정문맞은편",
+        walkMin: 2,
+        walkDist: 120,
+        subwayText: "망포역 버스 10분 (인덕원선 예정)",
+        grade: "RECOMMEND",
+        loanPlan: "내 현금 2.0억 + 사내대출 4.8억",
+        comment: "1,967세대 대단지 커뮤니티(수영장 등)와 쾌적한 지하주차장 완비. 직전 실거래 6.5억, 최근 5건 평균 7.19억."
+      },
+      {
+        id: "apt8",
+        name: "e편한세상 반월나노시티역",
+        dong: "화성시 반월동",
+        naverHscpNo: "109360",
+        lat: 37.2318,
+        lng: 127.0538,
+        priceNum: 8.09,
+        priceText: "실거래 8.68억",
+        sizeGroup: "30",
+        sizeText: "24~30평 (전용 59·75㎡)",
+        year: 2017,
+        households: 1387,
+        parking: 1.23,
+        routeId: "R2",
+        stopName: "3. 이편한세상 112동",
+        walkMin: 1,
+        walkDist: 70,
+        subwayText: "인덕원동탄선 반월나노시티역 예정",
+        grade: "OVER",
+        loanPlan: "24평(7.25억) / 30평(8.68억)",
+        comment: "2017년식 준신축에 인덕원선 역세권 호재로 최근 실거래가가 59㎡ 7.25억, 75㎡ 8.68억까지 상승했습니다."
+      },
+      {
+        id: "apt9",
+        name: "신영통 현대타운 4단지",
+        dong: "화성시 반월동",
+        naverHscpNo: "3728",
+        lat: 37.2365,
+        lng: 127.0628,
+        priceNum: 4.34,
+        priceText: "실거래 5.0억",
+        sizeGroup: "30",
+        sizeText: "33평 (전용 84㎡)",
+        year: 2001,
+        households: 576,
+        parking: 1.15,
+        routeId: "R1",
+        stopName: "4. 대선초교 정류장",
+        walkMin: 5,
+        walkDist: 380,
+        subwayText: "망포역 도보 14분",
+        grade: "RECOMMEND",
+        loanPlan: "내 현금 1.0억 + 사내대출 3.8억 (부담 최소)",
+        comment: "4억 중후반~5억에 전용 84㎡(33평)를 매수할 수 있는 최고 가성비 단지. H1 도보 출근 및 H3 셔틀 이용이 편리합니다."
+      },
+      {
+        id: "apt10",
+        name: "동탄센트럴포레스트 (구 새강5단지)",
+        dong: "화성시 반송동 (동탄1)",
+        naverHscpNo: "127686",
+        lat: 37.1985,
+        lng: 127.0620,
+        priceNum: 6.53,
+        priceText: "실거래 7.0억",
+        sizeGroup: "30",
+        sizeText: "30평 (전용 74㎡)",
+        year: 2007,
+        households: 503,
+        parking: 1.22,
+        routeId: "R6",
+        stopName: "3. 새강마을5단지(517동)",
+        walkMin: 1,
+        walkDist: 80,
+        subwayText: "동탄센트럴파크 인접",
+        grade: "RECOMMEND",
+        loanPlan: "내 현금 1.9억 + 사내대출 4.6억",
+        comment: "동탄1신도시 인프라를 누리면서 단지 앞 나루마을 셔틀로 화성캠퍼스까지 직행할 수 있는 단지."
+      },
+      {
+        id: "apt11",
+        name: "벽적골 9단지 롯데",
+        dong: "수원 영통구 영통동",
+        naverHscpNo: "3638",
+        lat: 37.2450,
+        lng: 127.0622,
+        priceNum: 6.88,
+        priceText: "실거래 7.8억",
+        sizeGroup: "20",
+        sizeText: "24평 (전용 59㎡)",
+        year: 1997,
+        households: 1040,
+        parking: 0.85,
+        routeId: "R1",
+        stopName: "3. 현대타운(버스정류장)",
+        walkMin: 3,
+        walkDist: 220,
+        subwayText: "망포역 도보 6분 (초역세권)",
+        grade: "WARN",
+        loanPlan: "21평(49㎡) 최저호가 4.2억~ / 24평(59㎡) 6.8억",
+        comment: "망포역 초역세권에 셔틀 도보 3분이나, 세대당 주차 0.85대로 야간 주차가 혼잡합니다."
+      },
+      {
+        id: "apt12",
+        name: "벽적골 8단지 주공(두산우성한신)",
+        dong: "수원 영통구 영통동",
+        naverHscpNo: "12045",
+        lat: 37.2468,
+        lng: 127.0630,
+        priceNum: 5.83,
+        priceText: "실거래 6.1억",
+        sizeGroup: "20",
+        sizeText: "24평 (전용 59㎡)",
+        year: 1997,
+        households: 1842,
+        parking: 0.72,
+        routeId: "R1",
+        stopName: "3. 현대타운(버스정류장)",
+        walkMin: 5,
+        walkDist: 360,
+        subwayText: "망포역 도보 5분",
+        grade: "WARN",
+        loanPlan: "내 현금 1.4억 + 사내대출 4.4억",
+        comment: "환금성과 역세권 입지는 최고(26년 124건 활발 거래)이나 세대당 주차 0.72대로 야간 이중주차 스트레스 주의."
+      },
+      {
+        id: "apt13",
+        name: "영통 SK뷰",
+        dong: "수원 영통구 망포동",
+        naverHscpNo: "107825",
+        lat: 37.2428,
+        lng: 127.0595,
+        priceNum: 9.12,
+        priceText: "실거래 9.7억",
+        sizeGroup: "20",
+        sizeText: "25평 (전용 59㎡)",
+        year: 2016,
+        households: 710,
+        parking: 1.30,
+        routeId: "R1",
+        stopName: "1. 영통SK뷰 단지입구",
+        walkMin: 1,
+        walkDist: 50,
+        subwayText: "망포역 도보 6분",
+        grade: "OVER",
+        loanPlan: "예산 초과 (실거래 9.1~9.7억 / 호가 9.5억~)",
+        comment: "1·2번 정류장 바로 앞 대장급 준신축이나 최근 실거래 9.7억, 최저호가 9.5억으로 예산을 초과합니다."
+      },
+      {
+        id: "apt14",
+        name: "영통아이파크캐슬 2단지",
+        dong: "수원 영통구 망포동",
+        naverHscpNo: "115709",
+        lat: 37.2405,
+        lng: 127.0425,
+        priceNum: 9.66,
+        priceText: "실거래 11.35억",
+        sizeGroup: "20",
+        sizeText: "24평 (전용 59㎡)",
+        year: 2019,
+        households: 1162,
+        parking: 1.29,
+        routeId: "R4",
+        stopName: "3. 영통아이파크캐슬 2단지",
+        walkMin: 1,
+        walkDist: 60,
+        subwayText: "망포역 도보 13분",
+        grade: "OVER",
+        loanPlan: "예산 초과 (최근 실거래 평균 9.66억 / 최고 11.35억)",
+        comment: "망포동_H3 셔틀이 단지 앞에 서는 신축이나 최근 59㎡ 실거래가 9.6~11.3억에 형성되어 있습니다."
+      },
+      {
+        id: "apt15",
+        name: "신동탄포레자이",
+        dong: "화성시 반월동",
+        naverHscpNo: "131197",
+        lat: 37.2395,
+        lng: 127.0668,
+        priceNum: 8.83,
+        priceText: "실거래 8.55억",
+        sizeGroup: "20",
+        sizeText: "24평 (전용 59㎡)",
+        year: 2023,
+        households: 1297,
+        parking: 1.38,
+        routeId: "R3",
+        stopName: "1. 신동탄포레자이(102동 맞은편)",
+        walkMin: 1,
+        walkDist: 50,
+        subwayText: "망포역 도보 12분",
+        grade: "OVER",
+        loanPlan: "예산 초과 (2023년 신축 대장 · 호가 8.3억~)",
+        comment: "신동탄/서천 노선 1번 정류장 바로 앞 2023년 신축이나 24평 실거래 8.55~9.0억대로 예산을 초과합니다."
+      },
+      {
+        id: "apt16",
+        name: "반정아이파크캐슬 4단지",
+        dong: "화성시 반정동",
+        naverHscpNo: "137330",
+        lat: 37.2365,
+        lng: 127.0402,
+        priceNum: 7.85,
+        priceText: "실거래 8.65억",
+        sizeGroup: "20",
+        sizeText: "24평 (전용 59㎡)",
+        year: 2022,
+        households: 986,
+        parking: 1.35,
+        routeId: "R5",
+        stopName: "3. 반정아이파크 4단지 413동",
+        walkMin: 1,
+        walkDist: 60,
+        subwayText: "망포역 버스 10분",
+        grade: "OVER",
+        loanPlan: "최근 평균 실거래 7.85억 / 네이버 최저호가 8.5억",
+        comment: "2022년 신축이며 반정아이파크_H3 셔틀이 단지 앞에 정차합니다. 최근 실거래 7.8~8.6억대."
+      }
+    ];
+
+    // =========================================================================
+    // 3. 실거래가 & 호가 데이터 병합 및 외부 JSON(Gist/로컬) 동기화 로직
+    // =========================================================================
+    function mergePricesIntoApartments(payload) {
+      if (!payload || !payload.apartments) return;
+
+      APARTMENTS.forEach(apt => {
+        const p = payload.apartments[apt.id];
+        if (!p) return;
+        apt.naverHscpNo = p.naverHscpNo || apt.naverHscpNo;
+        apt.realPriceLatestEok = p.realPriceLatestEok;
+        apt.realPriceLatestText = p.realPriceLatestText || "-";
+        apt.realPriceAvgEok = p.realPriceAvgEok;
+        apt.realPriceRangeText = p.realPriceRangeText || "-";
+        apt.totalDealsYear = p.totalDealsYear || 0;
+        apt.recentDeals = p.recentDeals || [];
+        apt.askingMinEok = p.askingMinEok;
+        apt.askingMaxEok = p.askingMaxEok;
+        apt.askingPriceText = p.askingPriceText || "-";
+        apt.dealArticleCount = p.dealArticleCount || 0;
+        apt.leaseMinText = p.leaseMinText || "-";
+        apt.leaseArticleCount = p.leaseArticleCount || 0;
+        if (p.priceNum) apt.priceNum = p.priceNum;
+      });
+
+      if (payload.updatedAt) {
+        const badge = document.getElementById("syncStatusBadge");
+        const legendDate = document.getElementById("legendUpdatedDate");
+        if (badge) badge.innerText = `📡 실거래+호가 동기화 (${payload.updatedAt} 기준)`;
+        if (legendDate) legendDate.innerText = `${payload.updatedAt.split(" ")[0]} 기준`;
+      }
+    }
+
+    async function loadLatestPrices() {
+      // 1) 내장 스냅샷 먼저 즉시 적용 (오프라인/샌드박스에서도 즉시 동작 보장)
+      if (typeof EMBEDDED_PRICES_DATA === "object" && EMBEDDED_PRICES_DATA.apartments) {
+        mergePricesIntoApartments(EMBEDDED_PRICES_DATA);
+      }
+
+      // 2) 외부 Gist URL 또는 로컬 ./prices.json 비동기 fetch 시도
+      const savedUrl = localStorage.getItem("H3_CUSTOM_PRICES_JSON_URL") || DEFAULT_EXTERNAL_PRICES_JSON_URL;
+      const urlsToTry = [];
+      if (savedUrl) urlsToTry.push(savedUrl);
+      urlsToTry.push("./prices.json");
+
+      for (const url of urlsToTry) {
+        try {
+          const resp = await fetch(url + (url.includes("?") ? "&" : "?") + "_t=" + Date.now(), { cache: "no-store" });
+          if (resp.ok) {
+            const data = await resp.json();
+            if (data && data.apartments) {
+              mergePricesIntoApartments(data);
+              applyFilters();
+              return;
+            }
+          }
+        } catch (err) {
+          // 구글 사이트 iframe 등에서 상대경로 ./prices.json 실패 시 내장 스냅샷 유지
+        }
+      }
+    }
+
+    function openSyncModal() {
+      const savedUrl = localStorage.getItem("H3_CUSTOM_PRICES_JSON_URL") || DEFAULT_EXTERNAL_PRICES_JSON_URL;
+      document.getElementById("customJsonUrlInput").value = savedUrl;
+      document.getElementById("syncModal").classList.remove("hidden");
+    }
+
+    function closeSyncModal() {
+      document.getElementById("syncModal").classList.add("hidden");
+    }
+
+    function clearCustomJsonUrl() {
+      localStorage.removeItem("H3_CUSTOM_PRICES_JSON_URL");
+      document.getElementById("customJsonUrlInput").value = "";
+      mergePricesIntoApartments(EMBEDDED_PRICES_DATA);
+      applyFilters();
+      closeSyncModal();
+    }
+
+    async function saveAndFetchCustomJsonUrl() {
+      const url = document.getElementById("customJsonUrlInput").value.trim();
+      if (url) {
+        localStorage.setItem("H3_CUSTOM_PRICES_JSON_URL", url);
+      }
+      await loadLatestPrices();
+      closeSyncModal();
+    }
+
+    // 현재 선택된 가격 기준(평균실거래 / 직전실거래 / 최저호가)에 따른 단지의 대표 가격(억) 반환
+    function getActivePriceEok(apt) {
+      const basis = document.getElementById("priceBasisFilter")?.value || "REAL_AVG";
+      if (basis === "REAL_LATEST") {
+        return apt.realPriceLatestEok || apt.realPriceAvgEok || apt.priceNum;
+      }
+      if (basis === "ASKING_MIN") {
+        return apt.askingMinEok || apt.realPriceAvgEok || apt.priceNum;
+      }
+      return apt.realPriceAvgEok || apt.realPriceLatestEok || apt.priceNum;
+    }
+
+    // =========================================================================
+    // 4. Leaflet 지도 초기화 및 레이어 관리
+    // =========================================================================
+    let map;
+    let currentTileLayer;
+    let routeLayerGroup = L.layerGroup();
+    let radiusLayerGroup = L.layerGroup();
+    let aptMarkerLayerGroup = L.layerGroup();
+    let highlightLayerGroup = L.layerGroup();
+
+    const aptMarkersById = {};
+    let selectedRouteId = "ALL";
+    let currentRadius = 500;
+    let lastExternalUrl = "";
+
+    const TILE_URLS = {
+      google_m: "https://mt1.google.com/vt/lyrs=m&hl=ko&x={x}&y={y}&z={z}",
+      google_s: "https://mt1.google.com/vt/lyrs=y&hl=ko&x={x}&y={y}&z={z}",
+      osm: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+    };
+
+    function initMap() {
+      map = L.map("map", {
+        center: [37.2325, 127.0585],
+        zoom: 13,
+        maxZoom: 20,
+        minZoom: 11,
+        zoomControl: true
+      });
+
+      currentTileLayer = L.tileLayer(TILE_URLS.google_m, {
+        maxZoom: 20,
+        attribution: "&copy; Google Maps"
+      }).addTo(map);
+
+      routeLayerGroup.addTo(map);
+      radiusLayerGroup.addTo(map);
+      highlightLayerGroup.addTo(map);
+      aptMarkerLayerGroup.addTo(map);
+
+      renderCampusAndSubway();
+      renderShuttleRoutes();
+
+      // 가격 데이터 병합 및 필터 적용
+      loadLatestPrices().then(() => {
+        applyFilters();
+      });
+
+      setTimeout(() => map.invalidateSize(), 250);
+    }
+
+    function setTileLayer(type) {
+      if (currentTileLayer) map.removeLayer(currentTileLayer);
+      currentTileLayer = L.tileLayer(TILE_URLS[type], { maxZoom: 20 }).addTo(map);
+
+      ["GoogleM", "GoogleS", "OSM"].forEach(k => {
+        const btn = document.getElementById("btnTile" + k);
+        if (btn) btn.className = "px-2.5 py-1 rounded-md text-slate-300 hover:text-white";
+      });
+      const activeKey = type === "google_m" ? "GoogleM" : type === "google_s" ? "GoogleS" : "OSM";
+      document.getElementById("btnTile" + activeKey).className = "px-2.5 py-1 rounded-md bg-blue-600 text-white font-semibold";
+    }
+
+    function renderCampusAndSubway() {
+      const h3Icon = L.divIcon({
+        className: "",
+        html: `<div style="background:#2563eb;color:#fff;font-weight:900;font-size:12px;padding:5px 10px;border-radius:10px;border:2px solid #fff;box-shadow:0 4px 12px rgba(37,99,235,0.7);white-space:nowrap;">🏭 삼성전자 H3 (반도체연구소)</div>`,
+        iconAnchor: [85, 16]
+      });
+      L.marker([H3_CAMPUS.lat, H3_CAMPUS.lng], { icon: h3Icon, zIndexOffset: 1000 })
+        .bindPopup(`<div class="text-xs font-bold text-blue-400">삼성전자 화성캠퍼스 H3</div><div class="text-[11px] text-slate-300 mt-1">모든 근거리 셔틀의 최종 종점입니다.</div>`)
+        .addTo(map);
+
+      SUBWAY_STATIONS.forEach(st => {
+        const subIcon = L.divIcon({
+          className: "",
+          html: `<div style="background:#f59e0b;color:#0f172a;font-weight:800;font-size:11px;padding:2px 7px;border-radius:6px;border:1.5px solid #fff;white-space:nowrap;box-shadow:0 2px 6px rgba(0,0,0,0.4);">🚇 ${st.name.split(" ")[0]}</div>`,
+          iconAnchor: [35, 12]
+        });
+        L.marker([st.lat, st.lng], { icon: subIcon }).addTo(map);
+      });
+    }
+
+    function renderShuttleRoutes() {
+      routeLayerGroup.clearLayers();
+      radiusLayerGroup.clearLayers();
+
+      SHUTTLE_ROUTES.forEach(route => {
+        if (selectedRouteId !== "ALL" && selectedRouteId !== route.id) return;
+
+        const latlngs = route.stops.map(s => [s.lat, s.lng]);
+        L.polyline(latlngs, {
+          color: route.color,
+          weight: selectedRouteId === route.id ? 6 : 4,
+          opacity: 0.9
+        }).addTo(routeLayerGroup);
+
+        route.stops.forEach(stop => {
+          const isCampus = stop.name.includes("H1") || stop.name.includes("H2") || stop.name.includes("H3");
+          if (!isCampus && currentRadius > 0) {
+            L.circle([stop.lat, stop.lng], {
+              radius: currentRadius,
+              color: route.color,
+              weight: 1.2,
+              dashArray: "4, 4",
+              fillColor: route.color,
+              fillOpacity: 0.08
+            }).addTo(radiusLayerGroup);
+          }
+
+          const stopIcon = L.divIcon({
+            className: "",
+            html: `<div class="stop-pin" style="background:${route.color};">${stop.no}</div>`,
+            iconAnchor: [12, 12]
+          });
+
+          const naverMapStopUrl = `https://map.naver.com/p/search/${encodeURIComponent(stop.name.split("(")[0])}`;
+          const marker = L.marker([stop.lat, stop.lng], { icon: stopIcon }).addTo(routeLayerGroup);
+          marker.bindPopup(`
+            <div class="min-w-[210px]">
+              <div class="text-[11px] font-bold" style="color:${route.color}">${route.name}</div>
+              <div class="text-sm font-extrabold text-white mt-0.5">정류장 ${stop.no}. ${stop.name}</div>
+              <div class="mt-2 flex gap-1.5">
+                <button onclick="openExternalUrl('${naverMapStopUrl}', '${stop.name} 네이버 지도')" class="flex-1 py-1 px-2 bg-emerald-600 hover:bg-emerald-500 text-white rounded text-[11px] font-bold">
+                  🗺️ 네이버 지도 보기 ↗
+                </button>
+              </div>
+            </div>
+          `);
+        });
+      });
+    }
+
+    // =========================================================================
+    // 5. 외부 링크 브릿지 함수 (네이버 부동산 단지 직행 & 네이버 지도)
+    // =========================================================================
+    function getNaverLandUrl(apt) {
+      if (apt.naverHscpNo) {
+        return `https://new.land.naver.com/complexes/${apt.naverHscpNo}`;
+      }
+      return `https://new.land.naver.com/search?sk=${encodeURIComponent(apt.name)}`;
+    }
+
+    function getNaverMapUrl(dong, aptName) {
+      return `https://map.naver.com/p/search/${encodeURIComponent(dong + " " + aptName)}`;
+    }
+
+    function openExternalUrl(url, labelText) {
+      lastExternalUrl = url;
+      const bar = document.getElementById("externalLinkBar");
+      const msg = document.getElementById("extLinkMessage");
+      const anchor = document.getElementById("extDirectAnchor");
+
+      anchor.href = url;
+      msg.innerHTML = `<b>[${labelText}]</b> 이동 준비 완료! 새 창이 차단되었다면 우측 초록색 버튼을 직접 클릭하세요.`;
+      bar.classList.remove("hidden");
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).catch(() => {});
+      }
+
+      try {
+        const win = window.open(url, "_blank", "noopener,noreferrer");
+        if (win) win.focus();
+      } catch (e) {}
+    }
+
+    function copyLastUrl() {
+      if (!lastExternalUrl) return;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(lastExternalUrl);
+      }
+      const msg = document.getElementById("extLinkMessage");
+      msg.innerHTML = `✅ <b>주소가 복사되었습니다!</b> 브라우저 새 탭 주소창에 붙여넣기(Ctrl+V) 하세요: <span class="underline">${lastExternalUrl}</span>`;
+    }
+
+    // =========================================================================
+    // 6. 지도 포커스 (스크롤 상단 이동 + 마커 강제 활성화 + 줌 17 + 팝업)
+    // =========================================================================
+    function focusApartment(aptId) {
+      const apt = APARTMENTS.find(a => a.id === aptId);
+      if (!apt) return;
+
+      if (!aptMarkersById[aptId]) {
+        const marker = createAptMarker(apt);
+        marker.addTo(aptMarkerLayerGroup);
+        aptMarkersById[aptId] = marker;
+      }
+
+      const headerEl = document.getElementById("topHeader");
+      if (headerEl) {
+        headerEl.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+      window.scrollTo({ top: 0, behavior: "smooth" });
+
+      map.invalidateSize();
+      map.setView([apt.lat, apt.lng], 17, { animate: true });
+
+      highlightLayerGroup.clearLayers();
+      L.circle([apt.lat, apt.lng], {
+        radius: 140,
+        color: "#38bdf8",
+        weight: 3,
+        fillColor: "#38bdf8",
+        fillOpacity: 0.25
+      }).addTo(highlightLayerGroup);
+
+      setTimeout(() => {
+        const targetMarker = aptMarkersById[aptId];
+        if (targetMarker) {
+          targetMarker.openPopup();
+        }
+      }, 200);
+
+      document.getElementById("statusTitle").innerText =
+        `📍 포커스: ${apt.name} (실거래 ${apt.realPriceLatestText || apt.priceText} / 호가 ${apt.askingPriceText || "-"})`;
+      document.getElementById("statusDesc").innerText =
+        `${apt.stopName} 도보 ${apt.walkMin}분 (${apt.walkDist}m) · 세대당 주차 ${apt.parking}대`;
+    }
+
+    // =========================================================================
+    // 7. 아파트 마커 및 하단 카드 렌더링 (실거래가 + 호가 + 최근 거래내역)
+    // =========================================================================
+    function createAptMarker(apt) {
+      const bgColor = apt.grade === "RECOMMEND" ? "#10b981" : apt.grade === "WARN" ? "#f59e0b" : "#f43f5e";
+      const textColor = apt.grade === "WARN" ? "#0f172a" : "#ffffff";
+
+      const activePrice = getActivePriceEok(apt);
+      const askMinStr = apt.askingMinEok ? ` · 호가${apt.askingMinEok}억` : "";
+
+      const badgeIcon = L.divIcon({
+        className: "",
+        html: `<div class="apt-badge" style="background:${bgColor};color:${textColor};">
+                <span>🏢 ${apt.name}</span>
+                <span style="opacity:0.95;font-weight:900;">${activePrice}억${askMinStr}</span>
+               </div>`,
+        iconAnchor: [75, 14],
+        popupAnchor: [0, -14]
+      });
+
+      const landUrl = getNaverLandUrl(apt);
+      const mapUrl = getNaverMapUrl(apt.dong, apt.name);
+
+      const recentDealsHtml = (apt.recentDeals && apt.recentDeals.length > 0)
+        ? `<div class="mt-1.5 pt-1.5 border-t border-slate-700/80">
+             <div class="text-[10px] font-bold text-slate-400 mb-1">📋 국토부 최근 실거래 이력 (${apt.totalDealsYear || apt.recentDeals.length}건 중 최근 ${apt.recentDeals.length}건)</div>
+             <div class="space-y-0.5 text-[10px] text-slate-300">
+               ${apt.recentDeals.slice(0, 3).map(d =>
+                 `<div class="flex justify-between"><span>${d.date} (${d.areaM2}㎡·${d.floor}층)</span><b class="text-amber-300">${d.priceText}</b></div>`
+               ).join("")}
+             </div>
+           </div>`
+        : "";
+
+      const marker = L.marker([apt.lat, apt.lng], { icon: badgeIcon, zIndexOffset: apt.grade === "RECOMMEND" ? 500 : 200 });
+      marker.bindPopup(`
+        <div class="w-[290px] text-xs">
+          <div class="flex items-center justify-between gap-1">
+            <span class="px-2 py-0.5 rounded font-bold text-[10px] bg-slate-800 text-blue-300 border border-slate-700">${apt.dong} · ${apt.year}년</span>
+            <span class="font-bold text-emerald-400">${apt.sizeText}</span>
+          </div>
+          <div class="text-base font-extrabold text-white mt-1">${apt.name}</div>
+
+          <!-- 실거래가 vs 네이버 호가 박스 -->
+          <div class="mt-1.5 p-2 rounded-lg bg-slate-950/90 border border-slate-700 space-y-1 text-[11px]">
+            <div class="flex justify-between items-center">
+              <span class="text-slate-400">📊 직전 실거래:</span>
+              <span class="font-extrabold text-amber-300">${apt.realPriceLatestText || apt.priceText}</span>
+            </div>
+            <div class="flex justify-between items-center">
+              <span class="text-slate-400">📈 최근 5건 평균:</span>
+              <span class="font-bold text-emerald-300">${apt.realPriceAvgEok ? apt.realPriceAvgEok + "억" : "-"} <span class="text-[10px] text-slate-400">(${apt.realPriceRangeText || "-"})</span></span>
+            </div>
+            <div class="flex justify-between items-center pt-1 border-t border-slate-800">
+              <span class="text-slate-400">🏷️ 네이버 호가:</span>
+              <span class="font-extrabold text-sky-300">${apt.askingPriceText || "-"} <span class="text-[10px] text-slate-400">(매물 ${apt.dealArticleCount || 0}건)</span></span>
+            </div>
+            ${recentDealsHtml}
+          </div>
+
+          <div class="mt-2 p-2 rounded-lg bg-slate-800/90 border border-slate-700 space-y-1 text-[11px]">
+            <div>🚌 <b>셔틀:</b> ${apt.stopName} <span class="text-emerald-300 font-bold">(도보 ${apt.walkMin}분 / ${apt.walkDist}m)</span></div>
+            <div>🚗 <b>주차:</b> 세대당 <b>${apt.parking}대</b> (${apt.households}세대)</div>
+            <div>🚇 <b>역세권:</b> ${apt.subwayText}</div>
+          </div>
+
+          <div class="mt-2.5 grid grid-cols-2 gap-1.5">
+            <a href="${landUrl}" target="_blank" rel="noopener noreferrer"
+               onclick="openExternalUrl('${landUrl}', '${apt.name} 네이버 부동산'); return false;"
+               class="py-1.5 px-2 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold rounded-lg text-center text-[11px] shadow">
+              🏠 네이버 부동산 ↗
+            </a>
+            <a href="${mapUrl}" target="_blank" rel="noopener noreferrer"
+               onclick="openExternalUrl('${mapUrl}', '${apt.name} 네이버 지도'); return false;"
+               class="py-1.5 px-2 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-lg text-center text-[11px] shadow">
+              🗺️ 네이버 지도 ↗
+            </a>
+          </div>
+        </div>
+      `);
+
+      return marker;
+    }
+
+    function toggleDealHistory(aptId) {
+      const el = document.getElementById("dealHistory_" + aptId);
+      if (el) el.classList.toggle("hidden");
+    }
+
+    function applyFilters() {
+      const keyword = document.getElementById("searchInput").value.trim().toLowerCase();
+      const maxPrice = parseFloat(document.getElementById("priceRange").value);
+      const sizeOpt = document.getElementById("sizeFilter").value;
+      const minParking = parseFloat(document.getElementById("parkingFilter").value);
+      const basis = document.getElementById("priceBasisFilter")?.value || "REAL_AVG";
+
+      const basisLabel = basis === "REAL_LATEST" ? "직전 실거래" : basis === "ASKING_MIN" ? "최저 호가" : "최근 평균 실거래";
+      document.getElementById("priceLimitLabel").innerText =
+        maxPrice >= 11.8 ? `전체 (${maxPrice.toFixed(1)}억↓)` : `${basisLabel} ${maxPrice.toFixed(1)}억 이하`;
+
+      aptMarkerLayerGroup.clearLayers();
+      Object.keys(aptMarkersById).forEach(k => delete aptMarkersById[k]);
+
+      const filtered = APARTMENTS.filter(apt => {
+        if (selectedRouteId !== "ALL" && apt.routeId !== selectedRouteId) return false;
+        const comparePrice = getActivePriceEok(apt);
+        if (comparePrice > maxPrice) return false;
+        if (sizeOpt !== "ALL" && apt.sizeGroup !== sizeOpt) return false;
+        if (apt.parking < minParking) return false;
+        if (keyword) {
+          const hay = `${apt.name} ${apt.dong} ${apt.stopName} ${apt.sizeText}`.toLowerCase();
+          if (!hay.includes(keyword)) return false;
+        }
+        return true;
+      });
+
+      filtered.forEach(apt => {
+        const marker = createAptMarker(apt);
+        marker.addTo(aptMarkerLayerGroup);
+        aptMarkersById[apt.id] = marker;
+      });
+
+      renderAptCards(filtered);
+    }
+
+    function renderAptCards(list) {
+      const grid = document.getElementById("aptGrid");
+      document.getElementById("aptCountBadge").innerText = `${list.length}개`;
+
+      if (list.length === 0) {
+        grid.innerHTML = `
+          <div class="col-span-full bg-slate-900 border border-slate-800 rounded-xl p-8 text-center">
+            <p class="text-sm font-bold text-slate-300">현재 필터 조건에 맞는 단지가 없습니다.</p>
+            <button onclick="setQuickPreset('ALL')" class="mt-3 px-4 py-2 bg-blue-600 text-white text-xs font-bold rounded-lg">
+              전체 단지 보기로 필터 초기화
+            </button>
+          </div>`;
+        return;
+      }
+
+      grid.innerHTML = list.map(apt => {
+        const gradeBadge = apt.grade === "RECOMMEND"
+          ? `<span class="px-2 py-0.5 text-[11px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 rounded-full">🟢 추천·예산적합</span>`
+          : apt.grade === "WARN"
+          ? `<span class="px-2 py-0.5 text-[11px] font-bold bg-amber-500/20 text-amber-300 border border-amber-500/40 rounded-full">🟡 주차혼잡 주의</span>`
+          : `<span class="px-2 py-0.5 text-[11px] font-bold bg-rose-500/20 text-rose-300 border border-rose-500/40 rounded-full">🔴 예산초과(신축급)</span>`;
+
+        const landUrl = getNaverLandUrl(apt);
+        const mapUrl = getNaverMapUrl(apt.dong, apt.name);
+
+        const dealsTableRows = (apt.recentDeals || []).map(d => `
+          <tr class="border-t border-slate-800/80">
+            <td class="py-1 text-slate-300">${d.date}</td>
+            <td class="py-1 text-slate-300">${d.areaM2}㎡</td>
+            <td class="py-1 text-slate-300">${d.floor}층</td>
+            <td class="py-1 text-right font-bold text-amber-300">${d.priceText} <span class="text-[10px] text-slate-500">(${d.rawAmount}만)</span></td>
+          </tr>
+        `).join("");
+
+        return `
+          <div class="bg-slate-900 border border-slate-800 hover:border-blue-500/60 rounded-xl p-4 flex flex-col justify-between transition shadow-lg">
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-1.5">
+                ${gradeBadge}
+                <span class="text-[11px] text-slate-400">${apt.dong} · ${apt.year}년 (${apt.households}세대)</span>
+              </div>
+
+              <div class="flex items-baseline justify-between gap-2 mt-1">
+                <h3 class="text-base font-extrabold text-white cursor-pointer hover:text-blue-400" onclick="focusApartment('${apt.id}')">${apt.name}</h3>
+                <span class="text-xs font-bold text-emerald-400">${apt.sizeText}</span>
+              </div>
+
+              <!-- 핵심: 국토부 실거래가 & 네이버 실시간 호가 듀얼 비교 패널 -->
+              <div class="mt-2.5 p-2.5 rounded-lg bg-slate-950/90 border border-slate-800 space-y-1.5 text-xs">
+                <div class="flex items-center justify-between">
+                  <span class="text-slate-400 font-medium">📊 직전 실거래가:</span>
+                  <span class="font-extrabold text-amber-400">${apt.realPriceLatestText || apt.priceText}</span>
+                </div>
+                <div class="flex items-center justify-between">
+                  <span class="text-slate-400 font-medium">📈 최근 5건 평균:</span>
+                  <span class="font-bold text-emerald-300">
+                    ${apt.realPriceAvgEok ? apt.realPriceAvgEok + "억" : "-"}
+                    <span class="text-[11px] text-slate-400 font-normal">(범위 ${apt.realPriceRangeText || "-"})</span>
+                  </span>
+                </div>
+                <div class="flex items-center justify-between pt-1.5 border-t border-slate-800/90">
+                  <span class="text-slate-400 font-medium">🏷️ 네이버 실시간 호가:</span>
+                  <span class="font-extrabold text-sky-300">
+                    ${apt.askingPriceText || "-"}
+                    <span class="text-[11px] text-slate-400 font-normal">(매물 ${apt.dealArticleCount || 0}건)</span>
+                  </span>
+                </div>
+                <div class="pt-1">
+                  <button type="button" onclick="toggleDealHistory('${apt.id}')" class="w-full py-1 px-2 rounded bg-slate-800/80 hover:bg-slate-800 text-[11px] text-slate-300 font-semibold flex items-center justify-between">
+                    <span>📋 국토부 최근 실거래 상세 (${apt.totalDealsYear || 0}건 중 최근 ${(apt.recentDeals || []).length}건)</span>
+                    <span>▼</span>
+                  </button>
+                  <div id="dealHistory_${apt.id}" class="hidden mt-1.5 px-1">
+                    <table class="w-full text-[11px]">
+                      <thead>
+                        <tr class="text-slate-500 text-left">
+                          <th class="pb-1">계약일</th>
+                          <th class="pb-1">전용면적</th>
+                          <th class="pb-1">층수</th>
+                          <th class="pb-1 text-right">실거래가</th>
+                        </tr>
+                      </thead>
+                      <tbody>${dealsTableRows}</tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-2.5 grid grid-cols-2 gap-1.5 text-[11px] bg-slate-800/70 p-2.5 rounded-lg border border-slate-700/80">
+                <div><span class="text-slate-400">주차:</span> <b class="${apt.parking >= 1.0 ? 'text-emerald-400' : 'text-amber-400'}">세대당 ${apt.parking}대</b></div>
+                <div><span class="text-slate-400">전세호가:</span> <b class="text-slate-200">${apt.leaseMinText ? apt.leaseMinText + "~" : "-"} (${apt.leaseArticleCount || 0}건)</b></div>
+                <div class="col-span-2"><span class="text-slate-400">H3 셔틀:</span> <b class="text-blue-300">${apt.stopName}</b> <span class="text-emerald-300 font-bold">(도보 ${apt.walkMin}분)</span></div>
+                <div class="col-span-2"><span class="text-slate-400">지하철:</span> <span class="text-slate-200">${apt.subwayText}</span></div>
+              </div>
+
+              <p class="mt-2.5 text-xs text-slate-300 leading-relaxed">${apt.comment}</p>
+            </div>
+
+            <!-- 하단 작동 보장 버튼 3종 -->
+            <div class="mt-3.5 pt-2.5 border-t border-slate-800 grid grid-cols-3 gap-1.5 text-xs">
+              <button type="button" onclick="focusApartment('${apt.id}')"
+                class="py-2 px-2 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-lg shadow flex items-center justify-center gap-1">
+                📍 지도 포커스
+              </button>
+              <a href="${landUrl}" target="_blank" rel="noopener noreferrer"
+                onclick="openExternalUrl('${landUrl}', '${apt.name} 네이버 부동산'); return false;"
+                class="py-2 px-2 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-lg shadow flex items-center justify-center gap-1">
+                🏠 네이버부동산
+              </a>
+              <a href="${mapUrl}" target="_blank" rel="noopener noreferrer"
+                onclick="openExternalUrl('${mapUrl}', '${apt.name} 네이버 지도'); return false;"
+                class="py-2 px-2 bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-semibold rounded-lg flex items-center justify-center gap-1">
+                🗺️ 네이버지도
+              </a>
+            </div>
+          </div>
+        `;
+      }).join("");
+    }
+
+    function selectRoute(routeId) {
+      selectedRouteId = routeId;
+      ["ALL", "R1", "R2", "R3", "R4", "R5", "R6"].forEach(id => {
+        const btn = document.getElementById("routeBtn_" + id);
+        if (!btn) return;
+        if (id === routeId) {
+          btn.className = "px-3 py-1 rounded-full text-xs font-bold bg-white text-slate-900 shadow";
+        } else {
+          btn.className = "px-2.5 py-1 rounded-full text-xs font-medium bg-slate-800 text-slate-300 hover:bg-slate-700 border border-slate-700";
+        }
+      });
+
+      renderShuttleRoutes();
+      applyFilters();
+
+      if (routeId === "ALL") {
+        map.setView([37.2325, 127.0585], 13);
+      } else {
+        const route = SHUTTLE_ROUTES.find(r => r.id === routeId);
+        if (route) {
+          const bounds = L.latLngBounds(route.stops.map(s => [s.lat, s.lng]));
+          map.fitBounds(bounds, { padding: [45, 45] });
+          document.getElementById("statusTitle").innerText = `${route.name} 노선 집중 보기`;
+          document.getElementById("statusDesc").innerText = route.desc;
+        }
+      }
+    }
+
+    function changeRadius(r) {
+      currentRadius = Number(r);
+      renderShuttleRoutes();
+    }
+
+    function setQuickPreset(mode) {
+      document.getElementById("searchInput").value = "";
+      document.getElementById("sizeFilter").value = "ALL";
+      if (mode === "RECOMMEND") {
+        document.getElementById("priceRange").value = "7.0";
+        document.getElementById("parkingFilter").value = "0.9";
+      } else {
+        document.getElementById("priceRange").value = "12.0";
+        document.getElementById("parkingFilter").value = "0";
+      }
+      selectRoute("ALL");
+    }
+
+    function resetFullMap() {
+      highlightLayerGroup.clearLayers();
+      setQuickPreset("RECOMMEND");
+      map.setView([37.2325, 127.0585], 13);
+      document.getElementById("statusTitle").innerText = "전체 6개 노선 & 단지 실거래·호가 표시 중";
+      document.getElementById("statusDesc").innerText = "아래 목록에서 [📍 지도 포커스]를 누르면 해당 아파트로 즉시 이동합니다.";
+    }
+
+    window.addEventListener("load", initMap);
+  </script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+# 로컬 인증 및 토큰 설정 파일 (절대 커밋 금지)
+github_config.json
+*.secret.json
+.env
+.env.*
+
+# 파이썬 캐시 및 임시 파일
+__pycache__/
+*.py[cod]
+.DS_Store
