@@ -1,6 +1,8 @@
-# 로컬 인증 및 토큰 설정 파일 (절대 커밋 금지)
+# 로컬 인증 및 토큰/API Key 설정 파일 (절대 깃허브 업로드 금지)
 github_config.json
 *.secret.json
+*API key*.txt
+*API 가이드*.txt
 .env
 .env.*
 
