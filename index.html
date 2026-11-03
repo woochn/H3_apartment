@@ -15,12 +15,26 @@
       color: #f1f5f9;
       margin: 0;
       padding: 0;
+      overflow-x: hidden;
     }
     #map {
       width: 100%;
-      height: 520px;
+      height: 380px;
       background-color: #e2e8f0;
       z-index: 10;
+    }
+    @media (min-width: 640px) {
+      #map { height: 460px; }
+    }
+    @media (min-width: 1024px) {
+      #map { height: 520px; }
+    }
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
     }
     .leaflet-popup-content-wrapper {
       background: #0f172a !important;
@@ -34,14 +48,14 @@
       background: #0f172a !important;
     }
     .leaflet-popup-content {
-      margin: 12px 14px !important;
+      margin: 10px 12px !important;
       line-height: 1.45;
     }
     .apt-badge {
       display: inline-flex;
       align-items: center;
-      gap: 4px;
-      padding: 3px 8px;
+      gap: 3px;
+      padding: 2.5px 7px;
       border-radius: 9999px;
       font-weight: 700;
       font-size: 11px;
@@ -59,11 +73,11 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 24px;
-      height: 24px;
+      width: 22px;
+      height: 22px;
       border-radius: 50%;
       font-weight: 800;
-      font-size: 11px;
+      font-size: 10px;
       color: #fff;
       border: 2px solid #fff;
       box-shadow: 0 2px 6px rgba(0,0,0,0.5);
@@ -73,53 +87,53 @@
 <body class="min-h-screen flex flex-col">
 
   <!-- 최상단 헤더 -->
-  <header id="topHeader" class="bg-slate-900/95 border-b border-slate-800 px-4 py-3 sticky top-0 z-50 backdrop-blur">
-    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
-      <div class="flex items-center gap-3">
-        <div class="w-9 h-9 rounded-xl bg-blue-600 flex items-center justify-center font-extrabold text-white text-sm shadow-lg shadow-blue-600/30">H3</div>
-        <div>
-          <div class="flex flex-wrap items-center gap-2">
-            <h1 class="text-base md:text-lg font-bold text-white tracking-tight">삼성전자 H3 근거리 셔틀 & 아파트 실거래·호가 지도</h1>
-            <span id="syncStatusBadge" class="px-2 py-0.5 text-[11px] font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded-full">
-              📡 국토부 실거래 + 네이버 호가 연동
+  <header id="topHeader" class="bg-slate-900/95 border-b border-slate-800 px-3 sm:px-4 py-2.5 sm:py-3 sticky top-0 z-50 backdrop-blur">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-2">
+      <div class="flex items-center gap-2.5 sm:gap-3">
+        <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-blue-600 flex items-center justify-center font-extrabold text-white text-xs sm:text-sm shadow-lg shadow-blue-600/30 flex-shrink-0">H3</div>
+        <div class="min-w-0">
+          <div class="flex flex-wrap items-center gap-1.5 sm:gap-2">
+            <h1 class="text-sm sm:text-base md:text-lg font-bold text-white tracking-tight truncate">삼성 H3 근거리 셔틀 & 아파트 실거래·호가</h1>
+            <span id="syncStatusBadge" class="px-1.5 sm:px-2 py-0.5 text-[10px] sm:text-[11px] font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded-full whitespace-nowrap">
+              📡 실거래+호가 연동
             </span>
           </div>
-          <p id="syncSubText" class="text-xs text-slate-400">화성캠퍼스 반도체연구소 6개 노선 · 국토교통부 실거래가 & 네이버 부동산 실시간 매물 최저호가 동시 반영</p>
+          <p id="syncSubText" class="text-[11px] sm:text-xs text-slate-400 truncate hidden sm:block">화성캠퍼스 반도체연구소 6개 노선 · 국토교통부 실거래가 & 네이버 부동산 실시간 호가 동시 반영</p>
         </div>
       </div>
 
       <!-- 우측 컨트롤 -->
-      <div class="flex flex-wrap items-center gap-1.5">
-        <div class="flex items-center bg-slate-800 p-1 rounded-lg border border-slate-700 text-xs">
-          <span class="px-2 text-slate-400">배경지도:</span>
-          <button onclick="setTileLayer('google_m')" id="btnTileGoogleM" class="px-2.5 py-1 rounded-md bg-blue-600 text-white font-semibold">Google 표준</button>
-          <button onclick="setTileLayer('google_s')" id="btnTileGoogleS" class="px-2.5 py-1 rounded-md text-slate-300 hover:text-white">위성</button>
-          <button onclick="setTileLayer('osm')" id="btnTileOSM" class="px-2.5 py-1 rounded-md text-slate-300 hover:text-white">OSM</button>
+      <div class="flex items-center gap-1 sm:gap-1.5 overflow-x-auto no-scrollbar py-0.5 justify-between sm:justify-end">
+        <div class="flex items-center bg-slate-800 p-0.5 sm:p-1 rounded-lg border border-slate-700 text-[11px] sm:text-xs whitespace-nowrap flex-shrink-0">
+          <span class="px-1.5 text-slate-400 hidden sm:inline">지도:</span>
+          <button onclick="setTileLayer('google_m')" id="btnTileGoogleM" class="px-2 py-1 rounded-md bg-blue-600 text-white font-semibold">표준</button>
+          <button onclick="setTileLayer('google_s')" id="btnTileGoogleS" class="px-2 py-1 rounded-md text-slate-300 hover:text-white">위성</button>
+          <button onclick="setTileLayer('osm')" id="btnTileOSM" class="px-2 py-1 rounded-md text-slate-300 hover:text-white">OSM</button>
         </div>
-        <button onclick="openSyncModal()" class="px-3 py-1.5 rounded-lg bg-indigo-600/30 hover:bg-indigo-600/50 text-indigo-200 border border-indigo-500/40 text-xs font-semibold">
-          ⚙️ 실시간 JSON(Gist) 설정
+        <button onclick="openSyncModal()" class="px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg bg-indigo-600/30 hover:bg-indigo-600/50 text-indigo-200 border border-indigo-500/40 text-[11px] sm:text-xs font-semibold whitespace-nowrap flex-shrink-0">
+          ⚙️ <span class="hidden sm:inline">실시간 </span>JSON
         </button>
-        <button onclick="resetFullMap()" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 text-xs font-semibold">
-          🔄 지도 초기화
+        <button onclick="resetFullMap()" class="px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 text-[11px] sm:text-xs font-semibold whitespace-nowrap flex-shrink-0">
+          🔄 <span class="hidden sm:inline">지도 </span>초기화
         </button>
       </div>
     </div>
 
-    <!-- 노선 선택 바 -->
-    <div class="max-w-7xl mx-auto mt-2.5 pt-2 border-t border-slate-800/80 flex flex-wrap items-center justify-between gap-2">
-      <div class="flex flex-wrap items-center gap-1.5" id="routeFilterBar">
-        <button onclick="selectRoute('ALL')" id="routeBtn_ALL" class="px-3 py-1 rounded-full text-xs font-bold bg-white text-slate-900 shadow">전체 6개 노선</button>
-        <button onclick="selectRoute('R1')" id="routeBtn_R1" class="px-2.5 py-1 rounded-full text-xs font-medium bg-slate-800 text-slate-300 hover:bg-slate-700 border border-slate-700">🔵 망포/영통_H1-H3</button>
-        <button onclick="selectRoute('R2')" id="routeBtn_R2" class="px-2.5 py-1 rounded-full text-xs font-medium bg-slate-800 text-slate-300 hover:bg-slate-700 border border-slate-700">🟢 반월동_H3</button>
-        <button onclick="selectRoute('R3')" id="routeBtn_R3" class="px-2.5 py-1 rounded-full text-xs font-medium bg-slate-800 text-slate-300 hover:bg-slate-700 border border-slate-700">🟣 신동탄/서천_H1-H3</button>
-        <button onclick="selectRoute('R4')" id="routeBtn_R4" class="px-2.5 py-1 rounded-full text-xs font-medium bg-slate-800 text-slate-300 hover:bg-slate-700 border border-slate-700">🟠 망포동_H3</button>
-        <button onclick="selectRoute('R5')" id="routeBtn_R5" class="px-2.5 py-1 rounded-full text-xs font-medium bg-slate-800 text-slate-300 hover:bg-slate-700 border border-slate-700">🩷 반정아이파크_H3</button>
-        <button onclick="selectRoute('R6')" id="routeBtn_R6" class="px-2.5 py-1 rounded-full text-xs font-medium bg-slate-800 text-slate-300 hover:bg-slate-700 border border-slate-700">🩵 동탄나루마을_H2</button>
+    <!-- 노선 선택 바 (모바일 가로 스와이프 지원) -->
+    <div class="max-w-7xl mx-auto mt-2 pt-2 border-t border-slate-800/80 flex flex-col sm:flex-row sm:items-center justify-between gap-1.5">
+      <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-0.5 -mx-3 px-3 sm:mx-0 sm:px-0" id="routeFilterBar">
+        <button onclick="selectRoute('ALL')" id="routeBtn_ALL" class="px-2.5 sm:px-3 py-1 rounded-full text-[11px] sm:text-xs font-bold bg-white text-slate-900 shadow whitespace-nowrap flex-shrink-0">전체 6개 노선</button>
+        <button onclick="selectRoute('R1')" id="routeBtn_R1" class="px-2.5 py-1 rounded-full text-[11px] sm:text-xs font-medium bg-slate-800 text-slate-300 hover:bg-slate-700 border border-slate-700 whitespace-nowrap flex-shrink-0">🔵 망포/영통</button>
+        <button onclick="selectRoute('R2')" id="routeBtn_R2" class="px-2.5 py-1 rounded-full text-[11px] sm:text-xs font-medium bg-slate-800 text-slate-300 hover:bg-slate-700 border border-slate-700 whitespace-nowrap flex-shrink-0">🟢 반월동</button>
+        <button onclick="selectRoute('R3')" id="routeBtn_R3" class="px-2.5 py-1 rounded-full text-[11px] sm:text-xs font-medium bg-slate-800 text-slate-300 hover:bg-slate-700 border border-slate-700 whitespace-nowrap flex-shrink-0">🟣 신동탄/서천</button>
+        <button onclick="selectRoute('R4')" id="routeBtn_R4" class="px-2.5 py-1 rounded-full text-[11px] sm:text-xs font-medium bg-slate-800 text-slate-300 hover:bg-slate-700 border border-slate-700 whitespace-nowrap flex-shrink-0">🟠 망포동</button>
+        <button onclick="selectRoute('R5')" id="routeBtn_R5" class="px-2.5 py-1 rounded-full text-[11px] sm:text-xs font-medium bg-slate-800 text-slate-300 hover:bg-slate-700 border border-slate-700 whitespace-nowrap flex-shrink-0">🩷 반정아이파크</button>
+        <button onclick="selectRoute('R6')" id="routeBtn_R6" class="px-2.5 py-1 rounded-full text-[11px] sm:text-xs font-medium bg-slate-800 text-slate-300 hover:bg-slate-700 border border-slate-700 whitespace-nowrap flex-shrink-0">🩵 동탄나루마을</button>
       </div>
 
       <!-- 반경 선택 -->
-      <div class="flex items-center gap-2 text-xs bg-slate-800/90 px-2.5 py-1 rounded-lg border border-slate-700">
-        <span class="text-slate-400">정류장 도보반경:</span>
+      <div class="flex items-center gap-1.5 text-[11px] sm:text-xs bg-slate-800/90 px-2.5 py-1 rounded-lg border border-slate-700 self-start sm:self-auto whitespace-nowrap">
+        <span class="text-slate-400">도보반경:</span>
         <label class="flex items-center gap-1 cursor-pointer"><input type="radio" name="radiusOpt" value="300" onchange="changeRadius(300)"> 300m</label>
         <label class="flex items-center gap-1 cursor-pointer"><input type="radio" name="radiusOpt" value="500" checked onchange="changeRadius(500)"> 500m</label>
         <label class="flex items-center gap-1 cursor-pointer"><input type="radio" name="radiusOpt" value="0" onchange="changeRadius(0)"> 숨김</label>
@@ -128,22 +142,22 @@
   </header>
 
   <!-- 외부 JSON(Gist 등) 설정 모달 -->
-  <div id="syncModal" class="hidden fixed inset-0 z-[999] bg-black/70 backdrop-blur-sm flex items-center justify-center p-4">
-    <div class="bg-slate-900 border border-slate-700 rounded-2xl max-w-lg w-full p-5 shadow-2xl text-xs space-y-3">
+  <div id="syncModal" class="hidden fixed inset-0 z-[999] bg-black/70 backdrop-blur-sm flex items-center justify-center p-3 sm:p-4">
+    <div class="bg-slate-900 border border-slate-700 rounded-2xl max-w-lg w-full p-4 sm:p-5 shadow-2xl text-xs space-y-3">
       <div class="flex items-center justify-between border-b border-slate-800 pb-2.5">
         <h3 class="text-sm font-extrabold text-white">⚙️ 실시간 실거래가·호가 JSON 연동 설정</h3>
         <button onclick="closeSyncModal()" class="text-slate-400 hover:text-white text-sm px-1">✕</button>
       </div>
-      <p class="text-slate-300 leading-relaxed">
-        로컬 PC에서 <code class="bg-slate-800 px-1.5 py-0.5 rounded text-emerald-300">python3 update_prices.py</code>를 실행해 생성된 <code class="bg-slate-800 px-1.5 py-0.5 rounded text-amber-300">prices.json</code>을 GitHub Gist 또는 웹 서버에 올린 뒤 아래에 Raw URL을 입력하면, 구글 사이트에서도 코드 재업로드 없이 최신 실거래가와 네이버 호가를 자동으로 불러옵니다.
+      <p class="text-slate-300 leading-relaxed text-[11px] sm:text-xs">
+        로컬 PC에서 <code class="bg-slate-800 px-1.5 py-0.5 rounded text-emerald-300">python3 update_prices.py</code>를 실행해 생성된 <code class="bg-slate-800 px-1.5 py-0.5 rounded text-amber-300">prices.json</code>을 GitHub에 푸시하면, 구글 사이트에서도 코드 재업로드 없이 최신 실거래가와 네이버 호가를 자동으로 불러옵니다.
       </p>
       <div>
-        <label class="block text-slate-400 mb-1 font-semibold">외부 prices.json Raw URL (GitHub Gist 등)</label>
-        <input type="url" id="customJsonUrlInput" placeholder="https://gist.githubusercontent.com/.../raw/prices.json" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-white focus:outline-none focus:border-blue-500" />
+        <label class="block text-slate-400 mb-1 font-semibold text-[11px]">외부 prices.json Raw URL (GitHub Raw 등)</label>
+        <input type="url" id="customJsonUrlInput" placeholder="https://raw.githubusercontent.com/.../prices.json" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-white focus:outline-none focus:border-blue-500 text-xs" />
       </div>
       <div class="flex justify-end gap-2 pt-2">
-        <button onclick="clearCustomJsonUrl()" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 font-semibold">내장 스냅샷 사용</button>
-        <button onclick="saveAndFetchCustomJsonUrl()" class="px-4 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-white font-bold">저장 및 즉시 불러오기</button>
+        <button onclick="clearCustomJsonUrl()" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 font-semibold text-xs">내장 스냅샷 사용</button>
+        <button onclick="saveAndFetchCustomJsonUrl()" class="px-4 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs">저장 및 즉시 불러오기</button>
       </div>
     </div>
   </div>
@@ -152,118 +166,136 @@
   <section id="mapSection" class="relative w-full border-b border-slate-800">
     <div id="map"></div>
 
-    <!-- 좌측 상단 현재 포커스 상태 표시줄 -->
-    <div id="mapStatusBanner" class="absolute top-3 left-3 z-[400] bg-slate-900/90 backdrop-blur border border-slate-700 rounded-xl px-3.5 py-2 shadow-lg max-w-sm pointer-events-none">
-      <div class="flex items-center gap-2">
-        <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
-        <span id="statusTitle" class="text-xs font-bold text-white">전체 6개 노선 & 단지 실거래·호가 표시 중</span>
+    <!-- 좌측 상단 현재 포커스 상태 표시줄 (모바일 반응형 크기) -->
+    <div id="mapStatusBanner" class="absolute top-2.5 left-2.5 z-[400] bg-slate-900/90 backdrop-blur border border-slate-700 rounded-xl px-2.5 py-1.5 sm:px-3.5 sm:py-2 shadow-lg max-w-[calc(100%-20px)] sm:max-w-sm pointer-events-none">
+      <div class="flex items-center gap-1.5 sm:gap-2">
+        <span class="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-emerald-400 animate-pulse flex-shrink-0"></span>
+        <span id="statusTitle" class="text-[11px] sm:text-xs font-bold text-white truncate">전체 6개 노선 & 단지 실거래·호가 표시 중</span>
       </div>
-      <p id="statusDesc" class="text-[11px] text-slate-300 mt-0.5">아래 목록에서 [📍 지도 포커스]를 누르면 해당 아파트로 즉시 이동합니다.</p>
+      <p id="statusDesc" class="text-[10px] sm:text-[11px] text-slate-300 mt-0.5 truncate">목록에서 [📍 지도 포커스]를 누르면 해당 아파트로 즉시 이동합니다.</p>
     </div>
 
     <!-- 우측 하단 범례 -->
-    <div class="absolute bottom-3 right-3 z-[400] bg-slate-900/90 backdrop-blur border border-slate-700 rounded-xl p-3 text-xs shadow-xl hidden sm:block">
-      <div class="font-bold text-slate-200 mb-1.5 flex items-center justify-between">
+    <div class="absolute bottom-2.5 right-2.5 z-[400] bg-slate-900/90 backdrop-blur border border-slate-700 rounded-xl p-2.5 text-xs shadow-xl hidden md:block">
+      <div class="font-bold text-slate-200 mb-1 flex items-center justify-between">
         <span>아파트 시세·주차 등급</span>
         <span id="legendUpdatedDate" class="text-[10px] text-emerald-400 ml-3">실시간 연동</span>
       </div>
-      <div class="space-y-1 text-[11px]">
-        <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-emerald-500 inline-block border border-white"></span> <span><b>추천 가성비</b> (실거래 4~6.8억 · 주차 1.0대↑)</span></div>
-        <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-amber-500 inline-block border border-white"></span> <span><b>역세권 구축</b> (주차 0.85대↓ 혼잡주의)</span></div>
-        <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-rose-500 inline-block border border-white"></span> <span><b>예산 초과</b> (7.5억~11억대 신축·준신축)</span></div>
+      <div class="space-y-0.5 text-[11px]">
+        <div class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-emerald-500 inline-block border border-white"></span> <span><b>추천 가성비</b> (실거래 4~6.8억 · 주차 1.0대↑)</span></div>
+        <div class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-amber-500 inline-block border border-white"></span> <span><b>역세권 구축</b> (주차 0.85대↓ 혼잡주의)</span></div>
+        <div class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-rose-500 inline-block border border-white"></span> <span><b>예산 초과</b> (7.5억~11억대 신축·준신축)</span></div>
       </div>
     </div>
   </section>
 
-  <!-- 외부 링크 브릿지 알림 바 -->
-  <div id="externalLinkBar" class="hidden bg-indigo-950/95 border-b border-indigo-500/50 px-4 py-2.5 sticky top-[104px] z-40 backdrop-blur">
-    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2 text-xs">
-      <div class="flex items-center gap-2">
-        <span class="px-2 py-0.5 bg-indigo-600 text-white rounded font-bold">외부 링크 연결</span>
-        <span id="extLinkMessage" class="text-indigo-100 font-medium">새 탭이 열리지 않았다면 우측 버튼을 직접 클릭하거나 복사된 주소를 주소창에 붙여넣으세요.</span>
+  <!-- 외부 링크 브릿지 플로팅 토스트 (모바일 화면 가림 방지) -->
+  <div id="externalLinkBar" class="hidden fixed bottom-3 left-3 right-3 sm:bottom-4 sm:left-auto sm:right-4 sm:max-w-md bg-indigo-950/95 border border-indigo-500/70 p-3 rounded-2xl z-[999] shadow-2xl backdrop-blur">
+    <div class="flex flex-col gap-2 text-xs">
+      <div class="flex items-start justify-between gap-1.5">
+        <div class="flex items-center gap-1.5">
+          <span class="px-1.5 py-0.5 bg-indigo-600 text-white rounded font-bold text-[10px]">외부 링크</span>
+          <span class="font-bold text-white text-xs">새 탭 이동 준비 완료</span>
+        </div>
+        <button onclick="document.getElementById('externalLinkBar').classList.add('hidden')" class="text-slate-400 hover:text-white px-1">✕</button>
       </div>
-      <div class="flex items-center gap-2">
-        <a id="extDirectAnchor" href="#" target="_blank" rel="noopener noreferrer" class="px-3 py-1 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold rounded-lg shadow">
-          🔗 여기를 눌러 새 탭으로 열기 ↗
+      <p id="extLinkMessage" class="text-indigo-100 text-[11px] leading-snug">새 창이 차단되었다면 아래 초록색 버튼을 눌러주세요.</p>
+      <div class="flex items-center gap-1.5 pt-0.5">
+        <a id="extDirectAnchor" href="#" target="_blank" rel="noopener noreferrer" class="flex-1 py-1.5 px-3 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold rounded-lg text-center text-xs shadow">
+          🔗 새 탭으로 바로 열기 ↗
         </a>
-        <button onclick="copyLastUrl()" class="px-2.5 py-1 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-lg border border-slate-600">
-          📋 주소 복사
+        <button onclick="copyLastUrl()" class="py-1.5 px-2.5 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-lg border border-slate-600 text-[11px] whitespace-nowrap">
+          📋 복사
         </button>
-        <button onclick="document.getElementById('externalLinkBar').classList.add('hidden')" class="text-slate-400 hover:text-white px-1.5">✕</button>
       </div>
     </div>
   </div>
 
-  <!-- 다중 필터 컨트롤 바 -->
-  <section class="bg-slate-900 border-b border-slate-800 px-4 py-3">
-    <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-2.5 items-center text-xs">
-      <!-- 검색어 -->
-      <div>
-        <label class="block text-[11px] text-slate-400 mb-1">단지명 / 지역 / 정류장 검색</label>
-        <input type="text" id="searchInput" oninput="applyFilters()" placeholder="예: 망포쌍용, 벽산, 두산위브..." class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-1.5 text-white focus:outline-none focus:border-blue-500" />
-      </div>
-
-      <!-- 가격 필터 기준 선택 (실거래가 vs 호가) -->
-      <div>
-        <label class="block text-[11px] text-slate-400 mb-1">가격 필터 & 마커 표시 기준</label>
-        <select id="priceBasisFilter" onchange="applyFilters()" class="w-full bg-slate-800 border border-emerald-600/60 rounded-lg px-2.5 py-1.5 text-emerald-300 font-bold">
-          <option value="REAL_AVG" selected>📊 최근 실거래 평균가 기준</option>
-          <option value="REAL_LATEST">📝 직전 실거래 계약가 기준</option>
-          <option value="ASKING_MIN">🏷️ 네이버 실시간 최저호가 기준</option>
-        </select>
-      </div>
-
-      <!-- 매매가 상한 -->
-      <div>
-        <div class="flex justify-between text-[11px] mb-1">
-          <span class="text-slate-400">가격 상한선:</span>
-          <span id="priceLimitLabel" class="font-bold text-emerald-400">7.0억 이하</span>
+  <!-- 다중 필터 컨트롤 바 (모바일 접기/펼치기 지원) -->
+  <section class="bg-slate-900 border-b border-slate-800 px-3 sm:px-4 py-2.5 sm:py-3">
+    <div class="max-w-7xl mx-auto">
+      <!-- 모바일 필터 토글 헤더 -->
+      <div class="flex sm:hidden items-center justify-between mb-2">
+        <div class="flex items-center gap-2">
+          <span class="text-xs font-bold text-white">🔍 조건 검색 & 필터</span>
+          <span id="mobileBasisLabel" class="text-[10px] text-emerald-400 font-bold">실거래가 기준</span>
         </div>
-        <input type="range" id="priceRange" min="4.5" max="12.0" step="0.2" value="7.0" oninput="applyFilters()" class="w-full accent-emerald-500 cursor-pointer" />
+        <button type="button" onclick="toggleMobileFilter()" class="text-xs text-blue-400 hover:text-blue-300 font-semibold px-2 py-0.5 rounded bg-slate-800 border border-slate-700">
+          <span id="mobileFilterToggleText">상세 접기 ▲</span>
+        </button>
       </div>
 
-      <!-- 평형 필터 -->
-      <div>
-        <label class="block text-[11px] text-slate-400 mb-1">평형대 선택</label>
-        <select id="sizeFilter" onchange="applyFilters()" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-2.5 py-1.5 text-white">
-          <option value="ALL">전체 평형 (20평대 + 30평대)</option>
-          <option value="20">20평대 (전용 59㎡ 전후)</option>
-          <option value="30">30평대 (전용 74~84㎡)</option>
-        </select>
-      </div>
+      <div id="filterGridContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-2 sm:gap-2.5 items-center text-xs">
+        <!-- 검색어 -->
+        <div class="sm:col-span-1">
+          <label class="block text-[11px] text-slate-400 mb-1">단지명 / 지역 / 정류장 검색</label>
+          <input type="text" id="searchInput" oninput="applyFilters()" placeholder="예: 망포쌍용, 벽산, 두산위브..." class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-1.5 text-white focus:outline-none focus:border-blue-500 text-xs" />
+        </div>
 
-      <!-- 최소 주차대수 -->
-      <div>
-        <label class="block text-[11px] text-slate-400 mb-1">세대당 주차대수 기준</label>
-        <select id="parkingFilter" onchange="applyFilters()" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-2.5 py-1.5 text-white">
-          <option value="0">전체 (주차혼잡 단지 포함)</option>
-          <option value="0.9" selected>보통 이상 (0.9대 이상 · 추천)</option>
-          <option value="1.15">주차 여유 (1.15대 이상)</option>
-        </select>
-      </div>
+        <!-- 가격 필터 기준 선택 (실거래가 vs 호가) -->
+        <div class="sm:col-span-1">
+          <label class="block text-[11px] text-slate-400 mb-1">가격 필터 & 마커 표시 기준</label>
+          <select id="priceBasisFilter" onchange="applyFilters()" class="w-full bg-slate-800 border border-emerald-600/60 rounded-lg px-2.5 py-1.5 text-emerald-300 font-bold text-xs">
+            <option value="REAL_AVG" selected>📊 최근 실거래 평균가 기준</option>
+            <option value="REAL_LATEST">📝 직전 실거래 계약가 기준</option>
+            <option value="ASKING_MIN">🏷️ 네이버 실시간 최저호가 기준</option>
+          </select>
+        </div>
 
-      <!-- 빠른 프리셋 버튼 -->
-      <div class="flex flex-col justify-end h-full pt-3 sm:pt-0">
-        <div class="flex gap-1.5">
-          <button onclick="setQuickPreset('RECOMMEND')" class="flex-1 py-2 px-2 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-lg transition">
-            🟢 추천(7억↓)
-          </button>
-          <button onclick="setQuickPreset('ALL')" class="flex-1 py-2 px-2 bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-semibold rounded-lg transition">
-            전체 16개 보기
-          </button>
+        <!-- 매매가 상한 -->
+        <div class="sm:col-span-1">
+          <div class="flex justify-between text-[11px] mb-1">
+            <span class="text-slate-400">가격 상한선:</span>
+            <span id="priceLimitLabel" class="font-bold text-emerald-400">7.0억 이하</span>
+          </div>
+          <input type="range" id="priceRange" min="4.5" max="12.0" step="0.2" value="7.0" oninput="applyFilters()" class="w-full accent-emerald-500 cursor-pointer h-2 bg-slate-800 rounded-lg" />
+        </div>
+
+        <!-- 평형 필터 & 최소 주차대수 (모바일 2열 나란히 배치) -->
+        <div class="grid grid-cols-2 gap-2 sm:contents">
+          <div>
+            <label class="block text-[11px] text-slate-400 mb-1">평형대 선택</label>
+            <select id="sizeFilter" onchange="applyFilters()" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-2 sm:px-2.5 py-1.5 text-white text-xs">
+              <option value="ALL">전체 평형 (20+30평)</option>
+              <option value="20">20평대 (59㎡ 전후)</option>
+              <option value="30">30평대 (74~84㎡)</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-[11px] text-slate-400 mb-1">세대당 주차대수</label>
+            <select id="parkingFilter" onchange="applyFilters()" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-2 sm:px-2.5 py-1.5 text-white text-xs">
+              <option value="0">전체 포함</option>
+              <option value="0.9" selected>0.9대↑ (추천)</option>
+              <option value="1.15">1.15대↑ (여유)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- 빠른 프리셋 버튼 -->
+        <div class="flex flex-col justify-end h-full pt-1 sm:pt-0 sm:col-span-1">
+          <div class="flex gap-1.5">
+            <button onclick="setQuickPreset('RECOMMEND')" class="flex-1 py-1.5 sm:py-2 px-1.5 sm:px-2 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-lg text-xs transition whitespace-nowrap">
+              🟢 추천(7억↓)
+            </button>
+            <button onclick="setQuickPreset('ALL')" class="flex-1 py-1.5 sm:py-2 px-1.5 sm:px-2 bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-semibold rounded-lg text-xs transition whitespace-nowrap">
+              전체 16개 보기
+            </button>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- 하단 아파트 카드 리스트 -->
-  <main class="max-w-7xl mx-auto w-full px-4 py-5 flex-1">
-    <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+  <main class="max-w-7xl mx-auto w-full px-3 sm:px-4 py-4 sm:py-5 flex-1">
+    <div class="flex flex-wrap items-center justify-between gap-1.5 mb-3">
       <div class="flex items-center gap-2">
-        <h2 class="text-sm md:text-base font-bold text-white">🏢 조건 부합 아파트 목록 (실거래가 & 실시간 호가 비교)</h2>
-        <span id="aptCountBadge" class="px-2.5 py-0.5 rounded-full text-xs font-extrabold bg-blue-600 text-white">0개</span>
+        <h2 class="text-sm md:text-base font-bold text-white">🏢 조건 부합 아파트 목록</h2>
+        <span id="aptCountBadge" class="px-2 py-0.5 rounded-full text-[11px] sm:text-xs font-extrabold bg-blue-600 text-white">0개</span>
       </div>
-      <p class="text-xs text-slate-400">💡 각 카드의 <b>[📊 최근 실거래 이력 보기]</b>를 누르면 국토부 실제 계약 일자·층수·금액을 확인할 수 있습니다.</p>
+      <p class="text-[11px] sm:text-xs text-slate-400">💡 [📊 최근 실거래 상세]를 누르면 실제 계약 일자·층수 확인 가능</p>
+    </div>
     </div>
 
     <!-- 아파트 카드 그리드 -->
@@ -279,7 +311,7 @@
 
     /* __PRICES_DATA_START__ */
     const EMBEDDED_PRICES_DATA = {
-  "updatedAt": "2026-11-03 21:14",
+  "updatedAt": "2026-11-03 21:26",
   "source": "국토교통부 실거래가 공개시스템(rt.molit.go.kr) & 네이버 부동산(m.land.naver.com)",
   "apartments": {
     "apt1": {
@@ -2147,7 +2179,7 @@
 
       const marker = L.marker([apt.lat, apt.lng], { icon: badgeIcon, zIndexOffset: apt.grade === "RECOMMEND" ? 500 : 200 });
       marker.bindPopup(`
-        <div class="w-[290px] text-xs">
+        <div class="w-[260px] sm:w-[290px] max-w-[82vw] text-xs">
           <div class="flex items-center justify-between gap-1">
             <span class="px-2 py-0.5 rounded font-bold text-[10px] bg-slate-800 text-blue-300 border border-slate-700">${apt.dong} · ${apt.year}년</span>
             <span class="font-bold text-emerald-400">${apt.sizeText}</span>
@@ -2200,6 +2232,18 @@
       if (el) el.classList.toggle("hidden");
     }
 
+    function toggleMobileFilter() {
+      const container = document.getElementById("filterGridContainer");
+      const text = document.getElementById("mobileFilterToggleText");
+      if (container.classList.contains("hidden")) {
+        container.classList.remove("hidden");
+        text.innerText = "상세 접기 ▲";
+      } else {
+        container.classList.add("hidden");
+        text.innerText = "상세 펼치기 ▼";
+      }
+    }
+
     function applyFilters() {
       const keyword = document.getElementById("searchInput").value.trim().toLowerCase();
       const maxPrice = parseFloat(document.getElementById("priceRange").value);
@@ -2210,6 +2254,9 @@
       const basisLabel = basis === "REAL_LATEST" ? "직전 실거래" : basis === "ASKING_MIN" ? "최저 호가" : "최근 평균 실거래";
       document.getElementById("priceLimitLabel").innerText =
         maxPrice >= 11.8 ? `전체 (${maxPrice.toFixed(1)}억↓)` : `${basisLabel} ${maxPrice.toFixed(1)}억 이하`;
+
+      const mobileLabel = document.getElementById("mobileBasisLabel");
+      if (mobileLabel) mobileLabel.innerText = `${basisLabel} 기준`;
 
       aptMarkerLayerGroup.clearLayers();
       Object.keys(aptMarkersById).forEach(k => delete aptMarkersById[k]);
@@ -2253,38 +2300,38 @@
 
       grid.innerHTML = list.map(apt => {
         const gradeBadge = apt.grade === "RECOMMEND"
-          ? `<span class="px-2 py-0.5 text-[11px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 rounded-full">🟢 추천·예산적합</span>`
+          ? `<span class="px-2 py-0.5 text-[11px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 rounded-full whitespace-nowrap">🟢 추천</span>`
           : apt.grade === "WARN"
-          ? `<span class="px-2 py-0.5 text-[11px] font-bold bg-amber-500/20 text-amber-300 border border-amber-500/40 rounded-full">🟡 주차혼잡 주의</span>`
-          : `<span class="px-2 py-0.5 text-[11px] font-bold bg-rose-500/20 text-rose-300 border border-rose-500/40 rounded-full">🔴 예산초과(신축급)</span>`;
+          ? `<span class="px-2 py-0.5 text-[11px] font-bold bg-amber-500/20 text-amber-300 border border-amber-500/40 rounded-full whitespace-nowrap">🟡 주차주의</span>`
+          : `<span class="px-2 py-0.5 text-[11px] font-bold bg-rose-500/20 text-rose-300 border border-rose-500/40 rounded-full whitespace-nowrap">🔴 예산초과</span>`;
 
         const landUrl = getNaverLandUrl(apt);
         const mapUrl = getNaverMapUrl(apt.dong, apt.name);
 
         const dealsTableRows = (apt.recentDeals || []).map(d => `
           <tr class="border-t border-slate-800/80">
-            <td class="py-1 text-slate-300">${d.date}</td>
-            <td class="py-1 text-slate-300">${d.areaM2}㎡</td>
-            <td class="py-1 text-slate-300">${d.floor}층</td>
-            <td class="py-1 text-right font-bold text-amber-300">${d.priceText} <span class="text-[10px] text-slate-500">(${d.rawAmount}만)</span></td>
+            <td class="py-1 text-slate-300 whitespace-nowrap">${d.date}</td>
+            <td class="py-1 text-slate-300 whitespace-nowrap">${d.areaM2}㎡</td>
+            <td class="py-1 text-slate-300 whitespace-nowrap">${d.floor}층</td>
+            <td class="py-1 text-right font-bold text-amber-300 whitespace-nowrap">${d.priceText} <span class="text-[10px] text-slate-500">(${d.rawAmount}만)</span></td>
           </tr>
         `).join("");
 
         return `
-          <div class="bg-slate-900 border border-slate-800 hover:border-blue-500/60 rounded-xl p-4 flex flex-col justify-between transition shadow-lg">
+          <div class="bg-slate-900 border border-slate-800 hover:border-blue-500/60 rounded-xl p-3.5 sm:p-4 flex flex-col justify-between transition shadow-lg">
             <div>
-              <div class="flex items-center justify-between gap-2 mb-1.5">
+              <div class="flex items-center justify-between gap-1.5 mb-1.5">
                 ${gradeBadge}
-                <span class="text-[11px] text-slate-400">${apt.dong} · ${apt.year}년 (${apt.households}세대)</span>
+                <span class="text-[10px] sm:text-[11px] text-slate-400 truncate">${apt.dong} · ${apt.year}년 (${apt.households}세대)</span>
               </div>
 
-              <div class="flex items-baseline justify-between gap-2 mt-1">
-                <h3 class="text-base font-extrabold text-white cursor-pointer hover:text-blue-400" onclick="focusApartment('${apt.id}')">${apt.name}</h3>
-                <span class="text-xs font-bold text-emerald-400">${apt.sizeText}</span>
+              <div class="flex items-baseline justify-between gap-2 mt-0.5">
+                <h3 class="text-sm sm:text-base font-extrabold text-white cursor-pointer hover:text-blue-400" onclick="focusApartment('${apt.id}')">${apt.name}</h3>
+                <span class="text-xs font-bold text-emerald-400 whitespace-nowrap">${apt.sizeText}</span>
               </div>
 
               <!-- 핵심: 국토부 실거래가 & 네이버 실시간 호가 듀얼 비교 패널 -->
-              <div class="mt-2.5 p-2.5 rounded-lg bg-slate-950/90 border border-slate-800 space-y-1.5 text-xs">
+              <div class="mt-2.5 p-2 sm:p-2.5 rounded-lg bg-slate-950/90 border border-slate-800 space-y-1.5 text-xs">
                 <div class="flex items-center justify-between">
                   <span class="text-slate-400 font-medium">📊 직전 실거래가:</span>
                   <span class="font-extrabold text-amber-400">${apt.realPriceLatestText || apt.priceText}</span>
@@ -2293,27 +2340,27 @@
                   <span class="text-slate-400 font-medium">📈 최근 5건 평균:</span>
                   <span class="font-bold text-emerald-300">
                     ${apt.realPriceAvgEok ? apt.realPriceAvgEok + "억" : "-"}
-                    <span class="text-[11px] text-slate-400 font-normal">(범위 ${apt.realPriceRangeText || "-"})</span>
+                    <span class="text-[10px] sm:text-[11px] text-slate-400 font-normal">(${apt.realPriceRangeText || "-"})</span>
                   </span>
                 </div>
                 <div class="flex items-center justify-between pt-1.5 border-t border-slate-800/90">
                   <span class="text-slate-400 font-medium">🏷️ 네이버 실시간 호가:</span>
                   <span class="font-extrabold text-sky-300">
                     ${apt.askingPriceText || "-"}
-                    <span class="text-[11px] text-slate-400 font-normal">(매물 ${apt.dealArticleCount || 0}건)</span>
+                    <span class="text-[10px] sm:text-[11px] text-slate-400 font-normal">(${apt.dealArticleCount || 0}건)</span>
                   </span>
                 </div>
                 <div class="pt-1">
                   <button type="button" onclick="toggleDealHistory('${apt.id}')" class="w-full py-1 px-2 rounded bg-slate-800/80 hover:bg-slate-800 text-[11px] text-slate-300 font-semibold flex items-center justify-between">
-                    <span>📋 국토부 최근 실거래 상세 (${apt.totalDealsYear || 0}건 중 최근 ${(apt.recentDeals || []).length}건)</span>
+                    <span>📋 최근 실거래 상세 (${apt.totalDealsYear || 0}건 중 ${(apt.recentDeals || []).length}건)</span>
                     <span>▼</span>
                   </button>
-                  <div id="dealHistory_${apt.id}" class="hidden mt-1.5 px-1">
-                    <table class="w-full text-[11px]">
+                  <div id="dealHistory_${apt.id}" class="hidden mt-1.5 px-0.5 overflow-x-auto">
+                    <table class="w-full text-[10px] sm:text-[11px] min-w-[240px]">
                       <thead>
                         <tr class="text-slate-500 text-left">
                           <th class="pb-1">계약일</th>
-                          <th class="pb-1">전용면적</th>
+                          <th class="pb-1">전용</th>
                           <th class="pb-1">층수</th>
                           <th class="pb-1 text-right">실거래가</th>
                         </tr>
@@ -2324,31 +2371,31 @@
                 </div>
               </div>
 
-              <div class="mt-2.5 grid grid-cols-2 gap-1.5 text-[11px] bg-slate-800/70 p-2.5 rounded-lg border border-slate-700/80">
+              <div class="mt-2.5 grid grid-cols-2 gap-1.5 text-[11px] bg-slate-800/70 p-2 sm:p-2.5 rounded-lg border border-slate-700/80">
                 <div><span class="text-slate-400">주차:</span> <b class="${apt.parking >= 1.0 ? 'text-emerald-400' : 'text-amber-400'}">세대당 ${apt.parking}대</b></div>
-                <div><span class="text-slate-400">전세호가:</span> <b class="text-slate-200">${apt.leaseMinText ? apt.leaseMinText + "~" : "-"} (${apt.leaseArticleCount || 0}건)</b></div>
-                <div class="col-span-2"><span class="text-slate-400">H3 셔틀:</span> <b class="text-blue-300">${apt.stopName}</b> <span class="text-emerald-300 font-bold">(도보 ${apt.walkMin}분)</span></div>
+                <div><span class="text-slate-400">전세:</span> <b class="text-slate-200">${apt.leaseMinText ? apt.leaseMinText + "~" : "-"} (${apt.leaseArticleCount || 0}건)</b></div>
+                <div class="col-span-2"><span class="text-slate-400">H3 셔틀:</span> <b class="text-blue-300">${apt.stopName}</b> <span class="text-emerald-300 font-bold">(${apt.walkMin}분)</span></div>
                 <div class="col-span-2"><span class="text-slate-400">지하철:</span> <span class="text-slate-200">${apt.subwayText}</span></div>
               </div>
 
-              <p class="mt-2.5 text-xs text-slate-300 leading-relaxed">${apt.comment}</p>
+              <p class="mt-2.5 text-[11px] sm:text-xs text-slate-300 leading-relaxed">${apt.comment}</p>
             </div>
 
-            <!-- 하단 작동 보장 버튼 3종 -->
-            <div class="mt-3.5 pt-2.5 border-t border-slate-800 grid grid-cols-3 gap-1.5 text-xs">
+            <!-- 하단 작동 보장 버튼 3종 (모바일 줄바꿈 방지) -->
+            <div class="mt-3 pt-2 border-t border-slate-800 grid grid-cols-3 gap-1 sm:gap-1.5 text-[11px] sm:text-xs">
               <button type="button" onclick="focusApartment('${apt.id}')"
-                class="py-2 px-2 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-lg shadow flex items-center justify-center gap-1">
-                📍 지도 포커스
+                class="py-1.5 sm:py-2 px-1 sm:px-2 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-lg shadow flex items-center justify-center gap-0.5 sm:gap-1 whitespace-nowrap">
+                📍 <span class="hidden sm:inline">지도 </span>포커스
               </button>
               <a href="${landUrl}" target="_blank" rel="noopener noreferrer"
                 onclick="openExternalUrl('${landUrl}', '${apt.name} 네이버 부동산'); return false;"
-                class="py-2 px-2 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-lg shadow flex items-center justify-center gap-1">
-                🏠 네이버부동산
+                class="py-1.5 sm:py-2 px-1 sm:px-2 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-lg shadow flex items-center justify-center gap-0.5 sm:gap-1 whitespace-nowrap">
+                🏠 <span class="hidden sm:inline">네이버</span>부동산
               </a>
               <a href="${mapUrl}" target="_blank" rel="noopener noreferrer"
                 onclick="openExternalUrl('${mapUrl}', '${apt.name} 네이버 지도'); return false;"
-                class="py-2 px-2 bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-semibold rounded-lg flex items-center justify-center gap-1">
-                🗺️ 네이버지도
+                class="py-1.5 sm:py-2 px-1 sm:px-2 bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-semibold rounded-lg flex items-center justify-center gap-0.5 sm:gap-1 whitespace-nowrap">
+                🗺️ <span class="hidden sm:inline">네이버</span>지도
               </a>
             </div>
           </div>
@@ -2411,6 +2458,10 @@
     }
 
     window.addEventListener("load", initMap);
+    window.addEventListener("resize", () => { if (map) map.invalidateSize(); });
+    window.addEventListener("orientationchange", () => {
+      setTimeout(() => { if (map) map.invalidateSize(); }, 300);
+    });
   </script>
 </body>
 </html>
