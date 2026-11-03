@@ -93,12 +93,12 @@
         <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-blue-600 flex items-center justify-center font-extrabold text-white text-xs sm:text-sm shadow-lg shadow-blue-600/30 flex-shrink-0">H3</div>
         <div class="min-w-0">
           <div class="flex flex-wrap items-center gap-1.5 sm:gap-2">
-            <h1 class="text-sm sm:text-base md:text-lg font-bold text-white tracking-tight truncate">삼성 H3 근거리 셔틀 & 아파트 실거래·호가</h1>
+            <h1 class="text-sm sm:text-base md:text-lg font-bold text-white tracking-tight truncate">삼성 H3 셔틀 & 아파트 실거래·호가</h1>
             <span id="syncStatusBadge" class="px-1.5 sm:px-2 py-0.5 text-[10px] sm:text-[11px] font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded-full whitespace-nowrap">
               📡 실거래+호가 연동
             </span>
           </div>
-          <p id="syncSubText" class="text-[11px] sm:text-xs text-slate-400 truncate hidden sm:block">화성캠퍼스 반도체연구소 6개 노선 · 국토교통부 실거래가 & 네이버 부동산 실시간 호가 동시 반영</p>
+          <p id="syncSubText" class="text-[11px] sm:text-xs text-slate-400 truncate hidden sm:block">화성캠퍼스 반도체연구소 18개 셔틀 노선 (근거리 6 + 수원통근 12) · 국토교통부 실거래가 & 네이버 부동산 호가 반영</p>
         </div>
       </div>
 
@@ -119,24 +119,29 @@
       </div>
     </div>
 
-    <!-- 노선 선택 바 (모바일 가로 스와이프 지원) -->
-    <div class="max-w-7xl mx-auto mt-2 pt-2 border-t border-slate-800/80 flex flex-col sm:flex-row sm:items-center justify-between gap-1.5">
-      <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-0.5 -mx-3 px-3 sm:mx-0 sm:px-0" id="routeFilterBar">
-        <button onclick="selectRoute('ALL')" id="routeBtn_ALL" class="px-2.5 sm:px-3 py-1 rounded-full text-[11px] sm:text-xs font-bold bg-white text-slate-900 shadow whitespace-nowrap flex-shrink-0">전체 6개 노선</button>
-        <button onclick="selectRoute('R1')" id="routeBtn_R1" class="px-2.5 py-1 rounded-full text-[11px] sm:text-xs font-medium bg-slate-800 text-slate-300 hover:bg-slate-700 border border-slate-700 whitespace-nowrap flex-shrink-0">🔵 망포/영통</button>
-        <button onclick="selectRoute('R2')" id="routeBtn_R2" class="px-2.5 py-1 rounded-full text-[11px] sm:text-xs font-medium bg-slate-800 text-slate-300 hover:bg-slate-700 border border-slate-700 whitespace-nowrap flex-shrink-0">🟢 반월동</button>
-        <button onclick="selectRoute('R3')" id="routeBtn_R3" class="px-2.5 py-1 rounded-full text-[11px] sm:text-xs font-medium bg-slate-800 text-slate-300 hover:bg-slate-700 border border-slate-700 whitespace-nowrap flex-shrink-0">🟣 신동탄/서천</button>
-        <button onclick="selectRoute('R4')" id="routeBtn_R4" class="px-2.5 py-1 rounded-full text-[11px] sm:text-xs font-medium bg-slate-800 text-slate-300 hover:bg-slate-700 border border-slate-700 whitespace-nowrap flex-shrink-0">🟠 망포동</button>
-        <button onclick="selectRoute('R5')" id="routeBtn_R5" class="px-2.5 py-1 rounded-full text-[11px] sm:text-xs font-medium bg-slate-800 text-slate-300 hover:bg-slate-700 border border-slate-700 whitespace-nowrap flex-shrink-0">🩷 반정아이파크</button>
-        <button onclick="selectRoute('R6')" id="routeBtn_R6" class="px-2.5 py-1 rounded-full text-[11px] sm:text-xs font-medium bg-slate-800 text-slate-300 hover:bg-slate-700 border border-slate-700 whitespace-nowrap flex-shrink-0">🩵 동탄나루마을</button>
+    <!-- 노선 선택 바 (셔틀 구분 태그 필터 + 세부 노선 목록) -->
+    <div class="max-w-7xl mx-auto mt-2 pt-2 border-t border-slate-800/80 flex flex-col gap-1.5">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5">
+        <!-- 셔틀 구분 태그 필터 (근거리 vs 일반 통근) -->
+        <div class="flex items-center gap-1 overflow-x-auto no-scrollbar py-0.5">
+          <span class="text-[11px] font-semibold text-slate-400 mr-1 flex-shrink-0">셔틀 구분:</span>
+          <button onclick="selectRouteType('ALL')" id="typeBtn_ALL" class="px-2.5 py-1 rounded-md text-[11px] font-bold bg-blue-600 text-white shadow whitespace-nowrap flex-shrink-0">전체 (18)</button>
+          <button onclick="selectRouteType('LOCAL')" id="typeBtn_LOCAL" class="px-2.5 py-1 rounded-md text-[11px] font-medium bg-slate-800 text-slate-300 hover:bg-slate-700 border border-slate-700 whitespace-nowrap flex-shrink-0">⚡ 근거리 셔틀 (6)</button>
+          <button onclick="selectRouteType('COMMUTE')" id="typeBtn_COMMUTE" class="px-2.5 py-1 rounded-md text-[11px] font-medium bg-slate-800 text-slate-300 hover:bg-slate-700 border border-slate-700 whitespace-nowrap flex-shrink-0">🚌 수원 통근 셔틀 (12)</button>
+        </div>
+
+        <!-- 반경 선택 -->
+        <div class="flex items-center gap-1.5 text-[11px] sm:text-xs bg-slate-800/90 px-2.5 py-1 rounded-lg border border-slate-700 self-start sm:self-auto whitespace-nowrap">
+          <span class="text-slate-400">도보반경:</span>
+          <label class="flex items-center gap-1 cursor-pointer"><input type="radio" name="radiusOpt" value="300" onchange="changeRadius(300)"> 300m</label>
+          <label class="flex items-center gap-1 cursor-pointer"><input type="radio" name="radiusOpt" value="500" checked onchange="changeRadius(500)"> 500m</label>
+          <label class="flex items-center gap-1 cursor-pointer"><input type="radio" name="radiusOpt" value="0" onchange="changeRadius(0)"> 숨김</label>
+        </div>
       </div>
 
-      <!-- 반경 선택 -->
-      <div class="flex items-center gap-1.5 text-[11px] sm:text-xs bg-slate-800/90 px-2.5 py-1 rounded-lg border border-slate-700 self-start sm:self-auto whitespace-nowrap">
-        <span class="text-slate-400">도보반경:</span>
-        <label class="flex items-center gap-1 cursor-pointer"><input type="radio" name="radiusOpt" value="300" onchange="changeRadius(300)"> 300m</label>
-        <label class="flex items-center gap-1 cursor-pointer"><input type="radio" name="radiusOpt" value="500" checked onchange="changeRadius(500)"> 500m</label>
-        <label class="flex items-center gap-1 cursor-pointer"><input type="radio" name="radiusOpt" value="0" onchange="changeRadius(0)"> 숨김</label>
+      <!-- 세부 노선 선택 바 (선택된 유형에 따라 동적 필터링 또는 가로 스와이프) -->
+      <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-0.5 -mx-3 px-3 sm:mx-0 sm:px-0" id="routeFilterBar">
+        <!-- JS renderRouteFilterBar()에서 동적 생성 -->
       </div>
     </div>
   </header>
@@ -1370,8 +1375,13 @@
     ];
 
     const SHUTTLE_ROUTES = [
+      // -----------------------------------------------------------------------
+      // [근거리 셔틀] 화성 H3 반경 5~7km 집중 운행 노선 (R1 ~ R6)
+      // -----------------------------------------------------------------------
       {
         id: "R1",
+        type: "LOCAL",
+        typeLabel: "근거리",
         name: "(근거리) 망포/영통_H1-H3",
         color: "#3b82f6",
         desc: "망포역 역세권 핵심 노선 · 영통SK뷰·망포쌍용·늘푸른벽산·현대아이파크 경유",
@@ -1386,6 +1396,8 @@
       },
       {
         id: "R2",
+        type: "LOCAL",
+        typeLabel: "근거리",
         name: "(근거리) 반월동_H3",
         color: "#10b981",
         desc: "반월동 신축·준신축 단지에서 H3 정문까지 5~7분 직통 노선",
@@ -1398,6 +1410,8 @@
       },
       {
         id: "R3",
+        type: "LOCAL",
+        typeLabel: "근거리",
         name: "(근거리) 신동탄/서천_H1-H3",
         color: "#a855f7",
         desc: "서천지구·신동탄포레자이·반달마을에서 H1/H3 직통",
@@ -1411,6 +1425,8 @@
       },
       {
         id: "R4",
+        type: "LOCAL",
+        typeLabel: "근거리",
         name: "(근거리) 망포동_H3",
         color: "#f97316",
         desc: "신동 래미안마크원 및 망포 영통아이파크캐슬 H3 직통",
@@ -1423,6 +1439,8 @@
       },
       {
         id: "R5",
+        type: "LOCAL",
+        typeLabel: "근거리",
         name: "(근거리) 반정아이파크_H3",
         color: "#ec4899",
         desc: "망포역더샵엘클래스 및 반정아이파크캐슬 4·5단지 노선",
@@ -1436,6 +1454,8 @@
       },
       {
         id: "R6",
+        type: "LOCAL",
+        typeLabel: "근거리",
         name: "(근거리) 동탄나루마을_H2/H3",
         color: "#06b6d4",
         desc: "동탄1신도시 반송동 나루마을·새강마을 노선",
@@ -1444,6 +1464,208 @@
           { no: 2, name: "반송초교(버스정류장)", lat: 37.1955, lng: 127.0642 },
           { no: 3, name: "새강마을5단지(517동 정류장)", lat: 37.1982, lng: 127.0625 },
           { no: 4, name: "화성캠퍼스 H2 / H3 인접", lat: 37.2135, lng: 127.0692 }
+        ]
+      },
+
+      // -----------------------------------------------------------------------
+      // [수원권 일반 통근 셔틀] 아주대/광교/인계동/영통/화서 등 (R7 ~ R18)
+      // -----------------------------------------------------------------------
+      {
+        id: "R7",
+        type: "COMMUTE",
+        typeLabel: "수원통근",
+        name: "인계동청소년문화센터_H3",
+        color: "#e11d48",
+        desc: "아주대병원 서쪽 1.5km · 동수원우체국 · 인계동 중심 상업/주거 단지 직통 (06:40 출발)",
+        stops: [
+          { no: 1, name: "수원청소년문화센터", lat: 37.2729, lng: 127.0362 },
+          { no: 2, name: "동수원우체국", lat: 37.2671, lng: 127.0339 },
+          { no: 3, name: "인계동국민은행", lat: 37.2645, lng: 127.0328 },
+          { no: 4, name: "인계동갤러리아맞은편", lat: 37.2604, lng: 127.0312 },
+          { no: 5, name: "인계동트윈파크맞은편(횡단보도)", lat: 37.2572, lng: 127.0337 },
+          { no: 6, name: "화성캠퍼스H3", lat: 37.2128, lng: 127.0723 }
+        ]
+      },
+      {
+        id: "R8",
+        type: "COMMUTE",
+        typeLabel: "수원통근",
+        name: "광교이편한세상_H3",
+        color: "#0284c7",
+        desc: "아주대병원 북동쪽 1.5km · 광교중앙역 · 자연앤힐스테이트 · 푸르지오월드마크 직통 (06:55 출발)",
+        stops: [
+          { no: 1, name: "광교이편한세상", lat: 37.2930, lng: 127.0543 },
+          { no: 2, name: "광교오드/래미안(버스정류장)", lat: 37.2905, lng: 127.0597 },
+          { no: 3, name: "광교레이크오피스텔103동(버스정류장)", lat: 37.2877, lng: 127.0631 },
+          { no: 4, name: "광교엘포트아이파크오피스텔(버스정류장)", lat: 37.2866, lng: 127.0578 },
+          { no: 5, name: "광교자연앤자이3단지5303동", lat: 37.2842, lng: 127.0536 },
+          { no: 6, name: "광교자연앤힐스테이트5414동", lat: 37.2874, lng: 127.0499 },
+          { no: 7, name: "광교푸르지오월드마크101동(버스정류장)", lat: 37.2923, lng: 127.0475 },
+          { no: 8, name: "화성캠퍼스H3", lat: 37.2128, lng: 127.0723 }
+        ]
+      },
+      {
+        id: "R9",
+        type: "COMMUTE",
+        typeLabel: "수원통근",
+        name: "남문/남수원/망포_K1-H3",
+        color: "#f59e0b",
+        desc: "아주대병원 남서쪽 성빈센트병원 · 인계사거리 · 권선시장 · 망포역 관통 (06:25 출발)",
+        stops: [
+          { no: 1, name: "남문녹산문고", lat: 37.2751, lng: 127.0188 },
+          { no: 2, name: "수원성빈센트병원(강남여성병원앞)", lat: 37.2768, lng: 127.0271 },
+          { no: 3, name: "인계사거리(일룸앞)", lat: 37.2678, lng: 127.0268 },
+          { no: 4, name: "수원권선시장(새마을금고)", lat: 37.2553, lng: 127.0252 },
+          { no: 5, name: "권선동순복음교회(버스정류장)", lat: 37.2457, lng: 127.0359 },
+          { no: 6, name: "아이파크캐슬1단지116동(버스정류장)", lat: 37.2451, lng: 127.0461 },
+          { no: 7, name: "망포역3번출구방향(그대가프리미어110동후문앞)", lat: 37.2445, lng: 127.0561 },
+          { no: 8, name: "태장초교사거리(스타프라움)", lat: 37.2417, lng: 127.0552 },
+          { no: 9, name: "태장사거리(수원해소한의원)", lat: 37.2387, lng: 127.0562 },
+          { no: 10, name: "신영통현대아파트(이마트에브리데이앞)", lat: 37.2361, lng: 127.0609 },
+          { no: 11, name: "신영통타이어뱅크", lat: 37.2335, lng: 127.0638 },
+          { no: 12, name: "기흥캠퍼스", lat: 37.2273, lng: 127.0821 },
+          { no: 13, name: "화성캠퍼스H3", lat: 37.2128, lng: 127.0723 }
+        ]
+      },
+      {
+        id: "R10",
+        type: "COMMUTE",
+        typeLabel: "수원통근",
+        name: "광교호수중흥S클래스_H3-H2",
+        color: "#14b8a6",
+        desc: "원천동·광교호수공원 대단지 (중흥S클래스·호반베르디움·아이파크) H3 직통 (06:40 출발)",
+        stops: [
+          { no: 1, name: "광교호수중흥S클래스105동맞은편", lat: 37.2812, lng: 127.0594 },
+          { no: 2, name: "광교호반베르디움1002동(횡단보도)", lat: 37.2738, lng: 127.0562 },
+          { no: 3, name: "광교아이파크103동맞은편(버스정류장)", lat: 37.2727, lng: 127.0609 },
+          { no: 4, name: "화성캠퍼스H3", lat: 37.2128, lng: 127.0723 },
+          { no: 5, name: "화성캠퍼스H2", lat: 37.2174, lng: 127.0705 }
+        ]
+      },
+      {
+        id: "R11",
+        type: "COMMUTE",
+        typeLabel: "수원통근",
+        name: "광교휴먼시아_H3-H2",
+        color: "#8b5cf6",
+        desc: "광교 휴먼시아·상록자이·경기대후문·한양수자인 경유 (06:30 출발)",
+        stops: [
+          { no: 1, name: "광교휴먼시아(버스정류장)", lat: 37.2928, lng: 127.0678 },
+          { no: 2, name: "광교상록자이(엘리치안빌딩앞)", lat: 37.2964, lng: 127.0691 },
+          { no: 3, name: "경기대후문(광교한신교회)", lat: 37.2997, lng: 127.0437 },
+          { no: 4, name: "광교한양수자인8201동(버스정류장)", lat: 37.3052, lng: 127.0489 },
+          { no: 5, name: "광교호반베르디움트라엘8108동(버스정류장)", lat: 37.3049, lng: 127.0515 },
+          { no: 6, name: "화성캠퍼스H3", lat: 37.2128, lng: 127.0723 },
+          { no: 7, name: "화성캠퍼스H2", lat: 37.2174, lng: 127.0705 }
+        ]
+      },
+      {
+        id: "R12",
+        type: "COMMUTE",
+        typeLabel: "수원통근",
+        name: "인계파밀리에_H3-H2",
+        color: "#fb7185",
+        desc: "매교역푸르지오SK뷰 및 인계사거리에서 H3 25분 직통 (06:40 출발)",
+        stops: [
+          { no: 1, name: "매교역푸르지오107동(버스정류장)", lat: 37.2695, lng: 127.0225 },
+          { no: 2, name: "인계사거리(버스정류장)", lat: 37.2671, lng: 127.0267 },
+          { no: 3, name: "화성캠퍼스H3", lat: 37.2128, lng: 127.0723 },
+          { no: 4, name: "화성캠퍼스H2", lat: 37.2174, lng: 127.0705 }
+        ]
+      },
+      {
+        id: "R13",
+        type: "COMMUTE",
+        typeLabel: "수원통근",
+        name: "권선우남아파트125동_H3",
+        color: "#6366f1",
+        desc: "권선동 우남1차·수원대림 및 영통아이파크캐슬 경유 (06:45 출발)",
+        stops: [
+          { no: 1, name: "권선동우남1차125동", lat: 37.2493, lng: 127.0337 },
+          { no: 2, name: "수원대림아파트221동(현대아파트311동맞은편)", lat: 37.2486, lng: 127.0374 },
+          { no: 3, name: "아이파크캐슬1단지116동(버스정류장)", lat: 37.2451, lng: 127.0461 },
+          { no: 4, name: "화성캠퍼스H3", lat: 37.2128, lng: 127.0723 }
+        ]
+      },
+      {
+        id: "R14",
+        type: "COMMUTE",
+        typeLabel: "수원통근",
+        name: "(통근) 수원곡반정동_H1-H3",
+        color: "#84cc16",
+        desc: "수원 하늘채더퍼스트 3,236세대 대단지 전용 셔틀 (06:30~09:30 15분 간격)",
+        stops: [
+          { no: 1, name: "하늘채더퍼스트205동(버스정류장)", lat: 37.2400, lng: 127.0324 },
+          { no: 2, name: "순복음교회입구", lat: 37.2455, lng: 127.0366 },
+          { no: 3, name: "화성H1정문(출구삼거리)", lat: 37.2236, lng: 127.0650 },
+          { no: 4, name: "화성H3(승강장횡단보도)", lat: 37.2123, lng: 127.0717 }
+        ]
+      },
+      {
+        id: "R15",
+        type: "COMMUTE",
+        typeLabel: "수원통근",
+        name: "청명마을/서천_H3",
+        color: "#22c55e",
+        desc: "영통 청명마을 · 영일초 · 서천효성헤링턴 · 센트럴파크원 노선 (08:05 출발)",
+        stops: [
+          { no: 1, name: "청명마을(아이디빌딩)", lat: 37.2532, lng: 127.0797 },
+          { no: 2, name: "펜트하우스리빙텔", lat: 37.2480, lng: 127.0791 },
+          { no: 3, name: "영일초등학교(지하도입구삼거리)", lat: 37.2474, lng: 127.0742 },
+          { no: 4, name: "서천효성헤링턴101동맞은편(중앙빌라)", lat: 37.2447, lng: 127.0740 },
+          { no: 5, name: "센트럴파크원111동(버스정류장)", lat: 37.2391, lng: 127.0740 },
+          { no: 6, name: "서천마을휴먼시아3단지302동(버스정류장)", lat: 37.2349, lng: 127.0707 },
+          { no: 7, name: "화성캠퍼스H3", lat: 37.2128, lng: 127.0723 }
+        ]
+      },
+      {
+        id: "R16",
+        type: "COMMUTE",
+        typeLabel: "수원통근",
+        name: "소망프라자/망포_H3(교대조)",
+        color: "#a21caf",
+        desc: "영통 신나무실 · 벽적골우성 · 망포역 · 태장초교 · 영통아이파크캐슬 (교대조)",
+        stops: [
+          { no: 1, name: "신나무실쌍용아파트(버스정류장)", lat: 37.2564, lng: 127.0660 },
+          { no: 2, name: "신나무실주공5단지(소망교육문화센터)", lat: 37.2521, lng: 127.0651 },
+          { no: 3, name: "벽적골우성8단지826동", lat: 37.2482, lng: 127.0611 },
+          { no: 4, name: "망포역3번출구방향(그대가프리미어110동후문앞)", lat: 37.2445, lng: 127.0561 },
+          { no: 5, name: "태장초교사거리(스타프라움)", lat: 37.2417, lng: 127.0552 },
+          { no: 6, name: "태장사거리(수원해소한의원)", lat: 37.2387, lng: 127.0562 },
+          { no: 7, name: "신영통현대아파트(이마트에브리데이앞)", lat: 37.2361, lng: 127.0609 },
+          { no: 8, name: "신영통타이어뱅크", lat: 37.2335, lng: 127.0638 },
+          { no: 9, name: "화성캠퍼스H3", lat: 37.2128, lng: 127.0723 }
+        ]
+      },
+      {
+        id: "R17",
+        type: "COMMUTE",
+        typeLabel: "수원통근",
+        name: "수원화서역/스타필드_H3-H2",
+        color: "#d946ef",
+        desc: "화서역파크푸르지오 및 수원스타필드 거점 출근 셔틀 (06:30 출발)",
+        stops: [
+          { no: 1, name: "화서역파크푸르지오111동(버스정류장)", lat: 37.2906, lng: 126.9959 },
+          { no: 2, name: "수원스타필드(주공3단지308동맞은편)", lat: 37.2865, lng: 126.9909 },
+          { no: 3, name: "화성캠퍼스H3", lat: 37.2128, lng: 127.0723 },
+          { no: 4, name: "화성캠퍼스H2", lat: 37.2174, lng: 127.0705 }
+        ]
+      },
+      {
+        id: "R18",
+        type: "COMMUTE",
+        typeLabel: "수원통근",
+        name: "정자동청솔아파트_H3",
+        color: "#64748b",
+        desc: "북수원 정자동 백설마을·청솔SK뷰 및 수원중부경찰서 경유 (06:35 출발)",
+        stops: [
+          { no: 1, name: "청솔SK뷰621동(버스정류장)", lat: 37.2955, lng: 126.9847 },
+          { no: 2, name: "수원백설현대코오롱아파트581동정문", lat: 37.2970, lng: 126.9891 },
+          { no: 3, name: "수원정자동백설마을효성5단지533동정문", lat: 37.2944, lng: 126.9907 },
+          { no: 4, name: "수원중부경찰서(롯데프라자맞은편 육교밑)", lat: 37.2962, lng: 126.9960 },
+          { no: 5, name: "경기도체육회관맞은편(새마을금고)", lat: 37.2956, lng: 126.9992 },
+          { no: 6, name: "수원정자사거리(다사랑산후조리센터맞은편)", lat: 37.2923, lng: 127.0018 },
+          { no: 7, name: "화성캠퍼스H3", lat: 37.2128, lng: 127.0723 }
         ]
       }
     ];
@@ -1934,6 +2156,7 @@
     let highlightLayerGroup = L.layerGroup();
 
     const aptMarkersById = {};
+    let selectedRouteType = "ALL"; // "ALL" | "LOCAL" | "COMMUTE"
     let selectedRouteId = "ALL";
     let currentRadius = 500;
     let lastExternalUrl = "";
@@ -1964,6 +2187,7 @@
       aptMarkerLayerGroup.addTo(map);
 
       renderCampusAndSubway();
+      renderRouteFilterBar();
       renderShuttleRoutes();
 
       // 가격 데이터 병합 및 필터 적용
@@ -2011,6 +2235,9 @@
       radiusLayerGroup.clearLayers();
 
       SHUTTLE_ROUTES.forEach(route => {
+        // 셔틀 구분 필터 (ALL, LOCAL, COMMUTE)
+        if (selectedRouteType !== "ALL" && route.type !== selectedRouteType) return;
+        // 개별 노선 필터
         if (selectedRouteId !== "ALL" && selectedRouteId !== route.id) return;
 
         const latlngs = route.stops.map(s => [s.lat, s.lng]);
@@ -2040,11 +2267,19 @@
           });
 
           const naverMapStopUrl = `https://map.naver.com/p/search/${encodeURIComponent(stop.name.split("(")[0])}`;
+          const typeBadge = route.type === "LOCAL"
+            ? "<span class='px-1.5 py-0.5 rounded text-[10px] font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30'>⚡ 근거리</span>"
+            : "<span class='px-1.5 py-0.5 rounded text-[10px] font-semibold bg-blue-500/20 text-blue-300 border border-blue-500/30'>🚌 수원통근</span>";
+
           const marker = L.marker([stop.lat, stop.lng], { icon: stopIcon }).addTo(routeLayerGroup);
           marker.bindPopup(`
-            <div class="min-w-[210px]">
-              <div class="text-[11px] font-bold" style="color:${route.color}">${route.name}</div>
-              <div class="text-sm font-extrabold text-white mt-0.5">정류장 ${stop.no}. ${stop.name}</div>
+            <div class="min-w-[220px]">
+              <div class="flex items-center justify-between gap-1">
+                <div class="text-[11px] font-bold" style="color:${route.color}">${route.name}</div>
+                ${typeBadge}
+              </div>
+              <div class="text-sm font-extrabold text-white mt-1">정류장 ${stop.no}. ${stop.name}</div>
+              <div class="text-[10px] text-slate-400 mt-0.5 leading-snug">${route.desc}</div>
               <div class="mt-2 flex gap-1.5">
                 <button onclick="openExternalUrl('${naverMapStopUrl}', '${stop.name} 네이버 지도')" class="flex-1 py-1 px-2 bg-emerald-600 hover:bg-emerald-500 text-white rounded text-[11px] font-bold">
                   🗺️ 네이버 지도 보기 ↗
@@ -2263,6 +2498,10 @@
 
       const filtered = APARTMENTS.filter(apt => {
         if (selectedRouteId !== "ALL" && apt.routeId !== selectedRouteId) return false;
+        if (selectedRouteId === "ALL" && selectedRouteType === "COMMUTE") {
+          const aptRoute = SHUTTLE_ROUTES.find(r => r.id === apt.routeId);
+          if (aptRoute && aptRoute.type !== "COMMUTE") return false;
+        }
         const comparePrice = getActivePriceEok(apt);
         if (comparePrice > maxPrice) return false;
         if (sizeOpt !== "ALL" && apt.sizeGroup !== sizeOpt) return false;
@@ -2288,10 +2527,16 @@
       document.getElementById("aptCountBadge").innerText = `${list.length}개`;
 
       if (list.length === 0) {
+        const isCommuteMode = selectedRouteType === "COMMUTE" || (selectedRouteId !== "ALL" && selectedRouteId.startsWith("R") && parseInt(selectedRouteId.slice(1)) >= 7);
+        const subMsg = isCommuteMode
+          ? "현재 등록된 16개 분석 단지는 [근거리 셔틀(R1~R6)] 연계 단지입니다.<br/>선택하신 수원 통근 셔틀의 세부 정류장 및 경유지는 상단 지도에서 정류장 핀으로 확인하실 수 있습니다."
+          : "가격/평형/주차 필터를 완화하거나 전체 단지 보기를 눌러보세요.";
+
         grid.innerHTML = `
           <div class="col-span-full bg-slate-900 border border-slate-800 rounded-xl p-8 text-center">
-            <p class="text-sm font-bold text-slate-300">현재 필터 조건에 맞는 단지가 없습니다.</p>
-            <button onclick="setQuickPreset('ALL')" class="mt-3 px-4 py-2 bg-blue-600 text-white text-xs font-bold rounded-lg">
+            <p class="text-sm font-bold text-slate-300">현재 조건에 표시할 단지가 없습니다.</p>
+            <p class="text-xs text-slate-400 mt-1 leading-relaxed">${subMsg}</p>
+            <button onclick="setQuickPreset('ALL')" class="mt-3 px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold rounded-lg shadow">
               전체 단지 보기로 필터 초기화
             </button>
           </div>`;
@@ -2403,30 +2648,99 @@
       }).join("");
     }
 
-    function selectRoute(routeId) {
-      selectedRouteId = routeId;
-      ["ALL", "R1", "R2", "R3", "R4", "R5", "R6"].forEach(id => {
-        const btn = document.getElementById("routeBtn_" + id);
+    function renderRouteFilterBar() {
+      const container = document.getElementById("routeFilterBar");
+      if (!container) return;
+
+      const filteredRoutes = SHUTTLE_ROUTES.filter(r => {
+        if (selectedRouteType === "ALL") return true;
+        return r.type === selectedRouteType;
+      });
+
+      const totalLabel = selectedRouteType === "LOCAL" ? `근거리 전체 (${filteredRoutes.length})`
+                       : selectedRouteType === "COMMUTE" ? `통근 전체 (${filteredRoutes.length})`
+                       : `전체 (${SHUTTLE_ROUTES.length}개 노선)`;
+
+      let html = `
+        <button onclick="selectRoute('ALL')" id="routeBtn_ALL" class="${selectedRouteId === 'ALL' ? 'px-2.5 sm:px-3 py-1 rounded-full text-[11px] sm:text-xs font-bold bg-white text-slate-900 shadow' : 'px-2.5 py-1 rounded-full text-[11px] sm:text-xs font-medium bg-slate-800 text-slate-300 hover:bg-slate-700 border border-slate-700'} whitespace-nowrap flex-shrink-0">
+          ${totalLabel}
+        </button>
+      `;
+
+      filteredRoutes.forEach(r => {
+        const isSelected = selectedRouteId === r.id;
+        const badge = r.type === "LOCAL" ? "⚡" : "🚌";
+        const shortName = r.name.replace("(근거리) ", "").replace("(통근) ", "");
+        html += `
+          <button onclick="selectRoute('${r.id}')" id="routeBtn_${r.id}" class="${isSelected ? 'px-2.5 sm:px-3 py-1 rounded-full text-[11px] sm:text-xs font-bold bg-white text-slate-900 shadow' : 'px-2.5 py-1 rounded-full text-[11px] sm:text-xs font-medium bg-slate-800 text-slate-300 hover:bg-slate-700 border border-slate-700'} whitespace-nowrap flex-shrink-0" style="${isSelected ? '' : 'border-left: 3px solid ' + r.color}">
+            ${badge} ${shortName}
+          </button>
+        `;
+      });
+
+      container.innerHTML = html;
+    }
+
+    function selectRouteType(type) {
+      selectedRouteType = type;
+      ["ALL", "LOCAL", "COMMUTE"].forEach(t => {
+        const btn = document.getElementById("typeBtn_" + t);
         if (!btn) return;
-        if (id === routeId) {
-          btn.className = "px-3 py-1 rounded-full text-xs font-bold bg-white text-slate-900 shadow";
+        if (t === type) {
+          btn.className = "px-2.5 py-1 rounded-md text-[11px] font-bold bg-blue-600 text-white shadow whitespace-nowrap flex-shrink-0";
         } else {
-          btn.className = "px-2.5 py-1 rounded-full text-xs font-medium bg-slate-800 text-slate-300 hover:bg-slate-700 border border-slate-700";
+          btn.className = "px-2.5 py-1 rounded-md text-[11px] font-medium bg-slate-800 text-slate-300 hover:bg-slate-700 border border-slate-700 whitespace-nowrap flex-shrink-0";
         }
       });
 
+      // 선택된 노선이 현재 선택된 셔틀 유형에 포함되지 않으면 ALL로 리셋
+      if (selectedRouteId !== "ALL") {
+        const curr = SHUTTLE_ROUTES.find(r => r.id === selectedRouteId);
+        if (curr && type !== "ALL" && curr.type !== type) {
+          selectedRouteId = "ALL";
+        }
+      }
+
+      renderRouteFilterBar();
+      renderShuttleRoutes();
+      applyFilters();
+
+      if (selectedRouteId === "ALL") {
+        if (type === "COMMUTE") {
+          map.setView([37.2650, 127.0350], 12);
+        } else {
+          map.setView([37.2325, 127.0585], 13);
+        }
+      }
+
+      const typeTitle = type === "LOCAL" ? "근거리 셔틀 (6개)" : type === "COMMUTE" ? "수원권 일반 통근 셔틀 (12개)" : "전체 18개 셔틀 노선";
+      document.getElementById("statusTitle").innerText = `${typeTitle} 표시 중`;
+      document.getElementById("statusDesc").innerText = type === "LOCAL" ? "화성 H3 인근 반경 5~7km 내 근거리 집중 노선입니다." : "아주대병원/인계동/광교/망포/화서 등 수원 전역 H3 출근 노선입니다.";
+    }
+
+    function selectRoute(routeId) {
+      selectedRouteId = routeId;
+      renderRouteFilterBar();
       renderShuttleRoutes();
       applyFilters();
 
       if (routeId === "ALL") {
-        map.setView([37.2325, 127.0585], 13);
+        if (selectedRouteType === "COMMUTE") {
+          map.setView([37.2650, 127.0350], 12);
+        } else {
+          map.setView([37.2325, 127.0585], 13);
+        }
+        const typeTitle = selectedRouteType === "LOCAL" ? "근거리 6개 노선" : selectedRouteType === "COMMUTE" ? "수원권 일반 통근 12개 노선" : "전체 18개 노선";
+        document.getElementById("statusTitle").innerText = `${typeTitle} & 단지 실거래·호가 표시 중`;
+        document.getElementById("statusDesc").innerText = "아래 목록에서 [📍 지도 포커스]를 누르면 해당 아파트로 즉시 이동합니다.";
       } else {
         const route = SHUTTLE_ROUTES.find(r => r.id === routeId);
         if (route) {
           const bounds = L.latLngBounds(route.stops.map(s => [s.lat, s.lng]));
           map.fitBounds(bounds, { padding: [45, 45] });
-          document.getElementById("statusTitle").innerText = `${route.name} 노선 집중 보기`;
-          document.getElementById("statusDesc").innerText = route.desc;
+          const tag = route.type === "LOCAL" ? "[근거리]" : "[수원통근]";
+          document.getElementById("statusTitle").innerText = `${tag} ${route.name} 집중 보기`;
+          document.getElementById("statusDesc").innerText = `${route.desc} · 총 ${route.stops.length}개 정류장`;
         }
       }
     }
@@ -2452,8 +2766,11 @@
     function resetFullMap() {
       highlightLayerGroup.clearLayers();
       setQuickPreset("RECOMMEND");
+      selectedRouteType = "ALL";
+      selectRouteType("ALL");
+      selectRoute("ALL");
       map.setView([37.2325, 127.0585], 13);
-      document.getElementById("statusTitle").innerText = "전체 6개 노선 & 단지 실거래·호가 표시 중";
+      document.getElementById("statusTitle").innerText = "전체 18개 노선 & 단지 실거래·호가 표시 중";
       document.getElementById("statusDesc").innerText = "아래 목록에서 [📍 지도 포커스]를 누르면 해당 아파트로 즉시 이동합니다.";
     }
 
