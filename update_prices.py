@@ -23,6 +23,7 @@ import statistics
 import subprocess
 import urllib.parse
 import urllib.request
+import xml.etree.ElementTree as ET
 from typing import Any, Dict, List, Optional
 
 # 16개 분석 대상 단지 메타데이터 매핑
@@ -339,6 +340,58 @@ def fetch_molit_transactions(opener, target: Dict[str, Any], year: str = "2026")
     }
 
 
+def fetch_molit_openapi_fallback(target: Dict[str, Any], service_key: str, deal_ymd: str = "202610") -> Dict[str, Any]:
+    """github_config.json에 저장된 공공데이터포털 OpenAPI(RTMSDataSvcAptTradeDev) 인증키를 사용한 조회"""
+    lawd_cd = target["molit_led"][:5]
+    url = (
+        f"https://apis.data.go.kr/1613000/RTMSDataSvcAptTradeDev/getRTMSDataSvcAptTradeDev?"
+        f"serviceKey={service_key}&LAWD_CD={lawd_cd}&DEAL_YMD={deal_ymd}&pageNo=1&numOfRows=1000"
+    )
+    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+    xml_data = urllib.request.urlopen(req, timeout=10).read().decode("utf-8")
+    root = ET.fromstring(xml_data)
+
+    amin, amax = target["area_min"], target["area_max"]
+    short_name = target["name"].split()[0][:4]
+    history = []
+    for item in root.findall(".//item"):
+        apt_nm = (item.findtext("aptNm") or "").strip()
+        cdeal = (item.findtext("cdealType") or "").strip()
+        if cdeal == "O" or short_name not in apt_nm:
+            continue
+        area = float(item.findtext("excluUseAr") or "0")
+        if not (amin <= area <= amax):
+            continue
+        raw_amt = (item.findtext("dealAmount") or "").strip()
+        p_eok = parse_korean_price_to_eok(raw_amt)
+        if p_eok is None:
+            continue
+        y = (item.findtext("dealYear") or "").strip()
+        m = (item.findtext("dealMonth") or "").strip().zfill(2)
+        d = (item.findtext("dealDay") or "").strip().zfill(2)
+        history.append({
+            "date": f"{y}.{m}.{d}",
+            "priceEok": p_eok,
+            "priceText": format_eok(p_eok),
+            "rawAmount": raw_amt,
+            "areaM2": round(area, 1),
+            "floor": (item.findtext("floor") or "-").strip(),
+            "dealType": (item.findtext("dealingGbn") or "중개거래").strip(),
+        })
+
+    history.sort(key=lambda x: x["date"], reverse=True)
+    recent_5 = history[:5]
+    recent_prices = [h["priceEok"] for h in recent_5]
+    return {
+        "totalDealsYear": len(history),
+        "latestDeal": history[0] if history else None,
+        "recentAvgEok": round(statistics.mean(recent_prices), 2) if recent_prices else None,
+        "recentMinEok": min(recent_prices) if recent_prices else None,
+        "recentMaxEok": max(recent_prices) if recent_prices else None,
+        "recentDeals": recent_5,
+    }
+
+
 def fetch_naver_asking_prices(targets: List[Dict[str, Any]]) -> Dict[str, Dict[str, Any]]:
     """네이버 부동산 모바일 클러스터 API를 통해 법정동별 단지 실시간 호가 및 매물 수 조회"""
     by_cortar: Dict[str, List[Dict[str, Any]]] = {}
@@ -392,16 +445,28 @@ def fetch_naver_asking_prices(targets: List[Dict[str, Any]]) -> Dict[str, Dict[s
     return naver_map
 
 
-def build_prices_payload() -> Dict[str, Any]:
-    print("1/2 국토교통부 실거래가 공개시스템(rt.molit.go.kr) 조회 중...")
+def build_prices_payload(config_path: str = "github_config.json") -> Dict[str, Any]:
+    print("1/2 국토교통부 실거래가 공개시스템(rt.molit.go.kr & OpenAPI) 조회 중...")
+    cfg = load_github_config(config_path)
+    openapi_key = cfg.get("molit_openapi", {}).get("service_key", "")
     opener = create_molit_opener()
     molit_results = {}
     for t in APARTMENT_TARGETS:
         try:
-            molit_results[t["id"]] = fetch_molit_transactions(opener, t, year="2026")
+            res = fetch_molit_transactions(opener, t, year="2026")
+            if not res.get("latestDeal") and openapi_key:
+                res = fetch_molit_openapi_fallback(t, openapi_key, deal_ymd="202610")
+            molit_results[t["id"]] = res
         except Exception as e:
-            print(f"  [오류] {t['name']} 실거래 조회 실패: {e}")
-            molit_results[t["id"]] = {}
+            print(f"  [경고] {t['name']} 웹 조회 실패({e}), OpenAPI 폴백 시도...")
+            if openapi_key:
+                try:
+                    molit_results[t["id"]] = fetch_molit_openapi_fallback(t, openapi_key, deal_ymd="202610")
+                except Exception as e2:
+                    print(f"  [오류] {t['name']} OpenAPI 조회 실패: {e2}")
+                    molit_results[t["id"]] = {}
+            else:
+                molit_results[t["id"]] = {}
 
     print("2/2 네이버 부동산 모바일 API(m.land.naver.com) 실시간 호가 조회 중...")
     naver_by_hscp = fetch_naver_asking_prices(APARTMENT_TARGETS)
