@@ -10,3 +10,5 @@ github_config.json
 __pycache__/
 *.py[cod]
 .DS_Store
+update.log
+*.log

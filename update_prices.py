@@ -2301,7 +2301,7 @@ def fetch_naver_asking_prices(targets: List[Dict[str, Any]]) -> Dict[str, Dict[s
 def build_prices_payload(config_path: str = "github_config.json") -> Dict[str, Any]:
     print("1/2 국토교통부 실거래가 공개시스템(rt.molit.go.kr & OpenAPI) 조회 중...")
     cfg = load_github_config(config_path)
-    openapi_key = cfg.get("molit_openapi", {}).get("service_key", "")
+    openapi_key = os.environ.get("MOLIT_SERVICE_KEY") or cfg.get("molit_openapi", {}).get("service_key", "")
     opener = create_molit_opener()
     molit_results = {}
     for t in APARTMENT_TARGETS:
