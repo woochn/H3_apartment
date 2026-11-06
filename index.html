@@ -82,6 +82,75 @@
       border: 2px solid #fff;
       box-shadow: 0 2px 6px rgba(0,0,0,0.5);
     }
+
+    /* =========================================================================
+       인터랙티브 노선 ON/OFF 슬라이더 & 그래픽 시각 효과
+       ========================================================================= */
+    .route-switch {
+      position: relative;
+      display: inline-block;
+      width: 36px;
+      height: 20px;
+      flex-shrink: 0;
+    }
+    .route-switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    .route-slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: #334155;
+      transition: .22s cubic-bezier(0.4, 0, 0.2, 1);
+      border-radius: 9999px;
+      border: 1px solid #475569;
+    }
+    .route-slider:before {
+      position: absolute;
+      content: "";
+      height: 14px;
+      width: 14px;
+      left: 2px;
+      bottom: 2px;
+      background-color: white;
+      transition: .22s cubic-bezier(0.4, 0, 0.2, 1);
+      border-radius: 50%;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+    }
+    .route-switch input:checked + .route-slider {
+      background-color: var(--route-color, #10b981);
+      border-color: rgba(255, 255, 255, 0.5);
+      box-shadow: 0 0 10px var(--route-color-glow, rgba(16, 185, 129, 0.6));
+    }
+    .route-switch input:checked + .route-slider:before {
+      transform: translateX(16px);
+    }
+
+    /* 노선 경로 호버 툴팁 */
+    .route-line-tooltip {
+      background: #090d16 !important;
+      color: #f8fafc !important;
+      border: 1px solid #334155 !important;
+      border-radius: 8px !important;
+      font-size: 11px !important;
+      padding: 5px 9px !important;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.7) !important;
+      pointer-events: none;
+    }
+    .route-line-tooltip .leaflet-tooltip-pane {
+      z-index: 1000;
+    }
+
+    /* 활성 램프 펄스 애니메이션 */
+    @keyframes pulseGlow {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.2); }
+    }
+    .pulse-lamp {
+      animation: pulseGlow 1.8s infinite ease-in-out;
+    }
   </style>
 </head>
 <body class="min-h-screen flex flex-col">
@@ -249,12 +318,63 @@
     <div id="map"></div>
 
     <!-- 좌측 상단 현재 포커스 상태 표시줄 (모바일 반응형 크기) -->
-    <div id="mapStatusBanner" class="absolute top-2.5 left-2.5 z-[400] bg-slate-900/90 backdrop-blur border border-slate-700 rounded-xl px-2.5 py-1.5 sm:px-3.5 sm:py-2 shadow-lg max-w-[calc(100%-20px)] sm:max-w-sm pointer-events-none">
+    <div id="mapStatusBanner" class="absolute top-2.5 left-2.5 z-[400] bg-slate-900/90 backdrop-blur border border-slate-700 rounded-xl px-2.5 py-1.5 sm:px-3.5 sm:py-2 shadow-lg max-w-[calc(100%-145px)] sm:max-w-sm pointer-events-none">
       <div class="flex items-center gap-1.5 sm:gap-2">
         <span class="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-emerald-400 animate-pulse flex-shrink-0"></span>
         <span id="statusTitle" class="text-[11px] sm:text-xs font-bold text-white truncate">전체 18개 노선 & 158개 단지 실거래·호가 표시 중</span>
       </div>
       <p id="statusDesc" class="text-[10px] sm:text-[11px] text-slate-300 mt-0.5 truncate">목록에서 [📍 지도 포커스]를 누르면 해당 아파트로 즉시 이동합니다.</p>
+    </div>
+
+    <!-- 우측 상단: 플로팅 인터랙티브 노선 레이어 패널 (ON/OFF & 단독 보기 제어기) -->
+    <div id="mapRouteDock" class="absolute top-2.5 right-2.5 z-[410] flex flex-col items-end">
+      <!-- 미니 토글 트리거 버튼 -->
+      <button type="button" onclick="toggleMapRouteDock(event)" id="mapRouteDockBtn"
+        class="flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-xl bg-slate-900/95 hover:bg-slate-800 text-white border border-slate-700 shadow-xl backdrop-blur transition group">
+        <span class="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-emerald-400 group-hover:scale-125 transition-transform"></span>
+        <span class="text-[11px] sm:text-xs font-bold">🎛️ 노선 ON/OFF</span>
+        <span id="dockActiveBadge" class="px-1.5 py-0.2 rounded-md text-[10px] font-extrabold bg-blue-600 text-white">18/18 ON</span>
+        <span id="dockArrow" class="text-[10px] text-slate-400 transition-transform">▾</span>
+      </button>
+
+      <!-- 플로팅 드로어 패널 -->
+      <div id="mapRouteDockPanel" class="hidden mt-2 w-[330px] sm:w-[380px] max-w-[94vw] bg-slate-900/98 border border-slate-700 rounded-2xl shadow-2xl backdrop-blur-md overflow-hidden text-xs flex flex-col max-h-[75vh]">
+        <!-- 패널 헤더 -->
+        <div class="p-3 border-b border-slate-800 flex items-center justify-between bg-slate-950/70">
+          <div class="flex items-center gap-1.5">
+            <span class="font-extrabold text-white text-xs sm:text-sm">🎛️ 셔틀 노선 레이어 컨트롤</span>
+            <span id="dockActiveSubBadge" class="px-1.5 py-0.5 rounded text-[10px] bg-emerald-500/20 text-emerald-300 font-bold border border-emerald-500/30">18개 표시 중</span>
+          </div>
+          <button type="button" onclick="closeMapRouteDock()" class="text-slate-400 hover:text-white px-2 py-0.5 text-sm font-bold">✕</button>
+        </div>
+
+        <!-- 일괄 빠른 프리셋 버튼들 -->
+        <div class="p-2.5 border-b border-slate-800/80 bg-slate-900/90 space-y-2">
+          <div class="flex items-center justify-between text-[11px] text-slate-400 font-medium">
+            <span>빠른 노선 정리 프리셋:</span>
+            <span class="text-[10px] text-amber-300 font-bold">💡 겹침 심할 땐 [단독] 클릭</span>
+          </div>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-1 text-[10px]">
+            <button type="button" onclick="setBatchRoutesEnabled('LOCAL_ONLY')" class="py-1 px-1 rounded-lg bg-emerald-600/30 hover:bg-emerald-600/50 text-emerald-200 border border-emerald-500/40 font-bold text-center">⚡ 근거리(6)만</button>
+            <button type="button" onclick="setBatchRoutesEnabled('COMMUTE_ONLY')" class="py-1 px-1 rounded-lg bg-blue-600/30 hover:bg-blue-600/50 text-blue-200 border border-blue-500/40 font-bold text-center">🚌 수원통근만</button>
+            <button type="button" onclick="setBatchRoutesEnabled('ALL_ON')" class="py-1 px-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-white border border-slate-700 font-bold text-center">✅ 전체 ON</button>
+            <button type="button" onclick="setBatchRoutesEnabled('ALL_OFF')" class="py-1 px-1 rounded-lg bg-rose-600/20 hover:bg-rose-600/40 text-rose-300 border border-rose-500/30 font-semibold text-center">🚫 전체 OFF</button>
+          </div>
+          <!-- 노선 검색창 -->
+          <input type="text" id="dockRouteSearch" oninput="renderMapRouteDockList()" placeholder="노선명/정류장 검색 (예: 망포, 아주대, 인계, 광교, R1...)"
+            class="w-full bg-slate-950 border border-slate-700 rounded-lg px-2.5 py-1.5 text-white text-[11px] placeholder-slate-500 focus:outline-none focus:border-blue-500" />
+        </div>
+
+        <!-- 개별 노선 스크롤 리스트 (토글 스위치 + 단독 보기 버튼) -->
+        <div id="mapRouteDockList" class="p-2 overflow-y-auto space-y-1.5 flex-1 divide-y divide-slate-800/40">
+          <!-- JS renderMapRouteDockList()에서 동적 렌더링 -->
+        </div>
+
+        <!-- 패널 푸터 -->
+        <div class="p-2 bg-slate-950/80 border-t border-slate-800 text-[10px] text-slate-400 text-center">
+          노선을 OFF하면 해당 노선 전용 아파트도 지도와 목록에서 자동으로 정리됩니다.
+        </div>
+      </div>
     </div>
 
     <!-- 우측 하단 범례 -->
@@ -14118,8 +14238,10 @@
         zoom: 12,
         maxZoom: 20,
         minZoom: 11,
-        zoomControl: true
+        zoomControl: false
       });
+
+      L.control.zoom({ position: "bottomleft" }).addTo(map);
 
       currentTileLayer = L.tileLayer(TILE_URLS.google_m, {
         maxZoom: 20,
@@ -14134,6 +14256,7 @@
       syncApartmentRouteMatches();
       renderCampusAndSubway();
       renderRouteFilterBar();
+      renderMapRouteDockList();
       renderShuttleRoutes();
 
       // 가격 데이터 병합 및 필터 적용
@@ -14143,12 +14266,18 @@
         applyFilters();
       });
 
-      // 드롭다운 외부 클릭 시 자동 닫기
+      // 드롭다운 및 플로팅 도크 외부 클릭 시 자동 닫기
       document.addEventListener("click", (e) => {
         const wrapper = document.getElementById("routeDropdownWrapper");
         const panel = document.getElementById("routeDropdownPanel");
         if (wrapper && panel && !panel.classList.contains("hidden") && !wrapper.contains(e.target)) {
           closeRouteDropdown();
+        }
+
+        const dock = document.getElementById("mapRouteDock");
+        const dockPanel = document.getElementById("mapRouteDockPanel");
+        if (dock && dockPanel && !dockPanel.classList.contains("hidden") && !dock.contains(e.target)) {
+          closeMapRouteDock();
         }
       });
 
@@ -14191,6 +14320,8 @@
       routeLayerGroup.clearLayers();
       radiusLayerGroup.clearLayers();
 
+      const activeRoutesCount = enabledRouteIds.size;
+
       SHUTTLE_ROUTES.forEach(route => {
         // 1) 사용자가 OFF한 노선은 지도에서 완전히 숨김 (경로 폴리라인, 정류장 핀, 반경 원 모두 제외)
         if (!enabledRouteIds.has(route.id)) return;
@@ -14199,23 +14330,57 @@
         // 3) 개별 노선 포커스 필터
         if (selectedRouteId !== "ALL" && selectedRouteId !== route.id) return;
 
+        const isSoloOrFocused = selectedRouteId === route.id || activeRoutesCount === 1;
         const latlngs = route.stops.map(s => [s.lat, s.lng]);
+
+        // 1. 고대비 다크 아웃라인 (도로 및 위성 지도 위에서 노선 분리 효과 극대화)
         L.polyline(latlngs, {
-          color: route.color,
-          weight: selectedRouteId === route.id ? 6 : 4,
-          opacity: 0.9
+          color: "#050811",
+          weight: isSoloOrFocused ? 7.5 : 5.5,
+          opacity: 0.8,
+          lineCap: "round",
+          lineJoin: "round"
         }).addTo(routeLayerGroup);
+
+        // 2. 메인 컬러 노선 라인
+        const line = L.polyline(latlngs, {
+          color: route.color,
+          weight: isSoloOrFocused ? 5.5 : 3.5,
+          opacity: 0.95,
+          lineCap: "round",
+          lineJoin: "round"
+        }).addTo(routeLayerGroup);
+
+        // 노선 호버 툴팁 & 인터랙션
+        line.bindTooltip(`
+          <div style="font-weight:800; font-size:12px; color:${route.color}">${route.name}</div>
+          <div style="color:#cbd5e1; font-size:10px; margin-top:2px;">🕒 배차: ${route.scheduleNote || '-'}</div>
+          <div style="color:#38bdf8; font-size:10px; font-weight:700; margin-top:1px;">👉 클릭 시 이 노선 포커스</div>
+        `, { sticky: true, className: "route-line-tooltip" });
+
+        line.on("mouseover", function() {
+          this.setStyle({ weight: 7, opacity: 1.0 });
+          this.bringToFront();
+        });
+        line.on("mouseout", function() {
+          this.setStyle({ weight: isSoloOrFocused ? 5.5 : 3.5, opacity: 0.95 });
+        });
+        line.on("click", function() {
+          selectRoute(route.id);
+        });
 
         route.stops.forEach(stop => {
           const isCampus = stop.name.includes("H1") || stop.name.includes("H2") || stop.name.includes("H3") || stop.name.includes("캠퍼스");
           if (!isCampus && currentRadius > 0) {
+            const circleOpacity = activeRoutesCount > 6 ? 0.04 : 0.09;
+            const circleWeight = activeRoutesCount > 6 ? 0.8 : 1.2;
             L.circle([stop.lat, stop.lng], {
               radius: currentRadius,
               color: route.color,
-              weight: 1.2,
-              dashArray: "4, 4",
+              weight: circleWeight,
+              dashArray: "3, 3",
               fillColor: route.color,
-              fillOpacity: 0.08
+              fillOpacity: circleOpacity
             }).addTo(radiusLayerGroup);
           }
 
@@ -14240,7 +14405,7 @@
 
           const marker = L.marker([stop.lat, stop.lng], { icon: stopIcon }).addTo(routeLayerGroup);
           marker.bindPopup(`
-            <div class="min-w-[245px]">
+            <div class="min-w-[250px]">
               <div class="flex items-center justify-between gap-1">
                 <div class="text-[11px] font-bold" style="color:${route.color}">${route.name}</div>
                 ${typeBadge}
@@ -14254,15 +14419,18 @@
                 <div class="text-[11px] text-emerald-300 font-bold leading-snug break-keep">${stopTimesPreview || route.scheduleNote || "-"}</div>
                 ${!isCampus ? `<div class="text-[10px] text-sky-300 pt-0.5 border-t border-slate-800">🏁 이 정류장 탑승 시 <b>H3까지 약 ${remainToH3}분</b> 소요</div>` : ""}
               </div>
-              <div class="mt-2 grid grid-cols-3 gap-1">
-                <button onclick="openTimetableModal('${route.id}')" class="py-1 px-1.5 bg-amber-500/20 hover:bg-amber-500/30 text-amber-200 border border-amber-500/40 rounded text-[10px] font-bold">
+              <div class="mt-2 grid grid-cols-4 gap-1 text-[10px]">
+                <button onclick="openTimetableModal('${route.id}')" class="py-1 px-1 bg-amber-500/20 hover:bg-amber-500/30 text-amber-200 border border-amber-500/40 rounded font-bold">
                   🕒 시간표
                 </button>
-                <button onclick="openExternalUrl('${naverMapStopUrl}', '${stop.name} 네이버 지도')" class="py-1 px-1.5 bg-emerald-600 hover:bg-emerald-500 text-white rounded text-[10px] font-bold">
+                <button onclick="openExternalUrl('${naverMapStopUrl}', '${stop.name} 네이버 지도')" class="py-1 px-1 bg-emerald-600 hover:bg-emerald-500 text-white rounded font-bold">
                   🗺️ 지도 ↗
                 </button>
-                <button onclick="toggleRouteEnabled('${route.id}', event)" class="py-1 px-1.5 bg-rose-600/30 hover:bg-rose-600/50 text-rose-200 border border-rose-500/40 rounded text-[10px] font-bold">
-                  🚫 노선OFF
+                <button onclick="soloRoute('${route.id}', event)" class="py-1 px-1 bg-indigo-600 hover:bg-indigo-500 text-white rounded font-bold" title="이 노선만 단독으로 켜기">
+                  🎯 단독
+                </button>
+                <button onclick="toggleRouteEnabled('${route.id}', event)" class="py-1 px-1 bg-rose-600/30 hover:bg-rose-600/50 text-rose-200 border border-rose-500/40 rounded font-bold" title="이 노선 끄기">
+                  🚫 끄기
                 </button>
               </div>
             </div>
@@ -14666,9 +14834,7 @@
       }).join("");
     }
 
-    // 상단 바: 일정 개수(최대 4개)만 빠른 칩으로 보여주고 나머지는 드롭다운 메뉴로 깔끔하게 통합
-    const MAX_QUICK_ROUTE_PILLS = 4;
-
+    // 상단 바: 빠른 노선 칩 및 인터랙티브 ON/OFF 상태 표시
     function updateRouteTypeBadges() {
       const allActive = SHUTTLE_ROUTES.filter(r => enabledRouteIds.has(r.id)).length;
       const localActive = SHUTTLE_ROUTES.filter(r => r.type === "LOCAL" && enabledRouteIds.has(r.id)).length;
@@ -14683,8 +14849,16 @@
 
       const badge = document.getElementById("activeRoutesCountBadge");
       if (badge) badge.innerText = `활성 ${allActive}/${SHUTTLE_ROUTES.length}`;
+
+      const dockBadge = document.getElementById("dockActiveBadge");
+      if (dockBadge) dockBadge.innerText = `${allActive}/${SHUTTLE_ROUTES.length} ON`;
+      const dockSub = document.getElementById("dockActiveSubBadge");
+      if (dockSub) dockSub.innerText = `${allActive}개 표시 중`;
     }
 
+    // =========================================================================
+    // 상단 인터랙티브 노선 바 (ON/OFF 그래픽 칩 + 단독 보기 + 끄기)
+    // =========================================================================
     function renderRouteFilterBar() {
       syncApartmentRouteMatches();
       updateRouteTypeBadges();
@@ -14692,62 +14866,154 @@
       const container = document.getElementById("routeFilterBar");
       if (!container) return;
 
-      // 현재 유형(ALL/LOCAL/COMMUTE)에 해당하면서 ON 상태인 노선만 상단 빠른 칩 후보로 표시
-      const activeTypedRoutes = SHUTTLE_ROUTES.filter(r => {
-        if (!enabledRouteIds.has(r.id)) return false;
+      const candidateRoutes = SHUTTLE_ROUTES.filter(r => {
         if (selectedRouteType === "ALL") return true;
         return r.type === selectedRouteType;
       });
 
-      const totalLabel = selectedRouteType === "LOCAL" ? `근거리 활성 (${activeTypedRoutes.length})`
-                       : selectedRouteType === "COMMUTE" ? `수원통근 활성 (${activeTypedRoutes.length})`
-                       : `전체 활성 (${activeTypedRoutes.length}개)`;
+      const allActiveCount = SHUTTLE_ROUTES.filter(r => enabledRouteIds.has(r.id)).length;
 
       let html = `
-        <button onclick="selectRoute('ALL')" id="routeBtn_ALL" class="${selectedRouteId === 'ALL' ? 'px-2.5 sm:px-3 py-1 rounded-full text-[11px] sm:text-xs font-bold bg-white text-slate-900 shadow' : 'px-2.5 py-1 rounded-full text-[11px] sm:text-xs font-medium bg-slate-800 text-slate-300 hover:bg-slate-700 border border-slate-700'} whitespace-nowrap flex-shrink-0">
-          ${totalLabel}
+        <button onclick="setBatchRoutesEnabled(enabledRouteIds.size > 0 ? 'ALL_OFF' : 'ALL_ON')"
+          class="px-2.5 py-1 rounded-full text-[11px] font-bold border transition flex items-center gap-1 whitespace-nowrap flex-shrink-0 ${
+            enabledRouteIds.size === 0
+              ? 'bg-rose-900/40 text-rose-300 border-rose-500/40 hover:bg-rose-900/60'
+              : 'bg-emerald-950/60 text-emerald-300 border-emerald-500/40 hover:bg-emerald-900/60'
+          }">
+          <span>${enabledRouteIds.size === 0 ? '🚫 전체 꺼짐 (켜기)' : '✅ 전체 (' + allActiveCount + '/' + SHUTTLE_ROUTES.length + ')'}</span>
         </button>
       `;
 
-      // 선택된 노선이 앞쪽 MAX_QUICK_ROUTE_PILLS 밖에 있다면 맨 앞에 우선 배치하여 항상 보이도록 처리
-      let quickRoutes = activeTypedRoutes.slice(0, MAX_QUICK_ROUTE_PILLS);
-      if (selectedRouteId !== "ALL") {
-        const selObj = activeTypedRoutes.find(r => r.id === selectedRouteId);
-        if (selObj && !quickRoutes.some(r => r.id === selObj.id)) {
-          quickRoutes = [selObj, ...activeTypedRoutes.filter(r => r.id !== selObj.id).slice(0, MAX_QUICK_ROUTE_PILLS - 1)];
-        }
-      }
-
-      quickRoutes.forEach(r => {
+      candidateRoutes.forEach(r => {
+        const isEnabled = enabledRouteIds.has(r.id);
         const isSelected = selectedRouteId === r.id;
-        const badge = r.type === "LOCAL" ? "⚡" : "🚌";
         const shortName = r.name.replace("(근거리) ", "").replace("(통근) ", "");
-        html += `
-          <div class="inline-flex items-center rounded-full ${isSelected ? 'bg-white text-slate-900 shadow font-bold' : 'bg-slate-800 text-slate-200 hover:bg-slate-700 border border-slate-700 font-medium'} text-[11px] sm:text-xs whitespace-nowrap flex-shrink-0 overflow-hidden" style="${isSelected ? '' : 'border-left: 3px solid ' + r.color}">
-            <button type="button" onclick="selectRoute('${r.id}')" class="pl-2.5 pr-1.5 py-1 flex items-center gap-1">
-              <span>${badge} ${shortName}</span>
-            </button>
-            <button type="button" onclick="toggleRouteEnabled('${r.id}', event)" title="이 노선 끄기(OFF)"
-              class="pr-2 pl-1 py-1 text-[10px] ${isSelected ? 'text-slate-500 hover:text-rose-600' : 'text-slate-400 hover:text-rose-400'} font-extrabold">
-              ✕
-            </button>
-          </div>
-        `;
-      });
 
-      const remainingCount = activeTypedRoutes.length - quickRoutes.length;
-      if (remainingCount > 0) {
-        html += `
-          <button type="button" onclick="toggleRouteDropdown(event)" class="px-2.5 py-1 rounded-full text-[11px] font-bold bg-slate-800/90 hover:bg-slate-700 text-indigo-300 border border-indigo-500/40 whitespace-nowrap flex-shrink-0">
-            +${remainingCount}개 노선 더보기 ▾
-          </button>
-        `;
-      }
+        if (isEnabled) {
+          html += `
+            <div class="inline-flex items-center rounded-full transition text-[11px] whitespace-nowrap flex-shrink-0 overflow-hidden border ${
+              isSelected
+                ? 'bg-white text-slate-900 shadow-md font-extrabold border-white'
+                : 'bg-slate-800/90 text-slate-100 hover:bg-slate-700/90 border-slate-700 font-semibold'
+            }" style="${isSelected ? '' : 'border-left: 3.5px solid ' + r.color + '; background: ' + r.color + '1a;'}">
+              <button type="button" onclick="selectRoute('${r.id}')" class="pl-2.5 pr-1.5 py-1 flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full pulse-lamp" style="background:${r.color}; box-shadow: 0 0 6px ${r.color}"></span>
+                <span>${r.id} ${shortName}</span>
+              </button>
+              <button type="button" onclick="soloRoute('${r.id}', event)" title="이 노선만 단독 보기 (다른 노선 숨김)"
+                class="px-1.5 py-1 text-[10px] ${isSelected ? 'text-slate-600 hover:text-indigo-600' : 'text-indigo-300 hover:text-white'} font-extrabold">
+                🎯
+              </button>
+              <button type="button" onclick="toggleRouteEnabled('${r.id}', event)" title="이 노선 끄기(OFF)"
+                class="pr-2 pl-1 py-1 text-[10px] ${isSelected ? 'text-slate-400 hover:text-rose-600' : 'text-slate-400 hover:text-rose-400'} font-extrabold">
+                ✕
+              </button>
+            </div>
+          `;
+        } else {
+          html += `
+            <div class="inline-flex items-center rounded-full transition text-[11px] whitespace-nowrap flex-shrink-0 overflow-hidden border border-dashed border-slate-700 bg-slate-900/50 text-slate-400 opacity-45 hover:opacity-90 font-medium">
+              <button type="button" onclick="toggleRouteEnabled('${r.id}', event)" class="px-2.5 py-1 flex items-center gap-1.5" title="클릭하여 노선 켜기(ON)">
+                <span class="w-1.5 h-1.5 rounded-full bg-slate-500"></span>
+                <span class="line-through decoration-slate-600">${r.id} ${shortName}</span>
+                <span class="text-[9px] text-emerald-400 font-bold ml-0.5">+ON</span>
+              </button>
+            </div>
+          `;
+        }
+      });
 
       container.innerHTML = html;
       renderRouteDropdownList();
+      renderMapRouteDockList();
     }
 
+    // =========================================================================
+    // 지도 위 플로팅 노선 레이어 패널 (Map Route Dock)
+    // =========================================================================
+    function toggleMapRouteDock(e) {
+      if (e) e.stopPropagation();
+      const panel = document.getElementById("mapRouteDockPanel");
+      const arrow = document.getElementById("dockArrow");
+      if (!panel) return;
+      panel.classList.toggle("hidden");
+      if (arrow) {
+        arrow.style.transform = panel.classList.contains("hidden") ? "rotate(0deg)" : "rotate(180deg)";
+      }
+      if (!panel.classList.contains("hidden")) {
+        renderMapRouteDockList();
+      }
+    }
+
+    function closeMapRouteDock() {
+      const panel = document.getElementById("mapRouteDockPanel");
+      const arrow = document.getElementById("dockArrow");
+      if (panel) panel.classList.add("hidden");
+      if (arrow) arrow.style.transform = "rotate(0deg)";
+    }
+
+    function renderMapRouteDockList() {
+      const listEl = document.getElementById("mapRouteDockList");
+      if (!listEl) return;
+      const q = (document.getElementById("dockRouteSearch")?.value || "").trim().toLowerCase();
+
+      const routesToShow = SHUTTLE_ROUTES.filter(r => {
+        if (!q) return true;
+        const stopsText = r.stops.map(s => s.name).join(" ");
+        return `${r.id} ${r.name} ${r.desc} ${stopsText} ${r.scheduleNote || ""}`.toLowerCase().includes(q);
+      });
+
+      if (routesToShow.length === 0) {
+        listEl.innerHTML = `<div class="py-6 text-center text-slate-400 text-xs">일치하는 노선이 없습니다.</div>`;
+        return;
+      }
+
+      listEl.innerHTML = routesToShow.map(r => {
+        const isEnabled = enabledRouteIds.has(r.id);
+        const isFocused = selectedRouteId === r.id;
+        const aptCount = APARTMENTS.filter(a => (a.matchedRoutes || [a.routeId]).includes(r.id)).length;
+        const shortName = r.name.replace("(근거리) ", "").replace("(통근) ", "");
+        const typeLabel = r.type === "LOCAL" ? "근거리" : "통근";
+
+        return `
+          <div class="flex items-center justify-between gap-2 p-2 rounded-xl border transition ${
+            isFocused
+              ? 'bg-blue-950/70 border-blue-500 shadow-md'
+              : isEnabled
+              ? 'bg-slate-800/90 border-slate-700 hover:border-slate-600'
+              : 'bg-slate-950/50 border-slate-800/60 opacity-40'
+          }" style="border-left: 4px solid ${r.color}">
+            <div class="flex items-center gap-2 min-w-0 flex-1 cursor-pointer" onclick="selectRoute('${r.id}')" title="클릭 시 이 노선으로 지도 이동">
+              <div class="min-w-0 flex-1">
+                <div class="flex items-center gap-1.5">
+                  <span class="px-1.5 py-0.2 rounded text-[10px] font-extrabold" style="background:${r.color}25; color:${r.color}; border: 1px solid ${r.color}60">${r.id}</span>
+                  <span class="font-bold text-white text-xs truncate">${shortName}</span>
+                  <span class="text-[9px] px-1 py-0.2 rounded ${r.type === 'LOCAL' ? 'bg-emerald-500/20 text-emerald-300' : 'bg-blue-500/20 text-blue-300'}">${typeLabel}</span>
+                </div>
+                <div class="text-[10px] text-slate-400 truncate mt-0.5">
+                  정류장 ${r.stops.length}개 · 연계 아파트 <b class="text-emerald-300">${aptCount}개</b> · <span class="text-amber-300 font-semibold">🕒 ${r.scheduleNote || "-"}</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-1.5 flex-shrink-0">
+              <button type="button" onclick="soloRoute('${r.id}', event)" title="이 노선만 단독으로 켜고 다른 모든 노선 숨기기"
+                class="px-2 py-1 rounded-md text-[10px] font-extrabold bg-indigo-600/30 hover:bg-indigo-600/60 text-indigo-200 border border-indigo-500/40 transition">
+                🎯 단독
+              </button>
+              <label class="route-switch" title="${isEnabled ? '노선 끄기 (OFF)' : '노선 켜기 (ON)'}">
+                <input type="checkbox" ${isEnabled ? 'checked' : ''} onchange="toggleRouteEnabled('${r.id}', event)">
+                <span class="route-slider" style="--route-color: ${r.color}; --route-color-glow: ${r.color}80;"></span>
+              </label>
+            </div>
+          </div>
+        `;
+      }).join("");
+    }
+
+    // =========================================================================
+    // 상단 드롭다운 패널
+    // =========================================================================
     function toggleRouteDropdown(e) {
       if (e) e.stopPropagation();
       const panel = document.getElementById("routeDropdownPanel");
@@ -14771,7 +15037,7 @@
       const routesToShow = SHUTTLE_ROUTES.filter(r => {
         if (!q) return true;
         const stopsText = r.stops.map(s => s.name).join(" ");
-        return `${r.name} ${r.desc} ${stopsText} ${r.scheduleNote || ""}`.toLowerCase().includes(q);
+        return `${r.id} ${r.name} ${r.desc} ${stopsText} ${r.scheduleNote || ""}`.toLowerCase().includes(q);
       });
 
       if (routesToShow.length === 0) {
@@ -14783,38 +15049,39 @@
         const isEnabled = enabledRouteIds.has(r.id);
         const isFocused = selectedRouteId === r.id;
         const aptCount = APARTMENTS.filter(a => (a.matchedRoutes || [a.routeId]).includes(r.id)).length;
+        const shortName = r.name.replace("(근거리) ", "").replace("(통근) ", "");
         const typeTag = r.type === "LOCAL"
           ? `<span class="px-1.5 py-0.2 rounded text-[9px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">근거리</span>`
           : `<span class="px-1.5 py-0.2 rounded text-[9px] font-bold bg-blue-500/20 text-blue-300 border border-blue-500/30">수원통근</span>`;
 
         return `
-          <div class="flex items-center justify-between gap-2 p-2 rounded-xl border transition ${isFocused ? 'bg-blue-950/60 border-blue-500' : isEnabled ? 'bg-slate-800/80 border-slate-700/80 hover:border-slate-600' : 'bg-slate-900/50 border-slate-800/60 opacity-55'}">
+          <div class="flex items-center justify-between gap-2 p-2 rounded-xl border transition ${isFocused ? 'bg-blue-950/60 border-blue-500' : isEnabled ? 'bg-slate-800/80 border-slate-700/80 hover:border-slate-600' : 'bg-slate-900/50 border-slate-800/60 opacity-55'}" style="border-left: 4px solid ${r.color}">
             <div class="flex items-center gap-2 min-w-0 flex-1 cursor-pointer" onclick="focusRouteFromDropdown('${r.id}')">
-              <span class="w-3 h-3 rounded-full flex-shrink-0 border border-white/60" style="background:${r.color}"></span>
               <div class="min-w-0 flex-1">
                 <div class="flex items-center gap-1.5">
+                  <span class="px-1 py-0.2 rounded text-[10px] font-extrabold" style="background:${r.color}25; color:${r.color}">${r.id}</span>
                   ${typeTag}
-                  <span class="font-bold text-white text-xs truncate">${r.name.replace("(근거리) ", "").replace("(통근) ", "")}</span>
+                  <span class="font-bold text-white text-xs truncate">${shortName}</span>
                 </div>
                 <div class="text-[10px] text-slate-400 truncate mt-0.5">
-                  정류장 ${r.stops.length}개 · 아파트 <b class="text-emerald-300">${aptCount}개</b> · <span class="text-amber-300 font-semibold">🕒 ${r.scheduleNote || "-"}</span>
+                  정류장 ${r.stops.length}개 · 연계 아파트 <b class="text-emerald-300">${aptCount}개</b> · <span class="text-amber-300 font-semibold">🕒 ${r.scheduleNote || "-"}</span>
                 </div>
               </div>
             </div>
 
-            <div class="flex items-center gap-1 flex-shrink-0">
+            <div class="flex items-center gap-1.5 flex-shrink-0">
               <button type="button" onclick="openTimetableModal('${r.id}')"
                 class="px-1.5 py-1 rounded text-[10px] font-bold bg-amber-500/20 hover:bg-amber-500/30 text-amber-200 border border-amber-500/40" title="노선 상세 출근 시간표">
                 🕒
               </button>
-              <button type="button" onclick="focusRouteFromDropdown('${r.id}')"
-                class="px-2 py-1 rounded text-[10px] font-bold ${isFocused ? 'bg-blue-600 text-white' : 'bg-slate-700 hover:bg-slate-600 text-slate-200'}">
-                포커스
+              <button type="button" onclick="soloRoute('${r.id}', event)"
+                class="px-2 py-1 rounded text-[10px] font-extrabold bg-indigo-600/30 hover:bg-indigo-600/60 text-indigo-200 border border-indigo-500/40" title="이 노선만 단독 보기">
+                🎯 단독
               </button>
-              <button type="button" onclick="toggleRouteEnabled('${r.id}', event)"
-                class="px-2 py-1 rounded-lg text-[10px] font-extrabold border transition ${isEnabled ? 'bg-emerald-600 hover:bg-emerald-500 text-white border-emerald-400/50' : 'bg-slate-800 hover:bg-slate-700 text-slate-400 border-slate-700'}">
-                ${isEnabled ? 'ON' : 'OFF'}
-              </button>
+              <label class="route-switch" title="${isEnabled ? '노선 끄기 (OFF)' : '노선 켜기 (ON)'}">
+                <input type="checkbox" ${isEnabled ? 'checked' : ''} onchange="toggleRouteEnabled('${r.id}', event)">
+                <span class="route-slider" style="--route-color: ${r.color}; --route-color-glow: ${r.color}80;"></span>
+              </label>
             </div>
           </div>
         `;
@@ -14980,6 +15247,46 @@
       }
       selectRoute(routeId);
       closeRouteDropdown();
+      closeMapRouteDock();
+    }
+
+    // =========================================================================
+    // 🎯 단독 보기 기능 (Solo View: 다른 17개 노선을 끄고 선택 노선만 1초 만에 집중 표시)
+    // =========================================================================
+    function soloRoute(routeId, event) {
+      if (event) event.stopPropagation();
+      enabledRouteIds.clear();
+      enabledRouteIds.add(routeId);
+      saveEnabledRoutes();
+
+      const route = SHUTTLE_ROUTES.find(r => r.id === routeId);
+      if (route && selectedRouteType !== "ALL" && selectedRouteType !== route.type) {
+        selectedRouteType = route.type;
+        ["ALL", "LOCAL", "COMMUTE"].forEach(t => {
+          const btn = document.getElementById("typeBtn_" + t);
+          if (btn) {
+            btn.className = t === selectedRouteType
+              ? "px-2.5 py-1 rounded-md text-[11px] font-bold bg-blue-600 text-white shadow whitespace-nowrap flex-shrink-0"
+              : "px-2.5 py-1 rounded-md text-[11px] font-medium bg-slate-800 text-slate-300 hover:bg-slate-700 border border-slate-700 whitespace-nowrap flex-shrink-0";
+          }
+        });
+      }
+      selectedRouteId = routeId;
+
+      updateRouteTypeBadges();
+      renderRouteFilterBar();
+      renderMapRouteDockList();
+      renderRouteDropdownList();
+      renderShuttleRoutes();
+      applyFilters();
+
+      if (route) {
+        const bounds = L.latLngBounds(route.stops.map(s => [s.lat, s.lng]));
+        map.fitBounds(bounds, { padding: [55, 55] });
+        const tag = route.type === "LOCAL" ? "근거리" : "수원통근";
+        document.getElementById("statusTitle").innerText = `🎯 [${tag}] ${route.name} 단독 집중 보기`;
+        document.getElementById("statusDesc").innerHTML = `노선 겹침을 없애고 <b>${route.name}</b>만 지도에 선명하게 표시 중입니다. <button onclick="setBatchRoutesEnabled('ALL_ON')" class="ml-1.5 px-2 py-0.5 bg-blue-600 hover:bg-blue-500 text-white rounded text-[10px] font-bold pointer-events-auto">🔄 전체 노선 다시 켜기</button>`;
+      }
     }
 
     function toggleRouteEnabled(routeId, event) {
@@ -14993,9 +15300,21 @@
         enabledRouteIds.add(routeId);
       }
       saveEnabledRoutes();
+      updateRouteTypeBadges();
       renderRouteFilterBar();
+      renderMapRouteDockList();
+      renderRouteDropdownList();
       renderShuttleRoutes();
       applyFilters();
+
+      const route = SHUTTLE_ROUTES.find(r => r.id === routeId);
+      const isNowOn = enabledRouteIds.has(routeId);
+      if (route) {
+        document.getElementById("statusTitle").innerText = isNowOn
+          ? `[노선 ON] ${route.name} 노선이 지도에 추가되었습니다.`
+          : `[노선 OFF] ${route.name} 노선이 숨겨졌습니다.`;
+        document.getElementById("statusDesc").innerText = `현재 활성 노선: ${enabledRouteIds.size}개 / 전체 18개`;
+      }
     }
 
     function setBatchRoutesEnabled(mode) {
@@ -15007,17 +15326,37 @@
       } else if (mode === "COMMUTE_ONLY") {
         SHUTTLE_ROUTES.filter(r => r.type === "COMMUTE").forEach(r => enabledRouteIds.add(r.id));
       } else if (mode === "AJOU_CORE") {
-        // 아주대병원/인계동/광교/망포 핵심 노선만 ON
         ["R1", "R4", "R7", "R8", "R9", "R10", "R12", "R13"].forEach(id => enabledRouteIds.add(id));
       }
-      // ALL_OFF인 경우 비워둠
+      // ALL_OFF는 빈 Set 유지
+
       if (selectedRouteId !== "ALL" && !enabledRouteIds.has(selectedRouteId)) {
         selectedRouteId = "ALL";
       }
       saveEnabledRoutes();
+      updateRouteTypeBadges();
       renderRouteFilterBar();
+      renderMapRouteDockList();
+      renderRouteDropdownList();
       renderShuttleRoutes();
       applyFilters();
+
+      if (mode === "LOCAL_ONLY") {
+        map.setView([37.2325, 127.0585], 13);
+        document.getElementById("statusTitle").innerText = `⚡ 근거리 셔틀 6개 노선만 표시 중`;
+        document.getElementById("statusDesc").innerText = `화성 H3 인근 핵심 6개 노선만 활성화되었습니다.`;
+      } else if (mode === "COMMUTE_ONLY") {
+        map.setView([37.2680, 127.0380], 12);
+        document.getElementById("statusTitle").innerText = `🚌 수원 통근 셔틀 12개 노선만 표시 중`;
+        document.getElementById("statusDesc").innerText = `수원 전역에서 H3로 출근하는 12개 노선입니다.`;
+      } else if (mode === "ALL_ON") {
+        map.setView([37.2520, 127.0480], 12);
+        document.getElementById("statusTitle").innerText = `전체 18개 노선 모두 표시 중 (18/18 ON)`;
+        document.getElementById("statusDesc").innerText = `노선 겹침이 심할 때는 [⚡ 근거리(6)만] 또는 각 노선의 [🎯 단독] 버튼을 활용하세요.`;
+      } else if (mode === "ALL_OFF") {
+        document.getElementById("statusTitle").innerText = `모든 셔틀 노선 숨김 (0개 ON)`;
+        document.getElementById("statusDesc").innerHTML = `노선이 꺼져 있습니다. <button onclick="setBatchRoutesEnabled('ALL_ON')" class="ml-1 px-1.5 py-0.5 bg-blue-600 hover:bg-blue-500 text-white rounded text-[10px] font-bold pointer-events-auto">전체 노선 켜기</button>`;
+      }
     }
 
     function selectRouteType(type) {
@@ -15048,7 +15387,10 @@
         }
       }
 
+      updateRouteTypeBadges();
       renderRouteFilterBar();
+      renderMapRouteDockList();
+      renderRouteDropdownList();
       renderShuttleRoutes();
       applyFilters();
 
@@ -15073,7 +15415,10 @@
         saveEnabledRoutes();
       }
       selectedRouteId = routeId;
+      updateRouteTypeBadges();
       renderRouteFilterBar();
+      renderMapRouteDockList();
+      renderRouteDropdownList();
       renderShuttleRoutes();
       applyFilters();
 
@@ -15087,15 +15432,15 @@
         }
         const typeTitle = selectedRouteType === "LOCAL" ? "근거리 노선" : selectedRouteType === "COMMUTE" ? "수원권 통근 노선" : "전체 활성 노선";
         document.getElementById("statusTitle").innerText = `${typeTitle} (${enabledRouteIds.size}개 ON) & 아파트 시세 표시 중`;
-        document.getElementById("statusDesc").innerText = "우측 상단 [📋 노선 선택·ON/OFF]에서 불필요한 노선을 끄면 지도와 목록에서 모두 숨겨집니다.";
+        document.getElementById("statusDesc").innerText = "노선이 복잡할 땐 우측 상단 [🎛️ 노선 ON/OFF] 패널에서 불필요한 노선을 끄거나 [🎯 단독]을 누르세요.";
       } else {
         const route = SHUTTLE_ROUTES.find(r => r.id === routeId);
         if (route) {
           const bounds = L.latLngBounds(route.stops.map(s => [s.lat, s.lng]));
-          map.fitBounds(bounds, { padding: [45, 45] });
+          map.fitBounds(bounds, { padding: [50, 50] });
           const tag = route.type === "LOCAL" ? "[근거리]" : "[수원통근]";
           document.getElementById("statusTitle").innerText = `${tag} ${route.name} 집중 보기`;
-          document.getElementById("statusDesc").innerText = `🕒 출근배차: ${route.scheduleNote || "-"} · 총 ${route.stops.length}개 정류장`;
+          document.getElementById("statusDesc").innerHTML = `🕒 출근배차: ${route.scheduleNote || "-"} · 총 ${route.stops.length}개 정류장 <button onclick="soloRoute('${route.id}', event)" class="ml-1.5 px-2 py-0.5 bg-indigo-600 hover:bg-indigo-500 text-white rounded text-[10px] font-bold pointer-events-auto">🎯 이 노선만 단독 보기</button>`;
         }
       }
     }
