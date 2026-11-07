@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-06 05:39",
+  "updatedAt": "2026-11-07 09:00",
   "source": "국토교통부 실거래가 공개시스템(rt.molit.go.kr) & 네이버 부동산(m.land.naver.com)",
   "apartments": {
     "apt1": {
@@ -60,11 +60,11 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
+      "askingMinEok": 5.3,
+      "askingMaxEok": 5.8,
+      "askingPriceText": "최저 5.3억 ~ 5.8억",
+      "dealArticleCount": 3,
+      "leaseMinText": null,
       "leaseArticleCount": 0
     },
     "apt2": {
@@ -125,12 +125,12 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 5.8,
+      "askingMaxEok": 8.0,
+      "askingPriceText": "최저 5.8억 ~ 8억",
+      "dealArticleCount": 39,
+      "leaseMinText": "4.3억",
+      "leaseArticleCount": 2
     },
     "apt3": {
       "id": "apt3",
@@ -190,12 +190,12 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 7.5,
+      "askingMaxEok": 9.1,
+      "askingPriceText": "최저 7.5억 ~ 9.1억",
+      "dealArticleCount": 11,
+      "leaseMinText": "6억",
+      "leaseArticleCount": 2
     },
     "apt4": {
       "id": "apt4",
@@ -255,11 +255,11 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
+      "askingMinEok": 6.85,
+      "askingMaxEok": 8.5,
+      "askingPriceText": "최저 6.85억 ~ 8.5억",
+      "dealArticleCount": 17,
+      "leaseMinText": null,
       "leaseArticleCount": 0
     },
     "apt5": {
@@ -298,7 +298,7 @@
           "priceText": "6.8억",
           "rawAmount": "68,000",
           "areaM2": 85.0,
-          "floor": "6",
+          "floor": "11",
           "dealType": "중개거래"
         },
         {
@@ -307,7 +307,7 @@
           "priceText": "6.8억",
           "rawAmount": "68,000",
           "areaM2": 85.0,
-          "floor": "11",
+          "floor": "6",
           "dealType": "중개거래"
         },
         {
@@ -320,12 +320,12 @@
           "dealType": "직거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 6.9,
+      "askingMaxEok": 9.5,
+      "askingPriceText": "최저 6.9억 ~ 9.5억",
+      "dealArticleCount": 18,
+      "leaseMinText": "6.2억",
+      "leaseArticleCount": 2
     },
     "apt6": {
       "id": "apt6",
@@ -385,12 +385,12 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 6.1,
+      "askingMaxEok": 10.2,
+      "askingPriceText": "최저 6.1억 ~ 10.2억",
+      "dealArticleCount": 44,
+      "leaseMinText": "4억",
+      "leaseArticleCount": 2
     },
     "apt7": {
       "id": "apt7",
@@ -450,12 +450,12 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 7.2,
+      "askingMaxEok": 11.0,
+      "askingPriceText": "최저 7.2억 ~ 11억",
+      "dealArticleCount": 78,
+      "leaseMinText": "4.6억",
+      "leaseArticleCount": 3
     },
     "apt8": {
       "id": "apt8",
@@ -515,76 +515,76 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 7.0,
+      "askingMaxEok": 10.5,
+      "askingPriceText": "최저 7억 ~ 10.5억",
+      "dealArticleCount": 46,
+      "leaseMinText": "5억",
+      "leaseArticleCount": 2
     },
     "apt9": {
       "id": "apt9",
       "name": "신영통 현대타운 4단지",
       "naverHscpNo": "3728",
       "targetPyeong": "33평 (전용 84㎡)",
-      "priceNum": 5.06,
+      "priceNum": 4.34,
       "realPriceLatestEok": 5.0,
-      "realPriceLatestText": "5억 (26.10.31 · 13층)",
-      "realPriceAvgEok": 5.06,
-      "realPriceRangeText": "4.45억 ~ 5.58억",
-      "totalDealsYear": 45,
+      "realPriceLatestText": "5억 (26.09.08 · 12층)",
+      "realPriceAvgEok": 4.34,
+      "realPriceRangeText": "2.83억 ~ 5.1억",
+      "totalDealsYear": 12,
       "recentDeals": [
         {
-          "date": "2026.10.31",
+          "date": "2026.09.08",
           "priceEok": 5.0,
           "priceText": "5억",
           "rawAmount": "50,000",
-          "areaM2": 85.0,
-          "floor": "13",
+          "areaM2": 84.9,
+          "floor": "12",
           "dealType": "중개거래"
         },
         {
-          "date": "2026.10.31",
-          "priceEok": 5.0,
-          "priceText": "5억",
-          "rawAmount": "50,000",
-          "areaM2": 85.0,
-          "floor": "1",
-          "dealType": "중개거래"
-        },
-        {
-          "date": "2026.10.28",
-          "priceEok": 5.25,
-          "priceText": "5.25억",
-          "rawAmount": "52,500",
-          "areaM2": 85.0,
-          "floor": "17",
-          "dealType": "중개거래"
-        },
-        {
-          "date": "2026.10.23",
-          "priceEok": 5.58,
-          "priceText": "5.58억",
-          "rawAmount": "55,800",
-          "areaM2": 85.0,
-          "floor": "13",
-          "dealType": "중개거래"
-        },
-        {
-          "date": "2026.10.20",
-          "priceEok": 4.45,
-          "priceText": "4.45억",
-          "rawAmount": "44,500",
+          "date": "2026.08.21",
+          "priceEok": 4.2,
+          "priceText": "4.2억",
+          "rawAmount": "42,000",
           "areaM2": 84.9,
           "floor": "1",
           "dealType": "중개거래"
+        },
+        {
+          "date": "2026.07.28",
+          "priceEok": 4.55,
+          "priceText": "4.55억",
+          "rawAmount": "45,500",
+          "areaM2": 84.9,
+          "floor": "13",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.07.21",
+          "priceEok": 2.83,
+          "priceText": "2.83억",
+          "rawAmount": "28,350",
+          "areaM2": 84.9,
+          "floor": "7",
+          "dealType": "직거래"
+        },
+        {
+          "date": "2026.07.16",
+          "priceEok": 5.1,
+          "priceText": "5.1억",
+          "rawAmount": "51,000",
+          "areaM2": 84.9,
+          "floor": "12",
+          "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
+      "askingMinEok": 4.8,
+      "askingMaxEok": 6.5,
+      "askingPriceText": "최저 4.8억 ~ 6.5억",
+      "dealArticleCount": 11,
+      "leaseMinText": null,
       "leaseArticleCount": 0
     },
     "apt10": {
@@ -645,11 +645,11 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
+      "askingMinEok": 7.6,
+      "askingMaxEok": 8.5,
+      "askingPriceText": "최저 7.6억 ~ 8.5억",
+      "dealArticleCount": 7,
+      "leaseMinText": null,
       "leaseArticleCount": 0
     },
     "apt11": {
@@ -710,12 +710,12 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 4.2,
+      "askingMaxEok": 8.8,
+      "askingPriceText": "최저 4.2억 ~ 8.8억",
+      "dealArticleCount": 17,
+      "leaseMinText": "4.3억",
+      "leaseArticleCount": 3
     },
     "apt12": {
       "id": "apt12",
@@ -775,11 +775,11 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
+      "askingMinEok": 6.0,
+      "askingMaxEok": 8.0,
+      "askingPriceText": "최저 6억 ~ 8억",
+      "dealArticleCount": 43,
+      "leaseMinText": null,
       "leaseArticleCount": 0
     },
     "apt13": {
@@ -840,12 +840,12 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 9.5,
+      "askingMaxEok": 13.0,
+      "askingPriceText": "최저 9.5억 ~ 13억",
+      "dealArticleCount": 25,
+      "leaseMinText": "5억",
+      "leaseArticleCount": 2
     },
     "apt14": {
       "id": "apt14",
@@ -905,32 +905,32 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 9.3,
+      "askingMaxEok": 16.0,
+      "askingPriceText": "최저 9.3억 ~ 16억",
+      "dealArticleCount": 57,
+      "leaseMinText": "5.9억",
+      "leaseArticleCount": 3
     },
     "apt15": {
       "id": "apt15",
       "name": "신동탄포레자이",
       "naverHscpNo": "131197",
       "targetPyeong": "24평 (전용 59㎡)",
-      "priceNum": 8.83,
-      "realPriceLatestEok": 8.55,
-      "realPriceLatestText": "8.55억 (26.10.26 · 5층)",
-      "realPriceAvgEok": 8.83,
+      "priceNum": 8.93,
+      "realPriceLatestEok": 9.2,
+      "realPriceLatestText": "9.2억 (26.10.29 · 12층)",
+      "realPriceAvgEok": 8.93,
       "realPriceRangeText": "8.5억 ~ 9.3억",
-      "totalDealsYear": 54,
+      "totalDealsYear": 55,
       "recentDeals": [
         {
-          "date": "2026.10.26",
-          "priceEok": 8.55,
-          "priceText": "8.55억",
-          "rawAmount": "85,500",
+          "date": "2026.10.29",
+          "priceEok": 9.2,
+          "priceText": "9.2억",
+          "rawAmount": "92,000",
           "areaM2": 60.0,
-          "floor": "5",
+          "floor": "12",
           "dealType": "중개거래"
         },
         {
@@ -940,6 +940,15 @@
           "rawAmount": "91,000",
           "areaM2": 60.0,
           "floor": "21",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.10.26",
+          "priceEok": 8.55,
+          "priceText": "8.55억",
+          "rawAmount": "85,500",
+          "areaM2": 60.0,
+          "floor": "5",
           "dealType": "중개거래"
         },
         {
@@ -959,23 +968,14 @@
           "areaM2": 60.0,
           "floor": "22",
           "dealType": "중개거래"
-        },
-        {
-          "date": "2026.10.13",
-          "priceEok": 8.7,
-          "priceText": "8.7억",
-          "rawAmount": "87,000",
-          "areaM2": 60.0,
-          "floor": "12",
-          "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 8.3,
+      "askingMaxEok": 13.9,
+      "askingPriceText": "최저 8.3억 ~ 13.9억",
+      "dealArticleCount": 73,
+      "leaseMinText": "6.5억",
+      "leaseArticleCount": 5
     },
     "apt16": {
       "id": "apt16",
@@ -1035,12 +1035,12 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 8.5,
+      "askingMaxEok": 13.0,
+      "askingPriceText": "최저 8.5억 ~ 13억",
+      "dealArticleCount": 44,
+      "leaseMinText": "5억",
+      "leaseArticleCount": 6
     },
     "apt17": {
       "id": "apt17",
@@ -1100,25 +1100,34 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 7.4,
+      "askingMaxEok": 12.0,
+      "askingPriceText": "최저 7.4억 ~ 12억",
+      "dealArticleCount": 30,
+      "leaseMinText": "5억",
+      "leaseArticleCount": 4
     },
     "apt18": {
       "id": "apt18",
       "name": "래미안노블클래스 1단지",
       "naverHscpNo": "25771",
       "targetPyeong": "33평 (전용 84㎡)",
-      "priceNum": 7.79,
-      "realPriceLatestEok": 7.97,
-      "realPriceLatestText": "7.97억 (26.10.17 · 15층)",
-      "realPriceAvgEok": 7.79,
-      "realPriceRangeText": "7.4억 ~ 8.15억",
-      "totalDealsYear": 8,
+      "priceNum": 7.93,
+      "realPriceLatestEok": 8.07,
+      "realPriceLatestText": "8.07억 (26.10.29 · 5층)",
+      "realPriceAvgEok": 7.93,
+      "realPriceRangeText": "7.5억 ~ 8.15억",
+      "totalDealsYear": 9,
       "recentDeals": [
+        {
+          "date": "2026.10.29",
+          "priceEok": 8.07,
+          "priceText": "8.07억",
+          "rawAmount": "80,700",
+          "areaM2": 85.0,
+          "floor": "5",
+          "dealType": "중개거래"
+        },
         {
           "date": "2026.10.17",
           "priceEok": 7.97,
@@ -1154,23 +1163,14 @@
           "areaM2": 85.0,
           "floor": "3",
           "dealType": "중개거래"
-        },
-        {
-          "date": "2026.08.21",
-          "priceEok": 7.4,
-          "priceText": "7.4억",
-          "rawAmount": "74,000",
-          "areaM2": 85.0,
-          "floor": "3",
-          "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 7.0,
+      "askingMaxEok": 13.0,
+      "askingPriceText": "최저 7억 ~ 13억",
+      "dealArticleCount": 27,
+      "leaseMinText": "5억",
+      "leaseArticleCount": 1
     },
     "apt19": {
       "id": "apt19",
@@ -1230,11 +1230,11 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
+      "askingMinEok": 3.5,
+      "askingMaxEok": 6.0,
+      "askingPriceText": "최저 3.5억 ~ 6억",
+      "dealArticleCount": 9,
+      "leaseMinText": null,
       "leaseArticleCount": 0
     },
     "apt20": {
@@ -1295,11 +1295,11 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
+      "askingMinEok": 6.3,
+      "askingMaxEok": 14.7,
+      "askingPriceText": "최저 6.3억 ~ 14.7억",
+      "dealArticleCount": 23,
+      "leaseMinText": null,
       "leaseArticleCount": 0
     },
     "apt21": {
@@ -1351,12 +1351,12 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 21.0,
+      "askingMaxEok": 30.0,
+      "askingPriceText": "최저 21억 ~ 30억",
+      "dealArticleCount": 52,
+      "leaseMinText": "11.5억",
+      "leaseArticleCount": 6
     },
     "apt22": {
       "id": "apt22",
@@ -1416,12 +1416,12 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 20.5,
+      "askingMaxEok": 26.0,
+      "askingPriceText": "최저 20.5억 ~ 26억",
+      "dealArticleCount": 49,
+      "leaseMinText": "10.5억",
+      "leaseArticleCount": 4
     },
     "apt23": {
       "id": "apt23",
@@ -1454,12 +1454,12 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 15.8,
+      "askingMaxEok": 21.0,
+      "askingPriceText": "최저 15.8억 ~ 21억",
+      "dealArticleCount": 14,
+      "leaseMinText": "12억",
+      "leaseArticleCount": 1
     },
     "apt24": {
       "id": "apt24",
@@ -1510,24 +1510,24 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 17.0,
+      "askingMaxEok": 20.0,
+      "askingPriceText": "최저 17억 ~ 20억",
+      "dealArticleCount": 29,
+      "leaseMinText": "10억",
+      "leaseArticleCount": 3
     },
     "apt25": {
       "id": "apt25",
       "name": "수원센트럴아이파크자이",
       "naverHscpNo": "133091",
       "targetPyeong": "25평 (전용 59㎡)",
-      "priceNum": 8.27,
+      "priceNum": 8.33,
       "realPriceLatestEok": 8.0,
       "realPriceLatestText": "8억 (26.10.30 · 4층)",
-      "realPriceAvgEok": 8.27,
+      "realPriceAvgEok": 8.33,
       "realPriceRangeText": "8억 ~ 8.55억",
-      "totalDealsYear": 18,
+      "totalDealsYear": 19,
       "recentDeals": [
         {
           "date": "2026.10.30",
@@ -1536,6 +1536,15 @@
           "rawAmount": "80,000",
           "areaM2": 60.0,
           "floor": "4",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.10.29",
+          "priceEok": 8.45,
+          "priceText": "8.45억",
+          "rawAmount": "84,500",
+          "areaM2": 60.0,
+          "floor": "20",
           "dealType": "중개거래"
         },
         {
@@ -1564,23 +1573,14 @@
           "areaM2": 60.0,
           "floor": "19",
           "dealType": "중개거래"
-        },
-        {
-          "date": "2026.10.17",
-          "priceEok": 8.15,
-          "priceText": "8.15억",
-          "rawAmount": "81,500",
-          "areaM2": 60.0,
-          "floor": "4",
-          "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 3.8,
+      "askingMaxEok": 12.5,
+      "askingPriceText": "최저 3.8억 ~ 12.5억",
+      "dealArticleCount": 130,
+      "leaseMinText": "3.1억",
+      "leaseArticleCount": 18
     },
     "apt26": {
       "id": "apt26",
@@ -1640,12 +1640,12 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 11.3,
+      "askingMaxEok": 18.0,
+      "askingPriceText": "최저 11.3억 ~ 18억",
+      "dealArticleCount": 74,
+      "leaseMinText": "5.7억",
+      "leaseArticleCount": 9
     },
     "apt27": {
       "id": "apt27",
@@ -1705,12 +1705,12 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 12.0,
+      "askingMaxEok": 17.0,
+      "askingPriceText": "최저 12억 ~ 17억",
+      "dealArticleCount": 24,
+      "leaseMinText": "8.5억",
+      "leaseArticleCount": 1
     },
     "apt28": {
       "id": "apt28",
@@ -1770,12 +1770,12 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 20.5,
+      "askingMaxEok": 39.0,
+      "askingPriceText": "최저 20.5억 ~ 39억",
+      "dealArticleCount": 131,
+      "leaseMinText": "11억",
+      "leaseArticleCount": 11
     },
     "apt29": {
       "id": "apt29",
@@ -1835,12 +1835,12 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 12.5,
+      "askingMaxEok": 17.0,
+      "askingPriceText": "최저 12.5억 ~ 17억",
+      "dealArticleCount": 38,
+      "leaseMinText": "5.9억",
+      "leaseArticleCount": 11
     },
     "apt30": {
       "id": "apt30",
@@ -1891,12 +1891,12 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 16.8,
+      "askingMaxEok": 25.0,
+      "askingPriceText": "최저 16.8억 ~ 25억",
+      "dealArticleCount": 42,
+      "leaseMinText": "8억",
+      "leaseArticleCount": 6
     },
     "apt31": {
       "id": "apt31",
@@ -1956,12 +1956,12 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 15.0,
+      "askingMaxEok": 19.0,
+      "askingPriceText": "최저 15억 ~ 19억",
+      "dealArticleCount": 54,
+      "leaseMinText": "6.5억",
+      "leaseArticleCount": 15
     },
     "apt32": {
       "id": "apt32",
@@ -2021,24 +2021,24 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 12.8,
+      "askingMaxEok": 16.0,
+      "askingPriceText": "최저 12.8억 ~ 16억",
+      "dealArticleCount": 25,
+      "leaseMinText": "8.5억",
+      "leaseArticleCount": 2
     },
     "apt33": {
       "id": "apt33",
       "name": "매교역 푸르지오 SK VIEW",
       "naverHscpNo": "129264",
       "targetPyeong": "25평 (전용 59㎡)",
-      "priceNum": 9.61,
+      "priceNum": 9.41,
       "realPriceLatestEok": 9.8,
       "realPriceLatestText": "9.8억 (26.10.29 · 6층)",
-      "realPriceAvgEok": 9.61,
-      "realPriceRangeText": "9.4억 ~ 9.8억",
-      "totalDealsYear": 30,
+      "realPriceAvgEok": 9.41,
+      "realPriceRangeText": "8.5억 ~ 9.8억",
+      "totalDealsYear": 32,
       "recentDeals": [
         {
           "date": "2026.10.29",
@@ -2047,6 +2047,15 @@
           "rawAmount": "98,000",
           "areaM2": 59.9,
           "floor": "6",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.10.29",
+          "priceEok": 8.5,
+          "priceText": "8.5억",
+          "rawAmount": "85,000",
+          "areaM2": 59.9,
+          "floor": "2",
           "dealType": "중개거래"
         },
         {
@@ -2075,23 +2084,14 @@
           "areaM2": 59.9,
           "floor": "10",
           "dealType": "중개거래"
-        },
-        {
-          "date": "2026.10.18",
-          "priceEok": 9.48,
-          "priceText": "9.48억",
-          "rawAmount": "94,800",
-          "areaM2": 59.9,
-          "floor": "9",
-          "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 8.7,
+      "askingMaxEok": 15.0,
+      "askingPriceText": "최저 8.7억 ~ 15억",
+      "dealArticleCount": 116,
+      "leaseMinText": "4.9억",
+      "leaseArticleCount": 13
     },
     "apt34": {
       "id": "apt34",
@@ -2142,12 +2142,12 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 6.35,
+      "askingMaxEok": 11.0,
+      "askingPriceText": "최저 6.35억 ~ 11억",
+      "dealArticleCount": 46,
+      "leaseMinText": "4.9억",
+      "leaseArticleCount": 8
     },
     "apt35": {
       "id": "apt35",
@@ -2207,12 +2207,12 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 7.9,
+      "askingMaxEok": 12.0,
+      "askingPriceText": "최저 7.9억 ~ 12억",
+      "dealArticleCount": 45,
+      "leaseMinText": "7억",
+      "leaseArticleCount": 3
     },
     "apt36": {
       "id": "apt36",
@@ -2272,12 +2272,12 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 6.8,
+      "askingMaxEok": 8.2,
+      "askingPriceText": "최저 6.8억 ~ 8.2억",
+      "dealArticleCount": 9,
+      "leaseMinText": "4.5억",
+      "leaseArticleCount": 2
     },
     "apt37": {
       "id": "apt37",
@@ -2337,12 +2337,12 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 4.0,
+      "askingMaxEok": 6.5,
+      "askingPriceText": "최저 4억 ~ 6.5억",
+      "dealArticleCount": 46,
+      "leaseMinText": "3.2억",
+      "leaseArticleCount": 5
     },
     "apt38": {
       "id": "apt38",
@@ -2402,12 +2402,12 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 12.0,
+      "askingMaxEok": 21.0,
+      "askingPriceText": "최저 12억 ~ 21억",
+      "dealArticleCount": 66,
+      "leaseMinText": "5억",
+      "leaseArticleCount": 11
     },
     "apt39": {
       "id": "apt39",
@@ -2467,12 +2467,12 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 6.3,
+      "askingMaxEok": 9.1,
+      "askingPriceText": "최저 6.3억 ~ 9.1억",
+      "dealArticleCount": 45,
+      "leaseMinText": "4억",
+      "leaseArticleCount": 6
     },
     "apt40": {
       "id": "apt40",
@@ -2532,12 +2532,12 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 7.5,
+      "askingMaxEok": 18.5,
+      "askingPriceText": "최저 7.5억 ~ 18.5억",
+      "dealArticleCount": 107,
+      "leaseMinText": "4.5억",
+      "leaseArticleCount": 10
     },
     "apt41": {
       "id": "apt41",
@@ -2597,11 +2597,11 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
+      "askingMinEok": 6.1,
+      "askingMaxEok": 7.0,
+      "askingPriceText": "최저 6.1억 ~ 7억",
+      "dealArticleCount": 5,
+      "leaseMinText": null,
       "leaseArticleCount": 0
     },
     "apt42": {
@@ -2635,12 +2635,12 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 8.4,
+      "askingMaxEok": 12.5,
+      "askingPriceText": "최저 8.4억 ~ 12.5억",
+      "dealArticleCount": 22,
+      "leaseMinText": "8.5억",
+      "leaseArticleCount": 1
     },
     "apt43": {
       "id": "apt43",
@@ -2700,12 +2700,12 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 6.7,
+      "askingMaxEok": 7.75,
+      "askingPriceText": "최저 6.7억 ~ 7.75억",
+      "dealArticleCount": 15,
+      "leaseMinText": "4.8억",
+      "leaseArticleCount": 1
     },
     "apt44": {
       "id": "apt44",
@@ -2765,12 +2765,12 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 9.0,
+      "askingMaxEok": 9.5,
+      "askingPriceText": "최저 9억 ~ 9.5억",
+      "dealArticleCount": 7,
+      "leaseMinText": "6억",
+      "leaseArticleCount": 1
     },
     "apt45": {
       "id": "apt45",
@@ -2830,11 +2830,11 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
+      "askingMinEok": 6.7,
+      "askingMaxEok": 7.6,
+      "askingPriceText": "최저 6.7억 ~ 7.6억",
+      "dealArticleCount": 6,
+      "leaseMinText": null,
       "leaseArticleCount": 0
     },
     "apt46": {
@@ -2895,11 +2895,11 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
+      "askingMinEok": 3.8,
+      "askingMaxEok": 5.3,
+      "askingPriceText": "최저 3.8억 ~ 5.3억",
+      "dealArticleCount": 11,
+      "leaseMinText": null,
       "leaseArticleCount": 0
     },
     "apt47": {
@@ -2960,11 +2960,11 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
+      "askingMinEok": 4.6,
+      "askingMaxEok": 6.0,
+      "askingPriceText": "최저 4.6억 ~ 6억",
+      "dealArticleCount": 7,
+      "leaseMinText": null,
       "leaseArticleCount": 0
     },
     "apt48": {
@@ -3025,12 +3025,12 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 4.2,
+      "askingMaxEok": 5.8,
+      "askingPriceText": "최저 4.2억 ~ 5.8억",
+      "dealArticleCount": 7,
+      "leaseMinText": "3.6억",
+      "leaseArticleCount": 1
     },
     "apt49": {
       "id": "apt49",
@@ -3090,11 +3090,11 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
+      "askingMinEok": 4.1,
+      "askingMaxEok": 4.5,
+      "askingPriceText": "최저 4.1억 ~ 4.5억",
+      "dealArticleCount": 3,
+      "leaseMinText": null,
       "leaseArticleCount": 0
     },
     "apt50": {
@@ -3155,12 +3155,12 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 7.5,
+      "askingMaxEok": 9.0,
+      "askingPriceText": "최저 7.5억 ~ 9억",
+      "dealArticleCount": 11,
+      "leaseMinText": "4.9억",
+      "leaseArticleCount": 1
     },
     "apt51": {
       "id": "apt51",
@@ -3220,11 +3220,11 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
+      "askingMinEok": 3.5,
+      "askingMaxEok": 5.0,
+      "askingPriceText": "최저 3.5억 ~ 5억",
+      "dealArticleCount": 6,
+      "leaseMinText": null,
       "leaseArticleCount": 0
     },
     "apt52": {
@@ -3285,11 +3285,11 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
+      "askingMinEok": 3.8,
+      "askingMaxEok": 6.2,
+      "askingPriceText": "최저 3.8억 ~ 6.2억",
+      "dealArticleCount": 16,
+      "leaseMinText": null,
       "leaseArticleCount": 0
     },
     "apt53": {
@@ -3297,31 +3297,31 @@
       "name": "힐스테이트서천",
       "naverHscpNo": "109211",
       "targetPyeong": "33~34평 (전용 84㎡ 전후)",
-      "priceNum": 0.0,
+      "priceNum": 9.2,
       "realPriceLatestEok": null,
       "realPriceLatestText": "최근 거래 없음",
       "realPriceAvgEok": null,
       "realPriceRangeText": "-",
       "totalDealsYear": 0,
       "recentDeals": [],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 9.2,
+      "askingMaxEok": 12.0,
+      "askingPriceText": "최저 9.2억 ~ 12억",
+      "dealArticleCount": 13,
+      "leaseMinText": "5.5억",
+      "leaseArticleCount": 4
     },
     "apt54": {
       "id": "apt54",
       "name": "e편한세상영통2차1단지",
       "naverHscpNo": "109249",
       "targetPyeong": "24~25평 (전용 59㎡ 전후)",
-      "priceNum": 6.54,
+      "priceNum": 6.28,
       "realPriceLatestEok": 6.75,
       "realPriceLatestText": "6.75억 (26.10.09 · 22층)",
-      "realPriceAvgEok": 6.54,
-      "realPriceRangeText": "6.25억 ~ 6.75억",
-      "totalDealsYear": 3,
+      "realPriceAvgEok": 6.28,
+      "realPriceRangeText": "5.69억 ~ 6.75억",
+      "totalDealsYear": 15,
       "recentDeals": [
         {
           "date": "2026.10.09",
@@ -3349,13 +3349,31 @@
           "areaM2": 59.9,
           "floor": "15",
           "dealType": "중개거래"
+        },
+        {
+          "date": "2026.07.15",
+          "priceEok": 6.1,
+          "priceText": "6.1억",
+          "rawAmount": "61,000",
+          "areaM2": 59.9,
+          "floor": "11",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.07.08",
+          "priceEok": 5.69,
+          "priceText": "5.69억",
+          "rawAmount": "56,900",
+          "areaM2": 59.9,
+          "floor": "6",
+          "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
+      "askingMinEok": 7.0,
+      "askingMaxEok": 8.5,
+      "askingPriceText": "최저 7억 ~ 8.5억",
+      "dealArticleCount": 7,
+      "leaseMinText": null,
       "leaseArticleCount": 0
     },
     "apt55": {
@@ -3416,12 +3434,12 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 6.0,
+      "askingMaxEok": 8.5,
+      "askingPriceText": "최저 6억 ~ 8.5억",
+      "dealArticleCount": 11,
+      "leaseMinText": "6억",
+      "leaseArticleCount": 1
     },
     "apt56": {
       "id": "apt56",
@@ -3481,25 +3499,34 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 10.0,
+      "askingMaxEok": 15.0,
+      "askingPriceText": "최저 10억 ~ 15억",
+      "dealArticleCount": 31,
+      "leaseMinText": "6.7억",
+      "leaseArticleCount": 1
     },
     "apt57": {
       "id": "apt57",
       "name": "영통롯데캐슬엘클래스1단지",
       "naverHscpNo": "136398",
       "targetPyeong": "33~34평 (전용 84㎡ 전후)",
-      "priceNum": 10.12,
-      "realPriceLatestEok": 10.0,
-      "realPriceLatestText": "10억 (26.10.26 · 15층)",
-      "realPriceAvgEok": 10.12,
-      "realPriceRangeText": "9.3억 ~ 10.7억",
-      "totalDealsYear": 32,
+      "priceNum": 10.3,
+      "realPriceLatestEok": 11.2,
+      "realPriceLatestText": "11.2억 (26.10.31 · 11층)",
+      "realPriceAvgEok": 10.3,
+      "realPriceRangeText": "9.3억 ~ 11.2억",
+      "totalDealsYear": 33,
       "recentDeals": [
+        {
+          "date": "2026.10.31",
+          "priceEok": 11.2,
+          "priceText": "11.2억",
+          "rawAmount": "112,000",
+          "areaM2": 85.0,
+          "floor": "11",
+          "dealType": "중개거래"
+        },
         {
           "date": "2026.10.26",
           "priceEok": 10.0,
@@ -3535,23 +3562,14 @@
           "areaM2": 85.0,
           "floor": "11",
           "dealType": "중개거래"
-        },
-        {
-          "date": "2026.08.29",
-          "priceEok": 10.3,
-          "priceText": "10.3억",
-          "rawAmount": "103,000",
-          "areaM2": 85.0,
-          "floor": "11",
-          "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 10.5,
+      "askingMaxEok": 13.0,
+      "askingPriceText": "최저 10.5억 ~ 13억",
+      "dealArticleCount": 47,
+      "leaseMinText": "6억",
+      "leaseArticleCount": 5
     },
     "apt58": {
       "id": "apt58",
@@ -3611,12 +3629,12 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 8.4,
+      "askingMaxEok": 20.0,
+      "askingPriceText": "최저 8.4억 ~ 20억",
+      "dealArticleCount": 86,
+      "leaseMinText": "5.8억",
+      "leaseArticleCount": 3
     },
     "apt59": {
       "id": "apt59",
@@ -3634,7 +3652,7 @@
       "askingMaxEok": null,
       "askingPriceText": "매물 없음",
       "dealArticleCount": 0,
-      "leaseMinText": "-",
+      "leaseMinText": null,
       "leaseArticleCount": 0
     },
     "apt60": {
@@ -3642,13 +3660,22 @@
       "name": "망포마을벽산이빌리지",
       "naverHscpNo": "8491",
       "targetPyeong": "33~34평 (전용 84㎡ 전후)",
-      "priceNum": 4.82,
-      "realPriceLatestEok": 4.68,
-      "realPriceLatestText": "4.68억 (26.10.27 · 4층)",
-      "realPriceAvgEok": 4.82,
-      "realPriceRangeText": "4.3억 ~ 5.25억",
-      "totalDealsYear": 12,
+      "priceNum": 5.02,
+      "realPriceLatestEok": 5.3,
+      "realPriceLatestText": "5.3억 (26.11.03 · 13층)",
+      "realPriceAvgEok": 5.02,
+      "realPriceRangeText": "4.68억 ~ 5.3억",
+      "totalDealsYear": 27,
       "recentDeals": [
+        {
+          "date": "2026.11.03",
+          "priceEok": 5.3,
+          "priceText": "5.3억",
+          "rawAmount": "53,000",
+          "areaM2": 84.9,
+          "floor": "13",
+          "dealType": "중개거래"
+        },
         {
           "date": "2026.10.27",
           "priceEok": 4.68,
@@ -3684,22 +3711,13 @@
           "areaM2": 84.9,
           "floor": "12",
           "dealType": "중개거래"
-        },
-        {
-          "date": "2026.09.28",
-          "priceEok": 4.3,
-          "priceText": "4.3억",
-          "rawAmount": "43,000",
-          "areaM2": 74.9,
-          "floor": "14",
-          "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
+      "askingMinEok": 5.0,
+      "askingMaxEok": 6.2,
+      "askingPriceText": "최저 5억 ~ 6.2억",
+      "dealArticleCount": 11,
+      "leaseMinText": null,
       "leaseArticleCount": 0
     },
     "apt61": {
@@ -3707,32 +3725,87 @@
       "name": "동탄시범다은마을월드메르디앙반도유보라",
       "naverHscpNo": "22065",
       "targetPyeong": "24~25평 (전용 59㎡ 전후)",
-      "priceNum": 0.0,
-      "realPriceLatestEok": null,
-      "realPriceLatestText": "최근 거래 없음",
-      "realPriceAvgEok": null,
-      "realPriceRangeText": "-",
-      "totalDealsYear": 0,
-      "recentDeals": [],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "priceNum": 7.03,
+      "realPriceLatestEok": 6.9,
+      "realPriceLatestText": "6.9억 (26.09.18 · 11층)",
+      "realPriceAvgEok": 7.03,
+      "realPriceRangeText": "6.7억 ~ 7.48억",
+      "totalDealsYear": 28,
+      "recentDeals": [
+        {
+          "date": "2026.09.18",
+          "priceEok": 6.9,
+          "priceText": "6.9억",
+          "rawAmount": "69,000",
+          "areaM2": 79.8,
+          "floor": "11",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.08.28",
+          "priceEok": 7.48,
+          "priceText": "7.48억",
+          "rawAmount": "74,800",
+          "areaM2": 81.3,
+          "floor": "14",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.08.06",
+          "priceEok": 7.2,
+          "priceText": "7.2억",
+          "rawAmount": "72,000",
+          "areaM2": 81.0,
+          "floor": "22",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.07.30",
+          "priceEok": 6.7,
+          "priceText": "6.7억",
+          "rawAmount": "67,000",
+          "areaM2": 79.8,
+          "floor": "14",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.06.30",
+          "priceEok": 6.85,
+          "priceText": "6.85억",
+          "rawAmount": "68,500",
+          "areaM2": 82.2,
+          "floor": "12",
+          "dealType": "중개거래"
+        }
+      ],
+      "askingMinEok": 8.5,
+      "askingMaxEok": 13.3,
+      "askingPriceText": "최저 8.5억 ~ 13.3억",
+      "dealArticleCount": 30,
+      "leaseMinText": "4.5억",
+      "leaseArticleCount": 4
     },
     "apt62": {
       "id": "apt62",
       "name": "서동탄역더샵파크시티",
       "naverHscpNo": "115677",
       "targetPyeong": "33~34평 (전용 84㎡ 전후)",
-      "priceNum": 6.48,
-      "realPriceLatestEok": 6.59,
-      "realPriceLatestText": "6.59억 (26.10.26 · 4층)",
-      "realPriceAvgEok": 6.48,
-      "realPriceRangeText": "5.8억 ~ 7.05억",
-      "totalDealsYear": 104,
+      "priceNum": 6.99,
+      "realPriceLatestEok": 8.35,
+      "realPriceLatestText": "8.35억 (26.11.05 · 8층)",
+      "realPriceAvgEok": 6.99,
+      "realPriceRangeText": "6.45억 ~ 8.35억",
+      "totalDealsYear": 105,
       "recentDeals": [
+        {
+          "date": "2026.11.05",
+          "priceEok": 8.35,
+          "priceText": "8.35억",
+          "rawAmount": "83,500",
+          "areaM2": 101.9,
+          "floor": "8",
+          "dealType": "중개거래"
+        },
         {
           "date": "2026.10.26",
           "priceEok": 6.59,
@@ -3768,23 +3841,14 @@
           "areaM2": 85.0,
           "floor": "16",
           "dealType": "중개거래"
-        },
-        {
-          "date": "2026.10.10",
-          "priceEok": 5.8,
-          "priceText": "5.8억",
-          "rawAmount": "58,000",
-          "areaM2": 74.7,
-          "floor": "6",
-          "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 5.3,
+      "askingMaxEok": 9.2,
+      "askingPriceText": "최저 5.3억 ~ 9.2억",
+      "dealArticleCount": 70,
+      "leaseMinText": "3.5억",
+      "leaseArticleCount": 3
     },
     "apt63": {
       "id": "apt63",
@@ -3844,11 +3908,11 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
+      "askingMinEok": 8.5,
+      "askingMaxEok": 13.0,
+      "askingPriceText": "최저 8.5억 ~ 13억",
+      "dealArticleCount": 19,
+      "leaseMinText": null,
       "leaseArticleCount": 0
     },
     "apt64": {
@@ -3909,12 +3973,12 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 9.3,
+      "askingMaxEok": 12.5,
+      "askingPriceText": "최저 9.3억 ~ 12.5억",
+      "dealArticleCount": 8,
+      "leaseMinText": "6억",
+      "leaseArticleCount": 1
     },
     "apt65": {
       "id": "apt65",
@@ -3926,7 +3990,7 @@
       "realPriceLatestText": "5.95억 (26.11.03 · 19층)",
       "realPriceAvgEok": 5.77,
       "realPriceRangeText": "5.27억 ~ 5.95억",
-      "totalDealsYear": 67,
+      "totalDealsYear": 68,
       "recentDeals": [
         {
           "date": "2026.11.03",
@@ -3948,6 +4012,15 @@
         },
         {
           "date": "2026.10.21",
+          "priceEok": 5.9,
+          "priceText": "5.9억",
+          "rawAmount": "59,000",
+          "areaM2": 59.0,
+          "floor": "19",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.10.21",
           "priceEok": 5.83,
           "priceText": "5.83억",
           "rawAmount": "58,300",
@@ -3963,23 +4036,14 @@
           "areaM2": 59.0,
           "floor": "16",
           "dealType": "중개거래"
-        },
-        {
-          "date": "2026.10.14",
-          "priceEok": 5.9,
-          "priceText": "5.9억",
-          "rawAmount": "59,000",
-          "areaM2": 59.0,
-          "floor": "5",
-          "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 5.6,
+      "askingMaxEok": 7.3,
+      "askingPriceText": "최저 5.6억 ~ 7.3억",
+      "dealArticleCount": 24,
+      "leaseMinText": "3.7억",
+      "leaseArticleCount": 1
     },
     "apt66": {
       "id": "apt66",
@@ -4039,12 +4103,12 @@
           "dealType": "직거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 9.8,
+      "askingMaxEok": 13.0,
+      "askingPriceText": "최저 9.8억 ~ 13억",
+      "dealArticleCount": 14,
+      "leaseMinText": "6억",
+      "leaseArticleCount": 4
     },
     "apt67": {
       "id": "apt67",
@@ -4104,12 +4168,12 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 3.7,
+      "askingMaxEok": 5.5,
+      "askingPriceText": "최저 3.7억 ~ 5.5억",
+      "dealArticleCount": 11,
+      "leaseMinText": "3억",
+      "leaseArticleCount": 3
     },
     "apt68": {
       "id": "apt68",
@@ -4133,11 +4197,11 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
+      "askingMinEok": 3.2,
+      "askingMaxEok": 3.8,
+      "askingPriceText": "최저 3.2억 ~ 3.8억",
+      "dealArticleCount": 4,
+      "leaseMinText": null,
       "leaseArticleCount": 0
     },
     "apt69": {
@@ -4198,12 +4262,12 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 7.48,
+      "askingMaxEok": 13.0,
+      "askingPriceText": "최저 7.48억 ~ 13억",
+      "dealArticleCount": 15,
+      "leaseMinText": "7.5억",
+      "leaseArticleCount": 1
     },
     "apt70": {
       "id": "apt70",
@@ -4263,11 +4327,11 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
+      "askingMinEok": 4.9,
+      "askingMaxEok": 7.5,
+      "askingPriceText": "최저 4.9억 ~ 7.5억",
+      "dealArticleCount": 17,
+      "leaseMinText": null,
       "leaseArticleCount": 0
     },
     "apt71": {
@@ -4328,12 +4392,12 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 6.3,
+      "askingMaxEok": 10.0,
+      "askingPriceText": "최저 6.3억 ~ 10억",
+      "dealArticleCount": 34,
+      "leaseMinText": "5.5억",
+      "leaseArticleCount": 1
     },
     "apt72": {
       "id": "apt72",
@@ -4393,24 +4457,24 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 3.7,
+      "askingMaxEok": 6.0,
+      "askingPriceText": "최저 3.7억 ~ 6억",
+      "dealArticleCount": 9,
+      "leaseMinText": "3억",
+      "leaseArticleCount": 2
     },
     "apt73": {
       "id": "apt73",
       "name": "수원인계동문굿모닝힐",
       "naverHscpNo": "120222",
       "targetPyeong": "33~34평 (전용 84㎡ 전후)",
-      "priceNum": 6.9,
+      "priceNum": 6.4,
       "realPriceLatestEok": 6.75,
       "realPriceLatestText": "6.75억 (26.09.16 · 17층)",
-      "realPriceAvgEok": 6.9,
-      "realPriceRangeText": "6.75억 ~ 7.05억",
-      "totalDealsYear": 2,
+      "realPriceAvgEok": 6.4,
+      "realPriceRangeText": "5.79억 ~ 7.05억",
+      "totalDealsYear": 6,
       "recentDeals": [
         {
           "date": "2026.09.16",
@@ -4429,14 +4493,41 @@
           "areaM2": 79.7,
           "floor": "17",
           "dealType": "중개거래"
+        },
+        {
+          "date": "2026.06.26",
+          "priceEok": 5.79,
+          "priceText": "5.79억",
+          "rawAmount": "57,850",
+          "areaM2": 71.9,
+          "floor": "2",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.06.20",
+          "priceEok": 5.95,
+          "priceText": "5.95억",
+          "rawAmount": "59,500",
+          "areaM2": 71.9,
+          "floor": "3",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.04.22",
+          "priceEok": 6.48,
+          "priceText": "6.48억",
+          "rawAmount": "64,800",
+          "areaM2": 79.7,
+          "floor": "29",
+          "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 7.0,
+      "askingMaxEok": 9.5,
+      "askingPriceText": "최저 7억 ~ 9.5억",
+      "dealArticleCount": 6,
+      "leaseMinText": "5억",
+      "leaseArticleCount": 1
     },
     "apt74": {
       "id": "apt74",
@@ -4469,11 +4560,11 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
+      "askingMinEok": 3.1,
+      "askingMaxEok": 4.5,
+      "askingPriceText": "최저 3.1억 ~ 4.5억",
+      "dealArticleCount": 11,
+      "leaseMinText": null,
       "leaseArticleCount": 0
     },
     "apt75": {
@@ -4481,12 +4572,12 @@
       "name": "한일베라체에코플러스",
       "naverHscpNo": "127743",
       "targetPyeong": "33~34평 (전용 84㎡ 전후)",
-      "priceNum": 6.65,
+      "priceNum": 6.23,
       "realPriceLatestEok": 6.7,
       "realPriceLatestText": "6.7억 (26.10.28 · 22층)",
-      "realPriceAvgEok": 6.65,
-      "realPriceRangeText": "6.6억 ~ 6.7억",
-      "totalDealsYear": 2,
+      "realPriceAvgEok": 6.23,
+      "realPriceRangeText": "5.8억 ~ 6.7억",
+      "totalDealsYear": 12,
       "recentDeals": [
         {
           "date": "2026.10.28",
@@ -4505,14 +4596,41 @@
           "areaM2": 81.9,
           "floor": "29",
           "dealType": "중개거래"
+        },
+        {
+          "date": "2026.07.27",
+          "priceEok": 6.1,
+          "priceText": "6.1억",
+          "rawAmount": "61,000",
+          "areaM2": 81.9,
+          "floor": "13",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.07.25",
+          "priceEok": 5.95,
+          "priceText": "5.95억",
+          "rawAmount": "59,500",
+          "areaM2": 81.9,
+          "floor": "8",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.07.07",
+          "priceEok": 5.8,
+          "priceText": "5.8억",
+          "rawAmount": "58,000",
+          "areaM2": 81.9,
+          "floor": "15",
+          "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 5.7,
+      "askingMaxEok": 8.5,
+      "askingPriceText": "최저 5.7억 ~ 8.5억",
+      "dealArticleCount": 15,
+      "leaseMinText": "5.3억",
+      "leaseArticleCount": 1
     },
     "apt76": {
       "id": "apt76",
@@ -4545,12 +4663,12 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 2.9,
+      "askingMaxEok": 6.5,
+      "askingPriceText": "최저 2.9억 ~ 6.5억",
+      "dealArticleCount": 4,
+      "leaseMinText": "2.1억",
+      "leaseArticleCount": 1
     },
     "apt77": {
       "id": "apt77",
@@ -4610,11 +4728,11 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
+      "askingMinEok": 17.0,
+      "askingMaxEok": 19.5,
+      "askingPriceText": "최저 17억 ~ 19.5억",
+      "dealArticleCount": 10,
+      "leaseMinText": null,
       "leaseArticleCount": 0
     },
     "apt78": {
@@ -4675,12 +4793,12 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 11.0,
+      "askingMaxEok": 13.0,
+      "askingPriceText": "최저 11억 ~ 13억",
+      "dealArticleCount": 17,
+      "leaseMinText": "7억",
+      "leaseArticleCount": 2
     },
     "apt79": {
       "id": "apt79",
@@ -4740,12 +4858,12 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 18.0,
+      "askingMaxEok": 20.0,
+      "askingPriceText": "최저 18억 ~ 20억",
+      "dealArticleCount": 21,
+      "leaseMinText": "8.5억",
+      "leaseArticleCount": 4
     },
     "apt80": {
       "id": "apt80",
@@ -4805,12 +4923,12 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 17.8,
+      "askingMaxEok": 37.0,
+      "askingPriceText": "최저 17.8억 ~ 37억",
+      "dealArticleCount": 26,
+      "leaseMinText": "8.6억",
+      "leaseArticleCount": 2
     },
     "apt81": {
       "id": "apt81",
@@ -4870,12 +4988,12 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 9.3,
+      "askingMaxEok": 15.8,
+      "askingPriceText": "최저 9.3억 ~ 15.8억",
+      "dealArticleCount": 45,
+      "leaseMinText": "6억",
+      "leaseArticleCount": 11
     },
     "apt82": {
       "id": "apt82",
@@ -4893,7 +5011,7 @@
       "askingMaxEok": null,
       "askingPriceText": "매물 없음",
       "dealArticleCount": 0,
-      "leaseMinText": "-",
+      "leaseMinText": null,
       "leaseArticleCount": 0
     },
     "apt83": {
@@ -4954,24 +5072,24 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 18.0,
+      "askingMaxEok": 32.0,
+      "askingPriceText": "최저 18억 ~ 32억",
+      "dealArticleCount": 45,
+      "leaseMinText": "10억",
+      "leaseArticleCount": 7
     },
     "apt84": {
       "id": "apt84",
       "name": "한효",
       "naverHscpNo": "1772",
       "targetPyeong": "33~34평 (전용 84㎡ 전후)",
-      "priceNum": 3.04,
+      "priceNum": 3.0,
       "realPriceLatestEok": 3.33,
       "realPriceLatestText": "3.33억 (26.09.14 · 9층)",
-      "realPriceAvgEok": 3.04,
-      "realPriceRangeText": "2.8억 ~ 3.33억",
-      "totalDealsYear": 3,
+      "realPriceAvgEok": 3.0,
+      "realPriceRangeText": "2.7억 ~ 3.33억",
+      "totalDealsYear": 12,
       "recentDeals": [
         {
           "date": "2026.09.14",
@@ -4999,13 +5117,31 @@
           "areaM2": 71.7,
           "floor": "10",
           "dealType": "중개거래"
+        },
+        {
+          "date": "2026.07.16",
+          "priceEok": 2.7,
+          "priceText": "2.7억",
+          "rawAmount": "27,000",
+          "areaM2": 71.7,
+          "floor": "6",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.07.10",
+          "priceEok": 3.19,
+          "priceText": "3.19억",
+          "rawAmount": "31,900",
+          "areaM2": 71.7,
+          "floor": "8",
+          "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
+      "askingMinEok": 2.85,
+      "askingMaxEok": 3.85,
+      "askingPriceText": "최저 2.85억 ~ 3.85억",
+      "dealArticleCount": 4,
+      "leaseMinText": null,
       "leaseArticleCount": 0
     },
     "apt85": {
@@ -5066,11 +5202,11 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
+      "askingMinEok": 9.0,
+      "askingMaxEok": 12.0,
+      "askingPriceText": "최저 9억 ~ 12억",
+      "dealArticleCount": 15,
+      "leaseMinText": null,
       "leaseArticleCount": 0
     },
     "apt86": {
@@ -5131,11 +5267,11 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
+      "askingMinEok": 4.7,
+      "askingMaxEok": 5.9,
+      "askingPriceText": "최저 4.7억 ~ 5.9억",
+      "dealArticleCount": 12,
+      "leaseMinText": null,
       "leaseArticleCount": 0
     },
     "apt87": {
@@ -5196,12 +5332,12 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 4.9,
+      "askingMaxEok": 6.4,
+      "askingPriceText": "최저 4.9억 ~ 6.4억",
+      "dealArticleCount": 22,
+      "leaseMinText": "3.7억",
+      "leaseArticleCount": 1
     },
     "apt88": {
       "id": "apt88",
@@ -5261,12 +5397,12 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 10.3,
+      "askingMaxEok": 12.0,
+      "askingPriceText": "최저 10.3억 ~ 12억",
+      "dealArticleCount": 8,
+      "leaseMinText": "6.5억",
+      "leaseArticleCount": 1
     },
     "apt89": {
       "id": "apt89",
@@ -5326,11 +5462,11 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
+      "askingMinEok": 6.5,
+      "askingMaxEok": 7.0,
+      "askingPriceText": "최저 6.5억 ~ 7억",
+      "dealArticleCount": 4,
+      "leaseMinText": null,
       "leaseArticleCount": 0
     },
     "apt90": {
@@ -5391,12 +5527,12 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 12.9,
+      "askingMaxEok": 20.5,
+      "askingPriceText": "최저 12.9억 ~ 20.5억",
+      "dealArticleCount": 50,
+      "leaseMinText": "7억",
+      "leaseArticleCount": 2
     },
     "apt91": {
       "id": "apt91",
@@ -5429,30 +5565,40 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 0.72,
+      "askingMaxEok": 9.1,
+      "askingPriceText": "최저 0.72억 ~ 9.1억",
+      "dealArticleCount": 60,
+      "leaseMinText": "4.8억",
+      "leaseArticleCount": 10
     },
     "apt92": {
       "id": "apt92",
       "name": "신명",
       "naverHscpNo": "1760",
       "targetPyeong": "33~34평 (전용 84㎡ 전후)",
-      "priceNum": 0.0,
-      "realPriceLatestEok": null,
-      "realPriceLatestText": "최근 거래 없음",
-      "realPriceAvgEok": null,
-      "realPriceRangeText": "-",
-      "totalDealsYear": 0,
-      "recentDeals": [],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
+      "priceNum": 3.58,
+      "realPriceLatestEok": 3.58,
+      "realPriceLatestText": "3.58억 (26.01.25 · 7층)",
+      "realPriceAvgEok": 3.58,
+      "realPriceRangeText": "3.58억",
+      "totalDealsYear": 1,
+      "recentDeals": [
+        {
+          "date": "2026.01.25",
+          "priceEok": 3.58,
+          "priceText": "3.58억",
+          "rawAmount": "35,800",
+          "areaM2": 81.7,
+          "floor": "7",
+          "dealType": "중개거래"
+        }
+      ],
+      "askingMinEok": 2.7,
+      "askingMaxEok": 3.0,
+      "askingPriceText": "최저 2.7억 ~ 3억",
+      "dealArticleCount": 4,
+      "leaseMinText": null,
       "leaseArticleCount": 0
     },
     "apt93": {
@@ -5460,12 +5606,12 @@
       "name": "삼천리권선2차",
       "naverHscpNo": "1759",
       "targetPyeong": "33~34평 (전용 84㎡ 전후)",
-      "priceNum": 3.52,
+      "priceNum": 3.44,
       "realPriceLatestEok": 4.0,
       "realPriceLatestText": "4억 (26.10.31 · 3층)",
-      "realPriceAvgEok": 3.52,
+      "realPriceAvgEok": 3.44,
       "realPriceRangeText": "3.05억 ~ 4억",
-      "totalDealsYear": 2,
+      "totalDealsYear": 9,
       "recentDeals": [
         {
           "date": "2026.10.31",
@@ -5484,27 +5630,81 @@
           "areaM2": 75.3,
           "floor": "1",
           "dealType": "중개거래"
+        },
+        {
+          "date": "2026.06.23",
+          "priceEok": 3.1,
+          "priceText": "3.1억",
+          "rawAmount": "31,000",
+          "areaM2": 75.3,
+          "floor": "1",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.05.18",
+          "priceEok": 3.48,
+          "priceText": "3.48억",
+          "rawAmount": "34,800",
+          "areaM2": 75.3,
+          "floor": "4",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.03.20",
+          "priceEok": 3.55,
+          "priceText": "3.55억",
+          "rawAmount": "35,500",
+          "areaM2": 75.3,
+          "floor": "4",
+          "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 4.1,
+      "askingMaxEok": 4.55,
+      "askingPriceText": "최저 4.1억 ~ 4.55억",
+      "dealArticleCount": 14,
+      "leaseMinText": "3.1억",
+      "leaseArticleCount": 2
     },
     "apt94": {
       "id": "apt94",
       "name": "성지",
       "naverHscpNo": "1761",
       "targetPyeong": "24~25평 (전용 59㎡ 전후)",
-      "priceNum": 2.53,
-      "realPriceLatestEok": 2.5,
-      "realPriceLatestText": "2.5억 (26.10.19 · 13층)",
-      "realPriceAvgEok": 2.53,
-      "realPriceRangeText": "2.45억 ~ 2.65억",
-      "totalDealsYear": 37,
+      "priceNum": 2.52,
+      "realPriceLatestEok": 2.6,
+      "realPriceLatestText": "2.6억 (26.11.05 · 12층)",
+      "realPriceAvgEok": 2.52,
+      "realPriceRangeText": "2.25억 ~ 2.65억",
+      "totalDealsYear": 40,
       "recentDeals": [
+        {
+          "date": "2026.11.05",
+          "priceEok": 2.6,
+          "priceText": "2.6억",
+          "rawAmount": "26,000",
+          "areaM2": 49.9,
+          "floor": "12",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.11.02",
+          "priceEok": 2.6,
+          "priceText": "2.6억",
+          "rawAmount": "26,000",
+          "areaM2": 49.4,
+          "floor": "10",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.10.27",
+          "priceEok": 2.25,
+          "priceText": "2.25억",
+          "rawAmount": "22,460",
+          "areaM2": 49.9,
+          "floor": "2",
+          "dealType": "중개거래"
+        },
         {
           "date": "2026.10.19",
           "priceEok": 2.5,
@@ -5522,41 +5722,14 @@
           "areaM2": 49.9,
           "floor": "11",
           "dealType": "중개거래"
-        },
-        {
-          "date": "2026.10.12",
-          "priceEok": 2.49,
-          "priceText": "2.49억",
-          "rawAmount": "24,900",
-          "areaM2": 49.4,
-          "floor": "8",
-          "dealType": "중개거래"
-        },
-        {
-          "date": "2026.10.06",
-          "priceEok": 2.45,
-          "priceText": "2.45억",
-          "rawAmount": "24,500",
-          "areaM2": 49.4,
-          "floor": "13",
-          "dealType": "중개거래"
-        },
-        {
-          "date": "2026.09.19",
-          "priceEok": 2.55,
-          "priceText": "2.55억",
-          "rawAmount": "25,500",
-          "areaM2": 49.9,
-          "floor": "11",
-          "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 2.37,
+      "askingMaxEok": 2.8,
+      "askingPriceText": "최저 2.37억 ~ 2.8억",
+      "dealArticleCount": 6,
+      "leaseMinText": "2.1억",
+      "leaseArticleCount": 1
     },
     "apt95": {
       "id": "apt95",
@@ -5598,11 +5771,11 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
+      "askingMinEok": 4.5,
+      "askingMaxEok": 6.0,
+      "askingPriceText": "최저 4.5억 ~ 6억",
+      "dealArticleCount": 9,
+      "leaseMinText": null,
       "leaseArticleCount": 0
     },
     "apt96": {
@@ -5663,12 +5836,12 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 2.2,
+      "askingMaxEok": 4.3,
+      "askingPriceText": "최저 2.2억 ~ 4.3억",
+      "dealArticleCount": 13,
+      "leaseMinText": "1.75억",
+      "leaseArticleCount": 1
     },
     "apt97": {
       "id": "apt97",
@@ -5728,12 +5901,12 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 15.9,
+      "askingMaxEok": 20.0,
+      "askingPriceText": "최저 15.9억 ~ 20억",
+      "dealArticleCount": 42,
+      "leaseMinText": "7.7억",
+      "leaseArticleCount": 7
     },
     "apt98": {
       "id": "apt98",
@@ -5793,12 +5966,12 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 3.5,
+      "askingMaxEok": 5.5,
+      "askingPriceText": "최저 3.5억 ~ 5.5억",
+      "dealArticleCount": 17,
+      "leaseMinText": "2.2억",
+      "leaseArticleCount": 1
     },
     "apt99": {
       "id": "apt99",
@@ -5858,12 +6031,12 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 4.3,
+      "askingMaxEok": 7.9,
+      "askingPriceText": "최저 4.3억 ~ 7.9억",
+      "dealArticleCount": 26,
+      "leaseMinText": "3.1억",
+      "leaseArticleCount": 1
     },
     "apt100": {
       "id": "apt100",
@@ -5923,12 +6096,12 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 7.85,
+      "askingMaxEok": 13.0,
+      "askingPriceText": "최저 7.85억 ~ 13억",
+      "dealArticleCount": 29,
+      "leaseMinText": "6.5억",
+      "leaseArticleCount": 1
     },
     "apt101": {
       "id": "apt101",
@@ -5970,11 +6143,11 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
+      "askingMinEok": 6.3,
+      "askingMaxEok": 7.8,
+      "askingPriceText": "최저 6.3억 ~ 7.8억",
+      "dealArticleCount": 12,
+      "leaseMinText": null,
       "leaseArticleCount": 0
     },
     "apt102": {
@@ -6035,11 +6208,11 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
+      "askingMinEok": 10.7,
+      "askingMaxEok": 12.0,
+      "askingPriceText": "최저 10.7억 ~ 12억",
+      "dealArticleCount": 6,
+      "leaseMinText": null,
       "leaseArticleCount": 0
     },
     "apt103": {
@@ -6100,12 +6273,12 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 9.6,
+      "askingMaxEok": 16.0,
+      "askingPriceText": "최저 9.6억 ~ 16억",
+      "dealArticleCount": 43,
+      "leaseMinText": "8.5억",
+      "leaseArticleCount": 3
     },
     "apt104": {
       "id": "apt104",
@@ -6165,24 +6338,24 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 15.7,
+      "askingMaxEok": 17.0,
+      "askingPriceText": "최저 15.7억 ~ 17억",
+      "dealArticleCount": 28,
+      "leaseMinText": "8억",
+      "leaseArticleCount": 6
     },
     "apt105": {
       "id": "apt105",
       "name": "광교해모로",
       "naverHscpNo": "103034",
       "targetPyeong": "33~34평 (전용 84㎡ 전후)",
-      "priceNum": 7.91,
+      "priceNum": 7.92,
       "realPriceLatestEok": 7.85,
       "realPriceLatestText": "7.85억 (26.10.31 · 6층)",
-      "realPriceAvgEok": 7.91,
+      "realPriceAvgEok": 7.92,
       "realPriceRangeText": "7.7억 ~ 8.3억",
-      "totalDealsYear": 4,
+      "totalDealsYear": 22,
       "recentDeals": [
         {
           "date": "2026.10.31",
@@ -6219,14 +6392,23 @@
           "areaM2": 84.8,
           "floor": "1",
           "dealType": "중개거래"
+        },
+        {
+          "date": "2026.07.24",
+          "priceEok": 7.95,
+          "priceText": "7.95억",
+          "rawAmount": "79,500",
+          "areaM2": 84.8,
+          "floor": "5",
+          "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 7.8,
+      "askingMaxEok": 10.5,
+      "askingPriceText": "최저 7.8억 ~ 10.5억",
+      "dealArticleCount": 16,
+      "leaseMinText": "6.5억",
+      "leaseArticleCount": 1
     },
     "apt106": {
       "id": "apt106",
@@ -6286,12 +6468,12 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 14.5,
+      "askingMaxEok": 17.0,
+      "askingPriceText": "최저 14.5억 ~ 17억",
+      "dealArticleCount": 42,
+      "leaseMinText": "9억",
+      "leaseArticleCount": 1
     },
     "apt107": {
       "id": "apt107",
@@ -6351,12 +6533,12 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 8.0,
+      "askingMaxEok": 9.5,
+      "askingPriceText": "최저 8억 ~ 9.5억",
+      "dealArticleCount": 13,
+      "leaseMinText": "4.5억",
+      "leaseArticleCount": 2
     },
     "apt108": {
       "id": "apt108",
@@ -6416,12 +6598,12 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 14.0,
+      "askingMaxEok": 32.0,
+      "askingPriceText": "최저 14억 ~ 32억",
+      "dealArticleCount": 38,
+      "leaseMinText": "8.5억",
+      "leaseArticleCount": 5
     },
     "apt109": {
       "id": "apt109",
@@ -6481,11 +6663,11 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
+      "askingMinEok": 4.9,
+      "askingMaxEok": 8.9,
+      "askingPriceText": "최저 4.9억 ~ 8.9억",
+      "dealArticleCount": 19,
+      "leaseMinText": null,
       "leaseArticleCount": 0
     },
     "apt110": {
@@ -6546,11 +6728,11 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
+      "askingMinEok": 4.8,
+      "askingMaxEok": 5.0,
+      "askingPriceText": "최저 4.8억 ~ 5억",
+      "dealArticleCount": 6,
+      "leaseMinText": null,
       "leaseArticleCount": 0
     },
     "apt111": {
@@ -6611,11 +6793,11 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
+      "askingMinEok": 3.2,
+      "askingMaxEok": 6.0,
+      "askingPriceText": "최저 3.2억 ~ 6억",
+      "dealArticleCount": 13,
+      "leaseMinText": null,
       "leaseArticleCount": 0
     },
     "apt112": {
@@ -6676,11 +6858,11 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
+      "askingMinEok": 6.6,
+      "askingMaxEok": 8.2,
+      "askingPriceText": "최저 6.6억 ~ 8.2억",
+      "dealArticleCount": 5,
+      "leaseMinText": null,
       "leaseArticleCount": 0
     },
     "apt113": {
@@ -6723,11 +6905,11 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
+      "askingMinEok": 7.5,
+      "askingMaxEok": 7.5,
+      "askingPriceText": "최저 7.5억",
+      "dealArticleCount": 2,
+      "leaseMinText": null,
       "leaseArticleCount": 0
     },
     "apt114": {
@@ -6788,11 +6970,11 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
+      "askingMinEok": 6.5,
+      "askingMaxEok": 7.3,
+      "askingPriceText": "최저 6.5억 ~ 7.3억",
+      "dealArticleCount": 4,
+      "leaseMinText": null,
       "leaseArticleCount": 0
     },
     "apt115": {
@@ -6853,11 +7035,11 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
+      "askingMinEok": 4.8,
+      "askingMaxEok": 5.5,
+      "askingPriceText": "최저 4.8억 ~ 5.5억",
+      "dealArticleCount": 3,
+      "leaseMinText": null,
       "leaseArticleCount": 0
     },
     "apt116": {
@@ -6865,18 +7047,64 @@
       "name": "권선3지구상록5단지",
       "naverHscpNo": "3624",
       "targetPyeong": "33~34평 (전용 84㎡ 전후)",
-      "priceNum": 0.0,
-      "realPriceLatestEok": null,
-      "realPriceLatestText": "최근 거래 없음",
-      "realPriceAvgEok": null,
-      "realPriceRangeText": "-",
-      "totalDealsYear": 0,
-      "recentDeals": [],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
+      "priceNum": 4.81,
+      "realPriceLatestEok": 4.35,
+      "realPriceLatestText": "4.35억 (26.07.07 · 1층)",
+      "realPriceAvgEok": 4.81,
+      "realPriceRangeText": "4.35억 ~ 5.05억",
+      "totalDealsYear": 8,
+      "recentDeals": [
+        {
+          "date": "2026.07.07",
+          "priceEok": 4.35,
+          "priceText": "4.35억",
+          "rawAmount": "43,500",
+          "areaM2": 84.6,
+          "floor": "1",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.06.02",
+          "priceEok": 5.05,
+          "priceText": "5.05억",
+          "rawAmount": "50,500",
+          "areaM2": 84.6,
+          "floor": "9",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.05.31",
+          "priceEok": 4.87,
+          "priceText": "4.87억",
+          "rawAmount": "48,700",
+          "areaM2": 84.6,
+          "floor": "13",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.05.29",
+          "priceEok": 4.75,
+          "priceText": "4.75억",
+          "rawAmount": "47,500",
+          "areaM2": 84.6,
+          "floor": "1",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.04.01",
+          "priceEok": 5.05,
+          "priceText": "5.05억",
+          "rawAmount": "50,500",
+          "areaM2": 84.6,
+          "floor": "8",
+          "dealType": "중개거래"
+        }
+      ],
+      "askingMinEok": 6.0,
+      "askingMaxEok": 6.0,
+      "askingPriceText": "최저 6억",
+      "dealArticleCount": 1,
+      "leaseMinText": null,
       "leaseArticleCount": 0
     },
     "apt117": {
@@ -6885,21 +7113,12 @@
       "naverHscpNo": "9675",
       "targetPyeong": "24~25평 (전용 59㎡ 전후)",
       "priceNum": 4.15,
-      "realPriceLatestEok": 4.15,
-      "realPriceLatestText": "4.15억 (26.11.02 · 8층)",
+      "realPriceLatestEok": 3.58,
+      "realPriceLatestText": "3.58억 (26.11.02 · 1층)",
       "realPriceAvgEok": 4.15,
       "realPriceRangeText": "3.58억 ~ 4.68억",
       "totalDealsYear": 16,
       "recentDeals": [
-        {
-          "date": "2026.11.02",
-          "priceEok": 4.15,
-          "priceText": "4.15억",
-          "rawAmount": "41,500",
-          "areaM2": 60.0,
-          "floor": "8",
-          "dealType": "중개거래"
-        },
         {
           "date": "2026.11.02",
           "priceEok": 3.58,
@@ -6907,6 +7126,15 @@
           "rawAmount": "35,800",
           "areaM2": 60.0,
           "floor": "1",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.11.02",
+          "priceEok": 4.15,
+          "priceText": "4.15억",
+          "rawAmount": "41,500",
+          "areaM2": 60.0,
+          "floor": "8",
           "dealType": "중개거래"
         },
         {
@@ -6937,11 +7165,11 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
+      "askingMinEok": 3.9,
+      "askingMaxEok": 4.95,
+      "askingPriceText": "최저 3.9억 ~ 4.95억",
+      "dealArticleCount": 3,
+      "leaseMinText": null,
       "leaseArticleCount": 0
     },
     "apt118": {
@@ -7002,12 +7230,12 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 5.5,
+      "askingMaxEok": 7.0,
+      "askingPriceText": "최저 5.5억 ~ 7억",
+      "dealArticleCount": 8,
+      "leaseMinText": "3.5억",
+      "leaseArticleCount": 2
     },
     "apt119": {
       "id": "apt119",
@@ -7067,11 +7295,11 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
+      "askingMinEok": 4.5,
+      "askingMaxEok": 7.0,
+      "askingPriceText": "최저 4.5억 ~ 7억",
+      "dealArticleCount": 11,
+      "leaseMinText": null,
       "leaseArticleCount": 0
     },
     "apt120": {
@@ -7132,11 +7360,11 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
+      "askingMinEok": 5.0,
+      "askingMaxEok": 7.0,
+      "askingPriceText": "최저 5억 ~ 7억",
+      "dealArticleCount": 22,
+      "leaseMinText": null,
       "leaseArticleCount": 0
     },
     "apt121": {
@@ -7144,12 +7372,12 @@
       "name": "수원아이파크시티7단지",
       "naverHscpNo": "109075",
       "targetPyeong": "33~34평 (전용 84㎡ 전후)",
-      "priceNum": 5.7,
+      "priceNum": 5.78,
       "realPriceLatestEok": 5.65,
       "realPriceLatestText": "5.65억 (26.10.17 · 5층)",
-      "realPriceAvgEok": 5.7,
-      "realPriceRangeText": "5.5억 ~ 5.88억",
-      "totalDealsYear": 4,
+      "realPriceAvgEok": 5.78,
+      "realPriceRangeText": "5.5억 ~ 6.1억",
+      "totalDealsYear": 10,
       "recentDeals": [
         {
           "date": "2026.10.17",
@@ -7186,27 +7414,45 @@
           "areaM2": 73.1,
           "floor": "14",
           "dealType": "중개거래"
+        },
+        {
+          "date": "2026.07.26",
+          "priceEok": 6.1,
+          "priceText": "6.1억",
+          "rawAmount": "61,000",
+          "areaM2": 74.8,
+          "floor": "12",
+          "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 6.4,
+      "askingMaxEok": 9.5,
+      "askingPriceText": "최저 6.4억 ~ 9.5억",
+      "dealArticleCount": 42,
+      "leaseMinText": "4.5억",
+      "leaseArticleCount": 4
     },
     "apt122": {
       "id": "apt122",
       "name": "보성,유원",
       "naverHscpNo": "1766",
       "targetPyeong": "24~25평 (전용 59㎡ 전후)",
-      "priceNum": 3.86,
-      "realPriceLatestEok": 3.3,
-      "realPriceLatestText": "3.3억 (26.10.26 · 1층)",
-      "realPriceAvgEok": 3.86,
+      "priceNum": 3.83,
+      "realPriceLatestEok": 3.85,
+      "realPriceLatestText": "3.85억 (26.11.03 · 7층)",
+      "realPriceAvgEok": 3.83,
       "realPriceRangeText": "3.3억 ~ 4.33억",
-      "totalDealsYear": 23,
+      "totalDealsYear": 68,
       "recentDeals": [
+        {
+          "date": "2026.11.03",
+          "priceEok": 3.85,
+          "priceText": "3.85억",
+          "rawAmount": "38,500",
+          "areaM2": 59.8,
+          "floor": "7",
+          "dealType": "중개거래"
+        },
         {
           "date": "2026.10.26",
           "priceEok": 3.3,
@@ -7227,15 +7473,6 @@
         },
         {
           "date": "2026.10.15",
-          "priceEok": 3.7,
-          "priceText": "3.7억",
-          "rawAmount": "37,000",
-          "areaM2": 59.8,
-          "floor": "7",
-          "dealType": "중개거래"
-        },
-        {
-          "date": "2026.10.15",
           "priceEok": 3.98,
           "priceText": "3.98억",
           "rawAmount": "39,800",
@@ -7244,34 +7481,43 @@
           "dealType": "중개거래"
         },
         {
-          "date": "2026.10.13",
-          "priceEok": 3.99,
-          "priceText": "3.99억",
-          "rawAmount": "39,900",
-          "areaM2": 60.0,
+          "date": "2026.10.15",
+          "priceEok": 3.7,
+          "priceText": "3.7억",
+          "rawAmount": "37,000",
+          "areaM2": 59.8,
           "floor": "7",
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 3.1,
+      "askingMaxEok": 4.9,
+      "askingPriceText": "최저 3.1억 ~ 4.9억",
+      "dealArticleCount": 17,
+      "leaseMinText": "3.2억",
+      "leaseArticleCount": 1
     },
     "apt123": {
       "id": "apt123",
       "name": "신우",
       "naverHscpNo": "1764",
       "targetPyeong": "33~34평 (전용 84㎡ 전후)",
-      "priceNum": 4.51,
-      "realPriceLatestEok": 4.15,
-      "realPriceLatestText": "4.15억 (26.10.17 · 3층)",
-      "realPriceAvgEok": 4.51,
+      "priceNum": 4.52,
+      "realPriceLatestEok": 4.38,
+      "realPriceLatestText": "4.38억 (26.11.05 · 1층)",
+      "realPriceAvgEok": 4.52,
       "realPriceRangeText": "4.15억 ~ 5억",
-      "totalDealsYear": 29,
+      "totalDealsYear": 30,
       "recentDeals": [
+        {
+          "date": "2026.11.05",
+          "priceEok": 4.38,
+          "priceText": "4.38억",
+          "rawAmount": "43,800",
+          "areaM2": 74.6,
+          "floor": "1",
+          "dealType": "중개거래"
+        },
         {
           "date": "2026.10.17",
           "priceEok": 4.15,
@@ -7307,36 +7553,36 @@
           "areaM2": 84.9,
           "floor": "2",
           "dealType": "중개거래"
-        },
-        {
-          "date": "2026.09.07",
-          "priceEok": 4.35,
-          "priceText": "4.35억",
-          "rawAmount": "43,500",
-          "areaM2": 74.6,
-          "floor": "10",
-          "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 4.5,
+      "askingMaxEok": 5.2,
+      "askingPriceText": "최저 4.5억 ~ 5.2억",
+      "dealArticleCount": 8,
+      "leaseMinText": "3.8억",
+      "leaseArticleCount": 1
     },
     "apt124": {
       "id": "apt124",
       "name": "권선신일유토빌",
       "naverHscpNo": "103565",
       "targetPyeong": "33~34평 (전용 84㎡ 전후)",
-      "priceNum": 3.71,
-      "realPriceLatestEok": 4.1,
-      "realPriceLatestText": "4.1억 (26.10.30 · 8층)",
-      "realPriceAvgEok": 3.71,
+      "priceNum": 3.77,
+      "realPriceLatestEok": 4.0,
+      "realPriceLatestText": "4억 (26.11.05 · 9층)",
+      "realPriceAvgEok": 3.77,
       "realPriceRangeText": "3.35억 ~ 4.1억",
-      "totalDealsYear": 27,
+      "totalDealsYear": 28,
       "recentDeals": [
+        {
+          "date": "2026.11.05",
+          "priceEok": 4.0,
+          "priceText": "4억",
+          "rawAmount": "40,000",
+          "areaM2": 60.0,
+          "floor": "9",
+          "dealType": "중개거래"
+        },
         {
           "date": "2026.10.30",
           "priceEok": 4.1,
@@ -7372,22 +7618,13 @@
           "areaM2": 60.0,
           "floor": "3",
           "dealType": "중개거래"
-        },
-        {
-          "date": "2026.09.19",
-          "priceEok": 3.7,
-          "priceText": "3.7억",
-          "rawAmount": "37,000",
-          "areaM2": 60.0,
-          "floor": "13",
-          "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
+      "askingMinEok": 3.3,
+      "askingMaxEok": 4.2,
+      "askingPriceText": "최저 3.3억 ~ 4.2억",
+      "dealArticleCount": 6,
+      "leaseMinText": null,
       "leaseArticleCount": 0
     },
     "apt125": {
@@ -7448,11 +7685,11 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
+      "askingMinEok": 4.2,
+      "askingMaxEok": 5.3,
+      "askingPriceText": "최저 4.2억 ~ 5.3억",
+      "dealArticleCount": 8,
+      "leaseMinText": null,
       "leaseArticleCount": 0
     },
     "apt126": {
@@ -7513,11 +7750,11 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
+      "askingMinEok": 7.5,
+      "askingMaxEok": 9.0,
+      "askingPriceText": "최저 7.5억 ~ 9억",
+      "dealArticleCount": 8,
+      "leaseMinText": null,
       "leaseArticleCount": 0
     },
     "apt127": {
@@ -7561,29 +7798,29 @@
         },
         {
           "date": "2026.06.30",
-          "priceEok": 5.45,
-          "priceText": "5.45억",
-          "rawAmount": "54,500",
-          "areaM2": 84.5,
-          "floor": "6",
-          "dealType": "중개거래"
-        },
-        {
-          "date": "2026.06.30",
           "priceEok": 5.7,
           "priceText": "5.7억",
           "rawAmount": "57,000",
           "areaM2": 84.5,
           "floor": "4",
           "dealType": "중개거래"
+        },
+        {
+          "date": "2026.06.30",
+          "priceEok": 5.45,
+          "priceText": "5.45억",
+          "rawAmount": "54,500",
+          "areaM2": 84.5,
+          "floor": "6",
+          "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 6.5,
+      "askingMaxEok": 7.0,
+      "askingPriceText": "최저 6.5억 ~ 7억",
+      "dealArticleCount": 5,
+      "leaseMinText": "4억",
+      "leaseArticleCount": 1
     },
     "apt128": {
       "id": "apt128",
@@ -7643,12 +7880,12 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 5.9,
+      "askingMaxEok": 8.0,
+      "askingPriceText": "최저 5.9억 ~ 8억",
+      "dealArticleCount": 15,
+      "leaseMinText": "4.2억",
+      "leaseArticleCount": 1
     },
     "apt129": {
       "id": "apt129",
@@ -7708,12 +7945,12 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 10.5,
+      "askingMaxEok": 12.3,
+      "askingPriceText": "최저 10.5억 ~ 12.3억",
+      "dealArticleCount": 10,
+      "leaseMinText": "6.5억",
+      "leaseArticleCount": 4
     },
     "apt130": {
       "id": "apt130",
@@ -7773,12 +8010,12 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 8.0,
+      "askingMaxEok": 9.3,
+      "askingPriceText": "최저 8억 ~ 9.3억",
+      "dealArticleCount": 13,
+      "leaseMinText": "5.8억",
+      "leaseArticleCount": 1
     },
     "apt131": {
       "id": "apt131",
@@ -7838,12 +8075,12 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 14.0,
+      "askingMaxEok": 14.0,
+      "askingPriceText": "최저 14억",
+      "dealArticleCount": 1,
+      "leaseMinText": "6.5억",
+      "leaseArticleCount": 2
     },
     "apt132": {
       "id": "apt132",
@@ -7903,11 +8140,11 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
+      "askingMinEok": 9.6,
+      "askingMaxEok": 12.0,
+      "askingPriceText": "최저 9.6억 ~ 12억",
+      "dealArticleCount": 8,
+      "leaseMinText": null,
       "leaseArticleCount": 0
     },
     "apt133": {
@@ -7968,12 +8205,12 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 12.5,
+      "askingMaxEok": 15.0,
+      "askingPriceText": "최저 12.5억 ~ 15억",
+      "dealArticleCount": 4,
+      "leaseMinText": "6억",
+      "leaseArticleCount": 3
     },
     "apt134": {
       "id": "apt134",
@@ -8033,12 +8270,12 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 6.0,
+      "askingMaxEok": 8.7,
+      "askingPriceText": "최저 6억 ~ 8.7억",
+      "dealArticleCount": 24,
+      "leaseMinText": "4.3억",
+      "leaseArticleCount": 3
     },
     "apt135": {
       "id": "apt135",
@@ -8098,24 +8335,24 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 8.0,
+      "askingMaxEok": 10.5,
+      "askingPriceText": "최저 8억 ~ 10.5억",
+      "dealArticleCount": 20,
+      "leaseMinText": "6억",
+      "leaseArticleCount": 3
     },
     "apt136": {
       "id": "apt136",
       "name": "화서주공3단지",
       "naverHscpNo": "2727",
       "targetPyeong": "33~34평 (전용 84㎡ 전후)",
-      "priceNum": 9.73,
+      "priceNum": 9.8,
       "realPriceLatestEok": 11.2,
       "realPriceLatestText": "11.2억 (26.10.19 · 10층)",
-      "realPriceAvgEok": 9.73,
+      "realPriceAvgEok": 9.8,
       "realPriceRangeText": "5.82억 ~ 11.4억",
-      "totalDealsYear": 4,
+      "totalDealsYear": 16,
       "recentDeals": [
         {
           "date": "2026.10.19",
@@ -8152,13 +8389,22 @@
           "areaM2": 84.8,
           "floor": "6",
           "dealType": "직거래"
+        },
+        {
+          "date": "2026.06.29",
+          "priceEok": 10.1,
+          "priceText": "10.1억",
+          "rawAmount": "101,000",
+          "areaM2": 84.9,
+          "floor": "6",
+          "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
+      "askingMinEok": 10.0,
+      "askingMaxEok": 12.0,
+      "askingPriceText": "최저 10억 ~ 12억",
+      "dealArticleCount": 5,
+      "leaseMinText": null,
       "leaseArticleCount": 0
     },
     "apt137": {
@@ -8166,12 +8412,12 @@
       "name": "꽃뫼노을마을대동",
       "naverHscpNo": "7973",
       "targetPyeong": "24~25평 (전용 59㎡ 전후)",
-      "priceNum": 5.53,
+      "priceNum": 5.63,
       "realPriceLatestEok": 6.43,
       "realPriceLatestText": "6.43억 (26.10.27 · 5층)",
-      "realPriceAvgEok": 5.53,
+      "realPriceAvgEok": 5.63,
       "realPriceRangeText": "4.7억 ~ 6.43억",
-      "totalDealsYear": 6,
+      "totalDealsYear": 20,
       "recentDeals": [
         {
           "date": "2026.10.27",
@@ -8211,19 +8457,19 @@
         },
         {
           "date": "2026.08.01",
-          "priceEok": 5.1,
-          "priceText": "5.1억",
-          "rawAmount": "51,000",
+          "priceEok": 5.6,
+          "priceText": "5.6억",
+          "rawAmount": "56,000",
           "areaM2": 60.0,
-          "floor": "6",
+          "floor": "15",
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
+      "askingMinEok": 6.0,
+      "askingMaxEok": 6.7,
+      "askingPriceText": "최저 6억 ~ 6.7억",
+      "dealArticleCount": 8,
+      "leaseMinText": null,
       "leaseArticleCount": 0
     },
     "apt138": {
@@ -8231,13 +8477,31 @@
       "name": "화서주공4단지",
       "naverHscpNo": "2728",
       "targetPyeong": "24~25평 (전용 59㎡ 전후)",
-      "priceNum": 8.5,
-      "realPriceLatestEok": 9.9,
-      "realPriceLatestText": "9.9억 (26.10.20 · 10층)",
-      "realPriceAvgEok": 8.5,
-      "realPriceRangeText": "7.5억 ~ 9.9억",
-      "totalDealsYear": 78,
+      "priceNum": 9.06,
+      "realPriceLatestEok": 9.37,
+      "realPriceLatestText": "9.37억 (26.10.31 · 18층)",
+      "realPriceAvgEok": 9.06,
+      "realPriceRangeText": "8.1억 ~ 9.9억",
+      "totalDealsYear": 80,
       "recentDeals": [
+        {
+          "date": "2026.10.31",
+          "priceEok": 9.37,
+          "priceText": "9.37억",
+          "rawAmount": "93,700",
+          "areaM2": 60.0,
+          "floor": "18",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.10.22",
+          "priceEok": 9.3,
+          "priceText": "9.3억",
+          "rawAmount": "93,000",
+          "areaM2": 60.0,
+          "floor": "10",
+          "dealType": "중개거래"
+        },
         {
           "date": "2026.10.20",
           "priceEok": 9.9,
@@ -8264,32 +8528,14 @@
           "areaM2": 60.0,
           "floor": "2",
           "dealType": "중개거래"
-        },
-        {
-          "date": "2026.09.23",
-          "priceEok": 7.5,
-          "priceText": "7.5억",
-          "rawAmount": "75,000",
-          "areaM2": 50.0,
-          "floor": "9",
-          "dealType": "중개거래"
-        },
-        {
-          "date": "2026.09.23",
-          "priceEok": 8.4,
-          "priceText": "8.4억",
-          "rawAmount": "84,000",
-          "areaM2": 60.0,
-          "floor": "11",
-          "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 8.0,
+      "askingMaxEok": 10.5,
+      "askingPriceText": "최저 8억 ~ 10.5억",
+      "dealArticleCount": 16,
+      "leaseMinText": "3억",
+      "leaseArticleCount": 3
     },
     "apt139": {
       "id": "apt139",
@@ -8349,11 +8595,11 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
+      "askingMinEok": 6.0,
+      "askingMaxEok": 8.0,
+      "askingPriceText": "최저 6억 ~ 8억",
+      "dealArticleCount": 5,
+      "leaseMinText": null,
       "leaseArticleCount": 0
     },
     "apt140": {
@@ -8414,12 +8660,12 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 9.0,
+      "askingMaxEok": 13.0,
+      "askingPriceText": "최저 9억 ~ 13억",
+      "dealArticleCount": 11,
+      "leaseMinText": "5.3억",
+      "leaseArticleCount": 4
     },
     "apt141": {
       "id": "apt141",
@@ -8479,11 +8725,11 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
+      "askingMinEok": 8.5,
+      "askingMaxEok": 9.5,
+      "askingPriceText": "최저 8.5억 ~ 9.5억",
+      "dealArticleCount": 4,
+      "leaseMinText": null,
       "leaseArticleCount": 0
     },
     "apt142": {
@@ -8544,11 +8790,11 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
+      "askingMinEok": 3.45,
+      "askingMaxEok": 4.2,
+      "askingPriceText": "최저 3.45억 ~ 4.2억",
+      "dealArticleCount": 8,
+      "leaseMinText": null,
       "leaseArticleCount": 0
     },
     "apt143": {
@@ -8582,11 +8828,11 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
+      "askingMinEok": 8.5,
+      "askingMaxEok": 9.5,
+      "askingPriceText": "최저 8.5억 ~ 9.5억",
+      "dealArticleCount": 10,
+      "leaseMinText": null,
       "leaseArticleCount": 0
     },
     "apt144": {
@@ -8647,12 +8893,12 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 4.5,
+      "askingMaxEok": 5.3,
+      "askingPriceText": "최저 4.5억 ~ 5.3억",
+      "dealArticleCount": 5,
+      "leaseMinText": "3억",
+      "leaseArticleCount": 1
     },
     "apt145": {
       "id": "apt145",
@@ -8712,12 +8958,12 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 5.8,
+      "askingMaxEok": 7.3,
+      "askingPriceText": "최저 5.8억 ~ 7.3억",
+      "dealArticleCount": 7,
+      "leaseMinText": "5억",
+      "leaseArticleCount": 1
     },
     "apt146": {
       "id": "apt146",
@@ -8777,12 +9023,12 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 5.7,
+      "askingMaxEok": 8.0,
+      "askingPriceText": "최저 5.7억 ~ 8억",
+      "dealArticleCount": 22,
+      "leaseMinText": "3.2억",
+      "leaseArticleCount": 1
     },
     "apt147": {
       "id": "apt147",
@@ -8842,11 +9088,11 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
+      "askingMinEok": 6.0,
+      "askingMaxEok": 8.0,
+      "askingPriceText": "최저 6억 ~ 8억",
+      "dealArticleCount": 30,
+      "leaseMinText": null,
       "leaseArticleCount": 0
     },
     "apt148": {
@@ -8907,11 +9153,11 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
+      "askingMinEok": 6.0,
+      "askingMaxEok": 6.5,
+      "askingPriceText": "최저 6억 ~ 6.5억",
+      "dealArticleCount": 7,
+      "leaseMinText": null,
       "leaseArticleCount": 0
     },
     "apt149": {
@@ -8919,18 +9165,55 @@
       "name": "수원정자금강에스쁘아",
       "naverHscpNo": "17451",
       "targetPyeong": "24~25평 (전용 59㎡ 전후)",
-      "priceNum": 0.0,
-      "realPriceLatestEok": null,
-      "realPriceLatestText": "최근 거래 없음",
-      "realPriceAvgEok": null,
-      "realPriceRangeText": "-",
-      "totalDealsYear": 0,
-      "recentDeals": [],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
+      "priceNum": 3.2,
+      "realPriceLatestEok": 3.0,
+      "realPriceLatestText": "3억 (26.06.20 · 11층)",
+      "realPriceAvgEok": 3.2,
+      "realPriceRangeText": "3억 ~ 3.5억",
+      "totalDealsYear": 4,
+      "recentDeals": [
+        {
+          "date": "2026.06.20",
+          "priceEok": 3.0,
+          "priceText": "3억",
+          "rawAmount": "30,000",
+          "areaM2": 59.9,
+          "floor": "11",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.06.19",
+          "priceEok": 3.5,
+          "priceText": "3.5억",
+          "rawAmount": "35,000",
+          "areaM2": 59.9,
+          "floor": "18",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.03.16",
+          "priceEok": 3.2,
+          "priceText": "3.2억",
+          "rawAmount": "32,000",
+          "areaM2": 59.9,
+          "floor": "7",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.02.25",
+          "priceEok": 3.1,
+          "priceText": "3.1억",
+          "rawAmount": "31,000",
+          "areaM2": 59.9,
+          "floor": "9",
+          "dealType": "중개거래"
+        }
+      ],
+      "askingMinEok": 3.3,
+      "askingMaxEok": 3.4,
+      "askingPriceText": "최저 3.3억 ~ 3.4억",
+      "dealArticleCount": 3,
+      "leaseMinText": null,
       "leaseArticleCount": 0
     },
     "apt150": {
@@ -8938,12 +9221,12 @@
       "name": "연꽃마을풍림",
       "naverHscpNo": "2710",
       "targetPyeong": "33~34평 (전용 84㎡ 전후)",
-      "priceNum": 6.54,
+      "priceNum": 6.33,
       "realPriceLatestEok": 6.5,
       "realPriceLatestText": "6.5억 (26.09.07 · 17층)",
-      "realPriceAvgEok": 6.54,
-      "realPriceRangeText": "6.5억 ~ 6.57억",
-      "totalDealsYear": 2,
+      "realPriceAvgEok": 6.33,
+      "realPriceRangeText": "6.17억 ~ 6.57억",
+      "totalDealsYear": 15,
       "recentDeals": [
         {
           "date": "2026.09.07",
@@ -8962,14 +9245,41 @@
           "areaM2": 99.2,
           "floor": "6",
           "dealType": "중개거래"
+        },
+        {
+          "date": "2026.06.17",
+          "priceEok": 6.2,
+          "priceText": "6.2억",
+          "rawAmount": "62,000",
+          "areaM2": 99.2,
+          "floor": "14",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.06.04",
+          "priceEok": 6.2,
+          "priceText": "6.2억",
+          "rawAmount": "62,000",
+          "areaM2": 99.2,
+          "floor": "12",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.05.30",
+          "priceEok": 6.17,
+          "priceText": "6.17억",
+          "rawAmount": "61,700",
+          "areaM2": 99.2,
+          "floor": "19",
+          "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 6.5,
+      "askingMaxEok": 9.0,
+      "askingPriceText": "최저 6.5억 ~ 9억",
+      "dealArticleCount": 11,
+      "leaseMinText": "5.8억",
+      "leaseArticleCount": 2
     },
     "apt151": {
       "id": "apt151",
@@ -9029,11 +9339,11 @@
           "dealType": "직거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
+      "askingMinEok": 7.7,
+      "askingMaxEok": 9.5,
+      "askingPriceText": "최저 7.7억 ~ 9.5억",
+      "dealArticleCount": 8,
+      "leaseMinText": null,
       "leaseArticleCount": 0
     },
     "apt152": {
@@ -9094,11 +9404,11 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
+      "askingMinEok": 3.2,
+      "askingMaxEok": 7.2,
+      "askingPriceText": "최저 3.2억 ~ 7.2억",
+      "dealArticleCount": 12,
+      "leaseMinText": null,
       "leaseArticleCount": 0
     },
     "apt153": {
@@ -9159,11 +9469,11 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
+      "askingMinEok": 7.1,
+      "askingMaxEok": 10.5,
+      "askingPriceText": "최저 7.1억 ~ 10.5억",
+      "dealArticleCount": 14,
+      "leaseMinText": null,
       "leaseArticleCount": 0
     },
     "apt154": {
@@ -9224,12 +9534,12 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 7.25,
+      "askingMaxEok": 8.9,
+      "askingPriceText": "최저 7.25억 ~ 8.9억",
+      "dealArticleCount": 20,
+      "leaseMinText": "5.5억",
+      "leaseArticleCount": 1
     },
     "apt155": {
       "id": "apt155",
@@ -9289,12 +9599,12 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 7.0,
+      "askingMaxEok": 16.0,
+      "askingPriceText": "최저 7억 ~ 16억",
+      "dealArticleCount": 70,
+      "leaseMinText": "4.8억",
+      "leaseArticleCount": 12
     },
     "apt156": {
       "id": "apt156",
@@ -9354,12 +9664,12 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 2.25,
+      "askingMaxEok": 6.0,
+      "askingPriceText": "최저 2.25억 ~ 6억",
+      "dealArticleCount": 45,
+      "leaseMinText": "1.8억",
+      "leaseArticleCount": 4
     },
     "apt157": {
       "id": "apt157",
@@ -9410,30 +9720,30 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0
+      "askingMinEok": 3.8,
+      "askingMaxEok": 5.0,
+      "askingPriceText": "최저 3.8억 ~ 5억",
+      "dealArticleCount": 4,
+      "leaseMinText": "3.2억",
+      "leaseArticleCount": 1
     },
     "apt158": {
       "id": "apt158",
       "name": "백설마을5단지효성",
       "naverHscpNo": "2711",
       "targetPyeong": "33~34평 (전용 84㎡ 전후)",
-      "priceNum": 0.0,
+      "priceNum": 5.8,
       "realPriceLatestEok": null,
       "realPriceLatestText": "최근 거래 없음",
       "realPriceAvgEok": null,
       "realPriceRangeText": "-",
       "totalDealsYear": 0,
       "recentDeals": [],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinText": "-",
+      "askingMinEok": 5.8,
+      "askingMaxEok": 7.0,
+      "askingPriceText": "최저 5.8억 ~ 7억",
+      "dealArticleCount": 4,
+      "leaseMinText": null,
       "leaseArticleCount": 0
     }
   }
