@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-11 05:14",
+  "updatedAt": "2026-11-12 06:14",
   "source": "국토교통부 실거래가 공개시스템(rt.molit.go.kr) & 네이버 부동산(m.land.naver.com)",
   "apartments": {
     "apt1": {
@@ -397,56 +397,56 @@
       "name": "신동탄 SK뷰파크 1차",
       "naverHscpNo": "105746",
       "targetPyeong": "25평 (전용 59㎡)",
-      "priceNum": 8.93,
-      "realPriceLatestEok": 9.2,
-      "realPriceLatestText": "9.2억 (26.10.29 · 12층)",
-      "realPriceAvgEok": 8.93,
-      "realPriceRangeText": "8.5억 ~ 9.3억",
-      "totalDealsYear": 18,
+      "priceNum": 7.32,
+      "realPriceLatestEok": 7.6,
+      "realPriceLatestText": "7.6억 (26.10.29 · 14층)",
+      "realPriceAvgEok": 7.32,
+      "realPriceRangeText": "6.5억 ~ 7.6억",
+      "totalDealsYear": 32,
       "recentDeals": [
         {
           "date": "2026.10.29",
-          "priceEok": 9.2,
-          "priceText": "9.2억",
-          "rawAmount": "92,000",
+          "priceEok": 7.6,
+          "priceText": "7.6억",
+          "rawAmount": "76,000",
           "areaM2": 60.0,
-          "floor": "12",
+          "floor": "14",
           "dealType": "중개거래"
         },
         {
-          "date": "2026.10.26",
-          "priceEok": 9.1,
-          "priceText": "9.1억",
-          "rawAmount": "91,000",
+          "date": "2026.10.23",
+          "priceEok": 7.5,
+          "priceText": "7.5억",
+          "rawAmount": "75,000",
           "areaM2": 60.0,
-          "floor": "21",
-          "dealType": "중개거래"
-        },
-        {
-          "date": "2026.10.26",
-          "priceEok": 8.55,
-          "priceText": "8.55억",
-          "rawAmount": "85,500",
-          "areaM2": 60.0,
-          "floor": "5",
+          "floor": "4",
           "dealType": "중개거래"
         },
         {
           "date": "2026.10.21",
-          "priceEok": 8.5,
-          "priceText": "8.5억",
-          "rawAmount": "85,000",
+          "priceEok": 6.5,
+          "priceText": "6.5억",
+          "rawAmount": "65,000",
           "areaM2": 60.0,
-          "floor": "2",
+          "floor": "9",
+          "dealType": "직거래"
+        },
+        {
+          "date": "2026.10.20",
+          "priceEok": 7.5,
+          "priceText": "7.5억",
+          "rawAmount": "75,000",
+          "areaM2": 60.0,
+          "floor": "20",
           "dealType": "중개거래"
         },
         {
-          "date": "2026.10.14",
-          "priceEok": 9.3,
-          "priceText": "9.3억",
-          "rawAmount": "93,000",
+          "date": "2026.09.22",
+          "priceEok": 7.5,
+          "priceText": "7.5억",
+          "rawAmount": "75,000",
           "areaM2": 60.0,
-          "floor": "22",
+          "floor": "19",
           "dealType": "중개거래"
         }
       ],
@@ -527,56 +527,56 @@
       "name": "신영통 현대타운 4단지",
       "naverHscpNo": "3728",
       "targetPyeong": "33평 (전용 84㎡)",
-      "priceNum": 5.06,
+      "priceNum": 4.34,
       "realPriceLatestEok": 5.0,
-      "realPriceLatestText": "5억 (26.10.31 · 13층)",
-      "realPriceAvgEok": 5.06,
-      "realPriceRangeText": "4.45억 ~ 5.58억",
-      "totalDealsYear": 45,
+      "realPriceLatestText": "5억 (26.09.08 · 12층)",
+      "realPriceAvgEok": 4.34,
+      "realPriceRangeText": "2.83억 ~ 5.1억",
+      "totalDealsYear": 12,
       "recentDeals": [
         {
-          "date": "2026.10.31",
+          "date": "2026.09.08",
           "priceEok": 5.0,
           "priceText": "5억",
           "rawAmount": "50,000",
-          "areaM2": 85.0,
-          "floor": "13",
+          "areaM2": 84.9,
+          "floor": "12",
           "dealType": "중개거래"
         },
         {
-          "date": "2026.10.31",
-          "priceEok": 5.0,
-          "priceText": "5억",
-          "rawAmount": "50,000",
-          "areaM2": 85.0,
-          "floor": "1",
-          "dealType": "중개거래"
-        },
-        {
-          "date": "2026.10.28",
-          "priceEok": 5.25,
-          "priceText": "5.25억",
-          "rawAmount": "52,500",
-          "areaM2": 85.0,
-          "floor": "17",
-          "dealType": "중개거래"
-        },
-        {
-          "date": "2026.10.23",
-          "priceEok": 5.58,
-          "priceText": "5.58억",
-          "rawAmount": "55,800",
-          "areaM2": 85.0,
-          "floor": "13",
-          "dealType": "중개거래"
-        },
-        {
-          "date": "2026.10.20",
-          "priceEok": 4.45,
-          "priceText": "4.45억",
-          "rawAmount": "44,500",
+          "date": "2026.08.21",
+          "priceEok": 4.2,
+          "priceText": "4.2억",
+          "rawAmount": "42,000",
           "areaM2": 84.9,
           "floor": "1",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.07.28",
+          "priceEok": 4.55,
+          "priceText": "4.55억",
+          "rawAmount": "45,500",
+          "areaM2": 84.9,
+          "floor": "13",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.07.21",
+          "priceEok": 2.83,
+          "priceText": "2.83억",
+          "rawAmount": "28,350",
+          "areaM2": 84.9,
+          "floor": "7",
+          "dealType": "직거래"
+        },
+        {
+          "date": "2026.07.16",
+          "priceEok": 5.1,
+          "priceText": "5.1억",
+          "rawAmount": "51,000",
+          "areaM2": 84.9,
+          "floor": "12",
           "dealType": "중개거래"
         }
       ],
@@ -592,22 +592,13 @@
       "name": "동탄센트럴포레스트 (구 새강5단지)",
       "naverHscpNo": "127686",
       "targetPyeong": "30~33평 (전용 74·84㎡)",
-      "priceNum": 6.69,
-      "realPriceLatestEok": 7.3,
-      "realPriceLatestText": "7.3억 (26.11.04 · 4층)",
-      "realPriceAvgEok": 6.69,
-      "realPriceRangeText": "6.2억 ~ 7.3억",
-      "totalDealsYear": 51,
+      "priceNum": 7.0,
+      "realPriceLatestEok": 7.0,
+      "realPriceLatestText": "7억 (26.10.24 · 18층)",
+      "realPriceAvgEok": 7.0,
+      "realPriceRangeText": "7억",
+      "totalDealsYear": 1,
       "recentDeals": [
-        {
-          "date": "2026.11.04",
-          "priceEok": 7.3,
-          "priceText": "7.3억",
-          "rawAmount": "73,000",
-          "areaM2": 74.7,
-          "floor": "4",
-          "dealType": "중개거래"
-        },
         {
           "date": "2026.10.24",
           "priceEok": 7.0,
@@ -615,33 +606,6 @@
           "rawAmount": "70,000",
           "areaM2": 74.7,
           "floor": "18",
-          "dealType": "중개거래"
-        },
-        {
-          "date": "2026.07.25",
-          "priceEok": 6.48,
-          "priceText": "6.48억",
-          "rawAmount": "64,800",
-          "areaM2": 74.7,
-          "floor": "17",
-          "dealType": "중개거래"
-        },
-        {
-          "date": "2026.07.24",
-          "priceEok": 6.2,
-          "priceText": "6.2억",
-          "rawAmount": "62,000",
-          "areaM2": 74.7,
-          "floor": "6",
-          "dealType": "중개거래"
-        },
-        {
-          "date": "2026.06.30",
-          "priceEok": 6.47,
-          "priceText": "6.47억",
-          "rawAmount": "64,700",
-          "areaM2": 74.7,
-          "floor": "9",
           "dealType": "중개거래"
         }
       ],
@@ -953,20 +917,20 @@
         },
         {
           "date": "2026.10.26",
-          "priceEok": 8.55,
-          "priceText": "8.55억",
-          "rawAmount": "85,500",
-          "areaM2": 60.0,
-          "floor": "5",
-          "dealType": "중개거래"
-        },
-        {
-          "date": "2026.10.26",
           "priceEok": 9.1,
           "priceText": "9.1억",
           "rawAmount": "91,000",
           "areaM2": 60.0,
           "floor": "21",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.10.26",
+          "priceEok": 8.55,
+          "priceText": "8.55억",
+          "rawAmount": "85,500",
+          "areaM2": 60.0,
+          "floor": "5",
           "dealType": "중개거래"
         }
       ],
@@ -982,13 +946,22 @@
       "name": "반정아이파크캐슬 4단지",
       "naverHscpNo": "137330",
       "targetPyeong": "24평 (전용 59㎡)",
-      "priceNum": 8.24,
-      "realPriceLatestEok": 8.34,
-      "realPriceLatestText": "8.34억 (26.10.30 · 13층)",
-      "realPriceAvgEok": 8.24,
+      "priceNum": 8.23,
+      "realPriceLatestEok": 8.44,
+      "realPriceLatestText": "8.44억 (26.11.09 · 9층)",
+      "realPriceAvgEok": 8.23,
       "realPriceRangeText": "7.65억 ~ 8.65억",
-      "totalDealsYear": 10,
+      "totalDealsYear": 35,
       "recentDeals": [
+        {
+          "date": "2026.11.09",
+          "priceEok": 8.44,
+          "priceText": "8.44억",
+          "rawAmount": "84,400",
+          "areaM2": 59.9,
+          "floor": "9",
+          "dealType": "중개거래"
+        },
         {
           "date": "2026.10.30",
           "priceEok": 8.34,
@@ -1005,15 +978,6 @@
           "rawAmount": "86,500",
           "areaM2": 59.8,
           "floor": "8",
-          "dealType": "중개거래"
-        },
-        {
-          "date": "2026.10.17",
-          "priceEok": 8.49,
-          "priceText": "8.49억",
-          "rawAmount": "84,900",
-          "areaM2": 59.9,
-          "floor": "10",
           "dealType": "중개거래"
         },
         {
@@ -1847,22 +1811,13 @@
       "name": "광교 아이파크",
       "naverHscpNo": "110746",
       "targetPyeong": "34~35평 (전용 84·90㎡)",
-      "priceNum": 16.31,
-      "realPriceLatestEok": 14.8,
-      "realPriceLatestText": "14.8억 (26.10.02 · 7층)",
-      "realPriceAvgEok": 16.31,
-      "realPriceRangeText": "14.8억 ~ 17.85억",
-      "totalDealsYear": 4,
+      "priceNum": 16.82,
+      "realPriceLatestEok": 15.8,
+      "realPriceLatestText": "15.8억 (26.08.28 · 31층)",
+      "realPriceAvgEok": 16.82,
+      "realPriceRangeText": "15.8억 ~ 17.85억",
+      "totalDealsYear": 3,
       "recentDeals": [
-        {
-          "date": "2026.10.02",
-          "priceEok": 14.8,
-          "priceText": "14.8억",
-          "rawAmount": "148,000",
-          "areaM2": 84.3,
-          "floor": "7",
-          "dealType": "중개거래"
-        },
         {
           "date": "2026.08.28",
           "priceEok": 15.8,
@@ -2038,7 +1993,7 @@
       "realPriceLatestText": "9.65억 (26.10.31 · 13층)",
       "realPriceAvgEok": 9.46,
       "realPriceRangeText": "8.5억 ~ 9.8억",
-      "totalDealsYear": 34,
+      "totalDealsYear": 35,
       "recentDeals": [
         {
           "date": "2026.10.31",
@@ -2219,13 +2174,22 @@
       "name": "서천 센트럴파크원",
       "naverHscpNo": "103170",
       "targetPyeong": "33평 (전용 84㎡)",
-      "priceNum": 7.55,
-      "realPriceLatestEok": 7.7,
-      "realPriceLatestText": "7.7억 (26.10.29 · 11층)",
-      "realPriceAvgEok": 7.55,
-      "realPriceRangeText": "7.45억 ~ 7.7억",
-      "totalDealsYear": 8,
+      "priceNum": 7.64,
+      "realPriceLatestEok": 7.88,
+      "realPriceLatestText": "7.88억 (26.10.31 · 10층)",
+      "realPriceAvgEok": 7.64,
+      "realPriceRangeText": "7.45억 ~ 7.88억",
+      "totalDealsYear": 9,
       "recentDeals": [
+        {
+          "date": "2026.10.31",
+          "priceEok": 7.88,
+          "priceText": "7.88억",
+          "rawAmount": "78,800",
+          "areaM2": 84.9,
+          "floor": "10",
+          "dealType": "중개거래"
+        },
         {
           "date": "2026.10.29",
           "priceEok": 7.7,
@@ -2260,15 +2224,6 @@
           "rawAmount": "76,500",
           "areaM2": 84.9,
           "floor": "15",
-          "dealType": "중개거래"
-        },
-        {
-          "date": "2026.10.02",
-          "priceEok": 7.45,
-          "priceText": "7.45억",
-          "rawAmount": "74,500",
-          "areaM2": 84.9,
-          "floor": "14",
           "dealType": "중개거래"
         }
       ],
@@ -2349,13 +2304,22 @@
       "name": "화서역 파크푸르지오",
       "naverHscpNo": "121991",
       "targetPyeong": "34평 (전용 84㎡)",
-      "priceNum": 14.51,
-      "realPriceLatestEok": 15.4,
-      "realPriceLatestText": "15.4억 (26.10.20 · 22층)",
-      "realPriceAvgEok": 14.51,
-      "realPriceRangeText": "13.5억 ~ 15.4억",
-      "totalDealsYear": 15,
+      "priceNum": 14.72,
+      "realPriceLatestEok": 15.75,
+      "realPriceLatestText": "15.75억 (26.10.23 · 24층)",
+      "realPriceAvgEok": 14.72,
+      "realPriceRangeText": "13.5억 ~ 15.75억",
+      "totalDealsYear": 16,
       "recentDeals": [
+        {
+          "date": "2026.10.23",
+          "priceEok": 15.75,
+          "priceText": "15.75억",
+          "rawAmount": "157,500",
+          "areaM2": 84.7,
+          "floor": "24",
+          "dealType": "중개거래"
+        },
         {
           "date": "2026.10.20",
           "priceEok": 15.4,
@@ -2390,15 +2354,6 @@
           "rawAmount": "135,000",
           "areaM2": 84.8,
           "floor": "23",
-          "dealType": "중개거래"
-        },
-        {
-          "date": "2026.09.28",
-          "priceEok": 14.7,
-          "priceText": "14.7억",
-          "rawAmount": "147,000",
-          "areaM2": 84.7,
-          "floor": "16",
           "dealType": "중개거래"
         }
       ],
@@ -3042,7 +2997,7 @@
       "realPriceLatestText": "4억 (26.10.14 · 4층)",
       "realPriceAvgEok": 3.81,
       "realPriceRangeText": "3.55억 ~ 4.03억",
-      "totalDealsYear": 10,
+      "totalDealsYear": 17,
       "recentDeals": [
         {
           "date": "2026.10.14",
@@ -3102,13 +3057,22 @@
       "name": "영통자이",
       "naverHscpNo": "131810",
       "targetPyeong": "24~25평 (전용 59㎡ 전후)",
-      "priceNum": 7.58,
-      "realPriceLatestEok": 7.9,
-      "realPriceLatestText": "7.9억 (26.10.31 · 18층)",
-      "realPriceAvgEok": 7.58,
-      "realPriceRangeText": "7.3억 ~ 7.9억",
-      "totalDealsYear": 14,
+      "priceNum": 7.48,
+      "realPriceLatestEok": 6.79,
+      "realPriceLatestText": "6.79억 (26.11.06 · 5층)",
+      "realPriceAvgEok": 7.48,
+      "realPriceRangeText": "6.79억 ~ 7.9억",
+      "totalDealsYear": 45,
       "recentDeals": [
+        {
+          "date": "2026.11.06",
+          "priceEok": 6.79,
+          "priceText": "6.79억",
+          "rawAmount": "67,900",
+          "areaM2": 60.0,
+          "floor": "5",
+          "dealType": "중개거래"
+        },
         {
           "date": "2026.10.31",
           "priceEok": 7.9,
@@ -3144,15 +3108,6 @@
           "areaM2": 60.0,
           "floor": "24",
           "dealType": "중개거래"
-        },
-        {
-          "date": "2026.09.19",
-          "priceEok": 7.3,
-          "priceText": "7.3억",
-          "rawAmount": "73,000",
-          "areaM2": 60.0,
-          "floor": "22",
-          "dealType": "중개거래"
         }
       ],
       "askingMinEok": null,
@@ -3172,7 +3127,7 @@
       "realPriceLatestText": "3.75억 (26.09.30 · 4층)",
       "realPriceAvgEok": 3.82,
       "realPriceRangeText": "3.55억 ~ 4.45억",
-      "totalDealsYear": 36,
+      "totalDealsYear": 16,
       "recentDeals": [
         {
           "date": "2026.09.30",
@@ -3203,18 +3158,18 @@
         },
         {
           "date": "2026.09.19",
-          "priceEok": 3.55,
-          "priceText": "3.55억",
-          "rawAmount": "35,500",
+          "priceEok": 3.67,
+          "priceText": "3.67억",
+          "rawAmount": "36,700",
           "areaM2": 84.9,
           "floor": "13",
           "dealType": "중개거래"
         },
         {
           "date": "2026.09.19",
-          "priceEok": 3.67,
-          "priceText": "3.67억",
-          "rawAmount": "36,700",
+          "priceEok": 3.55,
+          "priceText": "3.55억",
+          "rawAmount": "35,500",
           "areaM2": 84.9,
           "floor": "13",
           "dealType": "중개거래"
@@ -3237,7 +3192,7 @@
       "realPriceLatestText": "3.83억 (26.10.02 · 5층)",
       "realPriceAvgEok": 3.55,
       "realPriceRangeText": "3.18억 ~ 3.83억",
-      "totalDealsYear": 15,
+      "totalDealsYear": 7,
       "recentDeals": [
         {
           "date": "2026.10.02",
@@ -3316,12 +3271,12 @@
       "name": "e편한세상영통2차1단지",
       "naverHscpNo": "109249",
       "targetPyeong": "24~25평 (전용 59㎡ 전후)",
-      "priceNum": 6.54,
+      "priceNum": 6.28,
       "realPriceLatestEok": 6.75,
       "realPriceLatestText": "6.75억 (26.10.09 · 22층)",
-      "realPriceAvgEok": 6.54,
-      "realPriceRangeText": "6.25억 ~ 6.75억",
-      "totalDealsYear": 3,
+      "realPriceAvgEok": 6.28,
+      "realPriceRangeText": "5.69억 ~ 6.75억",
+      "totalDealsYear": 15,
       "recentDeals": [
         {
           "date": "2026.10.09",
@@ -3348,6 +3303,24 @@
           "rawAmount": "62,500",
           "areaM2": 59.9,
           "floor": "15",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.07.15",
+          "priceEok": 6.1,
+          "priceText": "6.1억",
+          "rawAmount": "61,000",
+          "areaM2": 59.9,
+          "floor": "11",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.07.08",
+          "priceEok": 5.69,
+          "priceText": "5.69억",
+          "rawAmount": "56,900",
+          "areaM2": 59.9,
+          "floor": "6",
           "dealType": "중개거래"
         }
       ],
@@ -3558,13 +3531,22 @@
       "name": "반정아이파크캐슬5단지",
       "naverHscpNo": "137187",
       "targetPyeong": "24~25평 (전용 59㎡ 전후)",
-      "priceNum": 8.02,
-      "realPriceLatestEok": 8.34,
-      "realPriceLatestText": "8.34억 (26.10.30 · 13층)",
-      "realPriceAvgEok": 8.02,
-      "realPriceRangeText": "7.4억 ~ 8.65억",
-      "totalDealsYear": 34,
+      "priceNum": 8.23,
+      "realPriceLatestEok": 8.44,
+      "realPriceLatestText": "8.44억 (26.11.09 · 9층)",
+      "realPriceAvgEok": 8.23,
+      "realPriceRangeText": "7.65억 ~ 8.65억",
+      "totalDealsYear": 35,
       "recentDeals": [
+        {
+          "date": "2026.11.09",
+          "priceEok": 8.44,
+          "priceText": "8.44억",
+          "rawAmount": "84,400",
+          "areaM2": 59.9,
+          "floor": "9",
+          "dealType": "중개거래"
+        },
         {
           "date": "2026.10.30",
           "priceEok": 8.34,
@@ -3599,15 +3581,6 @@
           "rawAmount": "80,800",
           "areaM2": 59.9,
           "floor": "13",
-          "dealType": "중개거래"
-        },
-        {
-          "date": "2026.09.05",
-          "priceEok": 7.4,
-          "priceText": "7.4억",
-          "rawAmount": "74,000",
-          "areaM2": 59.9,
-          "floor": "14",
           "dealType": "중개거래"
         }
       ],
@@ -3707,59 +3680,13 @@
       "name": "동탄시범다은마을월드메르디앙반도유보라",
       "naverHscpNo": "22065",
       "targetPyeong": "24~25평 (전용 59㎡ 전후)",
-      "priceNum": 7.03,
-      "realPriceLatestEok": 6.9,
-      "realPriceLatestText": "6.9억 (26.09.18 · 11층)",
-      "realPriceAvgEok": 7.03,
-      "realPriceRangeText": "6.7억 ~ 7.48억",
-      "totalDealsYear": 28,
-      "recentDeals": [
-        {
-          "date": "2026.09.18",
-          "priceEok": 6.9,
-          "priceText": "6.9억",
-          "rawAmount": "69,000",
-          "areaM2": 79.8,
-          "floor": "11",
-          "dealType": "중개거래"
-        },
-        {
-          "date": "2026.08.28",
-          "priceEok": 7.48,
-          "priceText": "7.48억",
-          "rawAmount": "74,800",
-          "areaM2": 81.3,
-          "floor": "14",
-          "dealType": "중개거래"
-        },
-        {
-          "date": "2026.08.06",
-          "priceEok": 7.2,
-          "priceText": "7.2억",
-          "rawAmount": "72,000",
-          "areaM2": 81.0,
-          "floor": "22",
-          "dealType": "중개거래"
-        },
-        {
-          "date": "2026.07.30",
-          "priceEok": 6.7,
-          "priceText": "6.7억",
-          "rawAmount": "67,000",
-          "areaM2": 79.8,
-          "floor": "14",
-          "dealType": "중개거래"
-        },
-        {
-          "date": "2026.06.30",
-          "priceEok": 6.85,
-          "priceText": "6.85억",
-          "rawAmount": "68,500",
-          "areaM2": 82.2,
-          "floor": "12",
-          "dealType": "중개거래"
-        }
-      ],
+      "priceNum": 0.0,
+      "realPriceLatestEok": null,
+      "realPriceLatestText": "최근 거래 없음",
+      "realPriceAvgEok": null,
+      "realPriceRangeText": "-",
+      "totalDealsYear": 0,
+      "recentDeals": [],
       "askingMinEok": null,
       "askingMaxEok": null,
       "askingPriceText": "매물 없음",
@@ -3837,12 +3764,12 @@
       "name": "동탄시범다은마을우남퍼스트빌",
       "naverHscpNo": "19208",
       "targetPyeong": "33~34평 (전용 84㎡ 전후)",
-      "priceNum": 9.8,
+      "priceNum": 8.08,
       "realPriceLatestEok": 9.8,
       "realPriceLatestText": "9.8억 (26.09.11 · 27층)",
-      "realPriceAvgEok": 9.8,
-      "realPriceRangeText": "9.8억",
-      "totalDealsYear": 1,
+      "realPriceAvgEok": 8.08,
+      "realPriceRangeText": "7억 ~ 9.8억",
+      "totalDealsYear": 23,
       "recentDeals": [
         {
           "date": "2026.09.11",
@@ -3851,6 +3778,42 @@
           "rawAmount": "98,000",
           "areaM2": 85.0,
           "floor": "27",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.06.30",
+          "priceEok": 7.59,
+          "priceText": "7.59억",
+          "rawAmount": "75,900",
+          "areaM2": 85.0,
+          "floor": "24",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.06.22",
+          "priceEok": 7.3,
+          "priceText": "7.3억",
+          "rawAmount": "73,000",
+          "areaM2": 84.4,
+          "floor": "9",
+          "dealType": "직거래"
+        },
+        {
+          "date": "2026.06.20",
+          "priceEok": 8.7,
+          "priceText": "8.7억",
+          "rawAmount": "87,000",
+          "areaM2": 84.4,
+          "floor": "22",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.06.12",
+          "priceEok": 7.0,
+          "priceText": "7억",
+          "rawAmount": "70,000",
+          "areaM2": 85.0,
+          "floor": "22",
           "dealType": "중개거래"
         }
       ],
@@ -3866,13 +3829,22 @@
       "name": "동탄솔빛마을쌍용예가",
       "naverHscpNo": "19672",
       "targetPyeong": "33~34평 (전용 84㎡ 전후)",
-      "priceNum": 9.44,
-      "realPriceLatestEok": 9.78,
-      "realPriceLatestText": "9.78억 (26.10.17 · 8층)",
-      "realPriceAvgEok": 9.44,
+      "priceNum": 9.4,
+      "realPriceLatestEok": 9.25,
+      "realPriceLatestText": "9.25억 (26.11.02 · 11층)",
+      "realPriceAvgEok": 9.4,
       "realPriceRangeText": "8.77억 ~ 10억",
-      "totalDealsYear": 4,
+      "totalDealsYear": 33,
       "recentDeals": [
+        {
+          "date": "2026.11.02",
+          "priceEok": 9.25,
+          "priceText": "9.25억",
+          "rawAmount": "92,500",
+          "areaM2": 78.7,
+          "floor": "11",
+          "dealType": "중개거래"
+        },
         {
           "date": "2026.10.17",
           "priceEok": 9.78,
@@ -4052,12 +4024,12 @@
       "name": "삼성",
       "naverHscpNo": "1832",
       "targetPyeong": "24~25평 (전용 59㎡ 전후)",
-      "priceNum": 3.61,
+      "priceNum": 3.79,
       "realPriceLatestEok": 3.95,
       "realPriceLatestText": "3.95억 (26.10.03 · 16층)",
-      "realPriceAvgEok": 3.61,
-      "realPriceRangeText": "3억 ~ 3.95억",
-      "totalDealsYear": 9,
+      "realPriceAvgEok": 3.79,
+      "realPriceRangeText": "3.65억 ~ 3.95억",
+      "totalDealsYear": 3,
       "recentDeals": [
         {
           "date": "2026.10.03",
@@ -4084,24 +4056,6 @@
           "rawAmount": "37,700",
           "areaM2": 59.9,
           "floor": "8",
-          "dealType": "중개거래"
-        },
-        {
-          "date": "2026.07.31",
-          "priceEok": 3.7,
-          "priceText": "3.7억",
-          "rawAmount": "37,000",
-          "areaM2": 59.9,
-          "floor": "19",
-          "dealType": "중개거래"
-        },
-        {
-          "date": "2026.06.05",
-          "priceEok": 3.0,
-          "priceText": "3억",
-          "rawAmount": "30,000",
-          "areaM2": 59.9,
-          "floor": "12",
           "dealType": "중개거래"
         }
       ],
@@ -4146,59 +4100,13 @@
       "name": "한화꿈에그린파크(주상복합)",
       "naverHscpNo": "27677",
       "targetPyeong": "33~34평 (전용 84㎡ 전후)",
-      "priceNum": 7.64,
-      "realPriceLatestEok": 6.93,
-      "realPriceLatestText": "6.93억 (26.10.14 · 14층)",
-      "realPriceAvgEok": 7.64,
-      "realPriceRangeText": "6.93억 ~ 8.3억",
-      "totalDealsYear": 14,
-      "recentDeals": [
-        {
-          "date": "2026.10.14",
-          "priceEok": 6.93,
-          "priceText": "6.93억",
-          "rawAmount": "69,300",
-          "areaM2": 120.9,
-          "floor": "14",
-          "dealType": "중개거래"
-        },
-        {
-          "date": "2026.09.23",
-          "priceEok": 8.3,
-          "priceText": "8.3억",
-          "rawAmount": "83,000",
-          "areaM2": 142.8,
-          "floor": "16",
-          "dealType": "중개거래"
-        },
-        {
-          "date": "2026.08.08",
-          "priceEok": 8.1,
-          "priceText": "8.1억",
-          "rawAmount": "81,000",
-          "areaM2": 142.8,
-          "floor": "15",
-          "dealType": "중개거래"
-        },
-        {
-          "date": "2026.08.01",
-          "priceEok": 7.9,
-          "priceText": "7.9억",
-          "rawAmount": "79,000",
-          "areaM2": 142.8,
-          "floor": "7",
-          "dealType": "중개거래"
-        },
-        {
-          "date": "2026.07.25",
-          "priceEok": 6.95,
-          "priceText": "6.95억",
-          "rawAmount": "69,500",
-          "areaM2": 120.9,
-          "floor": "9",
-          "dealType": "중개거래"
-        }
-      ],
+      "priceNum": 0.0,
+      "realPriceLatestEok": null,
+      "realPriceLatestText": "최근 거래 없음",
+      "realPriceAvgEok": null,
+      "realPriceRangeText": "-",
+      "totalDealsYear": 0,
+      "recentDeals": [],
       "askingMinEok": null,
       "askingMaxEok": null,
       "askingPriceText": "매물 없음",
@@ -4281,7 +4189,7 @@
       "realPriceLatestText": "7.05억 (26.10.23 · 16층)",
       "realPriceAvgEok": 7.12,
       "realPriceRangeText": "7억 ~ 7.4억",
-      "totalDealsYear": 62,
+      "totalDealsYear": 18,
       "recentDeals": [
         {
           "date": "2026.10.23",
@@ -4341,12 +4249,12 @@
       "name": "선경1차",
       "naverHscpNo": "1833",
       "targetPyeong": "24~25평 (전용 59㎡ 전후)",
-      "priceNum": 3.24,
+      "priceNum": 3.2,
       "realPriceLatestEok": 3.0,
       "realPriceLatestText": "3억 (26.10.25 · 1층)",
-      "realPriceAvgEok": 3.24,
-      "realPriceRangeText": "3억 ~ 3.47억",
-      "totalDealsYear": 7,
+      "realPriceAvgEok": 3.2,
+      "realPriceRangeText": "3억 ~ 3.39억",
+      "totalDealsYear": 2,
       "recentDeals": [
         {
           "date": "2026.10.25",
@@ -4365,33 +4273,6 @@
           "areaM2": 59.3,
           "floor": "7",
           "dealType": "중개거래"
-        },
-        {
-          "date": "2026.07.14",
-          "priceEok": 3.47,
-          "priceText": "3.47억",
-          "rawAmount": "34,700",
-          "areaM2": 59.3,
-          "floor": "14",
-          "dealType": "중개거래"
-        },
-        {
-          "date": "2026.07.14",
-          "priceEok": 3.25,
-          "priceText": "3.25억",
-          "rawAmount": "32,500",
-          "areaM2": 59.3,
-          "floor": "4",
-          "dealType": "중개거래"
-        },
-        {
-          "date": "2026.06.01",
-          "priceEok": 3.1,
-          "priceText": "3.1억",
-          "rawAmount": "31,000",
-          "areaM2": 59.3,
-          "floor": "12",
-          "dealType": "중개거래"
         }
       ],
       "askingMinEok": null,
@@ -4406,12 +4287,12 @@
       "name": "수원인계동문굿모닝힐",
       "naverHscpNo": "120222",
       "targetPyeong": "33~34평 (전용 84㎡ 전후)",
-      "priceNum": 6.9,
+      "priceNum": 6.4,
       "realPriceLatestEok": 6.75,
       "realPriceLatestText": "6.75억 (26.09.16 · 17층)",
-      "realPriceAvgEok": 6.9,
-      "realPriceRangeText": "6.75억 ~ 7.05억",
-      "totalDealsYear": 2,
+      "realPriceAvgEok": 6.4,
+      "realPriceRangeText": "5.79억 ~ 7.05억",
+      "totalDealsYear": 6,
       "recentDeals": [
         {
           "date": "2026.09.16",
@@ -4429,6 +4310,33 @@
           "rawAmount": "70,500",
           "areaM2": 79.7,
           "floor": "17",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.06.26",
+          "priceEok": 5.79,
+          "priceText": "5.79억",
+          "rawAmount": "57,850",
+          "areaM2": 71.9,
+          "floor": "2",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.06.20",
+          "priceEok": 5.95,
+          "priceText": "5.95억",
+          "rawAmount": "59,500",
+          "areaM2": 71.9,
+          "floor": "3",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.04.22",
+          "priceEok": 6.48,
+          "priceText": "6.48억",
+          "rawAmount": "64,800",
+          "areaM2": 79.7,
+          "floor": "29",
           "dealType": "중개거래"
         }
       ],
@@ -4482,12 +4390,12 @@
       "name": "한일베라체에코플러스",
       "naverHscpNo": "127743",
       "targetPyeong": "33~34평 (전용 84㎡ 전후)",
-      "priceNum": 6.65,
+      "priceNum": 6.23,
       "realPriceLatestEok": 6.7,
       "realPriceLatestText": "6.7억 (26.10.28 · 22층)",
-      "realPriceAvgEok": 6.65,
-      "realPriceRangeText": "6.6억 ~ 6.7억",
-      "totalDealsYear": 2,
+      "realPriceAvgEok": 6.23,
+      "realPriceRangeText": "5.8억 ~ 6.7억",
+      "totalDealsYear": 12,
       "recentDeals": [
         {
           "date": "2026.10.28",
@@ -4505,6 +4413,33 @@
           "rawAmount": "66,000",
           "areaM2": 81.9,
           "floor": "29",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.07.27",
+          "priceEok": 6.1,
+          "priceText": "6.1억",
+          "rawAmount": "61,000",
+          "areaM2": 81.9,
+          "floor": "13",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.07.25",
+          "priceEok": 5.95,
+          "priceText": "5.95억",
+          "rawAmount": "59,500",
+          "areaM2": 81.9,
+          "floor": "8",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.07.07",
+          "priceEok": 5.8,
+          "priceText": "5.8억",
+          "rawAmount": "58,000",
+          "areaM2": 81.9,
+          "floor": "15",
           "dealType": "중개거래"
         }
       ],
@@ -4558,12 +4493,12 @@
       "name": "광교에듀포레",
       "naverHscpNo": "140889",
       "targetPyeong": "33~34평 (전용 84㎡ 전후)",
-      "priceNum": 17.29,
+      "priceNum": 15.93,
       "realPriceLatestEok": 17.47,
       "realPriceLatestText": "17.47억 (26.10.21 · 13층)",
-      "realPriceAvgEok": 17.29,
-      "realPriceRangeText": "17.1억 ~ 17.47억",
-      "totalDealsYear": 2,
+      "realPriceAvgEok": 15.93,
+      "realPriceRangeText": "14.9억 ~ 17.47억",
+      "totalDealsYear": 11,
       "recentDeals": [
         {
           "date": "2026.10.21",
@@ -4582,6 +4517,33 @@
           "areaM2": 84.9,
           "floor": "27",
           "dealType": "중개거래"
+        },
+        {
+          "date": "2026.05.16",
+          "priceEok": 15.3,
+          "priceText": "15.3억",
+          "rawAmount": "153,000",
+          "areaM2": 75.8,
+          "floor": "18",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.02.26",
+          "priceEok": 14.9,
+          "priceText": "14.9억",
+          "rawAmount": "149,000",
+          "areaM2": 84.9,
+          "floor": "2",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.02.24",
+          "priceEok": 14.9,
+          "priceText": "14.9억",
+          "rawAmount": "149,000",
+          "areaM2": 84.9,
+          "floor": "7",
+          "dealType": "중개거래"
         }
       ],
       "askingMinEok": null,
@@ -4596,22 +4558,13 @@
       "name": "광교e편한세상2차",
       "naverHscpNo": "102119",
       "targetPyeong": "33~34평 (전용 84㎡ 전후)",
-      "priceNum": 21.32,
-      "realPriceLatestEok": 22.9,
-      "realPriceLatestText": "22.9억 (26.10.24 · 22층)",
-      "realPriceAvgEok": 21.32,
+      "priceNum": 21.13,
+      "realPriceLatestEok": 21.0,
+      "realPriceLatestText": "21억 (26.10.24 · 34층)",
+      "realPriceAvgEok": 21.13,
       "realPriceRangeText": "20억 ~ 22.9억",
-      "totalDealsYear": 4,
+      "totalDealsYear": 18,
       "recentDeals": [
-        {
-          "date": "2026.10.24",
-          "priceEok": 22.9,
-          "priceText": "22.9억",
-          "rawAmount": "229,000",
-          "areaM2": 101.9,
-          "floor": "22",
-          "dealType": "중개거래"
-        },
         {
           "date": "2026.10.24",
           "priceEok": 21.0,
@@ -4619,6 +4572,15 @@
           "rawAmount": "210,000",
           "areaM2": 101.2,
           "floor": "34",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.10.24",
+          "priceEok": 22.9,
+          "priceText": "22.9억",
+          "rawAmount": "229,000",
+          "areaM2": 101.9,
+          "floor": "22",
           "dealType": "중개거래"
         },
         {
@@ -4637,6 +4599,15 @@
           "rawAmount": "200,000",
           "areaM2": 101.9,
           "floor": "23",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.07.28",
+          "priceEok": 20.35,
+          "priceText": "20.35억",
+          "rawAmount": "203,500",
+          "areaM2": 101.8,
+          "floor": "27",
           "dealType": "중개거래"
         }
       ],
@@ -4782,22 +4753,13 @@
       "name": "광교더포레스트",
       "naverHscpNo": "137233",
       "targetPyeong": "33~34평 (전용 84㎡ 전후)",
-      "priceNum": 15.96,
-      "realPriceLatestEok": 16.5,
-      "realPriceLatestText": "16.5억 (26.11.05 · 10층)",
-      "realPriceAvgEok": 15.96,
-      "realPriceRangeText": "15.2억 ~ 16.5억",
-      "totalDealsYear": 47,
+      "priceNum": 15.82,
+      "realPriceLatestEok": 16.0,
+      "realPriceLatestText": "16억 (26.10.23 · 18층)",
+      "realPriceAvgEok": 15.82,
+      "realPriceRangeText": "15.2억 ~ 16.3억",
+      "totalDealsYear": 11,
       "recentDeals": [
-        {
-          "date": "2026.11.05",
-          "priceEok": 16.5,
-          "priceText": "16.5억",
-          "rawAmount": "165,000",
-          "areaM2": 84.9,
-          "floor": "10",
-          "dealType": "중개거래"
-        },
         {
           "date": "2026.10.23",
           "priceEok": 16.0,
@@ -4832,6 +4794,15 @@
           "rawAmount": "152,000",
           "areaM2": 84.8,
           "floor": "6",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.09.19",
+          "priceEok": 15.8,
+          "priceText": "15.8억",
+          "rawAmount": "158,000",
+          "areaM2": 84.8,
+          "floor": "15",
           "dealType": "중개거래"
         }
       ],
@@ -4871,7 +4842,7 @@
       "realPriceLatestText": "19억 (26.10.06 · 32층)",
       "realPriceAvgEok": 18.11,
       "realPriceRangeText": "16.9억 ~ 19억",
-      "totalDealsYear": 11,
+      "totalDealsYear": 44,
       "recentDeals": [
         {
           "date": "2026.10.06",
@@ -5424,13 +5395,23 @@
       "name": "신명",
       "naverHscpNo": "1760",
       "targetPyeong": "33~34평 (전용 84㎡ 전후)",
-      "priceNum": 0.0,
-      "realPriceLatestEok": null,
-      "realPriceLatestText": "최근 거래 없음",
-      "realPriceAvgEok": null,
-      "realPriceRangeText": "-",
-      "totalDealsYear": 0,
-      "recentDeals": [],
+      "priceNum": 3.58,
+      "realPriceLatestEok": 3.58,
+      "realPriceLatestText": "3.58억 (26.01.25 · 7층)",
+      "realPriceAvgEok": 3.58,
+      "realPriceRangeText": "3.58억",
+      "totalDealsYear": 1,
+      "recentDeals": [
+        {
+          "date": "2026.01.25",
+          "priceEok": 3.58,
+          "priceText": "3.58억",
+          "rawAmount": "35,800",
+          "areaM2": 81.7,
+          "floor": "7",
+          "dealType": "중개거래"
+        }
+      ],
       "askingMinEok": null,
       "askingMaxEok": null,
       "askingPriceText": "매물 없음",
@@ -5508,31 +5489,13 @@
       "name": "성지",
       "naverHscpNo": "1761",
       "targetPyeong": "24~25평 (전용 59㎡ 전후)",
-      "priceNum": 2.52,
-      "realPriceLatestEok": 2.6,
-      "realPriceLatestText": "2.6억 (26.11.05 · 12층)",
-      "realPriceAvgEok": 2.52,
+      "priceNum": 2.47,
+      "realPriceLatestEok": 2.25,
+      "realPriceLatestText": "2.25억 (26.10.27 · 2층)",
+      "realPriceAvgEok": 2.47,
       "realPriceRangeText": "2.25억 ~ 2.65억",
-      "totalDealsYear": 40,
+      "totalDealsYear": 12,
       "recentDeals": [
-        {
-          "date": "2026.11.05",
-          "priceEok": 2.6,
-          "priceText": "2.6억",
-          "rawAmount": "26,000",
-          "areaM2": 49.9,
-          "floor": "12",
-          "dealType": "중개거래"
-        },
-        {
-          "date": "2026.11.02",
-          "priceEok": 2.6,
-          "priceText": "2.6억",
-          "rawAmount": "26,000",
-          "areaM2": 49.4,
-          "floor": "10",
-          "dealType": "중개거래"
-        },
         {
           "date": "2026.10.27",
           "priceEok": 2.25,
@@ -5559,6 +5522,24 @@
           "areaM2": 49.9,
           "floor": "11",
           "dealType": "중개거래"
+        },
+        {
+          "date": "2026.10.12",
+          "priceEok": 2.49,
+          "priceText": "2.49억",
+          "rawAmount": "24,900",
+          "areaM2": 49.4,
+          "floor": "8",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.10.06",
+          "priceEok": 2.45,
+          "priceText": "2.45억",
+          "rawAmount": "24,500",
+          "areaM2": 49.4,
+          "floor": "13",
+          "dealType": "중개거래"
         }
       ],
       "askingMinEok": null,
@@ -5573,12 +5554,12 @@
       "name": "인계극동스타클래스",
       "naverHscpNo": "27120",
       "targetPyeong": "33~34평 (전용 84㎡ 전후)",
-      "priceNum": 4.39,
+      "priceNum": 4.37,
       "realPriceLatestEok": 4.3,
       "realPriceLatestText": "4.3억 (26.09.08 · 8층)",
-      "realPriceAvgEok": 4.39,
-      "realPriceRangeText": "4.3억 ~ 4.45억",
-      "totalDealsYear": 3,
+      "realPriceAvgEok": 4.37,
+      "realPriceRangeText": "4.3억 ~ 4.43억",
+      "totalDealsYear": 2,
       "recentDeals": [
         {
           "date": "2026.09.08",
@@ -5596,15 +5577,6 @@
           "rawAmount": "44,300",
           "areaM2": 85.0,
           "floor": "5",
-          "dealType": "중개거래"
-        },
-        {
-          "date": "2026.06.20",
-          "priceEok": 4.45,
-          "priceText": "4.45억",
-          "rawAmount": "44,500",
-          "areaM2": 84.9,
-          "floor": "9",
           "dealType": "중개거래"
         }
       ],
@@ -5945,13 +5917,22 @@
       "name": "한국1차",
       "naverHscpNo": "1793",
       "targetPyeong": "33~34평 (전용 84㎡ 전후)",
-      "priceNum": 6.28,
-      "realPriceLatestEok": 6.37,
-      "realPriceLatestText": "6.37억 (26.09.02 · 4층)",
-      "realPriceAvgEok": 6.28,
-      "realPriceRangeText": "6.09억 ~ 6.37억",
-      "totalDealsYear": 3,
+      "priceNum": 6.18,
+      "realPriceLatestEok": 5.9,
+      "realPriceLatestText": "5.9억 (26.11.06 · 10층)",
+      "realPriceAvgEok": 6.18,
+      "realPriceRangeText": "5.9억 ~ 6.37억",
+      "totalDealsYear": 4,
       "recentDeals": [
+        {
+          "date": "2026.11.06",
+          "priceEok": 5.9,
+          "priceText": "5.9억",
+          "rawAmount": "59,000",
+          "areaM2": 109.5,
+          "floor": "10",
+          "dealType": "중개거래"
+        },
         {
           "date": "2026.09.02",
           "priceEok": 6.37,
@@ -6187,12 +6168,12 @@
       "name": "광교해모로",
       "naverHscpNo": "103034",
       "targetPyeong": "33~34평 (전용 84㎡ 전후)",
-      "priceNum": 7.91,
+      "priceNum": 7.92,
       "realPriceLatestEok": 7.85,
       "realPriceLatestText": "7.85억 (26.10.31 · 6층)",
-      "realPriceAvgEok": 7.91,
+      "realPriceAvgEok": 7.92,
       "realPriceRangeText": "7.7억 ~ 8.3억",
-      "totalDealsYear": 4,
+      "totalDealsYear": 22,
       "recentDeals": [
         {
           "date": "2026.10.31",
@@ -6229,6 +6210,15 @@
           "areaM2": 84.8,
           "floor": "1",
           "dealType": "중개거래"
+        },
+        {
+          "date": "2026.07.24",
+          "priceEok": 7.95,
+          "priceText": "7.95억",
+          "rawAmount": "79,500",
+          "areaM2": 84.8,
+          "floor": "5",
+          "dealType": "중개거래"
         }
       ],
       "askingMinEok": null,
@@ -6243,12 +6233,12 @@
       "name": "광교더힐",
       "naverHscpNo": "137232",
       "targetPyeong": "33~34평 (전용 84㎡ 전후)",
-      "priceNum": 11.95,
+      "priceNum": 12.84,
       "realPriceLatestEok": 11.95,
       "realPriceLatestText": "11.95억 (26.08.22 · 8층)",
-      "realPriceAvgEok": 11.95,
-      "realPriceRangeText": "11.95억",
-      "totalDealsYear": 1,
+      "realPriceAvgEok": 12.84,
+      "realPriceRangeText": "11.95억 ~ 13.2억",
+      "totalDealsYear": 20,
       "recentDeals": [
         {
           "date": "2026.08.22",
@@ -6257,6 +6247,42 @@
           "rawAmount": "119,500",
           "areaM2": 74.5,
           "floor": "8",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.07.30",
+          "priceEok": 12.9,
+          "priceText": "12.9억",
+          "rawAmount": "129,000",
+          "areaM2": 85.0,
+          "floor": "21",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.07.28",
+          "priceEok": 13.15,
+          "priceText": "13.15억",
+          "rawAmount": "131,500",
+          "areaM2": 84.8,
+          "floor": "29",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.07.04",
+          "priceEok": 13.0,
+          "priceText": "13억",
+          "rawAmount": "130,000",
+          "areaM2": 85.0,
+          "floor": "20",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.07.04",
+          "priceEok": 13.2,
+          "priceText": "13.2억",
+          "rawAmount": "132,000",
+          "areaM2": 85.0,
+          "floor": "9",
           "dealType": "중개거래"
         }
       ],
@@ -6272,31 +6298,13 @@
       "name": "광교역참누리포레스트",
       "naverHscpNo": "107650",
       "targetPyeong": "24~25평 (전용 59㎡ 전후)",
-      "priceNum": 8.24,
-      "realPriceLatestEok": 8.3,
-      "realPriceLatestText": "8.3억 (26.11.06 · 7층)",
-      "realPriceAvgEok": 8.24,
-      "realPriceRangeText": "8.15억 ~ 8.35억",
-      "totalDealsYear": 38,
+      "priceNum": 8.27,
+      "realPriceLatestEok": 8.2,
+      "realPriceLatestText": "8.2억 (26.09.17 · 6층)",
+      "realPriceAvgEok": 8.27,
+      "realPriceRangeText": "8.2억 ~ 8.35억",
+      "totalDealsYear": 2,
       "recentDeals": [
-        {
-          "date": "2026.11.06",
-          "priceEok": 8.3,
-          "priceText": "8.3억",
-          "rawAmount": "83,000",
-          "areaM2": 59.5,
-          "floor": "7",
-          "dealType": "중개거래"
-        },
-        {
-          "date": "2026.11.03",
-          "priceEok": 8.2,
-          "priceText": "8.2억",
-          "rawAmount": "82,000",
-          "areaM2": 59.6,
-          "floor": "3",
-          "dealType": "중개거래"
-        },
         {
           "date": "2026.09.17",
           "priceEok": 8.2,
@@ -6314,15 +6322,6 @@
           "areaM2": 59.5,
           "floor": "5",
           "dealType": "중개거래"
-        },
-        {
-          "date": "2026.07.30",
-          "priceEok": 8.15,
-          "priceText": "8.15억",
-          "rawAmount": "81,500",
-          "areaM2": 59.5,
-          "floor": "4",
-          "dealType": "직거래"
         }
       ],
       "askingMinEok": null,
@@ -6532,31 +6531,13 @@
       "name": "권선3주공1단지",
       "naverHscpNo": "3625",
       "targetPyeong": "24~25평 (전용 59㎡ 전후)",
-      "priceNum": 3.97,
-      "realPriceLatestEok": 3.42,
-      "realPriceLatestText": "3.42억 (26.11.07 · 7층)",
-      "realPriceAvgEok": 3.97,
+      "priceNum": 3.91,
+      "realPriceLatestEok": 3.25,
+      "realPriceLatestText": "3.25억 (26.10.31 · 4층)",
+      "realPriceAvgEok": 3.91,
       "realPriceRangeText": "3.25억 ~ 5억",
-      "totalDealsYear": 22,
+      "totalDealsYear": 9,
       "recentDeals": [
-        {
-          "date": "2026.11.07",
-          "priceEok": 3.42,
-          "priceText": "3.42억",
-          "rawAmount": "34,200",
-          "areaM2": 49.3,
-          "floor": "7",
-          "dealType": "중개거래"
-        },
-        {
-          "date": "2026.11.03",
-          "priceEok": 3.5,
-          "priceText": "3.5억",
-          "rawAmount": "35,000",
-          "areaM2": 59.8,
-          "floor": "1",
-          "dealType": "중개거래"
-        },
         {
           "date": "2026.10.31",
           "priceEok": 3.25,
@@ -6582,6 +6563,24 @@
           "rawAmount": "46,900",
           "areaM2": 59.8,
           "floor": "9",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.09.12",
+          "priceEok": 3.27,
+          "priceText": "3.27억",
+          "rawAmount": "32,700",
+          "areaM2": 49.3,
+          "floor": "5",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.09.05",
+          "priceEok": 3.35,
+          "priceText": "3.35억",
+          "rawAmount": "33,500",
+          "areaM2": 49.3,
+          "floor": "12",
           "dealType": "중개거래"
         }
       ],
@@ -6709,12 +6708,12 @@
       "name": "권선대우",
       "naverHscpNo": "8843",
       "targetPyeong": "33~34평 (전용 84㎡ 전후)",
-      "priceNum": 5.88,
+      "priceNum": 5.98,
       "realPriceLatestEok": 5.97,
       "realPriceLatestText": "5.97억 (26.10.16 · 11층)",
-      "realPriceAvgEok": 5.88,
+      "realPriceAvgEok": 5.98,
       "realPriceRangeText": "5.2억 ~ 6.8억",
-      "totalDealsYear": 14,
+      "totalDealsYear": 4,
       "recentDeals": [
         {
           "date": "2026.10.16",
@@ -6750,15 +6749,6 @@
           "rawAmount": "59,500",
           "areaM2": 84.9,
           "floor": "7",
-          "dealType": "중개거래"
-        },
-        {
-          "date": "2026.07.16",
-          "priceEok": 5.48,
-          "priceText": "5.48억",
-          "rawAmount": "54,800",
-          "areaM2": 84.9,
-          "floor": "3",
           "dealType": "중개거래"
         }
       ],
@@ -7359,13 +7349,59 @@
       "name": "권선신일유토빌",
       "naverHscpNo": "103565",
       "targetPyeong": "33~34평 (전용 84㎡ 전후)",
-      "priceNum": 0.0,
-      "realPriceLatestEok": null,
-      "realPriceLatestText": "최근 거래 없음",
-      "realPriceAvgEok": null,
-      "realPriceRangeText": "-",
-      "totalDealsYear": 0,
-      "recentDeals": [],
+      "priceNum": 3.77,
+      "realPriceLatestEok": 4.0,
+      "realPriceLatestText": "4억 (26.11.05 · 9층)",
+      "realPriceAvgEok": 3.77,
+      "realPriceRangeText": "3.35억 ~ 4.1억",
+      "totalDealsYear": 28,
+      "recentDeals": [
+        {
+          "date": "2026.11.05",
+          "priceEok": 4.0,
+          "priceText": "4억",
+          "rawAmount": "40,000",
+          "areaM2": 60.0,
+          "floor": "9",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.10.30",
+          "priceEok": 4.1,
+          "priceText": "4.1억",
+          "rawAmount": "41,000",
+          "areaM2": 60.0,
+          "floor": "8",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.10.21",
+          "priceEok": 3.6,
+          "priceText": "3.6억",
+          "rawAmount": "36,000",
+          "areaM2": 60.0,
+          "floor": "6",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.10.12",
+          "priceEok": 3.8,
+          "priceText": "3.8억",
+          "rawAmount": "38,000",
+          "areaM2": 60.0,
+          "floor": "4",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.10.09",
+          "priceEok": 3.35,
+          "priceText": "3.35억",
+          "rawAmount": "33,500",
+          "areaM2": 60.0,
+          "floor": "3",
+          "dealType": "중개거래"
+        }
+      ],
       "askingMinEok": null,
       "askingMaxEok": null,
       "askingPriceText": "매물 없음",
@@ -7573,59 +7609,13 @@
       "name": "청명마을주공",
       "naverHscpNo": "1809",
       "targetPyeong": "24~25평 (전용 59㎡ 전후)",
-      "priceNum": 8.94,
-      "realPriceLatestEok": 8.29,
-      "realPriceLatestText": "8.29억 (26.11.09 · 1층)",
-      "realPriceAvgEok": 8.94,
-      "realPriceRangeText": "8억 ~ 9.78억",
-      "totalDealsYear": 29,
-      "recentDeals": [
-        {
-          "date": "2026.11.09",
-          "priceEok": 8.29,
-          "priceText": "8.29억",
-          "rawAmount": "82,900",
-          "areaM2": 92.2,
-          "floor": "1",
-          "dealType": "중개거래"
-        },
-        {
-          "date": "2026.10.30",
-          "priceEok": 9.68,
-          "priceText": "9.68억",
-          "rawAmount": "96,750",
-          "areaM2": 119.9,
-          "floor": "17",
-          "dealType": "중개거래"
-        },
-        {
-          "date": "2026.10.27",
-          "priceEok": 9.78,
-          "priceText": "9.78억",
-          "rawAmount": "97,800",
-          "areaM2": 134.2,
-          "floor": "11",
-          "dealType": "중개거래"
-        },
-        {
-          "date": "2026.10.27",
-          "priceEok": 8.0,
-          "priceText": "8억",
-          "rawAmount": "80,000",
-          "areaM2": 92.2,
-          "floor": "17",
-          "dealType": "중개거래"
-        },
-        {
-          "date": "2026.10.19",
-          "priceEok": 8.95,
-          "priceText": "8.95억",
-          "rawAmount": "89,500",
-          "areaM2": 119.9,
-          "floor": "11",
-          "dealType": "중개거래"
-        }
-      ],
+      "priceNum": 0.0,
+      "realPriceLatestEok": null,
+      "realPriceLatestText": "최근 거래 없음",
+      "realPriceAvgEok": null,
+      "realPriceRangeText": "-",
+      "totalDealsYear": 0,
+      "recentDeals": [],
       "askingMinEok": null,
       "askingMaxEok": null,
       "askingPriceText": "매물 없음",
@@ -7643,7 +7633,7 @@
       "realPriceLatestText": "8.5억 (26.10.27 · 8층)",
       "realPriceAvgEok": 9.79,
       "realPriceRangeText": "8.5억 ~ 10.7억",
-      "totalDealsYear": 35,
+      "totalDealsYear": 9,
       "recentDeals": [
         {
           "date": "2026.10.27",
@@ -7833,12 +7823,12 @@
       "name": "건영1차",
       "naverHscpNo": "2490",
       "targetPyeong": "33~34평 (전용 84㎡ 전후)",
-      "priceNum": 8.0,
+      "priceNum": 7.76,
       "realPriceLatestEok": 8.0,
       "realPriceLatestText": "8억 (26.08.19 · 3층)",
-      "realPriceAvgEok": 8.0,
-      "realPriceRangeText": "8억",
-      "totalDealsYear": 1,
+      "realPriceAvgEok": 7.76,
+      "realPriceRangeText": "7.5억 ~ 8억",
+      "totalDealsYear": 5,
       "recentDeals": [
         {
           "date": "2026.08.19",
@@ -7847,6 +7837,42 @@
           "rawAmount": "80,000",
           "areaM2": 85.0,
           "floor": "3",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.05.05",
+          "priceEok": 7.8,
+          "priceText": "7.8억",
+          "rawAmount": "78,000",
+          "areaM2": 85.0,
+          "floor": "5",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.03.20",
+          "priceEok": 7.8,
+          "priceText": "7.8억",
+          "rawAmount": "78,000",
+          "areaM2": 85.0,
+          "floor": "15",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.02.27",
+          "priceEok": 7.7,
+          "priceText": "7.7억",
+          "rawAmount": "77,000",
+          "areaM2": 85.0,
+          "floor": "13",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.02.13",
+          "priceEok": 7.5,
+          "priceText": "7.5억",
+          "rawAmount": "75,000",
+          "areaM2": 100.0,
+          "floor": "19",
           "dealType": "중개거래"
         }
       ],
@@ -8252,13 +8278,22 @@
       "name": "화서주공5단지",
       "naverHscpNo": "10398",
       "targetPyeong": "24~25평 (전용 59㎡ 전후)",
-      "priceNum": 7.31,
-      "realPriceLatestEok": 7.6,
-      "realPriceLatestText": "7.6억 (26.10.22 · 7층)",
-      "realPriceAvgEok": 7.31,
-      "realPriceRangeText": "7.05억 ~ 7.6억",
-      "totalDealsYear": 19,
+      "priceNum": 7.44,
+      "realPriceLatestEok": 8.0,
+      "realPriceLatestText": "8억 (26.10.29 · 19층)",
+      "realPriceAvgEok": 7.44,
+      "realPriceRangeText": "7.05억 ~ 8억",
+      "totalDealsYear": 20,
       "recentDeals": [
+        {
+          "date": "2026.10.29",
+          "priceEok": 8.0,
+          "priceText": "8억",
+          "rawAmount": "80,000",
+          "areaM2": 50.0,
+          "floor": "19",
+          "dealType": "중개거래"
+        },
         {
           "date": "2026.10.22",
           "priceEok": 7.6,
@@ -8293,15 +8328,6 @@
           "rawAmount": "73,500",
           "areaM2": 50.0,
           "floor": "5",
-          "dealType": "중개거래"
-        },
-        {
-          "date": "2026.08.21",
-          "priceEok": 7.35,
-          "priceText": "7.35억",
-          "rawAmount": "73,500",
-          "areaM2": 50.0,
-          "floor": "6",
           "dealType": "중개거래"
         }
       ],
@@ -8382,13 +8408,59 @@
       "name": "꽃뫼양지마을대우",
       "naverHscpNo": "3640",
       "targetPyeong": "33~34평 (전용 84㎡ 전후)",
-      "priceNum": 0.0,
-      "realPriceLatestEok": null,
-      "realPriceLatestText": "최근 거래 없음",
-      "realPriceAvgEok": null,
-      "realPriceRangeText": "-",
-      "totalDealsYear": 0,
-      "recentDeals": [],
+      "priceNum": 6.66,
+      "realPriceLatestEok": 6.28,
+      "realPriceLatestText": "6.28억 (26.06.25 · 8층)",
+      "realPriceAvgEok": 6.66,
+      "realPriceRangeText": "6.28억 ~ 7.38억",
+      "totalDealsYear": 5,
+      "recentDeals": [
+        {
+          "date": "2026.06.25",
+          "priceEok": 6.28,
+          "priceText": "6.28억",
+          "rawAmount": "62,800",
+          "areaM2": 86.1,
+          "floor": "8",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.06.02",
+          "priceEok": 6.52,
+          "priceText": "6.52억",
+          "rawAmount": "65,200",
+          "areaM2": 86.1,
+          "floor": "1",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.06.01",
+          "priceEok": 7.38,
+          "priceText": "7.38억",
+          "rawAmount": "73,800",
+          "areaM2": 86.1,
+          "floor": "4",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.04.16",
+          "priceEok": 6.8,
+          "priceText": "6.8억",
+          "rawAmount": "68,000",
+          "areaM2": 86.1,
+          "floor": "6",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.02.13",
+          "priceEok": 6.3,
+          "priceText": "6.3억",
+          "rawAmount": "63,000",
+          "areaM2": 86.1,
+          "floor": "4",
+          "dealType": "중개거래"
+        }
+      ],
       "askingMinEok": null,
       "askingMaxEok": null,
       "askingPriceText": "매물 없음",
@@ -8466,13 +8538,32 @@
       "name": "정자KTe-편한세상",
       "naverHscpNo": "25066",
       "targetPyeong": "33~34평 (전용 84㎡ 전후)",
-      "priceNum": 0.0,
-      "realPriceLatestEok": null,
-      "realPriceLatestText": "최근 거래 없음",
-      "realPriceAvgEok": null,
-      "realPriceRangeText": "-",
-      "totalDealsYear": 0,
-      "recentDeals": [],
+      "priceNum": 7.1,
+      "realPriceLatestEok": 7.2,
+      "realPriceLatestText": "7.2억 (26.05.08 · 5층)",
+      "realPriceAvgEok": 7.1,
+      "realPriceRangeText": "7억 ~ 7.2억",
+      "totalDealsYear": 2,
+      "recentDeals": [
+        {
+          "date": "2026.05.08",
+          "priceEok": 7.2,
+          "priceText": "7.2억",
+          "rawAmount": "72,000",
+          "areaM2": 84.8,
+          "floor": "5",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.05.07",
+          "priceEok": 7.0,
+          "priceText": "7억",
+          "rawAmount": "70,000",
+          "areaM2": 84.8,
+          "floor": "3",
+          "dealType": "중개거래"
+        }
+      ],
       "askingMinEok": null,
       "askingMaxEok": null,
       "askingPriceText": "매물 없음",
@@ -8550,12 +8641,12 @@
       "name": "백설에듀빌",
       "naverHscpNo": "3641",
       "targetPyeong": "33~34평 (전용 84㎡ 전후)",
-      "priceNum": 6.14,
+      "priceNum": 6.17,
       "realPriceLatestEok": 6.3,
       "realPriceLatestText": "6.3억 (26.10.03 · 12층)",
-      "realPriceAvgEok": 6.14,
+      "realPriceAvgEok": 6.17,
       "realPriceRangeText": "5.93억 ~ 6.47억",
-      "totalDealsYear": 27,
+      "totalDealsYear": 4,
       "recentDeals": [
         {
           "date": "2026.10.03",
@@ -8591,15 +8682,6 @@
           "rawAmount": "59,300",
           "areaM2": 84.9,
           "floor": "11",
-          "dealType": "중개거래"
-        },
-        {
-          "date": "2026.07.30",
-          "priceEok": 6.0,
-          "priceText": "6억",
-          "rawAmount": "60,000",
-          "areaM2": 85.0,
-          "floor": "8",
           "dealType": "중개거래"
         }
       ],
@@ -8745,12 +8827,12 @@
       "name": "연꽃마을벽산",
       "naverHscpNo": "7976",
       "targetPyeong": "33~34평 (전용 84㎡ 전후)",
-      "priceNum": 6.05,
+      "priceNum": 5.96,
       "realPriceLatestEok": 6.27,
       "realPriceLatestText": "6.27억 (26.10.28 · 18층)",
-      "realPriceAvgEok": 6.05,
-      "realPriceRangeText": "5.95억 ~ 6.27억",
-      "totalDealsYear": 4,
+      "realPriceAvgEok": 5.96,
+      "realPriceRangeText": "5.6억 ~ 6.27억",
+      "totalDealsYear": 15,
       "recentDeals": [
         {
           "date": "2026.10.28",
@@ -8787,6 +8869,15 @@
           "areaM2": 85.0,
           "floor": "8",
           "dealType": "중개거래"
+        },
+        {
+          "date": "2026.07.17",
+          "priceEok": 5.6,
+          "priceText": "5.6억",
+          "rawAmount": "56,000",
+          "areaM2": 85.0,
+          "floor": "13",
+          "dealType": "중개거래"
         }
       ],
       "askingMinEok": null,
@@ -8801,13 +8892,50 @@
       "name": "수원정자금강에스쁘아",
       "naverHscpNo": "17451",
       "targetPyeong": "24~25평 (전용 59㎡ 전후)",
-      "priceNum": 0.0,
-      "realPriceLatestEok": null,
-      "realPriceLatestText": "최근 거래 없음",
-      "realPriceAvgEok": null,
-      "realPriceRangeText": "-",
-      "totalDealsYear": 0,
-      "recentDeals": [],
+      "priceNum": 3.2,
+      "realPriceLatestEok": 3.0,
+      "realPriceLatestText": "3억 (26.06.20 · 11층)",
+      "realPriceAvgEok": 3.2,
+      "realPriceRangeText": "3억 ~ 3.5억",
+      "totalDealsYear": 4,
+      "recentDeals": [
+        {
+          "date": "2026.06.20",
+          "priceEok": 3.0,
+          "priceText": "3억",
+          "rawAmount": "30,000",
+          "areaM2": 59.9,
+          "floor": "11",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.06.19",
+          "priceEok": 3.5,
+          "priceText": "3.5억",
+          "rawAmount": "35,000",
+          "areaM2": 59.9,
+          "floor": "18",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.03.16",
+          "priceEok": 3.2,
+          "priceText": "3.2억",
+          "rawAmount": "32,000",
+          "areaM2": 59.9,
+          "floor": "7",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.02.25",
+          "priceEok": 3.1,
+          "priceText": "3.1억",
+          "rawAmount": "31,000",
+          "areaM2": 59.9,
+          "floor": "9",
+          "dealType": "중개거래"
+        }
+      ],
       "askingMinEok": null,
       "askingMaxEok": null,
       "askingPriceText": "매물 없음",
@@ -9275,12 +9403,12 @@
       "name": "동신3차",
       "naverHscpNo": "17269",
       "targetPyeong": "33~34평 (전용 84㎡ 전후)",
-      "priceNum": 4.57,
+      "priceNum": 4.95,
       "realPriceLatestEok": 4.95,
       "realPriceLatestText": "4.95억 (26.09.11 · 11층)",
-      "realPriceAvgEok": 4.57,
-      "realPriceRangeText": "4.3억 ~ 4.95억",
-      "totalDealsYear": 4,
+      "realPriceAvgEok": 4.95,
+      "realPriceRangeText": "4.95억",
+      "totalDealsYear": 1,
       "recentDeals": [
         {
           "date": "2026.09.11",
@@ -9289,33 +9417,6 @@
           "rawAmount": "49,500",
           "areaM2": 84.9,
           "floor": "11",
-          "dealType": "중개거래"
-        },
-        {
-          "date": "2026.07.14",
-          "priceEok": 4.73,
-          "priceText": "4.73억",
-          "rawAmount": "47,300",
-          "areaM2": 84.9,
-          "floor": "14",
-          "dealType": "중개거래"
-        },
-        {
-          "date": "2026.06.29",
-          "priceEok": 4.3,
-          "priceText": "4.3억",
-          "rawAmount": "43,000",
-          "areaM2": 84.9,
-          "floor": "2",
-          "dealType": "중개거래"
-        },
-        {
-          "date": "2026.06.22",
-          "priceEok": 4.3,
-          "priceText": "4.3억",
-          "rawAmount": "43,000",
-          "areaM2": 84.9,
-          "floor": "1",
           "dealType": "중개거래"
         }
       ],
