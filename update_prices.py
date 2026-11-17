@@ -21,10 +21,14 @@ import os
 import re
 import statistics
 import subprocess
+import threading
+import time
+import urllib.error
 import urllib.parse
 import urllib.request
 import xml.etree.ElementTree as ET
-from typing import Any, Dict, List, Optional
+from concurrent.futures import ThreadPoolExecutor, as_completed
+from typing import Any, Dict, List, Optional, Tuple
 
 # 16개 분석 대상 단지 메타데이터 매핑
 # - molit_led: 국토부 법정동코드 (10자리)
@@ -544,8 +548,8 @@ APARTMENT_TARGETS = [
             "id": "apt41",
             "name": "영통마젤란21(2단지)",
             "molit_led": "4111710700",
-            "molit_code": "20057295",
-            "molit_kw": "마젤란21(1101동)",
+            "molit_code": "",
+            "molit_kw": "마젤란21",
             "naver_hscp_no": "25483",
             "lat": 37.2417,
             "lng": 127.0625,
@@ -700,8 +704,8 @@ APARTMENT_TARGETS = [
             "id": "apt53",
             "name": "힐스테이트서천",
             "molit_led": "4146311000",
-            "molit_code": "20140333",
-            "molit_kw": "서천마을휴먼시아",
+            "molit_code": "",
+            "molit_kw": "힐스테이트서천",
             "naver_hscp_no": "109211",
             "lat": 37.2381,
             "lng": 127.0713,
@@ -713,8 +717,8 @@ APARTMENT_TARGETS = [
             "id": "apt54",
             "name": "e편한세상영통2차1단지",
             "molit_led": "4111710700",
-            "molit_code": "20344903",
-            "molit_kw": "e편한세상영통2차(2단지)",
+            "molit_code": "",
+            "molit_kw": "e편한세상영통2차(1단지)",
             "naver_hscp_no": "109249",
             "lat": 37.2406,
             "lng": 127.0663,
@@ -739,8 +743,8 @@ APARTMENT_TARGETS = [
             "id": "apt56",
             "name": "래미안영통마크원2단지",
             "molit_led": "4111710600",
-            "molit_code": "20277469",
-            "molit_kw": "래미안영통마크원1단지",
+            "molit_code": "",
+            "molit_kw": "래미안영통마크원2단지",
             "naver_hscp_no": "103518",
             "lat": 37.246,
             "lng": 127.0431,
@@ -752,8 +756,8 @@ APARTMENT_TARGETS = [
             "id": "apt57",
             "name": "영통롯데캐슬엘클래스1단지",
             "molit_led": "4111710700",
-            "molit_code": "20441486",
-            "molit_kw": "영통롯데캐슬엘클래스2단지",
+            "molit_code": "",
+            "molit_kw": "영통롯데캐슬엘클래스1단지",
             "naver_hscp_no": "136398",
             "lat": 37.2401,
             "lng": 127.0391,
@@ -765,8 +769,8 @@ APARTMENT_TARGETS = [
             "id": "apt58",
             "name": "반정아이파크캐슬5단지",
             "molit_led": "4159510600",
-            "molit_code": "20441623",
-            "molit_kw": "반정아이파크캐슬4단지",
+            "molit_code": "",
+            "molit_kw": "반정아이파크캐슬5단지",
             "naver_hscp_no": "137187",
             "lat": 37.2377,
             "lng": 127.041,
@@ -778,8 +782,8 @@ APARTMENT_TARGETS = [
             "id": "apt59",
             "name": "영통푸르지오트레센츠",
             "molit_led": "4111710700",
-            "molit_code": "20455765",
-            "molit_kw": "영통푸르지오파인베르",
+            "molit_code": "",
+            "molit_kw": "영통푸르지오트레센츠",
             "naver_hscp_no": "148799",
             "lat": 37.2355,
             "lng": 127.0479,
@@ -804,8 +808,8 @@ APARTMENT_TARGETS = [
             "id": "apt61",
             "name": "동탄시범다은마을월드메르디앙반도유보라",
             "molit_led": "4159710200",
-            "molit_code": "20090525",
-            "molit_kw": "동탄시범다은마을센트럴파크뷰",
+            "molit_code": "",
+            "molit_kw": "동탄시범다은마을월드메르디앙반도유보라",
             "naver_hscp_no": "22065",
             "lat": 37.2002,
             "lng": 127.0632,
@@ -1025,8 +1029,8 @@ APARTMENT_TARGETS = [
             "id": "apt78",
             "name": "광교e편한세상2차",
             "molit_led": "4111710300",
-            "molit_code": "20167295",
-            "molit_kw": "광교e편한세상",
+            "molit_code": "",
+            "molit_kw": "광교2차e편한세상",
             "naver_hscp_no": "102119",
             "lat": 37.2917,
             "lng": 127.0542,
@@ -1064,8 +1068,8 @@ APARTMENT_TARGETS = [
             "id": "apt81",
             "name": "광교더포레스트",
             "molit_led": "4111710400",
-            "molit_code": "20277325",
-            "molit_kw": "광교더리브",
+            "molit_code": "",
+            "molit_kw": "광교더포레스트",
             "naver_hscp_no": "137233",
             "lat": 37.2893,
             "lng": 127.0634,
@@ -1142,8 +1146,8 @@ APARTMENT_TARGETS = [
             "id": "apt87",
             "name": "신영통현대1단지",
             "molit_led": "4159510500",
-            "molit_code": "7421",
-            "molit_kw": "신영통현대4차",
+            "molit_code": "",
+            "molit_kw": "신영통현대1차",
             "naver_hscp_no": "3725",
             "lat": 37.2334,
             "lng": 127.0618,
@@ -1220,8 +1224,8 @@ APARTMENT_TARGETS = [
             "id": "apt93",
             "name": "삼천리권선2차",
             "molit_led": "4111313700",
-            "molit_code": "6072",
-            "molit_kw": "삼천리1차",
+            "molit_code": "",
+            "molit_kw": "삼천리2차",
             "naver_hscp_no": "1759",
             "lat": 37.2519,
             "lng": 127.0241,
@@ -1350,8 +1354,8 @@ APARTMENT_TARGETS = [
             "id": "apt103",
             "name": "광교호반베르디움(1184)",
             "molit_led": "4111710300",
-            "molit_code": "20350121",
-            "molit_kw": "광교호반베르디움트라엘",
+            "molit_code": "",
+            "molit_kw": "광교호반베르디움",
             "naver_hscp_no": "102624",
             "lat": 37.3036,
             "lng": 127.0499,
@@ -1584,8 +1588,8 @@ APARTMENT_TARGETS = [
             "id": "apt121",
             "name": "수원아이파크시티7단지",
             "molit_led": "4111313700",
-            "molit_code": "20354781",
-            "molit_kw": "수원아이파크시티8단지",
+            "molit_code": "",
+            "molit_kw": "수원아이파크시티7단지",
             "naver_hscp_no": "109075",
             "lat": 37.2467,
             "lng": 127.0303,
@@ -1675,8 +1679,8 @@ APARTMENT_TARGETS = [
             "id": "apt128",
             "name": "청명마을주공",
             "molit_led": "4111710500",
-            "molit_code": "253176",
-            "molit_kw": "청명마을삼성",
+            "molit_code": "",
+            "molit_kw": "청명마을(주공)",
             "naver_hscp_no": "1809",
             "lat": 37.255,
             "lng": 127.0791,
@@ -1740,8 +1744,8 @@ APARTMENT_TARGETS = [
             "id": "apt133",
             "name": "대우",
             "molit_led": "4111710500",
-            "molit_code": "20096150",
-            "molit_kw": "대우월드마크",
+            "molit_code": "",
+            "molit_kw": "청명마을대우",
             "naver_hscp_no": "12056",
             "lat": 37.255,
             "lng": 127.0756,
@@ -1753,8 +1757,8 @@ APARTMENT_TARGETS = [
             "id": "apt134",
             "name": "벽적골9단지주공",
             "molit_led": "4111710500",
-            "molit_code": "6130",
-            "molit_kw": "벽적골롯데",
+            "molit_code": "",
+            "molit_kw": "벽적골9단지주공",
             "naver_hscp_no": "3991",
             "lat": 37.2474,
             "lng": 127.0625,
@@ -1844,8 +1848,8 @@ APARTMENT_TARGETS = [
             "id": "apt141",
             "name": "꽃뫼양지마을대우",
             "molit_led": "4111513800",
-            "molit_code": "5879",
-            "molit_kw": "꽃뫼양지마을현대",
+            "molit_code": "",
+            "molit_kw": "꽃뫼양지마을대우",
             "naver_hscp_no": "3640",
             "lat": 37.2873,
             "lng": 126.9853,
@@ -1909,8 +1913,8 @@ APARTMENT_TARGETS = [
             "id": "apt146",
             "name": "화서역현대벽산",
             "molit_led": "4111113000",
-            "molit_code": "5957",
-            "molit_kw": "현대",
+            "molit_code": "",
+            "molit_kw": "화서역현대벽산",
             "naver_hscp_no": "7967",
             "lat": 37.2941,
             "lng": 126.9987,
@@ -2026,8 +2030,8 @@ APARTMENT_TARGETS = [
             "id": "apt155",
             "name": "북수원자이렉스비아",
             "molit_led": "4111113000",
-            "molit_code": "5958",
-            "molit_kw": "북수원리버파크",
+            "molit_code": "",
+            "molit_kw": "북수원자이렉스비아",
             "naver_hscp_no": "141607",
             "lat": 37.3002,
             "lng": 126.986,
@@ -2078,16 +2082,20 @@ APARTMENT_TARGETS = [
 
 
 def parse_korean_price_to_eok(raw: Optional[str]) -> Optional[float]:
-    """'6<em class=...>억</em> 8,500' 또는 '53,500' 형태를 억 단위 float(예: 6.85, 5.35)로 변환"""
+    """'6<em class=...>억</em> 8,500', '5.5억' 또는 '53,500' 형태를 억 단위 float(예: 6.85, 5.5)로 변환"""
     if not raw:
         return None
     clean = re.sub(r"<[^>]+>", "", str(raw)).strip()
-    if not clean or clean == "0":
+    if not clean or clean in {"0", "-", "null"}:
         return None
 
     if "억" in clean:
         parts = clean.split("억")
-        eok = int(parts[0].replace(",", "").strip() or "0")
+        eok_str = parts[0].replace(",", "").strip() or "0"
+        try:
+            eok = float(eok_str)
+        except ValueError:
+            return None
         man_str = parts[1].replace(",", "").strip() if len(parts) > 1 else ""
         man = int(man_str) if man_str.isdigit() else 0
         return round(eok + man / 10000.0, 2)
@@ -2102,6 +2110,32 @@ def format_eok(val: Optional[float]) -> str:
     if val is None:
         return "-"
     return f"{val:.2f}".rstrip("0").rstrip(".") + "억"
+
+
+_THREAD_LOCAL = threading.local()
+_OPENAPI_ITEMS_CACHE: Dict[Tuple[str, str], List[Dict[str, str]]] = {}
+_OPENAPI_CACHE_LOCK = threading.Lock()
+
+
+def _to_float(val: Any) -> Optional[float]:
+    if val is None or val == "":
+        return None
+    try:
+        return float(str(val).replace(",", "").strip())
+    except (ValueError, TypeError):
+        return None
+
+
+def get_recent_deal_ymds(months: int = 6) -> List[str]:
+    """오늘 날짜 기준으로 최근 N개월의 YYYYMM 목록을 최신순으로 반환"""
+    today = datetime.date.today()
+    ymds: List[str] = []
+    total_months = today.year * 12 + (today.month - 1)
+    for i in range(months):
+        ym = total_months - i
+        y, m = divmod(ym, 12)
+        ymds.append(f"{y:04d}{m + 1:02d}")
+    return ymds
 
 
 def create_molit_opener():
@@ -2119,124 +2153,20 @@ def create_molit_opener():
     return opener
 
 
-def fetch_molit_transactions(opener, target: Dict[str, Any], year: str = "2026") -> Dict[str, Any]:
-    """국토교통부 실거래가 공개시스템(rt.molit.go.kr)에서 단지별 실거래 내역 조회"""
-    dtl_data = urllib.parse.urlencode({
-        "srhThingSecd": "A",
-        "srhDelngSecd": "1",
-        "dtlLi": target["molit_led"],
-        "dtlYear": year,
-        "dtlMon": "",
-        "dtlArea": "",
-        "dtlAmount": "",
-        "dtlLfstsMtht": "",
-        "srhAprpnHsmpCode": target["molit_code"],
-        "dtlGbn1": "1",
-        "dtlGbn2": "1",
-    }).encode("utf-8")
-
-    resp = opener.open("https://rt.molit.go.kr/pt/gis/ptDtl.do", data=dtl_data, timeout=10)
-    res = json.loads(resp.read().decode("utf-8"))
-    raw_list = res.get("danjiList", [])
-
-    # 취소(해제)되지 않은 정상 거래만 필터링
-    valid_rows = [r for r in raw_list if r.get("relisDe", "-") == "-"]
-
-    # 타겟 전용면적 필터링
-    amin, amax = target["area_min"], target["area_max"]
-    area_rows = [
-        r for r in valid_rows
-        if amin <= float(r.get("prvuseAr", 0.0)) <= amax
-    ]
-
-    # 만약 타겟 면적 거래가 올해 없으면 전체 면적 거래 사용
-    use_rows = area_rows if area_rows else valid_rows
-
-    history = []
-    prices_eok = []
-    for r in use_rows:
-        p_eok = parse_korean_price_to_eok(r.get("thingAmount"))
-        if p_eok is None:
-            continue
-        c_date = str(r.get("cntrctDe", ""))
-        formatted_date = (
-            f"{c_date[:4]}.{c_date[4:6]}.{c_date[6:8]}"
-            if len(c_date) == 8 else c_date
-        )
-        item = {
-            "date": formatted_date,
-            "priceEok": p_eok,
-            "priceText": format_eok(p_eok),
-            "rawAmount": r.get("thingAmount"),
-            "areaM2": round(float(r.get("prvuseAr", 0.0)), 1),
-            "floor": str(r.get("floorCo", "-")),
-            "dealType": r.get("brkrAt", "중개거래"),
-        }
-        history.append(item)
-        prices_eok.append(p_eok)
-
-    latest = history[0] if history else None
-    recent_5 = history[:5]
-    recent_prices = [h["priceEok"] for h in recent_5]
-
-    return {
-        "totalDealsYear": len(use_rows),
-        "latestDeal": latest,
-        "recentAvgEok": round(statistics.mean(recent_prices), 2) if recent_prices else None,
-        "recentMinEok": min(recent_prices) if recent_prices else None,
-        "recentMaxEok": max(recent_prices) if recent_prices else None,
-        "recentDeals": recent_5,
-    }
+def _get_thread_molit_opener():
+    opener = getattr(_THREAD_LOCAL, "molit_opener", None)
+    if opener is None:
+        opener = create_molit_opener()
+        _THREAD_LOCAL.molit_opener = opener
+    return opener
 
 
-def fetch_molit_openapi_fallback(target: Dict[str, Any], service_key: str, deal_ymds: Optional[List[str]] = None) -> Dict[str, Any]:
-    """github_config.json에 저장된 공공데이터포털 OpenAPI(RTMSDataSvcAptTradeDev) 인증키를 사용한 조회"""
-    if deal_ymds is None:
-        deal_ymds = ["202610", "202609", "202608"]
-    lawd_cd = target["molit_led"][:5]
-    amin, amax = target["area_min"], target["area_max"]
-    kw = (target.get("molit_kw") or target["name"].split()[0][:4]).replace(" ", "").upper()
-    history = []
-
-    for deal_ymd in deal_ymds:
-        url = (
-            f"https://apis.data.go.kr/1613000/RTMSDataSvcAptTradeDev/getRTMSDataSvcAptTradeDev?"
-            f"serviceKey={service_key}&LAWD_CD={lawd_cd}&DEAL_YMD={deal_ymd}&pageNo=1&numOfRows=1000"
-        )
-        req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
-        xml_data = urllib.request.urlopen(req, timeout=10).read().decode("utf-8")
-        root = ET.fromstring(xml_data)
-
-        for item in root.findall(".//item"):
-            apt_nm = (item.findtext("aptNm") or "").strip().replace(" ", "").upper()
-            cdeal = (item.findtext("cdealType") or "").strip()
-            if cdeal == "O" or kw not in apt_nm:
-                continue
-            area = float(item.findtext("excluUseAr") or "0")
-            if not (amin <= area <= amax):
-                continue
-            raw_amt = (item.findtext("dealAmount") or "").strip()
-            p_eok = parse_korean_price_to_eok(raw_amt)
-            if p_eok is None:
-                continue
-            y = (item.findtext("dealYear") or "").strip()
-            m = (item.findtext("dealMonth") or "").strip().zfill(2)
-            d = (item.findtext("dealDay") or "").strip().zfill(2)
-            history.append({
-                "date": f"{y}.{m}.{d}",
-                "priceEok": p_eok,
-                "priceText": format_eok(p_eok),
-                "rawAmount": raw_amt,
-                "areaM2": round(area, 1),
-                "floor": (item.findtext("floor") or "-").strip(),
-                "dealType": (item.findtext("dealingGbn") or "중개거래").strip(),
-            })
-
+def _summarize_deal_history(history: List[Dict[str, Any]], total_count: Optional[int] = None) -> Dict[str, Any]:
     history.sort(key=lambda x: x["date"], reverse=True)
     recent_5 = history[:5]
     recent_prices = [h["priceEok"] for h in recent_5]
     return {
-        "totalDealsYear": len(history),
+        "totalDealsYear": total_count if total_count is not None else len(history),
         "latestDeal": history[0] if history else None,
         "recentAvgEok": round(statistics.mean(recent_prices), 2) if recent_prices else None,
         "recentMinEok": min(recent_prices) if recent_prices else None,
@@ -2245,81 +2175,402 @@ def fetch_molit_openapi_fallback(target: Dict[str, Any], service_key: str, deal_
     }
 
 
+def fetch_molit_transactions(opener, target: Dict[str, Any], year: Optional[str] = None) -> Dict[str, Any]:
+    """국토교통부 실거래가 공개시스템(rt.molit.go.kr)에서 단지별 실거래 내역 조회"""
+    base_year = year or str(datetime.date.today().year)
+    years_to_try = [base_year, str(int(base_year) - 1)]
+    amin, amax = target["area_min"], target["area_max"]
+
+    for yr in years_to_try:
+        dtl_data = urllib.parse.urlencode({
+            "srhThingSecd": "A",
+            "srhDelngSecd": "1",
+            "dtlLi": target["molit_led"],
+            "dtlYear": yr,
+            "dtlMon": "",
+            "dtlArea": "",
+            "dtlAmount": "",
+            "dtlLfstsMtht": "",
+            "srhAprpnHsmpCode": target["molit_code"],
+            "dtlGbn1": "1",
+            "dtlGbn2": "1",
+        }).encode("utf-8")
+
+        resp = None
+        for attempt in range(2):
+            try:
+                resp = opener.open("https://rt.molit.go.kr/pt/gis/ptDtl.do", data=dtl_data, timeout=10)
+                break
+            except urllib.error.HTTPError as e:
+                if e.code == 429 and attempt == 0:
+                    time.sleep(0.7)
+                    continue
+                raise
+        res = json.loads(resp.read().decode("utf-8"))
+        raw_list = res.get("danjiList", [])
+
+        # 취소(해제)되지 않은 정상 거래만 필터링
+        valid_rows = [r for r in raw_list if r.get("relisDe", "-") == "-"]
+        if not valid_rows:
+            continue
+
+        # 타겟 전용면적 필터링 (없으면 전체 면적 거래 사용)
+        area_rows = [
+            r for r in valid_rows
+            if amin <= float(r.get("prvuseAr", 0.0)) <= amax
+        ]
+        use_rows = area_rows if area_rows else valid_rows
+
+        history = []
+        for r in use_rows:
+            p_eok = parse_korean_price_to_eok(r.get("thingAmount"))
+            if p_eok is None:
+                continue
+            c_date = str(r.get("cntrctDe", ""))
+            formatted_date = (
+                f"{c_date[:4]}.{c_date[4:6]}.{c_date[6:8]}"
+                if len(c_date) == 8 else c_date
+            )
+            history.append({
+                "date": formatted_date,
+                "priceEok": p_eok,
+                "priceText": format_eok(p_eok),
+                "rawAmount": r.get("thingAmount"),
+                "areaM2": round(float(r.get("prvuseAr", 0.0)), 1),
+                "floor": str(r.get("floorCo", "-")),
+                "dealType": r.get("brkrAt", "중개거래"),
+            })
+
+        if history:
+            return _summarize_deal_history(history, total_count=len(use_rows))
+
+    return _summarize_deal_history([], total_count=0)
+
+
+def _fetch_openapi_month_items(lawd_cd: str, deal_ymd: str, service_key: str) -> List[Dict[str, str]]:
+    """단일 시군구(5자리)·계약월(YYYYMM) OpenAPI 거래 목록을 파싱하여 반환"""
+    items: List[Dict[str, str]] = []
+    page_no = 1
+    num_rows = 1000
+    while True:
+        url = (
+            f"https://apis.data.go.kr/1613000/RTMSDataSvcAptTradeDev/getRTMSDataSvcAptTradeDev?"
+            f"serviceKey={service_key}&LAWD_CD={lawd_cd}&DEAL_YMD={deal_ymd}&pageNo={page_no}&numOfRows={num_rows}"
+        )
+        req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+        xml_data = None
+        for attempt in range(3):
+            try:
+                xml_data = urllib.request.urlopen(req, timeout=12).read().decode("utf-8")
+                break
+            except urllib.error.HTTPError as e:
+                if e.code == 429 and attempt < 2:
+                    time.sleep(0.7 * (attempt + 1))
+                    continue
+                raise
+        root = ET.fromstring(xml_data)
+
+        for item in root.findall(".//item"):
+            items.append({
+                "umdCd": (item.findtext("umdCd") or "").strip(),
+                "aptNm": (item.findtext("aptNm") or "").strip(),
+                "cdealType": (item.findtext("cdealType") or "").strip(),
+                "excluUseAr": (item.findtext("excluUseAr") or "0").strip(),
+                "dealAmount": (item.findtext("dealAmount") or "").strip(),
+                "dealYear": (item.findtext("dealYear") or "").strip(),
+                "dealMonth": (item.findtext("dealMonth") or "").strip(),
+                "dealDay": (item.findtext("dealDay") or "").strip(),
+                "floor": (item.findtext("floor") or "-").strip(),
+                "dealingGbn": (item.findtext("dealingGbn") or "중개거래").strip(),
+            })
+
+        total_count = int((root.findtext(".//totalCount") or "0").strip() or "0")
+        if page_no * num_rows >= total_count or total_count == 0:
+            break
+        page_no += 1
+
+    return items
+
+
+def _get_openapi_items(lawd_cd: str, deal_ymd: str, service_key: str) -> List[Dict[str, str]]:
+    key = (lawd_cd, deal_ymd)
+    with _OPENAPI_CACHE_LOCK:
+        cached = _OPENAPI_ITEMS_CACHE.get(key)
+    if cached is not None:
+        return cached
+    fetched = _fetch_openapi_month_items(lawd_cd, deal_ymd, service_key)
+    with _OPENAPI_CACHE_LOCK:
+        _OPENAPI_ITEMS_CACHE[key] = fetched
+    return fetched
+
+
+def prefetch_openapi_cache(targets: List[Dict[str, Any]], service_key: str, deal_ymds: List[str]) -> None:
+    """고유 시군구(5자리) × 최근 N개월 조합을 병렬 프리페치하여 캐시에 저장"""
+    if not service_key:
+        return
+    lawds = sorted({t["molit_led"][:5] for t in targets})
+    tasks = [(lawd, ymd) for lawd in lawds for ymd in deal_ymds if (lawd, ymd) not in _OPENAPI_ITEMS_CACHE]
+    if not tasks:
+        return
+
+    with ThreadPoolExecutor(max_workers=3) as executor:
+        future_map = {
+            executor.submit(_fetch_openapi_month_items, lawd, ymd, service_key): (lawd, ymd)
+            for lawd, ymd in tasks
+        }
+        for future in as_completed(future_map):
+            pair = future_map[future]
+            try:
+                items = future.result()
+                with _OPENAPI_CACHE_LOCK:
+                    _OPENAPI_ITEMS_CACHE[pair] = items
+            except Exception as e:
+                print(f"  [경고] OpenAPI 프리페치 실패 {pair}: {e}")
+
+
+def _is_partial_match_allowed(kw: str, apt_nm: str) -> bool:
+    if kw not in apt_nm:
+        return False
+    if kw == "광교호반베르디움" and "트라엘" in apt_nm:
+        return False
+    if kw == "광교E편한세상" and "2차" in apt_nm:
+        return False
+    return True
+
+
+def fetch_molit_openapi_fallback(
+    target: Dict[str, Any],
+    service_key: str,
+    deal_ymds: Optional[List[str]] = None,
+) -> Dict[str, Any]:
+    """공공데이터포털 OpenAPI(RTMSDataSvcAptTradeDev) 캐시/병렬 조회"""
+    if deal_ymds is None:
+        deal_ymds = get_recent_deal_ymds(6)
+    lawd_cd = target["molit_led"][:5]
+    target_umd = target["molit_led"][5:]
+    amin, amax = target["area_min"], target["area_max"]
+    kw = (target.get("molit_kw") or target["name"].split()[0][:4]).replace(" ", "").upper()
+
+    raw_items: List[Dict[str, str]] = []
+    for deal_ymd in deal_ymds:
+        raw_items.extend(_get_openapi_items(lawd_cd, deal_ymd, service_key))
+
+    valid_items = [it for it in raw_items if it["cdealType"] != "O"]
+
+    # 1) 법정동(umdCd) 일치 항목 우선 필터링
+    umd_matches = [
+        it for it in valid_items
+        if it["umdCd"] == target_umd and _is_partial_match_allowed(kw, it["aptNm"].replace(" ", "").upper())
+    ]
+    if umd_matches:
+        candidates = umd_matches
+    else:
+        candidates = [
+            it for it in valid_items
+            if _is_partial_match_allowed(kw, it["aptNm"].replace(" ", "").upper())
+        ]
+
+    # 2) 정확 일치(apt_nm == kw)가 있으면 정확 일치만 사용
+    exact_candidates = [it for it in candidates if it["aptNm"].replace(" ", "").upper() == kw]
+    matched_items = exact_candidates if exact_candidates else candidates
+
+    # 3) 타겟 전용면적 우선 필터링, 0건이면 전체 면적 폴백
+    area_items: List[Dict[str, str]] = []
+    for it in matched_items:
+        area = _to_float(it["excluUseAr"]) or 0.0
+        if amin <= area <= amax:
+            area_items.append(it)
+    use_items = area_items if area_items else matched_items
+
+    history: List[Dict[str, Any]] = []
+    for it in use_items:
+        p_eok = parse_korean_price_to_eok(it["dealAmount"])
+        if p_eok is None:
+            continue
+        area = _to_float(it["excluUseAr"]) or 0.0
+        y = it["dealYear"]
+        m = it["dealMonth"].zfill(2)
+        d = it["dealDay"].zfill(2)
+        history.append({
+            "date": f"{y}.{m}.{d}",
+            "priceEok": p_eok,
+            "priceText": format_eok(p_eok),
+            "rawAmount": it["dealAmount"],
+            "areaM2": round(area, 1),
+            "floor": it["floor"] or "-",
+            "dealType": it["dealingGbn"] or "중개거래",
+        })
+
+    return _summarize_deal_history(history)
+
+
+def _fetch_naver_by_cortar(cortar: str, t_list: List[Dict[str, Any]]) -> Dict[str, Dict[str, Any]]:
+    lats = [t["lat"] for t in t_list]
+    lons = [t["lng"] for t in t_list]
+    lat = sum(lats) / len(lats)
+    lon = sum(lons) / len(lons)
+    btm = min(lats) - 0.03
+    top = max(lats) + 0.03
+    lft = min(lons) - 0.03
+    rgt = max(lons) + 0.03
+
+    local_map: Dict[str, Dict[str, Any]] = {}
+    for page in range(1, 10):
+        if page > 1:
+            time.sleep(0.15)
+        url = (
+            f"https://m.land.naver.com/cluster/ajax/complexList?"
+            f"rletTpCd=APT:ABYG:JGC&tradTpCd=A1:B1&z=14&lat={lat}&lon={lon}"
+            f"&btm={btm}&lft={lft}&top={top}&rgt={rgt}"
+            f"&cortarNo={cortar}&page={page}"
+        )
+        req = urllib.request.Request(
+            url,
+            headers={
+                "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_0 like Mac OS X)",
+                "Referer": "https://m.land.naver.com/",
+            },
+        )
+        try:
+            resp = urllib.request.urlopen(req, timeout=10)
+            data = json.loads(resp.read().decode("utf-8"))
+            for item in data.get("result", []):
+                hscp_no = str(item.get("hscpNo", ""))
+                ask_min = parse_korean_price_to_eok(item.get("dealPrcMin"))
+                ask_max = parse_korean_price_to_eok(item.get("dealPrcMax"))
+                lease_min = parse_korean_price_to_eok(item.get("leasePrcMin"))
+                lease_max = parse_korean_price_to_eok(item.get("leasePrcMax"))
+                local_map[hscp_no] = {
+                    "hscpNo": hscp_no,
+                    "hscpNm": item.get("hscpNm"),
+                    "dealCnt": item.get("dealCnt", 0),
+                    "leaseCnt": item.get("leaseCnt", 0),
+                    "minSpc": _to_float(item.get("minSpc")),
+                    "maxSpc": _to_float(item.get("maxSpc")),
+                    "askingMinEok": ask_min,
+                    "askingMaxEok": ask_max,
+                    "askingMinText": format_eok(ask_min) if ask_min else None,
+                    "askingMaxText": format_eok(ask_max) if ask_max else None,
+                    "leaseMinEok": lease_min,
+                    "leaseMaxEok": lease_max,
+                    "leaseMinText": format_eok(lease_min) if lease_min else None,
+                }
+            if not data.get("more"):
+                break
+        except Exception as e:
+            print(f"[경고] 네이버 호가 조회 실패 ({cortar} p.{page}): {e}")
+            break
+    return local_map
+
+
 def fetch_naver_asking_prices(targets: List[Dict[str, Any]]) -> Dict[str, Dict[str, Any]]:
-    """네이버 부동산 모바일 클러스터 API를 통해 법정동별 단지 실시간 호가 및 매물 수 조회"""
+    """네이버 부동산 모바일 클러스터 API를 통해 법정동별 단지 실시간 호가 및 매물 수 순차 조회"""
     by_cortar: Dict[str, List[Dict[str, Any]]] = {}
     for t in targets:
         by_cortar.setdefault(t["molit_led"], []).append(t)
 
     naver_map: Dict[str, Dict[str, Any]] = {}
-    for cortar, t_list in by_cortar.items():
-        lat = t_list[0]["lat"]
-        lon = t_list[0]["lng"]
-        for page in range(1, 4):
-            url = (
-                f"https://m.land.naver.com/cluster/ajax/complexList?"
-                f"rletTpCd=APT&tradTpCd=A1:B1&z=14&lat={lat}&lon={lon}"
-                f"&btm={lat-0.03}&lft={lon-0.03}&top={lat+0.03}&rgt={lon+0.03}"
-                f"&cortarNo={cortar}&page={page}"
-            )
-            req = urllib.request.Request(
-                url,
-                headers={
-                    "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_0 like Mac OS X)",
-                    "Referer": "https://m.land.naver.com/",
-                },
-            )
-            try:
-                resp = urllib.request.urlopen(req, timeout=10)
-                data = json.loads(resp.read().decode("utf-8"))
-                for item in data.get("result", []):
-                    hscp_no = str(item.get("hscpNo", ""))
-                    ask_min = parse_korean_price_to_eok(item.get("dealPrcMin"))
-                    ask_max = parse_korean_price_to_eok(item.get("dealPrcMax"))
-                    lease_min = parse_korean_price_to_eok(item.get("leasePrcMin"))
-                    naver_map[hscp_no] = {
-                        "hscpNo": hscp_no,
-                        "hscpNm": item.get("hscpNm"),
-                        "dealCnt": item.get("dealCnt", 0),
-                        "leaseCnt": item.get("leaseCnt", 0),
-                        "askingMinEok": ask_min,
-                        "askingMaxEok": ask_max,
-                        "askingMinText": format_eok(ask_min) if ask_min else None,
-                        "askingMaxText": format_eok(ask_max) if ask_max else None,
-                        "leaseMinEok": lease_min,
-                        "leaseMinText": format_eok(lease_min) if lease_min else None,
-                    }
-                if not data.get("more"):
-                    break
-            except Exception as e:
-                print(f"[경고] 네이버 호가 조회 실패 ({cortar} p.{page}): {e}")
-                break
+    cortars = list(by_cortar.items())
+    for idx, (cortar, t_list) in enumerate(cortars):
+        if idx > 0:
+            time.sleep(0.25)
+        try:
+            naver_map.update(_fetch_naver_by_cortar(cortar, t_list))
+        except Exception as e:
+            print(f"[경고] 네이버 호가 수집 오류 ({cortar}): {e}")
 
     return naver_map
 
 
-def build_prices_payload(config_path: str = "github_config.json") -> Dict[str, Any]:
-    print("1/2 국토교통부 실거래가 공개시스템(rt.molit.go.kr & OpenAPI) 조회 중...")
+def normalize_asking_range(
+    target: Dict[str, Any],
+    ask_min: Optional[float],
+    ask_max: Optional[float],
+    recent_deals: List[Dict[str, Any]],
+    recent_avg: Optional[float],
+    recent_min: Optional[float],
+    recent_max: Optional[float],
+    min_spc: Optional[float] = None,
+    max_spc: Optional[float] = None,
+) -> Tuple[Optional[float], Optional[float]]:
+    """초소형/초대형 평형 혼합 단지의 호가 왜곡을 타겟 평형 실거래 기준으로 보정"""
+    deal_areas = [d["areaM2"] for d in recent_deals if d.get("areaM2")]
+    effective_min_area = max(target["area_min"], min(deal_areas)) if deal_areas else target["area_min"]
+    effective_max_area = min(target["area_max"], max(deal_areas)) if deal_areas else target["area_max"]
+
+    ref_real = recent_min or recent_avg
+    if ask_min and ref_real:
+        if (min_spc and min_spc < effective_min_area * 1.25 and ask_min < ref_real * 0.78) or (ask_min < ref_real * 0.72):
+            adjusted_min = round(ref_real * 0.92, 2)
+            if ask_max:
+                adjusted_min = min(adjusted_min, ask_max)
+            ask_min = adjusted_min
+
+    ref_real_max = recent_max or recent_avg
+    if ask_max and ref_real_max and (not ask_min or ask_min <= ref_real_max * 1.3):
+        if (max_spc and max_spc > effective_max_area * 1.45 and ask_max > ref_real_max * 1.35) or (ask_max > ref_real_max * 1.45):
+            adjusted_max = round(ref_real_max * 1.18, 2)
+            if ask_min:
+                adjusted_max = max(adjusted_max, ask_min)
+            ask_max = adjusted_max
+
+    return ask_min, ask_max
+
+
+def _fetch_single_target_molit(
+    t: Dict[str, Any],
+    openapi_key: str,
+    recent_ymds: List[str],
+    current_year: str,
+) -> Tuple[str, Dict[str, Any]]:
+    aid = t["id"]
+    try:
+        res = (
+            fetch_molit_transactions(_get_thread_molit_opener(), t, year=current_year)
+            if t.get("molit_code")
+            else {}
+        )
+        if not res.get("latestDeal") and openapi_key:
+            res = fetch_molit_openapi_fallback(t, openapi_key, deal_ymds=recent_ymds)
+        return aid, res
+    except Exception as e:
+        print(f"  [경고] {t['name']} 웹 조회 실패({e}), OpenAPI 폴백 시도...")
+        if openapi_key:
+            try:
+                return aid, fetch_molit_openapi_fallback(t, openapi_key, deal_ymds=recent_ymds)
+            except Exception as e2:
+                print(f"  [오류] {t['name']} OpenAPI 조회 실패: {e2}")
+                return aid, {}
+        return aid, {}
+
+
+def build_prices_payload(config_path: str = "github_config.json", prev_prices_path: str = "prices.json") -> Dict[str, Any]:
+    prev_apartments: Dict[str, Any] = {}
+    if prev_prices_path and os.path.exists(prev_prices_path):
+        try:
+            with open(prev_prices_path, "r", encoding="utf-8") as f:
+                prev_apartments = json.load(f).get("apartments", {})
+        except Exception:
+            prev_apartments = {}
+
+    print("1/2 국토교통부 실거래가 공개시스템(rt.molit.go.kr & OpenAPI) 병렬 조회 중...")
     cfg = load_github_config(config_path)
     openapi_key = os.environ.get("MOLIT_SERVICE_KEY") or cfg.get("molit_openapi", {}).get("service_key", "")
-    opener = create_molit_opener()
-    molit_results = {}
-    for t in APARTMENT_TARGETS:
-        try:
-            res = fetch_molit_transactions(opener, t, year="2026") if t.get("molit_code") else {}
-            if not res.get("latestDeal") and openapi_key:
-                res = fetch_molit_openapi_fallback(t, openapi_key)
-            molit_results[t["id"]] = res
-        except Exception as e:
-            print(f"  [경고] {t['name']} 웹 조회 실패({e}), OpenAPI 폴백 시도...")
-            if openapi_key:
-                try:
-                    molit_results[t["id"]] = fetch_molit_openapi_fallback(t, openapi_key)
-                except Exception as e2:
-                    print(f"  [오류] {t['name']} OpenAPI 조회 실패: {e2}")
-                    molit_results[t["id"]] = {}
-            else:
-                molit_results[t["id"]] = {}
+    recent_ymds = get_recent_deal_ymds(6)
+    current_year = str(datetime.date.today().year)
+
+    if openapi_key:
+        prefetch_openapi_cache(APARTMENT_TARGETS, openapi_key, recent_ymds)
+
+    molit_results: Dict[str, Dict[str, Any]] = {}
+    with ThreadPoolExecutor(max_workers=3) as executor:
+        futures = [
+            executor.submit(_fetch_single_target_molit, t, openapi_key, recent_ymds, current_year)
+            for t in APARTMENT_TARGETS
+        ]
+        for future in as_completed(futures):
+            aid, res = future.result()
+            molit_results[aid] = res
 
     print("2/2 네이버 부동산 모바일 API(m.land.naver.com) 실시간 호가 조회 중...")
     naver_by_hscp = fetch_naver_asking_prices(APARTMENT_TARGETS)
@@ -2329,31 +2580,75 @@ def build_prices_payload(config_path: str = "github_config.json") -> Dict[str, A
 
     for t in APARTMENT_TARGETS:
         aid = t["id"]
+        prev_item = prev_apartments.get(aid, {})
         m_data = molit_results.get(aid, {})
         n_data = naver_by_hscp.get(t["naver_hscp_no"], {})
 
         latest = m_data.get("latestDeal")
-        latest_eok = latest["priceEok"] if latest else None
-        recent_avg = m_data.get("recentAvgEok")
-        recent_min = m_data.get("recentMinEok")
-        recent_max = m_data.get("recentMaxEok")
+        if not latest and prev_item.get("recentDeals"):
+            # 일시적 API 429/오류로 실거래 수집 실패 시 기존 캐시 유지
+            latest = prev_item["recentDeals"][0]
+            latest_eok = prev_item.get("realPriceLatestEok")
+            recent_avg = prev_item.get("realPriceAvgEok")
+            recent_min = min((d["priceEok"] for d in prev_item["recentDeals"]), default=latest_eok)
+            recent_max = max((d["priceEok"] for d in prev_item["recentDeals"]), default=latest_eok)
+            m_data = {
+                "totalDealsYear": prev_item.get("totalDealsYear", 0),
+                "recentDeals": prev_item.get("recentDeals", []),
+            }
+            real_price_text = prev_item.get("realPriceLatestText", "최근 거래 없음")
+            real_range_text = prev_item.get("realPriceRangeText", "-")
+        else:
+            latest_eok = latest["priceEok"] if latest else None
+            recent_avg = m_data.get("recentAvgEok")
+            recent_min = m_data.get("recentMinEok")
+            recent_max = m_data.get("recentMaxEok")
+            if latest:
+                real_price_text = f"{latest['priceText']} ({latest['date'][2:]} · {latest['floor']}층)"
+                if recent_min and recent_max and recent_min != recent_max:
+                    real_range_text = f"{format_eok(recent_min)} ~ {format_eok(recent_max)}"
+                else:
+                    real_range_text = latest["priceText"]
+            else:
+                real_price_text = "최근 거래 없음"
+                real_range_text = "-"
 
-        ask_min = n_data.get("askingMinEok")
-        ask_max = n_data.get("askingMaxEok")
+        if not n_data and prev_item.get("askingMinEok"):
+            # 네이버 일시적 307/오류 시 기존 호가 데이터 보존
+            ask_min = prev_item.get("askingMinEok")
+            ask_max = prev_item.get("askingMaxEok")
+            min_spc = None
+            max_spc = None
+            deal_cnt = prev_item.get("dealArticleCount", 0)
+            lease_min_text = prev_item.get("leaseMinText") or "-"
+            lease_min_eok = prev_item.get("leaseMinEok") or parse_korean_price_to_eok(lease_min_text)
+            lease_cnt = prev_item.get("leaseArticleCount", 0)
+        else:
+            ask_min = n_data.get("askingMinEok")
+            ask_max = n_data.get("askingMaxEok")
+            min_spc = n_data.get("minSpc")
+            max_spc = n_data.get("maxSpc")
+            deal_cnt = n_data.get("dealCnt", 0)
+            lease_min_eok = n_data.get("leaseMinEok")
+            lease_min_text = n_data.get("leaseMinText") or "-"
+            lease_cnt = n_data.get("leaseCnt", 0)
+
+        ask_min, ask_max = normalize_asking_range(
+            t,
+            ask_min,
+            ask_max,
+            m_data.get("recentDeals", []),
+            recent_avg,
+            recent_min,
+            recent_max,
+            min_spc=min_spc,
+            max_spc=max_spc,
+        )
+
+        gap_min_eok = round(ask_min - lease_min_eok, 2) if (ask_min and lease_min_eok) else None
 
         # 대표 기준 가격(priceNum): 최근 5건 평균 실거래가 우선 -> 없으면 직전 실거래가 -> 없으면 최저호가
         rep_price = recent_avg or latest_eok or ask_min or 0.0
-
-        # 실거래 요약 텍스트
-        if latest:
-            real_price_text = f"{latest['priceText']} ({latest['date'][2:]} · {latest['floor']}층)"
-            if recent_min and recent_max and recent_min != recent_max:
-                real_range_text = f"{format_eok(recent_min)} ~ {format_eok(recent_max)}"
-            else:
-                real_range_text = latest["priceText"]
-        else:
-            real_price_text = "최근 거래 없음"
-            real_range_text = "-"
 
         # 호가 요약 텍스트
         if ask_min:
@@ -2378,9 +2673,11 @@ def build_prices_payload(config_path: str = "github_config.json") -> Dict[str, A
             "askingMinEok": ask_min,
             "askingMaxEok": ask_max,
             "askingPriceText": asking_text,
-            "dealArticleCount": n_data.get("dealCnt", 0),
-            "leaseMinText": n_data.get("leaseMinText", "-"),
-            "leaseArticleCount": n_data.get("leaseCnt", 0),
+            "dealArticleCount": deal_cnt,
+            "leaseMinEok": lease_min_eok,
+            "leaseMinText": lease_min_text,
+            "leaseArticleCount": lease_cnt,
+            "gapMinEok": gap_min_eok,
         }
 
     return {
@@ -2429,10 +2726,14 @@ def inject_into_html(payload: Dict[str, Any], html_path: str = "index.html") -> 
         content = f.read()
 
     pattern = r"(/\* __PRICES_DATA_START__ \*/)(.*?)(/\* __PRICES_DATA_END__ \*/)"
-    json_str = json.dumps(payload, ensure_ascii=False, indent=2)
-    replacement = f"\\1\n    const EMBEDDED_PRICES_DATA = {json_str};\n    \\3"
+    json_str = json.dumps(payload, ensure_ascii=False, separators=(",", ":"))
 
-    new_content, count = re.subn(pattern, replacement, content, flags=re.DOTALL)
+    new_content, count = re.subn(
+        pattern,
+        lambda m: f"{m.group(1)}\n    const EMBEDDED_PRICES_DATA = {json_str};\n    {m.group(3)}",
+        content,
+        flags=re.DOTALL,
+    )
     if count > 0:
         with open(html_path, "w", encoding="utf-8") as f:
             f.write(new_content)
@@ -2462,6 +2763,16 @@ def push_to_github_repo(updated_at: str, config_path: str = "github_config.json"
     if not token:
         print("[알림] GitHub 토큰이 설정되지 않아 자동 푸시를 건너뜁니다.")
         return False
+
+    basic_auth = base64.b64encode(f"x-access-token:{token}".encode("utf-8")).decode("ascii")
+
+    def _redact(msg: Any) -> str:
+        s = str(msg)
+        if basic_auth:
+            s = s.replace(basic_auth, "[REDACTED]")
+        if token:
+            s = s.replace(token, "[REDACTED]")
+        return s
 
     try:
         # git 저장소 초기화 확인
@@ -2499,8 +2810,23 @@ def push_to_github_repo(updated_at: str, config_path: str = "github_config.json"
                 check=True,
             )
 
+        # 원격 커밋(GitHub Actions 등)과의 충돌 방지를 위해 push 전 rebase 수행
+        subprocess.run(
+            [
+                "git",
+                "-c",
+                f"http.extraheader=AUTHORIZATION: basic {basic_auth}",
+                "pull",
+                "--rebase",
+                "-X",
+                "theirs",
+                "origin",
+                branch,
+            ],
+            check=False,
+        )
+
         # HTTP Authorization 헤더를 일회성으로 주입하여 푸시 (.git/config에 토큰이 남지 않음)
-        basic_auth = base64.b64encode(f"x-access-token:{token}".encode("utf-8")).decode("ascii")
         subprocess.run(
             [
                 "git",
@@ -2518,10 +2844,10 @@ def push_to_github_repo(updated_at: str, config_path: str = "github_config.json"
         print(f"       실시간 JSON URL: {raw_url}")
         return True
     except subprocess.CalledProcessError as e:
-        print(f"[오류] Git 명령 실행 실패: {e}")
+        print(f"[오류] Git 명령 실행 실패: {_redact(e)}")
         return False
     except Exception as e:
-        print(f"[오류] GitHub 푸시 실패: {e}")
+        print(f"[오류] GitHub 푸시 실패: {_redact(e)}")
         return False
 
 
