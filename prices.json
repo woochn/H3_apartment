@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-20 06:07",
+  "updatedAt": "2026-11-21 09:00",
   "source": "국토교통부 실거래가 공개시스템(rt.molit.go.kr) & 네이버 부동산(m.land.naver.com)",
   "apartments": {
     "apt1": {
@@ -74,12 +74,12 @@
       "name": "늘푸른벽산",
       "naverHscpNo": "7965",
       "targetPyeong": "33평 (전용 84㎡)",
-      "priceNum": 6.24,
+      "priceNum": 6.04,
       "realPriceLatestEok": 6.35,
       "realPriceLatestText": "6.35억 (26.10.27 · 9층)",
-      "realPriceAvgEok": 6.24,
-      "realPriceRangeText": "5.97억 ~ 6.47억",
-      "totalDealsYear": 29,
+      "realPriceAvgEok": 6.04,
+      "realPriceRangeText": "5억 ~ 6.47억",
+      "totalDealsYear": 30,
       "recentDeals": [
         {
           "date": "2026.10.27",
@@ -88,6 +88,15 @@
           "rawAmount": "63,500",
           "areaM2": 84.9,
           "floor": "9",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.10.23",
+          "priceEok": 5.0,
+          "priceText": "5억",
+          "rawAmount": "50,000",
+          "areaM2": 84.9,
+          "floor": "1",
           "dealType": "중개거래"
         },
         {
@@ -116,24 +125,15 @@
           "areaM2": 84.9,
           "floor": "7",
           "dealType": "중개거래"
-        },
-        {
-          "date": "2026.08.21",
-          "priceEok": 5.97,
-          "priceText": "5.97억",
-          "rawAmount": "59,700",
-          "areaM2": 84.9,
-          "floor": "6",
-          "dealType": "중개거래"
         }
       ],
       "askingMinEok": 6.1,
       "askingMaxEok": 8.0,
       "askingPriceText": "최저 6.1억 ~ 8억",
-      "dealArticleCount": 37,
+      "dealArticleCount": 35,
       "leaseMinEok": 4.3,
       "leaseMinText": "4.3억",
-      "leaseArticleCount": 3,
+      "leaseArticleCount": 2,
       "gapMinEok": 1.8
     },
     "apt3": {
@@ -200,7 +200,7 @@
       "dealArticleCount": 11,
       "leaseMinEok": 6.0,
       "leaseMinText": "6억",
-      "leaseArticleCount": 2,
+      "leaseArticleCount": 3,
       "gapMinEok": 1.5
     },
     "apt4": {
@@ -264,7 +264,7 @@
       "askingMinEok": 6.95,
       "askingMaxEok": 8.5,
       "askingPriceText": "최저 6.95억 ~ 8.5억",
-      "dealArticleCount": 15,
+      "dealArticleCount": 16,
       "leaseMinEok": null,
       "leaseMinText": "-",
       "leaseArticleCount": 0,
@@ -329,9 +329,9 @@
         }
       ],
       "askingMinEok": 6.9,
-      "askingMaxEok": 8.8,
-      "askingPriceText": "최저 6.9억 ~ 8.8억",
-      "dealArticleCount": 17,
+      "askingMaxEok": 9.0,
+      "askingPriceText": "최저 6.9억 ~ 9억",
+      "dealArticleCount": 19,
       "leaseMinEok": 5.5,
       "leaseMinText": "5.5억",
       "leaseArticleCount": 2,
@@ -398,7 +398,7 @@
       "askingMinEok": 6.1,
       "askingMaxEok": 8.26,
       "askingPriceText": "최저 6.1억 ~ 8.26억",
-      "dealArticleCount": 46,
+      "dealArticleCount": 47,
       "leaseMinEok": 4.6,
       "leaseMinText": "4.6억",
       "leaseArticleCount": 1,
@@ -465,7 +465,7 @@
       "askingMinEok": 7.3,
       "askingMaxEok": 9.32,
       "askingPriceText": "최저 7.3억 ~ 9.32억",
-      "dealArticleCount": 80,
+      "dealArticleCount": 79,
       "leaseMinEok": 5.0,
       "leaseMinText": "5억",
       "leaseArticleCount": 3,
@@ -532,10 +532,10 @@
       "askingMinEok": 7.0,
       "askingMaxEok": 10.5,
       "askingPriceText": "최저 7억 ~ 10.5억",
-      "dealArticleCount": 46,
+      "dealArticleCount": 47,
       "leaseMinEok": 4.5,
       "leaseMinText": "4.5억",
-      "leaseArticleCount": 5,
+      "leaseArticleCount": 4,
       "gapMinEok": 2.5
     },
     "apt9": {
@@ -666,7 +666,7 @@
       "askingMinEok": 7.6,
       "askingMaxEok": 8.5,
       "askingPriceText": "최저 7.6억 ~ 8.5억",
-      "dealArticleCount": 10,
+      "dealArticleCount": 9,
       "leaseMinEok": 5.0,
       "leaseMinText": "5억",
       "leaseArticleCount": 1,
@@ -733,11 +733,11 @@
       "askingMinEok": 6.35,
       "askingMaxEok": 9.0,
       "askingPriceText": "최저 6.35억 ~ 9억",
-      "dealArticleCount": 22,
-      "leaseMinEok": 2.7,
-      "leaseMinText": "2.7억",
-      "leaseArticleCount": 5,
-      "gapMinEok": 3.65
+      "dealArticleCount": 19,
+      "leaseMinEok": 3.0,
+      "leaseMinText": "3억",
+      "leaseArticleCount": 4,
+      "gapMinEok": 3.35
     },
     "apt12": {
       "id": "apt12",
@@ -800,7 +800,7 @@
       "askingMinEok": 6.0,
       "askingMaxEok": 8.0,
       "askingPriceText": "최저 6억 ~ 8억",
-      "dealArticleCount": 54,
+      "dealArticleCount": 58,
       "leaseMinEok": null,
       "leaseMinText": "-",
       "leaseArticleCount": 0,
@@ -931,14 +931,14 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": 9.3,
+      "askingMinEok": 10.7,
       "askingMaxEok": 15.0,
-      "askingPriceText": "최저 9.3억 ~ 15억",
-      "dealArticleCount": 60,
+      "askingPriceText": "최저 10.7억 ~ 15억",
+      "dealArticleCount": 59,
       "leaseMinEok": 5.0,
       "leaseMinText": "5억",
       "leaseArticleCount": 7,
-      "gapMinEok": 4.3
+      "gapMinEok": 5.7
     },
     "apt15": {
       "id": "apt15",
@@ -1001,11 +1001,11 @@
       "askingMinEok": 8.3,
       "askingMaxEok": 11.39,
       "askingPriceText": "최저 8.3억 ~ 11.39억",
-      "dealArticleCount": 81,
-      "leaseMinEok": 6.5,
-      "leaseMinText": "6.5억",
-      "leaseArticleCount": 6,
-      "gapMinEok": 1.8
+      "dealArticleCount": 82,
+      "leaseMinEok": 5.7,
+      "leaseMinText": "5.7억",
+      "leaseArticleCount": 7,
+      "gapMinEok": 2.6
     },
     "apt16": {
       "id": "apt16",
@@ -1065,14 +1065,14 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": 8.5,
+      "askingMinEok": 8.45,
       "askingMaxEok": 10.21,
-      "askingPriceText": "최저 8.5억 ~ 10.21억",
-      "dealArticleCount": 50,
+      "askingPriceText": "최저 8.45억 ~ 10.21억",
+      "dealArticleCount": 51,
       "leaseMinEok": 5.0,
       "leaseMinText": "5억",
       "leaseArticleCount": 8,
-      "gapMinEok": 3.5
+      "gapMinEok": 3.45
     },
     "apt17": {
       "id": "apt17",
@@ -1135,7 +1135,7 @@
       "askingMinEok": 7.4,
       "askingMaxEok": 12.0,
       "askingPriceText": "최저 7.4억 ~ 12억",
-      "dealArticleCount": 34,
+      "dealArticleCount": 35,
       "leaseMinEok": 5.0,
       "leaseMinText": "5억",
       "leaseArticleCount": 7,
@@ -1203,10 +1203,10 @@
       "askingMaxEok": 9.62,
       "askingPriceText": "최저 7억 ~ 9.62억",
       "dealArticleCount": 27,
-      "leaseMinEok": null,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0,
-      "gapMinEok": null
+      "leaseMinEok": 6.0,
+      "leaseMinText": "6억",
+      "leaseArticleCount": 1,
+      "gapMinEok": 1.0
     },
     "apt19": {
       "id": "apt19",
@@ -1403,10 +1403,10 @@
       "askingMinEok": 21.0,
       "askingMaxEok": 30.0,
       "askingPriceText": "최저 21억 ~ 30억",
-      "dealArticleCount": 55,
+      "dealArticleCount": 56,
       "leaseMinEok": 11.5,
       "leaseMinText": "11.5억",
-      "leaseArticleCount": 6,
+      "leaseArticleCount": 10,
       "gapMinEok": 9.5
     },
     "apt22": {
@@ -1470,7 +1470,7 @@
       "askingMinEok": 20.5,
       "askingMaxEok": 26.0,
       "askingPriceText": "최저 20.5억 ~ 26억",
-      "dealArticleCount": 57,
+      "dealArticleCount": 56,
       "leaseMinEok": 10.0,
       "leaseMinText": "10억",
       "leaseArticleCount": 3,
@@ -1616,12 +1616,21 @@
       "naverHscpNo": "133091",
       "targetPyeong": "25평 (전용 59㎡)",
       "priceNum": 8.37,
-      "realPriceLatestEok": 8.5,
-      "realPriceLatestText": "8.5억 (26.11.10 · 6층)",
+      "realPriceLatestEok": 8.45,
+      "realPriceLatestText": "8.45억 (26.11.17 · 9층)",
       "realPriceAvgEok": 8.37,
       "realPriceRangeText": "8억 ~ 8.5억",
-      "totalDealsYear": 51,
+      "totalDealsYear": 52,
       "recentDeals": [
+        {
+          "date": "2026.11.17",
+          "priceEok": 8.45,
+          "priceText": "8.45억",
+          "rawAmount": "84,500",
+          "areaM2": 60.0,
+          "floor": "9",
+          "dealType": "중개거래"
+        },
         {
           "date": "2026.11.10",
           "priceEok": 8.5,
@@ -1657,24 +1666,15 @@
           "areaM2": 60.0,
           "floor": "4",
           "dealType": "중개거래"
-        },
-        {
-          "date": "2026.10.29",
-          "priceEok": 8.45,
-          "priceText": "8.45억",
-          "rawAmount": "84,500",
-          "areaM2": 60.0,
-          "floor": "20",
-          "dealType": "중개거래"
         }
       ],
       "askingMinEok": 7.36,
       "askingMaxEok": 10.03,
       "askingPriceText": "최저 7.36억 ~ 10.03억",
-      "dealArticleCount": 136,
+      "dealArticleCount": 138,
       "leaseMinEok": 2.7,
       "leaseMinText": "2.7억",
-      "leaseArticleCount": 24,
+      "leaseArticleCount": 23,
       "gapMinEok": 4.66
     },
     "apt26": {
@@ -1805,7 +1805,7 @@
       "askingMinEok": 12.0,
       "askingMaxEok": 17.0,
       "askingPriceText": "최저 12억 ~ 17억",
-      "dealArticleCount": 24,
+      "dealArticleCount": 25,
       "leaseMinEok": 6.5,
       "leaseMinText": "6.5억",
       "leaseArticleCount": 3,
@@ -1872,10 +1872,10 @@
       "askingMinEok": 21.0,
       "askingMaxEok": 26.49,
       "askingPriceText": "최저 21억 ~ 26.49억",
-      "dealArticleCount": 139,
+      "dealArticleCount": 137,
       "leaseMinEok": 10.5,
       "leaseMinText": "10.5억",
-      "leaseArticleCount": 11,
+      "leaseArticleCount": 12,
       "gapMinEok": 10.5
     },
     "apt29": {
@@ -1883,12 +1883,12 @@
       "name": "광교 호반베르디움",
       "naverHscpNo": "103682",
       "targetPyeong": "24~33평 (전용 59·84㎡)",
-      "priceNum": 12.7,
+      "priceNum": 12.81,
       "realPriceLatestEok": 12.7,
       "realPriceLatestText": "12.7억 (26.11.07 · 15층)",
-      "realPriceAvgEok": 12.7,
+      "realPriceAvgEok": 12.81,
       "realPriceRangeText": "12.3억 ~ 13.5억",
-      "totalDealsYear": 36,
+      "totalDealsYear": 37,
       "recentDeals": [
         {
           "date": "2026.11.07",
@@ -1918,21 +1918,21 @@
           "dealType": "중개거래"
         },
         {
+          "date": "2026.10.27",
+          "priceEok": 13.25,
+          "priceText": "13.25억",
+          "rawAmount": "132,500",
+          "areaM2": 59.9,
+          "floor": "26",
+          "dealType": "중개거래"
+        },
+        {
           "date": "2026.10.24",
           "priceEok": 13.5,
           "priceText": "13.5억",
           "rawAmount": "135,000",
           "areaM2": 60.0,
           "floor": "13",
-          "dealType": "중개거래"
-        },
-        {
-          "date": "2026.10.24",
-          "priceEok": 12.7,
-          "priceText": "12.7억",
-          "rawAmount": "127,000",
-          "areaM2": 59.9,
-          "floor": "9",
           "dealType": "중개거래"
         }
       ],
@@ -2071,26 +2071,35 @@
         }
       ],
       "askingMinEok": 15.0,
-      "askingMaxEok": 20.0,
-      "askingPriceText": "최저 15억 ~ 20억",
-      "dealArticleCount": 45,
-      "leaseMinEok": 6.8,
-      "leaseMinText": "6.8억",
-      "leaseArticleCount": 9,
-      "gapMinEok": 8.2
+      "askingMaxEok": 20.5,
+      "askingPriceText": "최저 15억 ~ 20.5억",
+      "dealArticleCount": 44,
+      "leaseMinEok": 7.2,
+      "leaseMinText": "7.2억",
+      "leaseArticleCount": 6,
+      "gapMinEok": 7.8
     },
     "apt32": {
       "id": "apt32",
       "name": "광교 호반베르디움 트라엘",
       "naverHscpNo": "120759",
       "targetPyeong": "34~39평 (전용 84·100㎡)",
-      "priceNum": 13.64,
-      "realPriceLatestEok": 13.7,
-      "realPriceLatestText": "13.7억 (26.10.03 · 7층)",
-      "realPriceAvgEok": 13.64,
-      "realPriceRangeText": "13.4억 ~ 13.8억",
-      "totalDealsYear": 10,
+      "priceNum": 13.36,
+      "realPriceLatestEok": 12.4,
+      "realPriceLatestText": "12.4억 (26.11.14 · 3층)",
+      "realPriceAvgEok": 13.36,
+      "realPriceRangeText": "12.4억 ~ 13.8억",
+      "totalDealsYear": 11,
       "recentDeals": [
+        {
+          "date": "2026.11.14",
+          "priceEok": 12.4,
+          "priceText": "12.4억",
+          "rawAmount": "124,000",
+          "areaM2": 85.0,
+          "floor": "3",
+          "dealType": "중개거래"
+        },
         {
           "date": "2026.10.03",
           "priceEok": 13.7,
@@ -2126,21 +2135,12 @@
           "areaM2": 100.5,
           "floor": "3",
           "dealType": "중개거래"
-        },
-        {
-          "date": "2026.09.15",
-          "priceEok": 13.8,
-          "priceText": "13.8억",
-          "rawAmount": "138,000",
-          "areaM2": 100.5,
-          "floor": "8",
-          "dealType": "중개거래"
         }
       ],
       "askingMinEok": 12.8,
       "askingMaxEok": 16.0,
       "askingPriceText": "최저 12.8억 ~ 16억",
-      "dealArticleCount": 28,
+      "dealArticleCount": 27,
       "leaseMinEok": 8.5,
       "leaseMinText": "8.5억",
       "leaseArticleCount": 1,
@@ -2218,13 +2218,22 @@
       "name": "권선 자이 e편한세상",
       "naverHscpNo": "102005",
       "targetPyeong": "25평 (전용 59㎡)",
-      "priceNum": 6.54,
-      "realPriceLatestEok": 6.78,
-      "realPriceLatestText": "6.78억 (26.11.03 · 14층)",
-      "realPriceAvgEok": 6.54,
+      "priceNum": 6.56,
+      "realPriceLatestEok": 6.73,
+      "realPriceLatestText": "6.73억 (26.11.19 · 4층)",
+      "realPriceAvgEok": 6.56,
       "realPriceRangeText": "6.25억 ~ 6.78억",
-      "totalDealsYear": 14,
+      "totalDealsYear": 15,
       "recentDeals": [
+        {
+          "date": "2026.11.19",
+          "priceEok": 6.73,
+          "priceText": "6.73억",
+          "rawAmount": "67,300",
+          "areaM2": 60.0,
+          "floor": "4",
+          "dealType": "중개거래"
+        },
         {
           "date": "2026.11.03",
           "priceEok": 6.78,
@@ -2260,25 +2269,16 @@
           "areaM2": 60.0,
           "floor": "8",
           "dealType": "중개거래"
-        },
-        {
-          "date": "2026.09.03",
-          "priceEok": 6.65,
-          "priceText": "6.65억",
-          "rawAmount": "66,500",
-          "areaM2": 60.0,
-          "floor": "12",
-          "dealType": "중개거래"
         }
       ],
       "askingMinEok": 6.5,
       "askingMaxEok": 8.0,
       "askingPriceText": "최저 6.5억 ~ 8억",
-      "dealArticleCount": 49,
-      "leaseMinEok": 4.9,
-      "leaseMinText": "4.9억",
+      "dealArticleCount": 50,
+      "leaseMinEok": 5.0,
+      "leaseMinText": "5억",
       "leaseArticleCount": 4,
-      "gapMinEok": 1.6
+      "gapMinEok": 1.5
     },
     "apt35": {
       "id": "apt35",
@@ -2408,7 +2408,7 @@
       "askingMinEok": 6.8,
       "askingMaxEok": 8.5,
       "askingPriceText": "최저 6.8억 ~ 8.5억",
-      "dealArticleCount": 15,
+      "dealArticleCount": 14,
       "leaseMinEok": 4.9,
       "leaseMinText": "4.9억",
       "leaseArticleCount": 2,
@@ -2419,13 +2419,22 @@
       "name": "영통 신나무실 5단지 주공",
       "naverHscpNo": "2588",
       "targetPyeong": "24평 (전용 59㎡)",
-      "priceNum": 5.33,
-      "realPriceLatestEok": 5.3,
-      "realPriceLatestText": "5.3억 (26.11.16 · 15층)",
-      "realPriceAvgEok": 5.33,
-      "realPriceRangeText": "4.75억 ~ 6.09억",
-      "totalDealsYear": 65,
+      "priceNum": 5.38,
+      "realPriceLatestEok": 5.0,
+      "realPriceLatestText": "5억 (26.11.20 · 1층)",
+      "realPriceAvgEok": 5.38,
+      "realPriceRangeText": "5억 ~ 6.09억",
+      "totalDealsYear": 66,
       "recentDeals": [
+        {
+          "date": "2026.11.20",
+          "priceEok": 5.0,
+          "priceText": "5억",
+          "rawAmount": "50,000",
+          "areaM2": 60.0,
+          "floor": "1",
+          "dealType": "중개거래"
+        },
         {
           "date": "2026.11.16",
           "priceEok": 5.3,
@@ -2461,21 +2470,12 @@
           "areaM2": 60.0,
           "floor": "17",
           "dealType": "중개거래"
-        },
-        {
-          "date": "2026.11.04",
-          "priceEok": 4.75,
-          "priceText": "4.75억",
-          "rawAmount": "47,500",
-          "areaM2": 60.0,
-          "floor": "10",
-          "dealType": "중개거래"
         }
       ],
       "askingMinEok": 4.0,
       "askingMaxEok": 7.5,
       "askingPriceText": "최저 4억 ~ 7.5억",
-      "dealArticleCount": 58,
+      "dealArticleCount": 59,
       "leaseMinEok": 3.0,
       "leaseMinText": "3억",
       "leaseArticleCount": 6,
@@ -2545,7 +2545,7 @@
       "dealArticleCount": 68,
       "leaseMinEok": 5.5,
       "leaseMinText": "5.5억",
-      "leaseArticleCount": 12,
+      "leaseArticleCount": 14,
       "gapMinEok": 6.5
     },
     "apt39": {
@@ -2553,13 +2553,22 @@
       "name": "화서역 블루밍푸른숲",
       "naverHscpNo": "24615",
       "targetPyeong": "33평 (전용 84㎡)",
-      "priceNum": 7.03,
-      "realPriceLatestEok": 7.3,
-      "realPriceLatestText": "7.3억 (26.11.09 · 6층)",
-      "realPriceAvgEok": 7.03,
+      "priceNum": 6.98,
+      "realPriceLatestEok": 7.05,
+      "realPriceLatestText": "7.05억 (26.11.17 · 12층)",
+      "realPriceAvgEok": 6.98,
       "realPriceRangeText": "5.95억 ~ 7.5억",
-      "totalDealsYear": 28,
+      "totalDealsYear": 29,
       "recentDeals": [
+        {
+          "date": "2026.11.17",
+          "priceEok": 7.05,
+          "priceText": "7.05억",
+          "rawAmount": "70,500",
+          "areaM2": 84.1,
+          "floor": "12",
+          "dealType": "중개거래"
+        },
         {
           "date": "2026.11.09",
           "priceEok": 7.3,
@@ -2595,24 +2604,15 @@
           "areaM2": 84.9,
           "floor": "11",
           "dealType": "중개거래"
-        },
-        {
-          "date": "2026.09.14",
-          "priceEok": 7.3,
-          "priceText": "7.3억",
-          "rawAmount": "73,000",
-          "areaM2": 84.9,
-          "floor": "4",
-          "dealType": "중개거래"
         }
       ],
       "askingMinEok": 6.3,
       "askingMaxEok": 9.1,
       "askingPriceText": "최저 6.3억 ~ 9.1억",
-      "dealArticleCount": 43,
+      "dealArticleCount": 44,
       "leaseMinEok": 4.0,
       "leaseMinText": "4억",
-      "leaseArticleCount": 5,
+      "leaseArticleCount": 6,
       "gapMinEok": 2.3
     },
     "apt40": {
@@ -2676,7 +2676,7 @@
       "askingMinEok": 7.8,
       "askingMaxEok": 10.96,
       "askingPriceText": "최저 7.8억 ~ 10.96억",
-      "dealArticleCount": 123,
+      "dealArticleCount": 120,
       "leaseMinEok": 4.5,
       "leaseMinText": "4.5억",
       "leaseArticleCount": 6,
@@ -2743,7 +2743,7 @@
       "askingMinEok": 6.0,
       "askingMaxEok": 7.0,
       "askingPriceText": "최저 6억 ~ 7억",
-      "dealArticleCount": 9,
+      "dealArticleCount": 8,
       "leaseMinEok": null,
       "leaseMinText": "-",
       "leaseArticleCount": 0,
@@ -2780,14 +2780,14 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": 8.4,
+      "askingMinEok": 8.5,
       "askingMaxEok": 10.86,
-      "askingPriceText": "최저 8.4억 ~ 10.86억",
-      "dealArticleCount": 22,
+      "askingPriceText": "최저 8.5억 ~ 10.86억",
+      "dealArticleCount": 21,
       "leaseMinEok": 8.5,
       "leaseMinText": "8.5억",
       "leaseArticleCount": 1,
-      "gapMinEok": -0.1
+      "gapMinEok": 0.0
     },
     "apt43": {
       "id": "apt43",
@@ -2918,10 +2918,10 @@
       "askingMaxEok": 10.0,
       "askingPriceText": "최저 8.95억 ~ 10억",
       "dealArticleCount": 10,
-      "leaseMinEok": 5.5,
-      "leaseMinText": "5.5억",
-      "leaseArticleCount": 1,
-      "gapMinEok": 3.45
+      "leaseMinEok": null,
+      "leaseMinText": "-",
+      "leaseArticleCount": 0,
+      "gapMinEok": null
     },
     "apt45": {
       "id": "apt45",
@@ -3118,7 +3118,7 @@
       "askingMinEok": 4.6,
       "askingMaxEok": 6.0,
       "askingPriceText": "최저 4.6억 ~ 6억",
-      "dealArticleCount": 7,
+      "dealArticleCount": 8,
       "leaseMinEok": null,
       "leaseMinText": "-",
       "leaseArticleCount": 0,
@@ -3185,7 +3185,7 @@
       "askingMinEok": 4.0,
       "askingMaxEok": 5.8,
       "askingPriceText": "최저 4억 ~ 5.8억",
-      "dealArticleCount": 8,
+      "dealArticleCount": 9,
       "leaseMinEok": null,
       "leaseMinText": "-",
       "leaseArticleCount": 0,
@@ -3252,7 +3252,7 @@
       "askingMinEok": 4.3,
       "askingMaxEok": 4.5,
       "askingPriceText": "최저 4.3억 ~ 4.5억",
-      "dealArticleCount": 4,
+      "dealArticleCount": 5,
       "leaseMinEok": 3.5,
       "leaseMinText": "3.5억",
       "leaseArticleCount": 1,
@@ -3319,7 +3319,7 @@
       "askingMinEok": 7.5,
       "askingMaxEok": 9.0,
       "askingPriceText": "최저 7.5억 ~ 9억",
-      "dealArticleCount": 15,
+      "dealArticleCount": 16,
       "leaseMinEok": 4.9,
       "leaseMinText": "4.9억",
       "leaseArticleCount": 2,
@@ -3383,10 +3383,10 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": 4.0,
+      "askingMinEok": 3.9,
       "askingMaxEok": 4.7,
-      "askingPriceText": "최저 4억 ~ 4.7억",
-      "dealArticleCount": 4,
+      "askingPriceText": "최저 3.9억 ~ 4.7억",
+      "dealArticleCount": 5,
       "leaseMinEok": null,
       "leaseMinText": "-",
       "leaseArticleCount": 0,
@@ -3587,7 +3587,7 @@
       "askingMinEok": 6.8,
       "askingMaxEok": 8.5,
       "askingPriceText": "최저 6.8억 ~ 8.5억",
-      "dealArticleCount": 8,
+      "dealArticleCount": 7,
       "leaseMinEok": null,
       "leaseMinText": "-",
       "leaseArticleCount": 0,
@@ -3598,12 +3598,12 @@
       "name": "현대홈타운",
       "naverHscpNo": "9243",
       "targetPyeong": "33~34평 (전용 84㎡ 전후)",
-      "priceNum": 5.55,
+      "priceNum": 5.34,
       "realPriceLatestEok": 6.12,
       "realPriceLatestText": "6.12억 (26.10.14 · 5층)",
-      "realPriceAvgEok": 5.55,
-      "realPriceRangeText": "5.15억 ~ 6.12억",
-      "totalDealsYear": 3,
+      "realPriceAvgEok": 5.34,
+      "realPriceRangeText": "4.97억 ~ 6.12억",
+      "totalDealsYear": 8,
       "recentDeals": [
         {
           "date": "2026.10.14",
@@ -3631,12 +3631,30 @@
           "areaM2": 84.3,
           "floor": "13",
           "dealType": "중개거래"
+        },
+        {
+          "date": "2026.05.22",
+          "priceEok": 5.07,
+          "priceText": "5.07억",
+          "rawAmount": "50,700",
+          "areaM2": 84.3,
+          "floor": "18",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.05.14",
+          "priceEok": 4.97,
+          "priceText": "4.97억",
+          "rawAmount": "49,700",
+          "areaM2": 84.3,
+          "floor": "10",
+          "dealType": "중개거래"
         }
       ],
       "askingMinEok": 6.3,
-      "askingMaxEok": 7.22,
-      "askingPriceText": "최저 6.3억 ~ 7.22억",
-      "dealArticleCount": 13,
+      "askingMaxEok": 8.0,
+      "askingPriceText": "최저 6.3억 ~ 8억",
+      "dealArticleCount": 12,
       "leaseMinEok": 6.0,
       "leaseMinText": "6억",
       "leaseArticleCount": 1,
@@ -3822,7 +3840,7 @@
       "dealArticleCount": 94,
       "leaseMinEok": 5.8,
       "leaseMinText": "5.8억",
-      "leaseArticleCount": 4,
+      "leaseArticleCount": 5,
       "gapMinEok": 2.6
     },
     "apt59": {
@@ -3856,7 +3874,7 @@
       "realPriceLatestText": "5.45억 (26.11.10 · 12층)",
       "realPriceAvgEok": 5.1,
       "realPriceRangeText": "4.68억 ~ 5.45억",
-      "totalDealsYear": 22,
+      "totalDealsYear": 29,
       "recentDeals": [
         {
           "date": "2026.11.10",
@@ -3974,7 +3992,7 @@
       "askingMinEok": 9.5,
       "askingMaxEok": 13.3,
       "askingPriceText": "최저 9.5억 ~ 13.3억",
-      "dealArticleCount": 39,
+      "dealArticleCount": 40,
       "leaseMinEok": 4.7,
       "leaseMinText": "4.7억",
       "leaseArticleCount": 5,
@@ -4041,7 +4059,7 @@
       "askingMinEok": 5.3,
       "askingMaxEok": 9.5,
       "askingPriceText": "최저 5.3억 ~ 9.5억",
-      "dealArticleCount": 75,
+      "dealArticleCount": 76,
       "leaseMinEok": null,
       "leaseMinText": "-",
       "leaseArticleCount": 0,
@@ -4176,10 +4194,10 @@
       "askingMaxEok": 12.5,
       "askingPriceText": "최저 9.3억 ~ 12.5억",
       "dealArticleCount": 12,
-      "leaseMinEok": 6.8,
-      "leaseMinText": "6.8억",
-      "leaseArticleCount": 1,
-      "gapMinEok": 2.5
+      "leaseMinEok": 6.5,
+      "leaseMinText": "6.5억",
+      "leaseArticleCount": 2,
+      "gapMinEok": 2.8
     },
     "apt65": {
       "id": "apt65",
@@ -4191,7 +4209,7 @@
       "realPriceLatestText": "5.78억 (26.11.06 · 6층)",
       "realPriceAvgEok": 5.75,
       "realPriceRangeText": "5.27억 ~ 5.95억",
-      "totalDealsYear": 32,
+      "totalDealsYear": 69,
       "recentDeals": [
         {
           "date": "2026.11.06",
@@ -4222,20 +4240,20 @@
         },
         {
           "date": "2026.10.21",
-          "priceEok": 5.9,
-          "priceText": "5.9억",
-          "rawAmount": "59,000",
-          "areaM2": 59.0,
-          "floor": "19",
-          "dealType": "중개거래"
-        },
-        {
-          "date": "2026.10.21",
           "priceEok": 5.83,
           "priceText": "5.83억",
           "rawAmount": "58,300",
           "areaM2": 59.0,
           "floor": "10",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.10.21",
+          "priceEok": 5.9,
+          "priceText": "5.9억",
+          "rawAmount": "59,000",
+          "areaM2": 59.0,
+          "floor": "19",
           "dealType": "중개거래"
         }
       ],
@@ -4407,7 +4425,7 @@
       "askingMinEok": 2.95,
       "askingMaxEok": 3.8,
       "askingPriceText": "최저 2.95억 ~ 3.8억",
-      "dealArticleCount": 4,
+      "dealArticleCount": 5,
       "leaseMinEok": null,
       "leaseMinText": "-",
       "leaseArticleCount": 0,
@@ -4474,7 +4492,7 @@
       "askingMinEok": 7.48,
       "askingMaxEok": 9.79,
       "askingPriceText": "최저 7.48억 ~ 9.79억",
-      "dealArticleCount": 12,
+      "dealArticleCount": 14,
       "leaseMinEok": 7.5,
       "leaseMinText": "7.5억",
       "leaseArticleCount": 1,
@@ -4538,9 +4556,9 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": 4.9,
+      "askingMinEok": 5.8,
       "askingMaxEok": 6.43,
-      "askingPriceText": "최저 4.9억 ~ 6.43억",
+      "askingPriceText": "최저 5.8억 ~ 6.43억",
       "dealArticleCount": 17,
       "leaseMinEok": null,
       "leaseMinText": "-",
@@ -4557,7 +4575,7 @@
       "realPriceLatestText": "7.5억 (26.11.06 · 14층)",
       "realPriceAvgEok": 7.21,
       "realPriceRangeText": "7억 ~ 7.5억",
-      "totalDealsYear": 26,
+      "totalDealsYear": 63,
       "recentDeals": [
         {
           "date": "2026.11.06",
@@ -4570,20 +4588,20 @@
         },
         {
           "date": "2026.10.23",
-          "priceEok": 7.05,
-          "priceText": "7.05억",
-          "rawAmount": "70,500",
-          "areaM2": 85.0,
-          "floor": "16",
-          "dealType": "중개거래"
-        },
-        {
-          "date": "2026.10.23",
           "priceEok": 7.1,
           "priceText": "7.1억",
           "rawAmount": "71,000",
           "areaM2": 85.0,
           "floor": "14",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.10.23",
+          "priceEok": 7.05,
+          "priceText": "7.05억",
+          "rawAmount": "70,500",
+          "areaM2": 85.0,
+          "floor": "16",
           "dealType": "중개거래"
         },
         {
@@ -4675,11 +4693,11 @@
       "askingMinEok": 3.7,
       "askingMaxEok": 4.13,
       "askingPriceText": "최저 3.7억 ~ 4.13억",
-      "dealArticleCount": 9,
-      "leaseMinEok": 3.0,
-      "leaseMinText": "3억",
-      "leaseArticleCount": 1,
-      "gapMinEok": 0.7
+      "dealArticleCount": 10,
+      "leaseMinEok": null,
+      "leaseMinText": "-",
+      "leaseArticleCount": 0,
+      "gapMinEok": null
     },
     "apt73": {
       "id": "apt73",
@@ -4691,7 +4709,7 @@
       "realPriceLatestText": "6.77억 (26.11.11 · 6층)",
       "realPriceAvgEok": 6.46,
       "realPriceRangeText": "5.79억 ~ 7.05억",
-      "totalDealsYear": 5,
+      "totalDealsYear": 7,
       "recentDeals": [
         {
           "date": "2026.11.11",
@@ -4782,7 +4800,7 @@
       "askingMinEok": 3.1,
       "askingMaxEok": 3.58,
       "askingPriceText": "최저 3.1억 ~ 3.58억",
-      "dealArticleCount": 10,
+      "dealArticleCount": 11,
       "leaseMinEok": null,
       "leaseMinText": "-",
       "leaseArticleCount": 0,
@@ -5032,7 +5050,7 @@
       "askingMinEok": 11.0,
       "askingMaxEok": 13.0,
       "askingPriceText": "최저 11억 ~ 13억",
-      "dealArticleCount": 13,
+      "dealArticleCount": 14,
       "leaseMinEok": null,
       "leaseMinText": "-",
       "leaseArticleCount": 0,
@@ -5099,7 +5117,7 @@
       "askingMinEok": 17.5,
       "askingMaxEok": 20.0,
       "askingPriceText": "최저 17.5억 ~ 20억",
-      "dealArticleCount": 21,
+      "dealArticleCount": 22,
       "leaseMinEok": 8.5,
       "leaseMinText": "8.5억",
       "leaseArticleCount": 5,
@@ -5455,7 +5473,7 @@
       "askingMinEok": 9.0,
       "askingMaxEok": 9.97,
       "askingPriceText": "최저 9억 ~ 9.97억",
-      "dealArticleCount": 18,
+      "dealArticleCount": 19,
       "leaseMinEok": null,
       "leaseMinText": "-",
       "leaseArticleCount": 0,
@@ -5466,13 +5484,22 @@
       "name": "인계한양수자인(주상복합)",
       "naverHscpNo": "115681",
       "targetPyeong": "33~34평 (전용 84㎡ 전후)",
-      "priceNum": 5.46,
-      "realPriceLatestEok": 5.45,
-      "realPriceLatestText": "5.45억 (26.11.13 · 16층)",
-      "realPriceAvgEok": 5.46,
-      "realPriceRangeText": "5.34억 ~ 5.63억",
-      "totalDealsYear": 11,
+      "priceNum": 5.47,
+      "realPriceLatestEok": 5.35,
+      "realPriceLatestText": "5.35억 (26.11.16 · 5층)",
+      "realPriceAvgEok": 5.47,
+      "realPriceRangeText": "5.35억 ~ 5.63억",
+      "totalDealsYear": 12,
       "recentDeals": [
+        {
+          "date": "2026.11.16",
+          "priceEok": 5.35,
+          "priceText": "5.35억",
+          "rawAmount": "53,500",
+          "areaM2": 75.0,
+          "floor": "5",
+          "dealType": "중개거래"
+        },
         {
           "date": "2026.11.13",
           "priceEok": 5.45,
@@ -5480,15 +5507,6 @@
           "rawAmount": "54,500",
           "areaM2": 75.0,
           "floor": "16",
-          "dealType": "중개거래"
-        },
-        {
-          "date": "2026.08.18",
-          "priceEok": 5.63,
-          "priceText": "5.63억",
-          "rawAmount": "56,300",
-          "areaM2": 75.0,
-          "floor": "25",
           "dealType": "중개거래"
         },
         {
@@ -5501,21 +5519,21 @@
           "dealType": "중개거래"
         },
         {
+          "date": "2026.08.18",
+          "priceEok": 5.63,
+          "priceText": "5.63억",
+          "rawAmount": "56,300",
+          "areaM2": 75.0,
+          "floor": "25",
+          "dealType": "중개거래"
+        },
+        {
           "date": "2026.08.01",
           "priceEok": 5.5,
           "priceText": "5.5억",
           "rawAmount": "55,000",
           "areaM2": 75.0,
           "floor": "22",
-          "dealType": "중개거래"
-        },
-        {
-          "date": "2026.07.30",
-          "priceEok": 5.34,
-          "priceText": "5.34억",
-          "rawAmount": "53,400",
-          "areaM2": 75.0,
-          "floor": "7",
           "dealType": "중개거래"
         }
       ],
@@ -5790,7 +5808,7 @@
       "askingMinEok": 12.5,
       "askingMaxEok": 20.5,
       "askingPriceText": "최저 12.5억 ~ 20.5억",
-      "dealArticleCount": 58,
+      "dealArticleCount": 59,
       "leaseMinEok": 7.0,
       "leaseMinText": "7억",
       "leaseArticleCount": 3,
@@ -5919,7 +5937,7 @@
       "askingMinEok": 4.1,
       "askingMaxEok": 5.0,
       "askingPriceText": "최저 4.1억 ~ 5억",
-      "dealArticleCount": 19,
+      "dealArticleCount": 20,
       "leaseMinEok": 3.1,
       "leaseMinText": "3.1억",
       "leaseArticleCount": 1,
@@ -5935,7 +5953,7 @@
       "realPriceLatestText": "2.55억 (26.11.07 · 10층)",
       "realPriceAvgEok": 2.49,
       "realPriceRangeText": "2.25억 ~ 2.6억",
-      "totalDealsYear": 42,
+      "totalDealsYear": 41,
       "recentDeals": [
         {
           "date": "2026.11.07",
@@ -6035,7 +6053,7 @@
       "askingMinEok": 4.5,
       "askingMaxEok": 6.0,
       "askingPriceText": "최저 4.5억 ~ 6억",
-      "dealArticleCount": 9,
+      "dealArticleCount": 8,
       "leaseMinEok": null,
       "leaseMinText": "-",
       "leaseArticleCount": 0,
@@ -6102,7 +6120,7 @@
       "askingMinEok": 2.2,
       "askingMaxEok": 4.5,
       "askingPriceText": "최저 2.2억 ~ 4.5억",
-      "dealArticleCount": 15,
+      "dealArticleCount": 16,
       "leaseMinEok": null,
       "leaseMinText": "-",
       "leaseArticleCount": 0,
@@ -6118,7 +6136,7 @@
       "realPriceLatestText": "16억 (26.11.04 · 7층)",
       "realPriceAvgEok": 15.74,
       "realPriceRangeText": "14.8억 ~ 16.3억",
-      "totalDealsYear": 13,
+      "totalDealsYear": 32,
       "recentDeals": [
         {
           "date": "2026.11.04",
@@ -6140,20 +6158,20 @@
         },
         {
           "date": "2026.10.17",
-          "priceEok": 16.3,
-          "priceText": "16.3억",
-          "rawAmount": "163,000",
-          "areaM2": 91.3,
-          "floor": "33",
-          "dealType": "중개거래"
-        },
-        {
-          "date": "2026.10.17",
           "priceEok": 15.6,
           "priceText": "15.6억",
           "rawAmount": "156,000",
           "areaM2": 84.3,
           "floor": "28",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.10.17",
+          "priceEok": 16.3,
+          "priceText": "16.3억",
+          "rawAmount": "163,000",
+          "areaM2": 91.3,
+          "floor": "33",
           "dealType": "중개거래"
         },
         {
@@ -6236,7 +6254,7 @@
       "askingMinEok": 4.14,
       "askingMaxEok": 5.5,
       "askingPriceText": "최저 4.14억 ~ 5.5억",
-      "dealArticleCount": 16,
+      "dealArticleCount": 17,
       "leaseMinEok": null,
       "leaseMinText": "-",
       "leaseArticleCount": 0,
@@ -6319,7 +6337,7 @@
       "realPriceLatestText": "8.1억 (26.09.22 · 18층)",
       "realPriceAvgEok": 8.17,
       "realPriceRangeText": "7.4억 ~ 8.95억",
-      "totalDealsYear": 5,
+      "totalDealsYear": 12,
       "recentDeals": [
         {
           "date": "2026.09.22",
@@ -6448,12 +6466,12 @@
       "name": "광교한양수자인",
       "naverHscpNo": "103072",
       "targetPyeong": "33~34평 (전용 84㎡ 전후)",
-      "priceNum": 10.5,
+      "priceNum": 10.36,
       "realPriceLatestEok": 11.2,
       "realPriceLatestText": "11.2억 (26.10.29 · 5층)",
-      "realPriceAvgEok": 10.5,
+      "realPriceAvgEok": 10.36,
       "realPriceRangeText": "8.95억 ~ 11.2억",
-      "totalDealsYear": 4,
+      "totalDealsYear": 12,
       "recentDeals": [
         {
           "date": "2026.10.29",
@@ -6489,6 +6507,15 @@
           "rawAmount": "110,000",
           "areaM2": 84.2,
           "floor": "8",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.05.13",
+          "priceEok": 9.8,
+          "priceText": "9.8억",
+          "rawAmount": "98,000",
+          "areaM2": 84.2,
+          "floor": "12",
           "dealType": "중개거래"
         }
       ],
@@ -6562,7 +6589,7 @@
       "askingMinEok": 10.5,
       "askingMaxEok": 13.69,
       "askingPriceText": "최저 10.5억 ~ 13.69억",
-      "dealArticleCount": 36,
+      "dealArticleCount": 37,
       "leaseMinEok": 8.5,
       "leaseMinText": "8.5억",
       "leaseArticleCount": 3,
@@ -6578,7 +6605,7 @@
       "realPriceLatestText": "16.4억 (26.11.07 · 21층)",
       "realPriceAvgEok": 16.06,
       "realPriceRangeText": "15.5억 ~ 16.4억",
-      "totalDealsYear": 9,
+      "totalDealsYear": 22,
       "recentDeals": [
         {
           "date": "2026.11.07",
@@ -6629,10 +6656,10 @@
       "askingMinEok": 15.7,
       "askingMaxEok": 17.2,
       "askingPriceText": "최저 15.7억 ~ 17.2억",
-      "dealArticleCount": 28,
+      "dealArticleCount": 26,
       "leaseMinEok": 8.0,
       "leaseMinText": "8억",
-      "leaseArticleCount": 7,
+      "leaseArticleCount": 8,
       "gapMinEok": 7.7
     },
     "apt105": {
@@ -6640,18 +6667,27 @@
       "name": "광교해모로",
       "naverHscpNo": "103034",
       "targetPyeong": "33~34평 (전용 84㎡ 전후)",
-      "priceNum": 7.95,
+      "priceNum": 8.07,
       "realPriceLatestEok": 8.1,
       "realPriceLatestText": "8.1억 (26.11.03 · 6층)",
-      "realPriceAvgEok": 7.95,
-      "realPriceRangeText": "7.7억 ~ 8.3억",
-      "totalDealsYear": 23,
+      "realPriceAvgEok": 8.07,
+      "realPriceRangeText": "7.7억 ~ 8.4억",
+      "totalDealsYear": 24,
       "recentDeals": [
         {
           "date": "2026.11.03",
           "priceEok": 8.1,
           "priceText": "8.1억",
           "rawAmount": "81,000",
+          "areaM2": 84.8,
+          "floor": "6",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.11.01",
+          "priceEok": 8.4,
+          "priceText": "8.4억",
+          "rawAmount": "84,000",
           "areaM2": 84.8,
           "floor": "6",
           "dealType": "중개거래"
@@ -6682,25 +6718,16 @@
           "areaM2": 84.8,
           "floor": "9",
           "dealType": "중개거래"
-        },
-        {
-          "date": "2026.08.22",
-          "priceEok": 7.8,
-          "priceText": "7.8억",
-          "rawAmount": "78,000",
-          "areaM2": 84.8,
-          "floor": "1",
-          "dealType": "중개거래"
         }
       ],
       "askingMinEok": 8.0,
       "askingMaxEok": 10.0,
       "askingPriceText": "최저 8억 ~ 10억",
       "dealArticleCount": 17,
-      "leaseMinEok": 6.2,
-      "leaseMinText": "6.2억",
-      "leaseArticleCount": 2,
-      "gapMinEok": 1.8
+      "leaseMinEok": 5.7,
+      "leaseMinText": "5.7억",
+      "leaseArticleCount": 3,
+      "gapMinEok": 2.3
     },
     "apt106": {
       "id": "apt106",
@@ -6763,7 +6790,7 @@
       "askingMinEok": 14.5,
       "askingMaxEok": 17.0,
       "askingPriceText": "최저 14.5억 ~ 17억",
-      "dealArticleCount": 44,
+      "dealArticleCount": 41,
       "leaseMinEok": 9.0,
       "leaseMinText": "9억",
       "leaseArticleCount": 1,
@@ -7032,10 +7059,10 @@
       "askingMaxEok": 5.6,
       "askingPriceText": "최저 4.8억 ~ 5.6억",
       "dealArticleCount": 9,
-      "leaseMinEok": null,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0,
-      "gapMinEok": null
+      "leaseMinEok": 3.5,
+      "leaseMinText": "3.5억",
+      "leaseArticleCount": 1,
+      "gapMinEok": 1.3
     },
     "apt111": {
       "id": "apt111",
@@ -7098,7 +7125,7 @@
       "askingMinEok": 3.2,
       "askingMaxEok": 6.5,
       "askingPriceText": "최저 3.2억 ~ 6.5억",
-      "dealArticleCount": 13,
+      "dealArticleCount": 14,
       "leaseMinEok": 1.46,
       "leaseMinText": "1.46억",
       "leaseArticleCount": 1,
@@ -7680,14 +7707,14 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": 5.1,
+      "askingMinEok": 5.3,
       "askingMaxEok": 7.0,
-      "askingPriceText": "최저 5.1억 ~ 7억",
-      "dealArticleCount": 19,
-      "leaseMinEok": 3.8,
-      "leaseMinText": "3.8억",
-      "leaseArticleCount": 1,
-      "gapMinEok": 1.3
+      "askingPriceText": "최저 5.3억 ~ 7억",
+      "dealArticleCount": 18,
+      "leaseMinEok": null,
+      "leaseMinText": "-",
+      "leaseArticleCount": 0,
+      "gapMinEok": null
     },
     "apt121": {
       "id": "apt121",
@@ -7750,11 +7777,11 @@
       "askingMinEok": 6.2,
       "askingMaxEok": 9.5,
       "askingPriceText": "최저 6.2억 ~ 9.5억",
-      "dealArticleCount": 53,
-      "leaseMinEok": 4.5,
-      "leaseMinText": "4.5억",
-      "leaseArticleCount": 3,
-      "gapMinEok": 1.7
+      "dealArticleCount": 55,
+      "leaseMinEok": 4.2,
+      "leaseMinText": "4.2억",
+      "leaseArticleCount": 4,
+      "gapMinEok": 2.0
     },
     "apt122": {
       "id": "apt122",
@@ -7814,14 +7841,14 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": 3.1,
+      "askingMinEok": 3.9,
       "askingMaxEok": 4.9,
-      "askingPriceText": "최저 3.1억 ~ 4.9억",
-      "dealArticleCount": 19,
-      "leaseMinEok": 3.2,
-      "leaseMinText": "3.2억",
-      "leaseArticleCount": 1,
-      "gapMinEok": -0.1
+      "askingPriceText": "최저 3.9억 ~ 4.9억",
+      "dealArticleCount": 16,
+      "leaseMinEok": null,
+      "leaseMinText": "-",
+      "leaseArticleCount": 0,
+      "gapMinEok": null
     },
     "apt123": {
       "id": "apt123",
@@ -7884,7 +7911,7 @@
       "askingMinEok": 4.4,
       "askingMaxEok": 5.2,
       "askingPriceText": "최저 4.4억 ~ 5.2억",
-      "dealArticleCount": 5,
+      "dealArticleCount": 6,
       "leaseMinEok": null,
       "leaseMinText": "-",
       "leaseArticleCount": 0,
@@ -8163,12 +8190,12 @@
       "name": "청명마을주공",
       "naverHscpNo": "1809",
       "targetPyeong": "24~25평 (전용 59㎡ 전후)",
-      "priceNum": 6.88,
+      "priceNum": 6.9,
       "realPriceLatestEok": 7.3,
       "realPriceLatestText": "7.3억 (26.11.17 · 11층)",
-      "realPriceAvgEok": 6.88,
+      "realPriceAvgEok": 6.9,
       "realPriceRangeText": "6억 ~ 7.3억",
-      "totalDealsYear": 27,
+      "totalDealsYear": 28,
       "recentDeals": [
         {
           "date": "2026.11.17",
@@ -8177,6 +8204,15 @@
           "rawAmount": "73,000",
           "areaM2": 60.0,
           "floor": "11",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.11.05",
+          "priceEok": 7.02,
+          "priceText": "7.02억",
+          "rawAmount": "70,200",
+          "areaM2": 60.0,
+          "floor": "16",
           "dealType": "중개거래"
         },
         {
@@ -8205,21 +8241,12 @@
           "areaM2": 60.0,
           "floor": "4",
           "dealType": "중개거래"
-        },
-        {
-          "date": "2026.10.13",
-          "priceEok": 6.9,
-          "priceText": "6.9억",
-          "rawAmount": "69,000",
-          "areaM2": 60.0,
-          "floor": "14",
-          "dealType": "중개거래"
         }
       ],
       "askingMinEok": 5.9,
       "askingMaxEok": 7.8,
       "askingPriceText": "최저 5.9억 ~ 7.8억",
-      "dealArticleCount": 18,
+      "dealArticleCount": 19,
       "leaseMinEok": 4.0,
       "leaseMinText": "4억",
       "leaseArticleCount": 3,
@@ -8286,7 +8313,7 @@
       "askingMinEok": 10.5,
       "askingMaxEok": 12.63,
       "askingPriceText": "최저 10.5억 ~ 12.63억",
-      "dealArticleCount": 14,
+      "dealArticleCount": 15,
       "leaseMinEok": 6.6,
       "leaseMinText": "6.6억",
       "leaseArticleCount": 3,
@@ -8417,14 +8444,14 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": null,
-      "askingMaxEok": null,
-      "askingPriceText": "매물 없음",
-      "dealArticleCount": 0,
-      "leaseMinEok": null,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0,
-      "gapMinEok": null
+      "askingMinEok": 13.0,
+      "askingMaxEok": 13.0,
+      "askingPriceText": "최저 13억",
+      "dealArticleCount": 1,
+      "leaseMinEok": 6.5,
+      "leaseMinText": "6.5억",
+      "leaseArticleCount": 1,
+      "gapMinEok": 6.5
     },
     "apt132": {
       "id": "apt132",
@@ -8556,13 +8583,22 @@
       "name": "벽적골9단지주공",
       "naverHscpNo": "3991",
       "targetPyeong": "24~25평 (전용 59㎡ 전후)",
-      "priceNum": 7.53,
-      "realPriceLatestEok": 6.4,
-      "realPriceLatestText": "6.4억 (26.11.17 · 11층)",
-      "realPriceAvgEok": 7.53,
+      "priceNum": 7.63,
+      "realPriceLatestEok": 7.8,
+      "realPriceLatestText": "7.8억 (26.11.20 · 20층)",
+      "realPriceAvgEok": 7.63,
       "realPriceRangeText": "6.4억 ~ 8.1억",
       "totalDealsYear": 66,
       "recentDeals": [
+        {
+          "date": "2026.11.20",
+          "priceEok": 7.8,
+          "priceText": "7.8억",
+          "rawAmount": "78,000",
+          "areaM2": 59.4,
+          "floor": "20",
+          "dealType": "중개거래"
+        },
         {
           "date": "2026.11.17",
           "priceEok": 6.4,
@@ -8598,21 +8634,12 @@
           "areaM2": 59.4,
           "floor": "17",
           "dealType": "중개거래"
-        },
-        {
-          "date": "2026.10.31",
-          "priceEok": 7.3,
-          "priceText": "7.3억",
-          "rawAmount": "73,000",
-          "areaM2": 59.4,
-          "floor": "2",
-          "dealType": "중개거래"
         }
       ],
       "askingMinEok": 6.0,
       "askingMaxEok": 8.7,
       "askingPriceText": "최저 6억 ~ 8.7억",
-      "dealArticleCount": 31,
+      "dealArticleCount": 29,
       "leaseMinEok": 4.0,
       "leaseMinText": "4억",
       "leaseArticleCount": 4,
@@ -8695,7 +8722,7 @@
       "realPriceLatestText": "11.2억 (26.10.19 · 10층)",
       "realPriceAvgEok": 9.8,
       "realPriceRangeText": "5.82억 ~ 11.4억",
-      "totalDealsYear": 16,
+      "totalDealsYear": 7,
       "recentDeals": [
         {
           "date": "2026.10.19",
@@ -8880,7 +8907,7 @@
       "askingMinEok": 8.0,
       "askingMaxEok": 10.5,
       "askingPriceText": "최저 8억 ~ 10.5억",
-      "dealArticleCount": 19,
+      "dealArticleCount": 18,
       "leaseMinEok": 3.4,
       "leaseMinText": "3.4억",
       "leaseArticleCount": 4,
@@ -8891,13 +8918,22 @@
       "name": "화서주공5단지",
       "naverHscpNo": "10398",
       "targetPyeong": "24~25평 (전용 59㎡ 전후)",
-      "priceNum": 7.44,
-      "realPriceLatestEok": 8.0,
-      "realPriceLatestText": "8억 (26.10.29 · 19층)",
-      "realPriceAvgEok": 7.44,
+      "priceNum": 7.47,
+      "realPriceLatestEok": 7.5,
+      "realPriceLatestText": "7.5억 (26.11.11 · 4층)",
+      "realPriceAvgEok": 7.47,
       "realPriceRangeText": "7.05억 ~ 8억",
-      "totalDealsYear": 20,
+      "totalDealsYear": 21,
       "recentDeals": [
+        {
+          "date": "2026.11.11",
+          "priceEok": 7.5,
+          "priceText": "7.5억",
+          "rawAmount": "75,000",
+          "areaM2": 50.0,
+          "floor": "4",
+          "dealType": "중개거래"
+        },
         {
           "date": "2026.10.29",
           "priceEok": 8.0,
@@ -8932,15 +8968,6 @@
           "rawAmount": "72,000",
           "areaM2": 50.0,
           "floor": "4",
-          "dealType": "중개거래"
-        },
-        {
-          "date": "2026.08.27",
-          "priceEok": 7.35,
-          "priceText": "7.35억",
-          "rawAmount": "73,500",
-          "areaM2": 50.0,
-          "floor": "5",
           "dealType": "중개거래"
         }
       ],
@@ -9014,7 +9041,7 @@
       "askingMinEok": 9.0,
       "askingMaxEok": 10.86,
       "askingPriceText": "최저 9억 ~ 10.86억",
-      "dealArticleCount": 12,
+      "dealArticleCount": 13,
       "leaseMinEok": 5.3,
       "leaseMinText": "5.3억",
       "leaseArticleCount": 4,
@@ -9074,12 +9101,12 @@
       "name": "신미주",
       "naverHscpNo": "2707",
       "targetPyeong": "33~34평 (전용 84㎡ 전후)",
-      "priceNum": 3.22,
+      "priceNum": 3.15,
       "realPriceLatestEok": 3.4,
       "realPriceLatestText": "3.4억 (26.10.09 · 15층)",
-      "realPriceAvgEok": 3.22,
+      "realPriceAvgEok": 3.15,
       "realPriceRangeText": "2.75억 ~ 3.5억",
-      "totalDealsYear": 3,
+      "totalDealsYear": 7,
       "recentDeals": [
         {
           "date": "2026.10.09",
@@ -9106,6 +9133,24 @@
           "rawAmount": "27,500",
           "areaM2": 72.6,
           "floor": "11",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.03.02",
+          "priceEok": 2.8,
+          "priceText": "2.8억",
+          "rawAmount": "28,000",
+          "areaM2": 72.6,
+          "floor": "12",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.02.09",
+          "priceEok": 3.3,
+          "priceText": "3.3억",
+          "rawAmount": "33,000",
+          "areaM2": 76.4,
+          "floor": "7",
           "dealType": "중개거래"
         }
       ],
@@ -9172,18 +9217,27 @@
       "name": "현대",
       "naverHscpNo": "8209",
       "targetPyeong": "24~25평 (전용 59㎡ 전후)",
-      "priceNum": 5.34,
+      "priceNum": 5.28,
       "realPriceLatestEok": 4.8,
       "realPriceLatestText": "4.8억 (26.11.10 · 1층)",
-      "realPriceAvgEok": 5.34,
+      "realPriceAvgEok": 5.28,
       "realPriceRangeText": "4.8억 ~ 5.65억",
-      "totalDealsYear": 49,
+      "totalDealsYear": 50,
       "recentDeals": [
         {
           "date": "2026.11.10",
           "priceEok": 4.8,
           "priceText": "4.8억",
           "rawAmount": "48,000",
+          "areaM2": 59.8,
+          "floor": "1",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.11.06",
+          "priceEok": 5.18,
+          "priceText": "5.18억",
+          "rawAmount": "51,800",
           "areaM2": 59.8,
           "floor": "1",
           "dealType": "중개거래"
@@ -9213,15 +9267,6 @@
           "rawAmount": "56,500",
           "areaM2": 59.8,
           "floor": "4",
-          "dealType": "중개거래"
-        },
-        {
-          "date": "2026.10.21",
-          "priceEok": 5.49,
-          "priceText": "5.49억",
-          "rawAmount": "54,900",
-          "areaM2": 59.8,
-          "floor": "11",
           "dealType": "중개거래"
         }
       ],
@@ -9373,10 +9418,10 @@
       "name": "청솔마을한라",
       "naverHscpNo": "3650",
       "targetPyeong": "33~34평 (전용 84㎡ 전후)",
-      "priceNum": 6.61,
+      "priceNum": 6.66,
       "realPriceLatestEok": 7.1,
       "realPriceLatestText": "7.1억 (26.10.17 · 10층)",
-      "realPriceAvgEok": 6.61,
+      "realPriceAvgEok": 6.66,
       "realPriceRangeText": "5.98억 ~ 7.1억",
       "totalDealsYear": 30,
       "recentDeals": [
@@ -9418,11 +9463,11 @@
         },
         {
           "date": "2026.09.18",
-          "priceEok": 6.37,
-          "priceText": "6.37억",
-          "rawAmount": "63,700",
+          "priceEok": 6.63,
+          "priceText": "6.63억",
+          "rawAmount": "66,300",
           "areaM2": 60.0,
-          "floor": "15",
+          "floor": "17",
           "dealType": "중개거래"
         }
       ],
@@ -9445,7 +9490,7 @@
       "realPriceLatestText": "6.27억 (26.10.28 · 18층)",
       "realPriceAvgEok": 5.96,
       "realPriceRangeText": "5.6억 ~ 6.27억",
-      "totalDealsYear": 15,
+      "totalDealsYear": 9,
       "recentDeals": [
         {
           "date": "2026.10.28",
@@ -9615,7 +9660,7 @@
       "dealArticleCount": 10,
       "leaseMinEok": 5.5,
       "leaseMinText": "5.5억",
-      "leaseArticleCount": 2,
+      "leaseArticleCount": 4,
       "gapMinEok": 2.0
     },
     "apt151": {
@@ -9784,20 +9829,20 @@
         },
         {
           "date": "2026.10.08",
-          "priceEok": 7.55,
-          "priceText": "7.55억",
-          "rawAmount": "75,500",
-          "areaM2": 84.9,
-          "floor": "10",
-          "dealType": "중개거래"
-        },
-        {
-          "date": "2026.10.08",
           "priceEok": 7.95,
           "priceText": "7.95억",
           "rawAmount": "79,500",
           "areaM2": 84.9,
           "floor": "9",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.10.08",
+          "priceEok": 7.55,
+          "priceText": "7.55억",
+          "rawAmount": "75,500",
+          "areaM2": 84.9,
+          "floor": "10",
           "dealType": "중개거래"
         },
         {
@@ -9824,13 +9869,22 @@
       "name": "비단마을베스트타운",
       "naverHscpNo": "3646",
       "targetPyeong": "33~34평 (전용 84㎡ 전후)",
-      "priceNum": 7.54,
-      "realPriceLatestEok": 8.27,
-      "realPriceLatestText": "8.27억 (26.11.07 · 16층)",
-      "realPriceAvgEok": 7.54,
+      "priceNum": 7.49,
+      "realPriceLatestEok": 7.62,
+      "realPriceLatestText": "7.62억 (26.11.17 · 14층)",
+      "realPriceAvgEok": 7.49,
       "realPriceRangeText": "6.6억 ~ 8.27억",
-      "totalDealsYear": 47,
+      "totalDealsYear": 48,
       "recentDeals": [
+        {
+          "date": "2026.11.17",
+          "priceEok": 7.62,
+          "priceText": "7.62억",
+          "rawAmount": "76,250",
+          "areaM2": 85.0,
+          "floor": "14",
+          "dealType": "중개거래"
+        },
         {
           "date": "2026.11.07",
           "priceEok": 8.27,
@@ -9866,15 +9920,6 @@
           "areaM2": 85.0,
           "floor": "1",
           "dealType": "중개거래"
-        },
-        {
-          "date": "2026.09.28",
-          "priceEok": 7.9,
-          "priceText": "7.9억",
-          "rawAmount": "79,000",
-          "areaM2": 85.0,
-          "floor": "20",
-          "dealType": "중개거래"
         }
       ],
       "askingMinEok": 7.25,
@@ -9891,13 +9936,22 @@
       "name": "북수원자이렉스비아",
       "naverHscpNo": "141607",
       "targetPyeong": "24~25평 (전용 59㎡ 전후)",
-      "priceNum": 7.89,
-      "realPriceLatestEok": 8.3,
-      "realPriceLatestText": "8.3억 (26.11.18 · 11층)",
-      "realPriceAvgEok": 7.89,
+      "priceNum": 7.95,
+      "realPriceLatestEok": 8.25,
+      "realPriceLatestText": "8.25억 (26.11.20 · 17층)",
+      "realPriceAvgEok": 7.95,
       "realPriceRangeText": "7.07억 ~ 8.3억",
-      "totalDealsYear": 49,
+      "totalDealsYear": 50,
       "recentDeals": [
+        {
+          "date": "2026.11.20",
+          "priceEok": 8.25,
+          "priceText": "8.25억",
+          "rawAmount": "82,500",
+          "areaM2": 59.9,
+          "floor": "17",
+          "dealType": "중개거래"
+        },
         {
           "date": "2026.11.18",
           "priceEok": 8.3,
@@ -9933,21 +9987,12 @@
           "areaM2": 59.9,
           "floor": "12",
           "dealType": "중개거래"
-        },
-        {
-          "date": "2026.10.27",
-          "priceEok": 7.97,
-          "priceText": "7.97억",
-          "rawAmount": "79,700",
-          "areaM2": 59.9,
-          "floor": "10",
-          "dealType": "중개거래"
         }
       ],
       "askingMinEok": 6.9,
       "askingMaxEok": 9.79,
       "askingPriceText": "최저 6.9억 ~ 9.79억",
-      "dealArticleCount": 84,
+      "dealArticleCount": 83,
       "leaseMinEok": 4.8,
       "leaseMinText": "4.8억",
       "leaseArticleCount": 17,
@@ -10014,10 +10059,10 @@
       "askingMinEok": 2.25,
       "askingMaxEok": 4.84,
       "askingPriceText": "최저 2.25억 ~ 4.84억",
-      "dealArticleCount": 48,
+      "dealArticleCount": 47,
       "leaseMinEok": 1.6,
       "leaseMinText": "1.6억",
-      "leaseArticleCount": 6,
+      "leaseArticleCount": 4,
       "gapMinEok": 0.65
     },
     "apt157": {
