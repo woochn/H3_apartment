@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-25 07:27",
+  "updatedAt": "2026-11-25 09:00",
   "source": "국토교통부 실거래가 공개시스템(rt.molit.go.kr) & 네이버 부동산(m.land.naver.com)",
   "apartments": {
     "apt1": {
@@ -130,7 +130,7 @@
       "askingMinEok": 6.2,
       "askingMaxEok": 8.0,
       "askingPriceText": "최저 6.2억 ~ 8억",
-      "dealArticleCount": 33,
+      "dealArticleCount": 32,
       "leaseMinEok": 4.3,
       "leaseMinText": "4.3억",
       "leaseArticleCount": 2,
@@ -257,14 +257,14 @@
           "priceText": "6.5억",
           "rawAmount": "65,000",
           "areaM2": 84.9,
-          "floor": "4",
+          "floor": "3",
           "dealType": "중개거래"
         }
       ],
       "askingMinEok": 6.95,
       "askingMaxEok": 8.5,
       "askingPriceText": "최저 6.95억 ~ 8.5억",
-      "dealArticleCount": 16,
+      "dealArticleCount": 18,
       "leaseMinEok": null,
       "leaseMinText": "-",
       "leaseArticleCount": 0,
@@ -328,14 +328,14 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": 6.9,
-      "askingMaxEok": 9.0,
-      "askingPriceText": "최저 6.9억 ~ 9억",
-      "dealArticleCount": 19,
+      "askingMinEok": 7.3,
+      "askingMaxEok": 9.8,
+      "askingPriceText": "최저 7.3억 ~ 9.8억",
+      "dealArticleCount": 21,
       "leaseMinEok": 5.5,
       "leaseMinText": "5.5억",
       "leaseArticleCount": 2,
-      "gapMinEok": 1.4
+      "gapMinEok": 1.8
     },
     "apt6": {
       "id": "apt6",
@@ -398,11 +398,11 @@
       "askingMinEok": 6.1,
       "askingMaxEok": 8.26,
       "askingPriceText": "최저 6.1억 ~ 8.26억",
-      "dealArticleCount": 47,
-      "leaseMinEok": 4.6,
-      "leaseMinText": "4.6억",
-      "leaseArticleCount": 1,
-      "gapMinEok": 1.5
+      "dealArticleCount": 49,
+      "leaseMinEok": null,
+      "leaseMinText": "-",
+      "leaseArticleCount": 0,
+      "gapMinEok": null
     },
     "apt7": {
       "id": "apt7",
@@ -465,7 +465,7 @@
       "askingMinEok": 7.3,
       "askingMaxEok": 9.32,
       "askingPriceText": "최저 7.3억 ~ 9.32억",
-      "dealArticleCount": 80,
+      "dealArticleCount": 85,
       "leaseMinEok": 5.0,
       "leaseMinText": "5억",
       "leaseArticleCount": 3,
@@ -532,11 +532,11 @@
       "askingMinEok": 7.0,
       "askingMaxEok": 10.5,
       "askingPriceText": "최저 7억 ~ 10.5억",
-      "dealArticleCount": 46,
-      "leaseMinEok": 4.5,
-      "leaseMinText": "4.5억",
+      "dealArticleCount": 49,
+      "leaseMinEok": 4.3,
+      "leaseMinText": "4.3억",
       "leaseArticleCount": 6,
-      "gapMinEok": 2.5
+      "gapMinEok": 2.7
     },
     "apt9": {
       "id": "apt9",
@@ -599,7 +599,7 @@
       "askingMinEok": 4.8,
       "askingMaxEok": 6.5,
       "askingPriceText": "최저 4.8억 ~ 6.5억",
-      "dealArticleCount": 11,
+      "dealArticleCount": 12,
       "leaseMinEok": 3.8,
       "leaseMinText": "3.8억",
       "leaseArticleCount": 1,
@@ -666,7 +666,7 @@
       "askingMinEok": 7.6,
       "askingMaxEok": 8.5,
       "askingPriceText": "최저 7.6억 ~ 8.5억",
-      "dealArticleCount": 9,
+      "dealArticleCount": 10,
       "leaseMinEok": 5.0,
       "leaseMinText": "5억",
       "leaseArticleCount": 1,
@@ -779,28 +779,28 @@
           "dealType": "중개거래"
         },
         {
-          "date": "2026.10.30",
-          "priceEok": 7.0,
-          "priceText": "7억",
-          "rawAmount": "70,000",
-          "areaM2": 59.7,
-          "floor": "17",
+          "date": "2026.11.18",
+          "priceEok": 5.4,
+          "priceText": "5.4억",
+          "rawAmount": "54,000",
+          "areaM2": 60.0,
+          "floor": "7",
           "dealType": "중개거래"
         },
         {
-          "date": "2026.10.28",
-          "priceEok": 6.0,
-          "priceText": "6억",
-          "rawAmount": "60,000",
-          "areaM2": 59.8,
-          "floor": "15",
+          "date": "2026.11.16",
+          "priceEok": 5.6,
+          "priceText": "5.6억",
+          "rawAmount": "56,000",
+          "areaM2": 60.0,
+          "floor": "18",
           "dealType": "중개거래"
         }
       ],
       "askingMinEok": 6.0,
       "askingMaxEok": 8.0,
       "askingPriceText": "최저 6억 ~ 8억",
-      "dealArticleCount": 56,
+      "dealArticleCount": 57,
       "leaseMinEok": null,
       "leaseMinText": "-",
       "leaseArticleCount": 0,
@@ -867,11 +867,11 @@
       "askingMinEok": 9.5,
       "askingMaxEok": 13.0,
       "askingPriceText": "최저 9.5억 ~ 13억",
-      "dealArticleCount": 31,
-      "leaseMinEok": 6.8,
-      "leaseMinText": "6.8억",
-      "leaseArticleCount": 1,
-      "gapMinEok": 2.7
+      "dealArticleCount": 32,
+      "leaseMinEok": null,
+      "leaseMinText": "-",
+      "leaseArticleCount": 0,
+      "gapMinEok": null
     },
     "apt14": {
       "id": "apt14",
@@ -937,7 +937,7 @@
       "dealArticleCount": 59,
       "leaseMinEok": 5.0,
       "leaseMinText": "5억",
-      "leaseArticleCount": 7,
+      "leaseArticleCount": 8,
       "gapMinEok": 5.7
     },
     "apt15": {
@@ -976,6 +976,24 @@
           "priceText": "9.65억",
           "rawAmount": "96,500",
           "areaM2": 60.0,
+          "floor": "25",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.11.07",
+          "priceEok": 8.98,
+          "priceText": "8.98억",
+          "rawAmount": "89,800",
+          "areaM2": 60.0,
+          "floor": "23",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.11.07",
+          "priceEok": 9.65,
+          "priceText": "9.65억",
+          "rawAmount": "96,500",
+          "areaM2": 60.0,
           "floor": "16",
           "dealType": "중개거래"
         },
@@ -1001,23 +1019,23 @@
       "askingMinEok": 8.3,
       "askingMaxEok": 11.39,
       "askingPriceText": "최저 8.3억 ~ 11.39억",
-      "dealArticleCount": 81,
-      "leaseMinEok": 5.7,
-      "leaseMinText": "5.7억",
+      "dealArticleCount": 87,
+      "leaseMinEok": 5.0,
+      "leaseMinText": "5억",
       "leaseArticleCount": 7,
-      "gapMinEok": 2.6
+      "gapMinEok": 3.3
     },
     "apt16": {
       "id": "apt16",
       "name": "반정아이파크캐슬 4단지",
       "naverHscpNo": "137330",
       "targetPyeong": "24평 (전용 59㎡)",
-      "priceNum": 8.52,
-      "realPriceLatestEok": 8.7,
-      "realPriceLatestText": "8.7억 (26.11.21 · 7층)",
-      "realPriceAvgEok": 8.52,
-      "realPriceRangeText": "8.34억 ~ 8.7억",
-      "totalDealsYear": 22,
+      "priceNum": 8.23,
+      "realPriceLatestEok": 8.44,
+      "realPriceLatestText": "8.44억 (26.11.09 · 9층)",
+      "realPriceAvgEok": 8.23,
+      "realPriceRangeText": "7.65억 ~ 8.65억",
+      "totalDealsYear": 35,
       "recentDeals": [
         {
           "date": "2026.11.21",
@@ -1057,11 +1075,20 @@
         },
         {
           "date": "2026.10.17",
-          "priceEok": 8.49,
-          "priceText": "8.49억",
-          "rawAmount": "84,900",
+          "priceEok": 7.65,
+          "priceText": "7.65억",
+          "rawAmount": "76,500",
+          "areaM2": 59.8,
+          "floor": "2",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.10.08",
+          "priceEok": 8.08,
+          "priceText": "8.08억",
+          "rawAmount": "80,800",
           "areaM2": 59.9,
-          "floor": "10",
+          "floor": "13",
           "dealType": "중개거래"
         }
       ],
@@ -1132,14 +1159,14 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": 7.4,
+      "askingMinEok": 8.0,
       "askingMaxEok": 12.0,
-      "askingPriceText": "최저 7.4억 ~ 12억",
-      "dealArticleCount": 31,
+      "askingPriceText": "최저 8억 ~ 12억",
+      "dealArticleCount": 32,
       "leaseMinEok": 5.0,
       "leaseMinText": "5억",
-      "leaseArticleCount": 7,
-      "gapMinEok": 2.4
+      "leaseArticleCount": 8,
+      "gapMinEok": 3.0
     },
     "apt18": {
       "id": "apt18",
@@ -1199,14 +1226,14 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": 7.0,
+      "askingMinEok": 7.2,
       "askingMaxEok": 9.62,
-      "askingPriceText": "최저 7억 ~ 9.62억",
-      "dealArticleCount": 26,
+      "askingPriceText": "최저 7.2억 ~ 9.62억",
+      "dealArticleCount": 28,
       "leaseMinEok": 6.0,
       "leaseMinText": "6억",
       "leaseArticleCount": 1,
-      "gapMinEok": 1.0
+      "gapMinEok": 1.2
     },
     "apt19": {
       "id": "apt19",
@@ -1333,14 +1360,14 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": 6.45,
+      "askingMinEok": 6.5,
       "askingMaxEok": 8.61,
-      "askingPriceText": "최저 6.45억 ~ 8.61억",
-      "dealArticleCount": 25,
+      "askingPriceText": "최저 6.5억 ~ 8.61억",
+      "dealArticleCount": 24,
       "leaseMinEok": 5.0,
       "leaseMinText": "5억",
       "leaseArticleCount": 1,
-      "gapMinEok": 1.45
+      "gapMinEok": 1.5
     },
     "apt21": {
       "id": "apt21",
@@ -1403,10 +1430,10 @@
       "askingMinEok": 21.0,
       "askingMaxEok": 30.0,
       "askingPriceText": "최저 21억 ~ 30억",
-      "dealArticleCount": 55,
+      "dealArticleCount": 56,
       "leaseMinEok": 11.0,
       "leaseMinText": "11억",
-      "leaseArticleCount": 10,
+      "leaseArticleCount": 11,
       "gapMinEok": 10.0
     },
     "apt22": {
@@ -1470,10 +1497,10 @@
       "askingMinEok": 20.5,
       "askingMaxEok": 26.0,
       "askingPriceText": "최저 20.5억 ~ 26억",
-      "dealArticleCount": 57,
+      "dealArticleCount": 59,
       "leaseMinEok": 10.0,
       "leaseMinText": "10억",
-      "leaseArticleCount": 2,
+      "leaseArticleCount": 3,
       "gapMinEok": 10.5
     },
     "apt23": {
@@ -1535,13 +1562,13 @@
         }
       ],
       "askingMinEok": 15.8,
-      "askingMaxEok": 19.0,
-      "askingPriceText": "최저 15.8억 ~ 19억",
-      "dealArticleCount": 14,
-      "leaseMinEok": 12.4,
-      "leaseMinText": "12.4억",
+      "askingMaxEok": 20.0,
+      "askingPriceText": "최저 15.8억 ~ 20억",
+      "dealArticleCount": 16,
+      "leaseMinEok": 11.9,
+      "leaseMinText": "11.9억",
       "leaseArticleCount": 1,
-      "gapMinEok": 3.4
+      "gapMinEok": 3.9
     },
     "apt24": {
       "id": "apt24",
@@ -1668,14 +1695,14 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": 7.36,
+      "askingMinEok": 7.77,
       "askingMaxEok": 10.03,
-      "askingPriceText": "최저 7.36억 ~ 10.03억",
-      "dealArticleCount": 138,
+      "askingPriceText": "최저 7.77억 ~ 10.03억",
+      "dealArticleCount": 148,
       "leaseMinEok": 2.65,
       "leaseMinText": "2.65억",
-      "leaseArticleCount": 22,
-      "gapMinEok": 4.71
+      "leaseArticleCount": 21,
+      "gapMinEok": 5.12
     },
     "apt26": {
       "id": "apt26",
@@ -1738,7 +1765,7 @@
       "askingMinEok": 11.3,
       "askingMaxEok": 14.28,
       "askingPriceText": "최저 11.3억 ~ 14.28억",
-      "dealArticleCount": 80,
+      "dealArticleCount": 83,
       "leaseMinEok": 5.7,
       "leaseMinText": "5.7억",
       "leaseArticleCount": 8,
@@ -1872,7 +1899,7 @@
       "askingMinEok": 21.0,
       "askingMaxEok": 26.49,
       "askingPriceText": "최저 21억 ~ 26.49억",
-      "dealArticleCount": 140,
+      "dealArticleCount": 142,
       "leaseMinEok": 10.5,
       "leaseMinText": "10.5억",
       "leaseArticleCount": 12,
@@ -1937,9 +1964,9 @@
         }
       ],
       "askingMinEok": 12.5,
-      "askingMaxEok": 17.5,
-      "askingPriceText": "최저 12.5억 ~ 17.5억",
-      "dealArticleCount": 49,
+      "askingMaxEok": 17.7,
+      "askingPriceText": "최저 12.5억 ~ 17.7억",
+      "dealArticleCount": 51,
       "leaseMinEok": 6.2,
       "leaseMinText": "6.2억",
       "leaseArticleCount": 5,
@@ -2006,10 +2033,10 @@
       "askingMinEok": 16.8,
       "askingMaxEok": 25.0,
       "askingPriceText": "최저 16.8억 ~ 25억",
-      "dealArticleCount": 43,
+      "dealArticleCount": 44,
       "leaseMinEok": 8.0,
       "leaseMinText": "8억",
-      "leaseArticleCount": 4,
+      "leaseArticleCount": 5,
       "gapMinEok": 8.8
     },
     "apt31": {
@@ -2073,11 +2100,11 @@
       "askingMinEok": 15.0,
       "askingMaxEok": 20.5,
       "askingPriceText": "최저 15억 ~ 20.5억",
-      "dealArticleCount": 46,
-      "leaseMinEok": 7.2,
-      "leaseMinText": "7.2억",
+      "dealArticleCount": 47,
+      "leaseMinEok": 7.0,
+      "leaseMinText": "7억",
       "leaseArticleCount": 7,
-      "gapMinEok": 7.8
+      "gapMinEok": 8.0
     },
     "apt32": {
       "id": "apt32",
@@ -2207,10 +2234,10 @@
       "askingMinEok": 8.7,
       "askingMaxEok": 11.56,
       "askingPriceText": "최저 8.7억 ~ 11.56억",
-      "dealArticleCount": 133,
+      "dealArticleCount": 139,
       "leaseMinEok": 4.6,
       "leaseMinText": "4.6억",
-      "leaseArticleCount": 14,
+      "leaseArticleCount": 15,
       "gapMinEok": 4.1
     },
     "apt34": {
@@ -2275,10 +2302,10 @@
       "askingMaxEok": 8.0,
       "askingPriceText": "최저 6.5억 ~ 8억",
       "dealArticleCount": 48,
-      "leaseMinEok": 5.0,
-      "leaseMinText": "5억",
-      "leaseArticleCount": 4,
-      "gapMinEok": 1.5
+      "leaseMinEok": 4.9,
+      "leaseMinText": "4.9억",
+      "leaseArticleCount": 3,
+      "gapMinEok": 1.6
     },
     "apt35": {
       "id": "apt35",
@@ -2341,10 +2368,10 @@
       "askingMinEok": 7.8,
       "askingMaxEok": 9.43,
       "askingPriceText": "최저 7.8억 ~ 9.43억",
-      "dealArticleCount": 45,
+      "dealArticleCount": 44,
       "leaseMinEok": 7.0,
       "leaseMinText": "7억",
-      "leaseArticleCount": 3,
+      "leaseArticleCount": 4,
       "gapMinEok": 0.8
     },
     "apt36": {
@@ -2408,7 +2435,7 @@
       "askingMinEok": 6.8,
       "askingMaxEok": 8.5,
       "askingPriceText": "최저 6.8억 ~ 8.5억",
-      "dealArticleCount": 14,
+      "dealArticleCount": 12,
       "leaseMinEok": 4.9,
       "leaseMinText": "4.9억",
       "leaseArticleCount": 2,
@@ -2475,10 +2502,10 @@
       "askingMinEok": 4.0,
       "askingMaxEok": 7.5,
       "askingPriceText": "최저 4억 ~ 7.5억",
-      "dealArticleCount": 61,
+      "dealArticleCount": 66,
       "leaseMinEok": 3.0,
       "leaseMinText": "3억",
-      "leaseArticleCount": 6,
+      "leaseArticleCount": 4,
       "gapMinEok": 1.0
     },
     "apt38": {
@@ -2542,10 +2569,10 @@
       "askingMinEok": 12.0,
       "askingMaxEok": 21.0,
       "askingPriceText": "최저 12억 ~ 21억",
-      "dealArticleCount": 69,
+      "dealArticleCount": 71,
       "leaseMinEok": 5.5,
       "leaseMinText": "5.5억",
-      "leaseArticleCount": 13,
+      "leaseArticleCount": 14,
       "gapMinEok": 6.5
     },
     "apt39": {
@@ -2609,7 +2636,7 @@
       "askingMinEok": 6.3,
       "askingMaxEok": 9.1,
       "askingPriceText": "최저 6.3억 ~ 9.1억",
-      "dealArticleCount": 44,
+      "dealArticleCount": 46,
       "leaseMinEok": 4.0,
       "leaseMinText": "4억",
       "leaseArticleCount": 8,
@@ -2676,10 +2703,10 @@
       "askingMinEok": 7.8,
       "askingMaxEok": 10.96,
       "askingPriceText": "최저 7.8억 ~ 10.96억",
-      "dealArticleCount": 121,
+      "dealArticleCount": 124,
       "leaseMinEok": 4.5,
       "leaseMinText": "4.5억",
-      "leaseArticleCount": 6,
+      "leaseArticleCount": 7,
       "gapMinEok": 3.3
     },
     "apt41": {
@@ -2741,9 +2768,9 @@
         }
       ],
       "askingMinEok": 6.0,
-      "askingMaxEok": 7.0,
-      "askingPriceText": "최저 6억 ~ 7억",
-      "dealArticleCount": 9,
+      "askingMaxEok": 6.9,
+      "askingPriceText": "최저 6억 ~ 6.9억",
+      "dealArticleCount": 8,
       "leaseMinEok": null,
       "leaseMinText": "-",
       "leaseArticleCount": 0,
@@ -2783,7 +2810,7 @@
       "askingMinEok": 8.4,
       "askingMaxEok": 10.86,
       "askingPriceText": "최저 8.4억 ~ 10.86억",
-      "dealArticleCount": 22,
+      "dealArticleCount": 23,
       "leaseMinEok": 8.5,
       "leaseMinText": "8.5억",
       "leaseArticleCount": 1,
@@ -2799,7 +2826,7 @@
       "realPriceLatestText": "7.15억 (26.11.18 · 13층)",
       "realPriceAvgEok": 6.88,
       "realPriceRangeText": "6억 ~ 7.3억",
-      "totalDealsYear": 21,
+      "totalDealsYear": 44,
       "recentDeals": [
         {
           "date": "2026.11.18",
@@ -2848,13 +2875,13 @@
         }
       ],
       "askingMinEok": 6.7,
-      "askingMaxEok": 7.3,
-      "askingPriceText": "최저 6.7억 ~ 7.3억",
-      "dealArticleCount": 14,
-      "leaseMinEok": 4.8,
-      "leaseMinText": "4.8억",
-      "leaseArticleCount": 1,
-      "gapMinEok": 1.9
+      "askingMaxEok": 7.75,
+      "askingPriceText": "최저 6.7억 ~ 7.75억",
+      "dealArticleCount": 15,
+      "leaseMinEok": null,
+      "leaseMinText": "-",
+      "leaseArticleCount": 0,
+      "gapMinEok": null
     },
     "apt44": {
       "id": "apt44",
@@ -2984,7 +3011,7 @@
       "askingMinEok": 6.7,
       "askingMaxEok": 7.6,
       "askingPriceText": "최저 6.7억 ~ 7.6억",
-      "dealArticleCount": 7,
+      "dealArticleCount": 6,
       "leaseMinEok": null,
       "leaseMinText": "-",
       "leaseArticleCount": 0,
@@ -3000,7 +3027,7 @@
       "realPriceLatestText": "3.75억 (26.11.05 · 1층)",
       "realPriceAvgEok": 4.1,
       "realPriceRangeText": "3.72억 ~ 4.7억",
-      "totalDealsYear": 17,
+      "totalDealsYear": 28,
       "recentDeals": [
         {
           "date": "2026.11.05",
@@ -3051,7 +3078,7 @@
       "askingMinEok": 3.9,
       "askingMaxEok": 5.3,
       "askingPriceText": "최저 3.9억 ~ 5.3억",
-      "dealArticleCount": 12,
+      "dealArticleCount": 13,
       "leaseMinEok": null,
       "leaseMinText": "-",
       "leaseArticleCount": 0,
@@ -3067,7 +3094,7 @@
       "realPriceLatestText": "4.5억 (26.11.02 · 2층)",
       "realPriceAvgEok": 4.34,
       "realPriceRangeText": "4.05억 ~ 4.5억",
-      "totalDealsYear": 7,
+      "totalDealsYear": 12,
       "recentDeals": [
         {
           "date": "2026.11.02",
@@ -3185,7 +3212,7 @@
       "askingMinEok": 4.0,
       "askingMaxEok": 5.5,
       "askingPriceText": "최저 4억 ~ 5.5억",
-      "dealArticleCount": 7,
+      "dealArticleCount": 6,
       "leaseMinEok": null,
       "leaseMinText": "-",
       "leaseArticleCount": 0,
@@ -3319,7 +3346,7 @@
       "askingMinEok": 7.5,
       "askingMaxEok": 9.0,
       "askingPriceText": "최저 7.5억 ~ 9억",
-      "dealArticleCount": 15,
+      "dealArticleCount": 16,
       "leaseMinEok": 4.9,
       "leaseMinText": "4.9억",
       "leaseArticleCount": 2,
@@ -3383,9 +3410,9 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": 3.9,
+      "askingMinEok": 4.0,
       "askingMaxEok": 4.7,
-      "askingPriceText": "최저 3.9억 ~ 4.7억",
+      "askingPriceText": "최저 4억 ~ 4.7억",
       "dealArticleCount": 4,
       "leaseMinEok": null,
       "leaseMinText": "-",
@@ -3520,10 +3547,10 @@
       "askingMinEok": 9.2,
       "askingMaxEok": 12.0,
       "askingPriceText": "최저 9.2억 ~ 12억",
-      "dealArticleCount": 12,
+      "dealArticleCount": 15,
       "leaseMinEok": 5.5,
       "leaseMinText": "5.5억",
-      "leaseArticleCount": 3,
+      "leaseArticleCount": 4,
       "gapMinEok": 3.7
     },
     "apt54": {
@@ -3584,10 +3611,10 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": 6.8,
+      "askingMinEok": 7.0,
       "askingMaxEok": 8.5,
-      "askingPriceText": "최저 6.8억 ~ 8.5억",
-      "dealArticleCount": 7,
+      "askingPriceText": "최저 7억 ~ 8.5억",
+      "dealArticleCount": 6,
       "leaseMinEok": null,
       "leaseMinText": "-",
       "leaseArticleCount": 0,
@@ -3654,7 +3681,7 @@
       "askingMinEok": 6.3,
       "askingMaxEok": 7.22,
       "askingPriceText": "최저 6.3억 ~ 7.22억",
-      "dealArticleCount": 12,
+      "dealArticleCount": 13,
       "leaseMinEok": 6.0,
       "leaseMinText": "6억",
       "leaseArticleCount": 1,
@@ -3721,7 +3748,7 @@
       "askingMinEok": 10.0,
       "askingMaxEok": 15.0,
       "askingPriceText": "최저 10억 ~ 15억",
-      "dealArticleCount": 35,
+      "dealArticleCount": 36,
       "leaseMinEok": 6.7,
       "leaseMinText": "6.7억",
       "leaseArticleCount": 2,
@@ -3788,7 +3815,7 @@
       "askingMinEok": 10.5,
       "askingMaxEok": 13.0,
       "askingPriceText": "최저 10.5억 ~ 13억",
-      "dealArticleCount": 46,
+      "dealArticleCount": 45,
       "leaseMinEok": 6.0,
       "leaseMinText": "6억",
       "leaseArticleCount": 3,
@@ -3844,9 +3871,9 @@
         }
       ],
       "askingMinEok": 8.4,
-      "askingMaxEok": 10.02,
-      "askingPriceText": "최저 8.4억 ~ 10.02억",
-      "dealArticleCount": 97,
+      "askingMaxEok": 10.27,
+      "askingPriceText": "최저 8.4억 ~ 10.27억",
+      "dealArticleCount": 100,
       "leaseMinEok": 5.8,
       "leaseMinText": "5.8억",
       "leaseArticleCount": 5,
@@ -3934,7 +3961,7 @@
       "askingMinEok": 5.0,
       "askingMaxEok": 6.2,
       "askingPriceText": "최저 5억 ~ 6.2억",
-      "dealArticleCount": 11,
+      "dealArticleCount": 10,
       "leaseMinEok": null,
       "leaseMinText": "-",
       "leaseArticleCount": 0,
@@ -3999,12 +4026,12 @@
         }
       ],
       "askingMinEok": 9.5,
-      "askingMaxEok": 13.3,
-      "askingPriceText": "최저 9.5억 ~ 13.3억",
-      "dealArticleCount": 40,
+      "askingMaxEok": 13.5,
+      "askingPriceText": "최저 9.5억 ~ 13.5억",
+      "dealArticleCount": 42,
       "leaseMinEok": 4.7,
       "leaseMinText": "4.7억",
-      "leaseArticleCount": 5,
+      "leaseArticleCount": 6,
       "gapMinEok": 4.8
     },
     "apt62": {
@@ -4066,13 +4093,13 @@
         }
       ],
       "askingMinEok": 5.3,
-      "askingMaxEok": 9.5,
-      "askingPriceText": "최저 5.3억 ~ 9.5억",
-      "dealArticleCount": 78,
-      "leaseMinEok": null,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0,
-      "gapMinEok": null
+      "askingMaxEok": 8.02,
+      "askingPriceText": "최저 5.3억 ~ 8.02억",
+      "dealArticleCount": 81,
+      "leaseMinEok": 3.5,
+      "leaseMinText": "3.5억",
+      "leaseArticleCount": 3,
+      "gapMinEok": 1.8
     },
     "apt63": {
       "id": "apt63",
@@ -4135,7 +4162,7 @@
       "askingMinEok": 8.5,
       "askingMaxEok": 13.0,
       "askingPriceText": "최저 8.5억 ~ 13억",
-      "dealArticleCount": 22,
+      "dealArticleCount": 21,
       "leaseMinEok": 5.0,
       "leaseMinText": "5억",
       "leaseArticleCount": 2,
@@ -4202,7 +4229,7 @@
       "askingMinEok": 9.3,
       "askingMaxEok": 12.5,
       "askingPriceText": "최저 9.3억 ~ 12.5억",
-      "dealArticleCount": 11,
+      "dealArticleCount": 12,
       "leaseMinEok": 6.5,
       "leaseMinText": "6.5억",
       "leaseArticleCount": 2,
@@ -4336,11 +4363,11 @@
       "askingMinEok": 9.8,
       "askingMaxEok": 13.0,
       "askingPriceText": "최저 9.8억 ~ 13억",
-      "dealArticleCount": 14,
-      "leaseMinEok": 5.9,
-      "leaseMinText": "5.9억",
+      "dealArticleCount": 13,
+      "leaseMinEok": 5.5,
+      "leaseMinText": "5.5억",
       "leaseArticleCount": 4,
-      "gapMinEok": 3.9
+      "gapMinEok": 4.3
     },
     "apt67": {
       "id": "apt67",
@@ -4404,10 +4431,10 @@
       "askingMaxEok": 4.66,
       "askingPriceText": "최저 3.5억 ~ 4.66억",
       "dealArticleCount": 9,
-      "leaseMinEok": 3.0,
-      "leaseMinText": "3억",
+      "leaseMinEok": 2.9,
+      "leaseMinText": "2.9억",
       "leaseArticleCount": 2,
-      "gapMinEok": 0.5
+      "gapMinEok": 0.6
     },
     "apt68": {
       "id": "apt68",
@@ -4431,10 +4458,10 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": 2.95,
+      "askingMinEok": 2.9,
       "askingMaxEok": 3.8,
-      "askingPriceText": "최저 2.95억 ~ 3.8억",
-      "dealArticleCount": 5,
+      "askingPriceText": "최저 2.9억 ~ 3.8억",
+      "dealArticleCount": 7,
       "leaseMinEok": null,
       "leaseMinText": "-",
       "leaseArticleCount": 0,
@@ -4501,11 +4528,11 @@
       "askingMinEok": 7.48,
       "askingMaxEok": 9.79,
       "askingPriceText": "최저 7.48억 ~ 9.79억",
-      "dealArticleCount": 12,
-      "leaseMinEok": null,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0,
-      "gapMinEok": null
+      "dealArticleCount": 14,
+      "leaseMinEok": 7.5,
+      "leaseMinText": "7.5억",
+      "leaseArticleCount": 1,
+      "gapMinEok": -0.02
     },
     "apt70": {
       "id": "apt70",
@@ -4568,7 +4595,7 @@
       "askingMinEok": 5.8,
       "askingMaxEok": 6.43,
       "askingPriceText": "최저 5.8억 ~ 6.43억",
-      "dealArticleCount": 17,
+      "dealArticleCount": 18,
       "leaseMinEok": null,
       "leaseMinText": "-",
       "leaseArticleCount": 0,
@@ -4635,7 +4662,7 @@
       "askingMinEok": 6.3,
       "askingMaxEok": 10.0,
       "askingPriceText": "최저 6.3억 ~ 10억",
-      "dealArticleCount": 42,
+      "dealArticleCount": 43,
       "leaseMinEok": 6.0,
       "leaseMinText": "6억",
       "leaseArticleCount": 1,
@@ -5138,7 +5165,7 @@
       "dealArticleCount": 23,
       "leaseMinEok": 8.5,
       "leaseMinText": "8.5억",
-      "leaseArticleCount": 5,
+      "leaseArticleCount": 6,
       "gapMinEok": 9.0
     },
     "apt80": {
@@ -5422,9 +5449,9 @@
         }
       ],
       "askingMinEok": 3.2,
-      "askingMaxEok": 3.5,
-      "askingPriceText": "최저 3.2억 ~ 3.5억",
-      "dealArticleCount": 2,
+      "askingMaxEok": 3.8,
+      "askingPriceText": "최저 3.2억 ~ 3.8억",
+      "dealArticleCount": 3,
       "leaseMinEok": null,
       "leaseMinText": "-",
       "leaseArticleCount": 0,
@@ -5491,7 +5518,7 @@
       "askingMinEok": 9.0,
       "askingMaxEok": 9.97,
       "askingPriceText": "최저 9억 ~ 9.97억",
-      "dealArticleCount": 19,
+      "dealArticleCount": 20,
       "leaseMinEok": null,
       "leaseMinText": "-",
       "leaseArticleCount": 0,
@@ -5558,7 +5585,7 @@
       "askingMinEok": 4.7,
       "askingMaxEok": 6.0,
       "askingPriceText": "최저 4.7억 ~ 6억",
-      "dealArticleCount": 10,
+      "dealArticleCount": 9,
       "leaseMinEok": null,
       "leaseMinText": "-",
       "leaseArticleCount": 0,
@@ -5625,7 +5652,7 @@
       "askingMinEok": 5.0,
       "askingMaxEok": 7.0,
       "askingPriceText": "최저 5억 ~ 7억",
-      "dealArticleCount": 29,
+      "dealArticleCount": 31,
       "leaseMinEok": null,
       "leaseMinText": "-",
       "leaseArticleCount": 0,
@@ -5692,7 +5719,7 @@
       "askingMinEok": 10.5,
       "askingMaxEok": 12.0,
       "askingPriceText": "최저 10.5억 ~ 12억",
-      "dealArticleCount": 9,
+      "dealArticleCount": 10,
       "leaseMinEok": null,
       "leaseMinText": "-",
       "leaseArticleCount": 0,
@@ -5817,7 +5844,7 @@
       "askingMinEok": 12.5,
       "askingMaxEok": 20.5,
       "askingPriceText": "최저 12.5억 ~ 20.5억",
-      "dealArticleCount": 60,
+      "dealArticleCount": 62,
       "leaseMinEok": 7.0,
       "leaseMinText": "7억",
       "leaseArticleCount": 3,
@@ -5973,7 +6000,7 @@
       "askingMinEok": 4.1,
       "askingMaxEok": 5.0,
       "askingPriceText": "최저 4.1억 ~ 5억",
-      "dealArticleCount": 20,
+      "dealArticleCount": 21,
       "leaseMinEok": 3.1,
       "leaseMinText": "3.1억",
       "leaseArticleCount": 1,
@@ -6089,7 +6116,7 @@
       "askingMinEok": 4.5,
       "askingMaxEok": 6.0,
       "askingPriceText": "최저 4.5억 ~ 6억",
-      "dealArticleCount": 5,
+      "dealArticleCount": 6,
       "leaseMinEok": null,
       "leaseMinText": "-",
       "leaseArticleCount": 0,
@@ -6223,7 +6250,7 @@
       "askingMinEok": 15.5,
       "askingMaxEok": 20.0,
       "askingPriceText": "최저 15.5억 ~ 20억",
-      "dealArticleCount": 47,
+      "dealArticleCount": 48,
       "leaseMinEok": 7.8,
       "leaseMinText": "7.8억",
       "leaseArticleCount": 5,
@@ -6290,7 +6317,7 @@
       "askingMinEok": 4.14,
       "askingMaxEok": 5.5,
       "askingPriceText": "최저 4.14억 ~ 5.5억",
-      "dealArticleCount": 16,
+      "dealArticleCount": 20,
       "leaseMinEok": null,
       "leaseMinText": "-",
       "leaseArticleCount": 0,
@@ -6424,7 +6451,7 @@
       "askingMinEok": 7.95,
       "askingMaxEok": 10.56,
       "askingPriceText": "최저 7.95억 ~ 10.56억",
-      "dealArticleCount": 27,
+      "dealArticleCount": 29,
       "leaseMinEok": 6.5,
       "leaseMinText": "6.5억",
       "leaseArticleCount": 2,
@@ -6491,7 +6518,7 @@
       "askingMinEok": 6.3,
       "askingMaxEok": 7.8,
       "askingPriceText": "최저 6.3억 ~ 7.8억",
-      "dealArticleCount": 10,
+      "dealArticleCount": 11,
       "leaseMinEok": null,
       "leaseMinText": "-",
       "leaseArticleCount": 0,
@@ -6559,10 +6586,10 @@
       "askingMaxEok": 12.0,
       "askingPriceText": "최저 10.7억 ~ 12억",
       "dealArticleCount": 6,
-      "leaseMinEok": 7.0,
-      "leaseMinText": "7억",
-      "leaseArticleCount": 1,
-      "gapMinEok": 3.7
+      "leaseMinEok": null,
+      "leaseMinText": "-",
+      "leaseArticleCount": 0,
+      "gapMinEok": null
     },
     "apt103": {
       "id": "apt103",
@@ -6625,7 +6652,7 @@
       "askingMinEok": 10.5,
       "askingMaxEok": 13.69,
       "askingPriceText": "최저 10.5억 ~ 13.69억",
-      "dealArticleCount": 38,
+      "dealArticleCount": 39,
       "leaseMinEok": 8.5,
       "leaseMinText": "8.5억",
       "leaseArticleCount": 3,
@@ -6692,10 +6719,10 @@
       "askingMinEok": 15.7,
       "askingMaxEok": 17.2,
       "askingPriceText": "최저 15.7억 ~ 17.2억",
-      "dealArticleCount": 27,
+      "dealArticleCount": 29,
       "leaseMinEok": 8.0,
       "leaseMinText": "8억",
-      "leaseArticleCount": 8,
+      "leaseArticleCount": 7,
       "gapMinEok": 7.7
     },
     "apt105": {
@@ -6759,10 +6786,10 @@
       "askingMinEok": 8.0,
       "askingMaxEok": 10.0,
       "askingPriceText": "최저 8억 ~ 10억",
-      "dealArticleCount": 17,
+      "dealArticleCount": 19,
       "leaseMinEok": 5.7,
       "leaseMinText": "5.7억",
-      "leaseArticleCount": 3,
+      "leaseArticleCount": 5,
       "gapMinEok": 2.3
     },
     "apt106": {
@@ -7027,7 +7054,7 @@
       "askingMinEok": 5.1,
       "askingMaxEok": 6.02,
       "askingPriceText": "최저 5.1억 ~ 6.02억",
-      "dealArticleCount": 19,
+      "dealArticleCount": 17,
       "leaseMinEok": null,
       "leaseMinText": "-",
       "leaseArticleCount": 0,
@@ -7095,10 +7122,10 @@
       "askingMaxEok": 5.6,
       "askingPriceText": "최저 4.8억 ~ 5.6억",
       "dealArticleCount": 9,
-      "leaseMinEok": 3.5,
-      "leaseMinText": "3.5억",
-      "leaseArticleCount": 1,
-      "gapMinEok": 1.3
+      "leaseMinEok": null,
+      "leaseMinText": "-",
+      "leaseArticleCount": 0,
+      "gapMinEok": null
     },
     "apt111": {
       "id": "apt111",
@@ -7158,14 +7185,14 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": 3.2,
+      "askingMinEok": 3.4,
       "askingMaxEok": 6.5,
-      "askingPriceText": "최저 3.2억 ~ 6.5억",
+      "askingPriceText": "최저 3.4억 ~ 6.5억",
       "dealArticleCount": 13,
       "leaseMinEok": 1.46,
       "leaseMinText": "1.46억",
       "leaseArticleCount": 1,
-      "gapMinEok": 1.74
+      "gapMinEok": 1.94
     },
     "apt112": {
       "id": "apt112",
@@ -7228,7 +7255,7 @@
       "askingMinEok": 6.7,
       "askingMaxEok": 8.5,
       "askingPriceText": "최저 6.7억 ~ 8.5억",
-      "dealArticleCount": 7,
+      "dealArticleCount": 8,
       "leaseMinEok": null,
       "leaseMinText": "-",
       "leaseArticleCount": 0,
@@ -7360,7 +7387,7 @@
       "realPriceLatestText": "5억 (26.11.21 · 3층)",
       "realPriceAvgEok": 4.82,
       "realPriceRangeText": "4.6억 ~ 5억",
-      "totalDealsYear": 13,
+      "totalDealsYear": 24,
       "recentDeals": [
         {
           "date": "2026.11.21",
@@ -7422,12 +7449,12 @@
       "name": "권선3지구상록5단지",
       "naverHscpNo": "3624",
       "targetPyeong": "33~34평 (전용 84㎡ 전후)",
-      "priceNum": 5.13,
+      "priceNum": 5.0,
       "realPriceLatestEok": 6.0,
       "realPriceLatestText": "6억 (26.11.03 · 3층)",
-      "realPriceAvgEok": 5.13,
+      "realPriceAvgEok": 5.0,
       "realPriceRangeText": "4.35억 ~ 6억",
-      "totalDealsYear": 3,
+      "totalDealsYear": 9,
       "recentDeals": [
         {
           "date": "2026.11.03",
@@ -7455,6 +7482,24 @@
           "areaM2": 84.6,
           "floor": "9",
           "dealType": "중개거래"
+        },
+        {
+          "date": "2026.05.31",
+          "priceEok": 4.87,
+          "priceText": "4.87억",
+          "rawAmount": "48,700",
+          "areaM2": 84.6,
+          "floor": "13",
+          "dealType": "중개거래"
+        },
+        {
+          "date": "2026.05.29",
+          "priceEok": 4.75,
+          "priceText": "4.75억",
+          "rawAmount": "47,500",
+          "areaM2": 84.6,
+          "floor": "1",
+          "dealType": "중개거래"
         }
       ],
       "askingMinEok": 6.0,
@@ -7476,7 +7521,7 @@
       "realPriceLatestText": "4.85억 (26.11.21 · 10층)",
       "realPriceAvgEok": 4.38,
       "realPriceRangeText": "3.58억 ~ 4.85억",
-      "totalDealsYear": 12,
+      "totalDealsYear": 17,
       "recentDeals": [
         {
           "date": "2026.11.21",
@@ -7661,7 +7706,7 @@
       "askingMinEok": 4.5,
       "askingMaxEok": 7.0,
       "askingPriceText": "최저 4.5억 ~ 7억",
-      "dealArticleCount": 13,
+      "dealArticleCount": 14,
       "leaseMinEok": null,
       "leaseMinText": "-",
       "leaseArticleCount": 0,
@@ -7725,14 +7770,14 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": 5.3,
+      "askingMinEok": 5.1,
       "askingMaxEok": 7.0,
-      "askingPriceText": "최저 5.3억 ~ 7억",
-      "dealArticleCount": 18,
-      "leaseMinEok": null,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0,
-      "gapMinEok": null
+      "askingPriceText": "최저 5.1억 ~ 7억",
+      "dealArticleCount": 19,
+      "leaseMinEok": 3.8,
+      "leaseMinText": "3.8억",
+      "leaseArticleCount": 1,
+      "gapMinEok": 1.3
     },
     "apt121": {
       "id": "apt121",
@@ -7795,11 +7840,11 @@
       "askingMinEok": 6.2,
       "askingMaxEok": 9.5,
       "askingPriceText": "최저 6.2억 ~ 9.5억",
-      "dealArticleCount": 51,
-      "leaseMinEok": 4.2,
-      "leaseMinText": "4.2억",
-      "leaseArticleCount": 4,
-      "gapMinEok": 2.0
+      "dealArticleCount": 55,
+      "leaseMinEok": 4.6,
+      "leaseMinText": "4.6억",
+      "leaseArticleCount": 3,
+      "gapMinEok": 1.6
     },
     "apt122": {
       "id": "apt122",
@@ -7863,10 +7908,10 @@
       "askingMaxEok": 4.9,
       "askingPriceText": "최저 3.7억 ~ 4.9억",
       "dealArticleCount": 19,
-      "leaseMinEok": null,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0,
-      "gapMinEok": null
+      "leaseMinEok": 3.0,
+      "leaseMinText": "3억",
+      "leaseArticleCount": 1,
+      "gapMinEok": 0.7
     },
     "apt123": {
       "id": "apt123",
@@ -7994,8 +8039,8 @@
         }
       ],
       "askingMinEok": 3.3,
-      "askingMaxEok": 4.3,
-      "askingPriceText": "최저 3.3억 ~ 4.3억",
+      "askingMaxEok": 4.1,
+      "askingPriceText": "최저 3.3억 ~ 4.1억",
       "dealArticleCount": 8,
       "leaseMinEok": null,
       "leaseMinText": "-",
@@ -8130,7 +8175,7 @@
       "askingMinEok": 7.5,
       "askingMaxEok": 9.0,
       "askingPriceText": "최저 7.5억 ~ 9억",
-      "dealArticleCount": 11,
+      "dealArticleCount": 12,
       "leaseMinEok": 5.8,
       "leaseMinText": "5.8억",
       "leaseArticleCount": 2,
@@ -8174,34 +8219,16 @@
           "areaM2": 84.5,
           "floor": "3",
           "dealType": "중개거래"
-        },
-        {
-          "date": "2026.07.03",
-          "priceEok": 5.58,
-          "priceText": "5.58억",
-          "rawAmount": "55,800",
-          "areaM2": 84.5,
-          "floor": "2",
-          "dealType": "중개거래"
-        },
-        {
-          "date": "2026.06.30",
-          "priceEok": 5.45,
-          "priceText": "5.45억",
-          "rawAmount": "54,500",
-          "areaM2": 84.5,
-          "floor": "6",
-          "dealType": "중개거래"
         }
       ],
       "askingMinEok": 6.3,
       "askingMaxEok": 7.0,
       "askingPriceText": "최저 6.3억 ~ 7억",
       "dealArticleCount": 7,
-      "leaseMinEok": null,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0,
-      "gapMinEok": null
+      "leaseMinEok": 4.5,
+      "leaseMinText": "4.5억",
+      "leaseArticleCount": 1,
+      "gapMinEok": 1.8
     },
     "apt128": {
       "id": "apt128",
@@ -8331,7 +8358,7 @@
       "askingMinEok": 10.5,
       "askingMaxEok": 12.63,
       "askingPriceText": "최저 10.5억 ~ 12.63억",
-      "dealArticleCount": 15,
+      "dealArticleCount": 16,
       "leaseMinEok": 6.6,
       "leaseMinText": "6.6억",
       "leaseArticleCount": 3,
@@ -8398,7 +8425,7 @@
       "askingMinEok": 7.9,
       "askingMaxEok": 9.3,
       "askingPriceText": "최저 7.9억 ~ 9.3억",
-      "dealArticleCount": 12,
+      "dealArticleCount": 13,
       "leaseMinEok": null,
       "leaseMinText": "-",
       "leaseArticleCount": 0,
@@ -8533,10 +8560,10 @@
       "askingMaxEok": 9.6,
       "askingPriceText": "최저 9.6억",
       "dealArticleCount": 9,
-      "leaseMinEok": null,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0,
-      "gapMinEok": null
+      "leaseMinEok": 6.8,
+      "leaseMinText": "6.8억",
+      "leaseArticleCount": 1,
+      "gapMinEok": 2.8
     },
     "apt133": {
       "id": "apt133",
@@ -8660,7 +8687,7 @@
       "dealArticleCount": 31,
       "leaseMinEok": 4.0,
       "leaseMinText": "4억",
-      "leaseArticleCount": 4,
+      "leaseArticleCount": 5,
       "gapMinEok": 2.0
     },
     "apt135": {
@@ -8721,14 +8748,14 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": 8.0,
+      "askingMinEok": 8.3,
       "askingMaxEok": 10.5,
-      "askingPriceText": "최저 8억 ~ 10.5억",
-      "dealArticleCount": 25,
+      "askingPriceText": "최저 8.3억 ~ 10.5억",
+      "dealArticleCount": 26,
       "leaseMinEok": 5.8,
       "leaseMinText": "5.8억",
       "leaseArticleCount": 2,
-      "gapMinEok": 2.2
+      "gapMinEok": 2.5
     },
     "apt136": {
       "id": "apt136",
@@ -8922,14 +8949,14 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": 9.3,
+      "askingMinEok": 8.0,
       "askingMaxEok": 10.5,
-      "askingPriceText": "최저 9.3억 ~ 10.5억",
-      "dealArticleCount": 17,
-      "leaseMinEok": 3.4,
-      "leaseMinText": "3.4억",
+      "askingPriceText": "최저 8억 ~ 10.5억",
+      "dealArticleCount": 20,
+      "leaseMinEok": 3.5,
+      "leaseMinText": "3.5억",
       "leaseArticleCount": 4,
-      "gapMinEok": 5.9
+      "gapMinEok": 4.5
     },
     "apt139": {
       "id": "apt139",
@@ -8990,8 +9017,8 @@
         }
       ],
       "askingMinEok": 6.0,
-      "askingMaxEok": 8.0,
-      "askingPriceText": "최저 6억 ~ 8억",
+      "askingMaxEok": 8.5,
+      "askingPriceText": "최저 6억 ~ 8.5억",
       "dealArticleCount": 6,
       "leaseMinEok": null,
       "leaseMinText": "-",
@@ -9060,10 +9087,10 @@
       "askingMaxEok": 10.86,
       "askingPriceText": "최저 9억 ~ 10.86억",
       "dealArticleCount": 13,
-      "leaseMinEok": 5.3,
-      "leaseMinText": "5.3억",
-      "leaseArticleCount": 4,
-      "gapMinEok": 3.7
+      "leaseMinEok": 5.5,
+      "leaseMinText": "5.5억",
+      "leaseArticleCount": 3,
+      "gapMinEok": 3.5
     },
     "apt141": {
       "id": "apt141",
@@ -9175,7 +9202,7 @@
       "askingMinEok": 3.6,
       "askingMaxEok": 3.9,
       "askingPriceText": "최저 3.6억 ~ 3.9억",
-      "dealArticleCount": 4,
+      "dealArticleCount": 5,
       "leaseMinEok": null,
       "leaseMinText": "-",
       "leaseArticleCount": 0,
@@ -9346,10 +9373,10 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": 6.0,
+      "askingMinEok": 5.8,
       "askingMaxEok": 7.3,
-      "askingPriceText": "최저 6억 ~ 7.3억",
-      "dealArticleCount": 7,
+      "askingPriceText": "최저 5.8억 ~ 7.3억",
+      "dealArticleCount": 8,
       "leaseMinEok": null,
       "leaseMinText": "-",
       "leaseArticleCount": 0,
@@ -9416,11 +9443,11 @@
       "askingMinEok": 5.7,
       "askingMaxEok": 8.0,
       "askingPriceText": "최저 5.7억 ~ 8억",
-      "dealArticleCount": 22,
-      "leaseMinEok": null,
-      "leaseMinText": "-",
-      "leaseArticleCount": 0,
-      "gapMinEok": null
+      "dealArticleCount": 24,
+      "leaseMinEok": 3.2,
+      "leaseMinText": "3.2억",
+      "leaseArticleCount": 1,
+      "gapMinEok": 2.5
     },
     "apt147": {
       "id": "apt147",
@@ -9483,7 +9510,7 @@
       "askingMinEok": 5.9,
       "askingMaxEok": 8.0,
       "askingPriceText": "최저 5.9억 ~ 8억",
-      "dealArticleCount": 28,
+      "dealArticleCount": 29,
       "leaseMinEok": null,
       "leaseMinText": "-",
       "leaseArticleCount": 0,
@@ -9547,10 +9574,10 @@
           "dealType": "중개거래"
         }
       ],
-      "askingMinEok": 6.3,
+      "askingMinEok": 6.5,
       "askingMaxEok": 6.5,
-      "askingPriceText": "최저 6.3억 ~ 6.5억",
-      "dealArticleCount": 7,
+      "askingPriceText": "최저 6.5억",
+      "dealArticleCount": 6,
       "leaseMinEok": null,
       "leaseMinText": "-",
       "leaseArticleCount": 0,
@@ -9617,7 +9644,7 @@
       "askingMinEok": 3.3,
       "askingMaxEok": 3.4,
       "askingPriceText": "최저 3.3억 ~ 3.4억",
-      "dealArticleCount": 2,
+      "dealArticleCount": 3,
       "leaseMinEok": null,
       "leaseMinText": "-",
       "leaseArticleCount": 0,
@@ -10019,10 +10046,10 @@
       "askingMinEok": 6.9,
       "askingMaxEok": 9.79,
       "askingPriceText": "최저 6.9억 ~ 9.79억",
-      "dealArticleCount": 75,
+      "dealArticleCount": 79,
       "leaseMinEok": 4.8,
       "leaseMinText": "4.8억",
-      "leaseArticleCount": 17,
+      "leaseArticleCount": 18,
       "gapMinEok": 2.1
     },
     "apt156": {
@@ -10086,10 +10113,10 @@
       "askingMinEok": 2.25,
       "askingMaxEok": 4.84,
       "askingPriceText": "최저 2.25억 ~ 4.84억",
-      "dealArticleCount": 46,
+      "dealArticleCount": 47,
       "leaseMinEok": 1.5,
       "leaseMinText": "1.5억",
-      "leaseArticleCount": 5,
+      "leaseArticleCount": 6,
       "gapMinEok": 0.75
     },
     "apt157": {
@@ -10153,7 +10180,7 @@
       "askingMinEok": 3.8,
       "askingMaxEok": 5.05,
       "askingPriceText": "최저 3.8억 ~ 5.05억",
-      "dealArticleCount": 5,
+      "dealArticleCount": 4,
       "leaseMinEok": 3.2,
       "leaseMinText": "3.2억",
       "leaseArticleCount": 1,
